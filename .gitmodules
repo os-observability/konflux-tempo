@@ -10,6 +10,3 @@
 [submodule "opa-openshift"]
 	path = opa-openshift
 	url = https://github.com/observatorium/opa-openshift.git
-[submodule "jaeger"]
-	path = jaeger
-	url = https://github.com/jaegertracing/jaeger.git
