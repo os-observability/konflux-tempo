@@ -26,8 +26,7 @@ spec:
     - pipelineTaskName: prefetch-dependencies
       computeResources:
         requests:
-          cpu: 300m
-          memory: 256Mi
+          memory: 3Gi
         limits:
           memory: 4Gi
   params:
@@ -35,14 +34,12 @@ spec:
     value: '{{source_url}}'
   - name: revision
     value: '{{revision}}'
-# Error: PackageRejected: Unable to determine the yarn version to use to process the request
-#  Ensure that either yarnPath is defined in .yarnrc.yml or that packageManager is defined in package.json
-#  - name: prefetch-input
-#    value: '[{"type": "gomod", "path": "./tempo"}, {"path": "jaeger/jaeger-ui", "type": "yarn"}, {"type": "rpm"}]'
-#  - name: hermetic
-#    value: "true"
-#  - name: prefetch-dev-package-managers-enabled
-#    value: "true"
+  - name: prefetch-input
+    value: '[{"type": "gomod", "path": "./tempo"}, {"type": "gomod", "path": "./jaeger"} ,{"type": "npm", "path": "./jaeger-ui"}, {"type": "rpm"}]'
+  - name: hermetic
+    value: "true"
+  - name: prefetch-dev-package-managers-enabled
+    value: "true"
   - name: output-image
     value: quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-query:on-pr-{{revision}}
   - name: image-expires-after
@@ -51,8 +48,10 @@ spec:
     value: Dockerfile.tempoquery
   - name: path-context
     value: .
+    # skip building source image because of https://issues.redhat.com/browse/KFLUXBUGS-1508
+    # see https://redhat-internal.slack.com/archives/C04PZ7H0VA8/p1729508558152359
   - name: build-source-image
-    value: "true"
+    value: "false"
   - name: build-platforms
     value:
       - localhost

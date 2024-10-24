@@ -1,14 +1,14 @@
-FROM brew.registry.redhat.io/rh-osbs/rhacm2-yarn-builder:rhel_9_nodejs_20_yarn_builder as builder-ui
+FROM registry.redhat.io/ubi9/nodejs-20:latest as builder-ui
 
 WORKDIR /opt/app-root/src
 USER root
 
-COPY jaeger .
+COPY jaeger-ui .
 # this directory is checked by ecosystem-cert-preflight-checks task in Konflux
-COPY jaeger/LICENSE /licenses/
+COPY jaeger-ui/LICENSE /licenses/
 
-RUN yarn config set nodedir /usr && cd jaeger-ui && yarn install --frozen-lockfile && cd packages/jaeger-ui && yarn build
-
+RUN npm ci --ignore-scripts
+RUN npm run build
 
 FROM brew.registry.redhat.io/rh-osbs/openshift-golang-builder:rhel_8_golang_1.22 as builder-jaeger-query
 
@@ -19,7 +19,7 @@ COPY jaeger .
 # this directory is checked by ecosystem-cert-preflight-checks task in Konflux
 COPY jaeger/LICENSE /licenses/
 
-COPY --from=builder-ui /opt/app-root/src/jaeger-ui /opt/app-root/src/jaeger-ui
+COPY --from=builder-ui /opt/app-root/src /opt/app-root/src/jaeger-ui
 
 RUN rm -rf ./cmd/query/app/ui/actual && mkdir ./cmd/query/app/ui/actual && cp -r ./jaeger-ui/packages/jaeger-ui/build/* ./cmd/query/app/ui/actual/ && find ./cmd/query/app/ui/actual -type f | xargs gzip && \
   export VERSION_PKG="github.com/jaegertracing/jaeger/pkg/version" && \
