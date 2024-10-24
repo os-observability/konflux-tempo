@@ -26,8 +26,7 @@ spec:
     - pipelineTaskName: prefetch-dependencies
       computeResources:
         requests:
-          cpu: 300m
-          memory: 256Mi
+          memory: 3Gi
         limits:
           memory: 4Gi
   params:
