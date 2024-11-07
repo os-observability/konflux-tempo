@@ -9,16 +9,17 @@ metadata:
     pipelinesascode.tekton.dev/max-keep-runs: "3"
     pipelinesascode.tekton.dev/on-cel-expression: event == "pull_request" && target_branch == "main" &&
       (".tekton/multi-arch-build-pipeline.yaml".pathChanged() ||
-      ".tekton/tempo-query-pull-request.yaml".pathChanged() ||
-      ".tekton/tempo-query-push.yaml".pathChanged() ||
-      "Dockerfile.tempoquery".pathChanged() ||
-      "tempo".pathChanged())
+      ".tekton/jaeger-query-pull-request.yaml".pathChanged() ||
+      ".tekton/jaeger-query-push.yaml".pathChanged() ||
+      "Dockerfile.jaegerquery".pathChanged() ||
+      "jaeger".pathChanged() ||
+      "jaeger-ui".pathChanged())
   creationTimestamp: null
   labels:
     appstudio.openshift.io/application: tempo
-    appstudio.openshift.io/component: tempo-query
+    appstudio.openshift.io/component: jaeger-query
     pipelines.appstudio.openshift.io/type: build
-  name: tempo-query-on-pull-request
+  name: jaeger-query-on-pull-request
   namespace: rhosdt-tenant
 spec:
   taskRunSpecs:
@@ -34,17 +35,17 @@ spec:
   - name: revision
     value: '{{revision}}'
   - name: prefetch-input
-    value: '[{"type": "gomod", "path": "./tempo"}, {"type": "rpm"}]'
+    value: '[{"type": "gomod", "path": "./jaeger"} ,{"type": "npm", "path": "./jaeger-ui"}, {"type": "rpm"}]'
   - name: hermetic
     value: "true"
   - name: prefetch-dev-package-managers-enabled
     value: "true"
   - name: output-image
-    value: quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-query:on-pr-{{revision}}
+    value: quay.io/redhat-user-workloads/rhosdt-tenant/tempo/jaeger-query:on-pr-{{revision}}
   - name: image-expires-after
     value: 5d
   - name: dockerfile
-    value: Dockerfile.tempoquery
+    value: Dockerfile.jaegerquery
   - name: path-context
     value: .
     # skip building source image because of https://issues.redhat.com/browse/KFLUXBUGS-1508
