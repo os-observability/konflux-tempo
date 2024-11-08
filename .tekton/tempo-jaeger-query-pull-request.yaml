@@ -4,22 +4,22 @@ metadata:
   annotations:
     build.appstudio.openshift.io/repo: https://github.com/os-observability/konflux-tempo?rev={{revision}}
     build.appstudio.redhat.com/commit_sha: '{{revision}}'
+    build.appstudio.redhat.com/pull_request_number: '{{pull_request_number}}'
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
     pipelinesascode.tekton.dev/max-keep-runs: "3"
-    build.appstudio.openshift.io/build-nudge-files: "bundle-patch/update_bundle.sh"
-    pipelinesascode.tekton.dev/on-cel-expression: event == "push" && target_branch == "main" &&
+    pipelinesascode.tekton.dev/on-cel-expression: event == "pull_request" && target_branch == "main" &&
       (".tekton/multi-arch-build-pipeline.yaml".pathChanged() ||
-      ".tekton/jaeger-query-pull-request.yaml".pathChanged() ||
-      ".tekton/jaeger-query-push.yaml".pathChanged() ||
+      ".tekton/tempo-jaeger-query-pull-request.yaml".pathChanged() ||
+      ".tekton/tempo-jaeger-query-push.yaml".pathChanged() ||
       "Dockerfile.jaegerquery".pathChanged() ||
       "jaeger".pathChanged() ||
       "jaeger-ui".pathChanged())
   creationTimestamp: null
   labels:
     appstudio.openshift.io/application: tempo
-    appstudio.openshift.io/component: jaeger-query
+    appstudio.openshift.io/component: tempo-jaeger-query
     pipelines.appstudio.openshift.io/type: build
-  name: jaeger-query-on-push
+  name: tempo-jaeger-query-on-pull-request
   namespace: rhosdt-tenant
 spec:
   taskRunSpecs:
@@ -41,7 +41,9 @@ spec:
   - name: prefetch-dev-package-managers-enabled
     value: "true"
   - name: output-image
-    value: quay.io/redhat-user-workloads/rhosdt-tenant/tempo/jaeger-query:{{revision}}
+    value: quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-jaeger-query:on-pr-{{revision}}
+  - name: image-expires-after
+    value: 5d
   - name: dockerfile
     value: Dockerfile.jaegerquery
   - name: path-context
@@ -54,8 +56,8 @@ spec:
     value:
       - localhost
       - linux/arm64
-      - linux/ppc64le
-      - linux/s390x
+  #     - linux/ppc64le
+  #     - linux/s390x
   pipelineRef:
     name: build-pipeline
   taskRunTemplate: {}
