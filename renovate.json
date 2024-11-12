@@ -5,5 +5,11 @@
   "ignoreDeps": [
     "registry.redhat.io/openshift4/ose-operator-registry",
     "registry.redhat.io/openshift4/ose-operator-registry-rhel9"
+  ],
+  "packageRules": [
+    {
+      "matchFileNames": ["bundle-patch/update_bundle.sh"],
+      "groupName": "bundle images"
+    }
   ]
 }
