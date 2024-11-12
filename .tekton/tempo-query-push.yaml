@@ -12,8 +12,7 @@ metadata:
       ".tekton/tempo-query-pull-request.yaml".pathChanged() ||
       ".tekton/tempo-query-push.yaml".pathChanged() ||
       "Dockerfile.tempoquery".pathChanged() ||
-      "tempo".pathChanged() ||
-      "jaeger".pathChanged())
+      "tempo".pathChanged())
   creationTimestamp: null
   labels:
     appstudio.openshift.io/application: tempo
@@ -35,7 +34,7 @@ spec:
   - name: revision
     value: '{{revision}}'
   - name: prefetch-input
-    value: '[{"type": "gomod", "path": "./tempo"}, {"type": "gomod", "path": "./jaeger"} ,{"type": "npm", "path": "./jaeger-ui"}, {"type": "rpm"}]'
+    value: '[{"type": "gomod", "path": "./tempo"}, {"type": "rpm"}]'
   - name: hermetic
     value: "true"
   - name: prefetch-dev-package-managers-enabled

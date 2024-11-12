@@ -1,0 +1,53 @@
+FROM registry.redhat.io/ubi9/nodejs-20:latest as builder-ui
+
+WORKDIR /opt/app-root/src
+USER root
+
+COPY jaeger-ui .
+# this directory is checked by ecosystem-cert-preflight-checks task in Konflux
+COPY jaeger-ui/LICENSE /licenses/
+
+RUN npm ci --ignore-scripts
+RUN npm run build
+
+FROM brew.registry.redhat.io/rh-osbs/openshift-golang-builder:rhel_8_golang_1.22 as builder
+
+WORKDIR /opt/app-root/src
+USER root
+
+COPY jaeger .
+# this directory is checked by ecosystem-cert-preflight-checks task in Konflux
+COPY jaeger/LICENSE /licenses/
+
+COPY --from=builder-ui /opt/app-root/src /opt/app-root/src/jaeger-ui
+
+RUN rm -rf ./cmd/query/app/ui/actual && mkdir ./cmd/query/app/ui/actual && cp -r ./jaeger-ui/packages/jaeger-ui/build/* ./cmd/query/app/ui/actual/ && find ./cmd/query/app/ui/actual -type f | xargs gzip && \
+  export VERSION_PKG="github.com/jaegertracing/jaeger/pkg/version" && \
+  export VERSION_DATE=`date -u +'%Y-%m-%dT%H:%M:%SZ'` && \
+  export GIT_LATEST_TAG=`git describe --abbrev=0 --tags` && echo $GIT_LATEST_TAG && \
+  export GIT_COMMIT_SHA=`git rev-parse HEAD` && echo $GIT_COMMIT_SHA && \
+  CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -C ./cmd/query -mod=mod -tags strictfipsruntime,ui \
+    -o ./jaeger -trimpath -ldflags "-s -w" \
+    -ldflags "-X ${VERSION_PKG}.commitSHA=${GIT_COMMIT_SHA} \
+              -X ${VERSION_PKG}.latestVersion=${GIT_LATEST_TAG} \
+              -X ${VERSION_PKG}.date=${VERSION_DATE}"
+
+FROM registry.redhat.io/ubi8/ubi-minimal:8.10-1052.1724178568
+WORKDIR /
+
+RUN mkdir /licenses
+COPY jaeger/LICENSE /licenses/.
+COPY --from=builder /opt/app-root/src/cmd/query/jaeger /usr/bin/jaeger
+
+ARG USER_UID=1001
+USER ${USER_UID}
+ENTRYPOINT ["/usr/bin/jaeger"]
+
+LABEL com.redhat.component="jaeger-query-container" \
+      name="rhosdt/jaeger-query-rhel8" \
+      summary="Jaeger Query" \
+      description="This container provides Jaeger UI for Tempo" \
+      io.k8s.description="This container provides Jaeger UI for Tempo." \
+      io.openshift.expose-services="16686:uihttp" \
+      io.openshift.tags="tracing" \
+      io.k8s.display-name="Jaeger Query"
