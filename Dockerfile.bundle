@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi9/ubi:latest as builder-runner
+FROM registry.redhat.io/ubi9/ubi:latest@sha256:ee0b908e958a1822afc57e5d386d1ea128eebe492cb2e01b6903ee19c133ea75 as builder-deps
 
 USER root
 WORKDIR /
@@ -9,7 +9,7 @@ RUN mkdir /licenses
 COPY tempo-operator/LICENSE /licenses/.
 
 # Use a new stage to enable caching of the package installations for local development
-FROM builder-runner as builder
+FROM builder-deps as builder
 
 COPY bundle-patch .
 COPY tempo-operator/bundle/openshift/manifests /manifests/
@@ -23,9 +23,7 @@ ARG REGISTRY=quay.io/redhat-user-workloads
 
 RUN ./update_bundle.sh && cat /manifests/tempo-operator.clusterserviceversion.yaml /metadata/annotations.yaml
 
-FROM registry.redhat.io/ubi8/ubi-minimal:8.10-1052.1724178568
-# Change this when generating RPM pre-fetch
-#FROM registry.redhat.io/ubi9/ubi:latest as builder-runner
+FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:c12e67af6a7e15113d76bc72f10bef2045c026c71ec8b7124c8a075458188a83
 WORKDIR /
 
 RUN mkdir /licenses

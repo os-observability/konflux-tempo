@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi9/nodejs-20:latest as builder-ui
+FROM registry.redhat.io/ubi9/nodejs-20:latest@sha256:ba615da1f903ea0eb252c356dcff741d40d11ec5b42d67eacc7fee0c5fe21cc7 as builder-ui
 
 WORKDIR /opt/app-root/src
 USER root
@@ -10,7 +10,7 @@ COPY jaeger-ui/LICENSE /licenses/
 RUN npm ci --ignore-scripts
 RUN npm run build
 
-FROM brew.registry.redhat.io/rh-osbs/openshift-golang-builder:rhel_8_golang_1.22 as builder
+FROM brew.registry.redhat.io/rh-osbs/openshift-golang-builder:rhel_8_golang_1.22@sha256:99a63fb1eab333048e7f029dfacfe1054fc08b123b093e66a91ded52a908f781 as builder
 
 WORKDIR /opt/app-root/src
 USER root
@@ -32,7 +32,7 @@ RUN rm -rf ./cmd/query/app/ui/actual && mkdir ./cmd/query/app/ui/actual && cp -r
               -X ${VERSION_PKG}.latestVersion=${GIT_LATEST_TAG} \
               -X ${VERSION_PKG}.date=${VERSION_DATE}"
 
-FROM registry.redhat.io/ubi8/ubi-minimal:8.10-1052.1724178568
+FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:c12e67af6a7e15113d76bc72f10bef2045c026c71ec8b7124c8a075458188a83
 WORKDIR /
 
 RUN mkdir /licenses

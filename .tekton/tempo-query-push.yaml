@@ -12,6 +12,7 @@ metadata:
       ".tekton/tempo-query-pull-request.yaml".pathChanged() ||
       ".tekton/tempo-query-push.yaml".pathChanged() ||
       "Dockerfile.tempoquery".pathChanged() ||
+      "rpms.lock.yaml" ||
       "tempo".pathChanged())
   creationTimestamp: null
   labels:
@@ -45,10 +46,8 @@ spec:
     value: Dockerfile.tempoquery
   - name: path-context
     value: .
-    # skip building source image because of https://issues.redhat.com/browse/KFLUXBUGS-1508
-    # see https://redhat-internal.slack.com/archives/C04PZ7H0VA8/p1729508558152359
   - name: build-source-image
-    value: "false"
+    value: "true"
   - name: build-platforms
     value:
       - localhost
