@@ -4,6 +4,7 @@ from sys import exit as sys_exit
 from datetime import datetime
 from ruamel.yaml import YAML
 yaml = YAML()
+yaml.preserve_quotes = True
 
 def load_manifest(pathn):
    if not pathn.endswith(".yaml"):
@@ -62,6 +63,7 @@ upstream_csv['spec']['relatedImages'] = [
     {'name': 'operator', 'image': os.getenv('TEMPO_OPERATOR_IMAGE_PULLSPEC')},
     {'name': 'tempo', 'image': os.getenv('TEMPO_IMAGE_PULLSPEC')},
     {'name': 'tempo-query', 'image': os.getenv('TEMPO_QUERY_IMAGE_PULLSPEC')},
+    {'name': 'jaeger-query', 'image': os.getenv('TEMPO_JAEGER_QUERY_IMAGE_PULLSPEC')},
     {'name': 'gateway', 'image': os.getenv('TEMPO_GATEWAY_IMAGE_PULLSPEC')},
     {'name': 'gateway-opa', 'image': os.getenv('TEMPO_OPA_IMAGE_PULLSPEC')},
     {'name': 'ose-kube-rbac-proxy', 'image': os.getenv('OSE_KUBE_RBAC_PROXY_PULLSPEC')},
@@ -116,7 +118,7 @@ with open('./patch_csv.yaml') as pf:
         # volume mounts
         if container.get('extra_volumeMounts') is not None:
             if  upstream_container.get('volumeMounts') is not None:
-                upstream_container['volumeMounts'] = upstream_container.get('volumeMounts') + info.get('extra_volumeMounts')
+                upstream_container['volumeMounts'] = upstream_container.get('volumeMounts') + container.get('extra_volumeMounts')
             else:
                 upstream_container['volumeMounts'] = container.get('extra_volumeMounts')
 
