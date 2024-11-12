@@ -12,6 +12,7 @@ metadata:
       ".tekton/tempo-gateway-pull-request.yaml".pathChanged() ||
       ".tekton/tempo-gateway-push.yaml".pathChanged() ||
       "Dockerfile.gateway".pathChanged() ||
+      "rpms.lock.yaml" ||
       "api".pathChanged())
   creationTimestamp: null
   labels:

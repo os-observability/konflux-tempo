@@ -12,6 +12,7 @@ metadata:
       ".tekton/tempo-operator-pull-request.yaml".pathChanged() ||
       ".tekton/tempo-operator-push.yaml".pathChanged() ||
       "Dockerfile.operator".pathChanged() ||
+      "rpms.lock.yaml" ||
       "tempo-operator".pathChanged())
   creationTimestamp: null
   labels:
