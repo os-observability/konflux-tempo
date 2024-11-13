@@ -37,7 +37,7 @@ Create a PR `Release - update bundle version x.y` and update [patch_csv.yaml](./
 1. Verify diff of upstream and downstream ClusterServiceVersion
    ```bash
    podman build -t tempo-bundle -f Dockerfile.bundle . && podman cp $(podman create tempo-bundle):/manifests/tempo-operator.clusterserviceversion.yaml .
-   git diff --no-index tempo-operator/bundle/manifests/tempo-operator.clusterserviceversion.yaml tempo-operator.clusterserviceversion.yaml
+   git diff --no-index tempo-operator/bundle/openshift/manifests/tempo-operator.clusterserviceversion.yaml tempo-operator.clusterserviceversion.yaml
    rm tempo-operator.clusterserviceversion.yaml
    ```
 
@@ -45,11 +45,11 @@ Create a PR `Release - update bundle version x.y` and update [patch_csv.yaml](./
 Once the PR is merged and bundle is built, create another PR `Release - update catalog x.y` with:
 * Updated [catalog template](./catalog/catalog-template.yaml) with the new bundle (get the bundle pullspec from [Konflux](https://console.redhat.com/application-pipeline/workspaces/rhosdt/applications/tempo/components/tempo-bundle)):
    ```bash
-   opm alpha render-template basic --output yaml --migrate-level bundle-object-to-csv-metadata catalog/catalog-template.yaml > catalog/tempo-product-4.17/catalog.yaml && \
    opm alpha render-template basic --output yaml catalog/catalog-template.yaml > catalog/tempo-product/catalog.yaml && \
+   opm alpha render-template basic --output yaml --migrate-level bundle-object-to-csv-metadata catalog/catalog-template.yaml > catalog/tempo-product-4.17/catalog.yaml && \
    sed -i 's#quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-bundle#registry.redhat.io/rhosdt/tempo-operator-bundle#g' catalog/tempo-product/catalog.yaml  && \
    sed -i 's#quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-bundle#registry.redhat.io/rhosdt/tempo-operator-bundle#g' catalog/tempo-product-4.17/catalog.yaml  && \
-   opm validate catalog/tempo-product/ && \
+   opm validate catalog/tempo-product && \
    opm validate catalog/tempo-product-4.17
    ```
 
