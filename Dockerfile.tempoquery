@@ -3,16 +3,19 @@ FROM brew.registry.redhat.io/rh-osbs/openshift-golang-builder:rhel_8_golang_1.22
 WORKDIR /opt/app-root/src
 USER root
 
-COPY tempo .
+COPY .git .git
+COPY tempo tempo
 # this directory is checked by ecosystem-cert-preflight-checks task in Konflux
 COPY tempo/LICENSE /licenses/
+WORKDIR /opt/app-root/src/tempo
 
-RUN export GIT_BRANCH=`git rev-parse --abbrev-ref HEAD` && \
-  export GIT_REVISION=`git rev-parse --short HEAD` && \
-  export VERSION=`./tools/image-tag | cut -d, -f 1` &&  \
-  CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -C ./cmd/tempo-query -tags strictfipsruntime -buildvcs=false -mod vendor \
-    -ldflags "-X main.Branch=${GIT_BRANCH} -X main.Revision=${GIT_REVISION} -X main.Version=${VERSION}" \
-    -o "tempo-query" -trimpath -ldflags "-s -w"
+RUN exportOrFail() { echo $1; if [[ $1 == *= ]]; then echo "Error: empty variable assignment"; exit 1; else export "$1"; fi } && \
+    exportOrFail GIT_BRANCH=`git rev-parse --abbrev-ref HEAD` && \
+    exportOrFail GIT_REVISION=`git rev-parse --short HEAD` && \
+    exportOrFail VERSION=`./tools/image-tag | cut -d, -f 1` &&  \
+    CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -C ./cmd/tempo-query -tags strictfipsruntime -mod vendor \
+      -ldflags "-X main.Branch=${GIT_BRANCH} -X main.Revision=${GIT_REVISION} -X main.Version=${VERSION}" \
+      -o "tempo-query" -trimpath -ldflags "-s -w"
 
 FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:c12e67af6a7e15113d76bc72f10bef2045c026c71ec8b7124c8a075458188a83
 WORKDIR /
@@ -23,7 +26,7 @@ RUN microdnf update -y && rm -rf /var/cache/yum && \
 
 RUN mkdir /licenses
 COPY tempo/LICENSE /licenses/.
-COPY --from=builder /opt/app-root/src/cmd/tempo-query/tempo-query /usr/bin/tempo-query
+COPY --from=builder /opt/app-root/src/tempo/cmd/tempo-query/tempo-query /usr/bin/tempo-query
 
 ARG USER_UID=1001
 USER ${USER_UID}

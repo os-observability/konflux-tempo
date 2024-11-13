@@ -56,7 +56,7 @@ if os.getenv('S390X_BUILT'):
 	upstream_csv['metadata']['labels']['operatorframework.io/arch.s390x'] = 'supported'
 upstream_csv['metadata']['labels']['operatorframework.io/os.linux'] = 'supported'
 upstream_csv['metadata']['annotations']['createdAt'] = datetime_time.strftime('%d %b %Y, %H:%M')
-upstream_csv['metadata']['annotations']['repository'] = 'https://github.com/os-observability/konflux-tempo'
+upstream_csv['metadata']['annotations']['repository'] = 'https://github.com/grafana/tempo-operator'
 upstream_csv['metadata']['annotations']['containerImage'] = os.getenv('TEMPO_OPERATOR_IMAGE_PULLSPEC', '')
 
 upstream_csv['spec']['relatedImages'] = [

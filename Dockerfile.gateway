@@ -3,9 +3,11 @@ FROM brew.registry.redhat.io/rh-osbs/openshift-golang-builder:rhel_8_golang_1.22
 WORKDIR /opt/app-root/src
 USER root
 
-COPY api .
+COPY .git .git
+COPY api api
 # this directory is checked by ecosystem-cert-preflight-checks task in Konflux
 COPY api/LICENSE /licenses/
+WORKDIR /opt/app-root/src/api
 
 RUN CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -mod=mod -tags strictfipsruntime -o tempostack-gateway -trimpath -ldflags "-s -w"
 
@@ -18,7 +20,7 @@ RUN microdnf update -y && rm -rf /var/cache/yum && \
 
 RUN mkdir /licenses
 COPY api/LICENSE /licenses/.
-COPY --from=builder /opt/app-root/src/tempostack-gateway /usr/bin/tempostack-gateway
+COPY --from=builder /opt/app-root/src/api/tempostack-gateway /usr/bin/tempostack-gateway
 
 ARG USER_UID=1001
 USER ${USER_UID}

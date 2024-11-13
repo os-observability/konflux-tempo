@@ -3,24 +3,26 @@ FROM brew.registry.redhat.io/rh-osbs/openshift-golang-builder:rhel_8_golang_1.22
 WORKDIR /opt/app-root/src
 USER root
 
-COPY tempo-operator .
+COPY .git .git
+COPY tempo-operator tempo-operator
 # this directory is checked by ecosystem-cert-preflight-checks task in Konflux
 COPY tempo-operator/LICENSE /licenses/
+WORKDIR /opt/app-root/src/tempo-operator
 
-RUN export VERSION_PKG="github.com/grafana/tempo-operator/internal/version" && \
-  export BUILD_DATE=`date -u +'%Y-%m-%dT%H:%M:%SZ'` && echo $BUILD_DATE && \
-  export GIT_LATEST_TAG_AND_SHA=`git describe --tags | sed 's/^v//'` && echo $GIT_LATEST_TAG_AND_SHA && \
-  export COMMIT_SHA=`git rev-parse HEAD` && echo $COMMIT_SHA && \
-  export TEMPO_VERSION=`cat config/manager/manager.yaml | grep -oP "docker.io/grafana/tempo:\K.*"` && echo $TEMPO_VERSION && \
-  export TEMPO_QUERY_VERSION=`cat config/manager/manager.yaml | grep -oP "docker.io/grafana/tempo-query:\K.*"` && echo $TEMPO_QUERY_VERSION && \
-  CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -mod=mod -tags strictfipsruntime \
-    -o "tempo-operator" -trimpath -ldflags "-s -w" \
-    -buildvcs=false \
-    -ldflags "-X ${VERSION_PKG}.buildDate=${BUILD_DATE} \
-              -X ${VERSION_PKG}.revision=${COMMIT_SHA} \
-              -X ${VERSION_PKG}.operatorVersion=${GIT_LATEST_TAG_AND_SHA} \
-              -X ${VERSION_PKG}.tempoVersion=${TEMPO_VERSION} \
-              -X ${VERSION_PKG}.tempoQueryVersion=${TEMPO_QUERY_VERSION}"
+RUN exportOrFail() { echo $1; if [[ $1 == *= ]]; then echo "Error: empty variable assignment"; exit 1; else export "$1"; fi } && \
+    exportOrFail VERSION_PKG="github.com/grafana/tempo-operator/internal/version" && \
+    exportOrFail BUILD_DATE=`date -u +'%Y-%m-%dT%H:%M:%SZ'` && \
+    exportOrFail GIT_LATEST_TAG_AND_SHA=`git describe --tags | sed 's/^v//'` && \
+    exportOrFail COMMIT_SHA=`git rev-parse HEAD` && \
+    exportOrFail TEMPO_VERSION=`cat config/manager/manager.yaml | grep -oP "docker.io/grafana/tempo:\K.*"` && \
+    exportOrFail TEMPO_QUERY_VERSION=`cat config/manager/manager.yaml | grep -oP "docker.io/grafana/tempo-query:\K.*"` && \
+    CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -mod=mod -tags strictfipsruntime \
+      -o "tempo-operator" -trimpath -ldflags "-s -w" \
+      -ldflags "-X ${VERSION_PKG}.buildDate=${BUILD_DATE} \
+                -X ${VERSION_PKG}.revision=${COMMIT_SHA} \
+                -X ${VERSION_PKG}.operatorVersion=${GIT_LATEST_TAG_AND_SHA} \
+                -X ${VERSION_PKG}.tempoVersion=${TEMPO_VERSION} \
+                -X ${VERSION_PKG}.tempoQueryVersion=${TEMPO_QUERY_VERSION}"
 
 FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:c12e67af6a7e15113d76bc72f10bef2045c026c71ec8b7124c8a075458188a83
 WORKDIR /
@@ -31,7 +33,7 @@ RUN microdnf update -y && rm -rf /var/cache/yum && \
 
 RUN mkdir /licenses
 COPY tempo-operator/LICENSE /licenses/.
-COPY --from=builder /opt/app-root/src/tempo-operator /usr/bin/tempo-operator
+COPY --from=builder /opt/app-root/src/tempo-operator/tempo-operator /usr/bin/tempo-operator
 
 ARG USER_UID=1001
 USER ${USER_UID}

@@ -3,9 +3,10 @@ FROM registry.redhat.io/ubi9/nodejs-20:latest@sha256:3599947a43d3a1e5c7bac81adfe
 WORKDIR /opt/app-root/src
 USER root
 
-COPY jaeger-ui .
+COPY jaeger-ui jaeger-ui
 # this directory is checked by ecosystem-cert-preflight-checks task in Konflux
 COPY jaeger-ui/LICENSE /licenses/
+WORKDIR /opt/app-root/src/jaeger-ui
 
 RUN npm ci --ignore-scripts
 RUN npm run build
@@ -15,29 +16,32 @@ FROM brew.registry.redhat.io/rh-osbs/openshift-golang-builder:rhel_8_golang_1.22
 WORKDIR /opt/app-root/src
 USER root
 
-COPY jaeger .
+COPY .git .git
+COPY jaeger jaeger
 # this directory is checked by ecosystem-cert-preflight-checks task in Konflux
 COPY jaeger/LICENSE /licenses/
+WORKDIR /opt/app-root/src/jaeger
 
-COPY --from=builder-ui /opt/app-root/src /opt/app-root/src/jaeger-ui
+COPY --from=builder-ui /opt/app-root/src/jaeger-ui /opt/app-root/src/jaeger-ui
 
-RUN rm -rf ./cmd/query/app/ui/actual && mkdir ./cmd/query/app/ui/actual && cp -r ./jaeger-ui/packages/jaeger-ui/build/* ./cmd/query/app/ui/actual/ && find ./cmd/query/app/ui/actual -type f | xargs gzip && \
-  export VERSION_PKG="github.com/jaegertracing/jaeger/pkg/version" && \
-  export VERSION_DATE=`date -u +'%Y-%m-%dT%H:%M:%SZ'` && \
-  export GIT_LATEST_TAG=`git describe --abbrev=0 --tags` && echo $GIT_LATEST_TAG && \
-  export GIT_COMMIT_SHA=`git rev-parse HEAD` && echo $GIT_COMMIT_SHA && \
-  CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -C ./cmd/query -mod=mod -tags strictfipsruntime,ui \
-    -o ./jaeger -trimpath -ldflags "-s -w" \
-    -ldflags "-X ${VERSION_PKG}.commitSHA=${GIT_COMMIT_SHA} \
-              -X ${VERSION_PKG}.latestVersion=${GIT_LATEST_TAG} \
-              -X ${VERSION_PKG}.date=${VERSION_DATE}"
+RUN rm -rf ./cmd/query/app/ui/actual && mkdir ./cmd/query/app/ui/actual && cp -r /opt/app-root/src/jaeger-ui/packages/jaeger-ui/build/* ./cmd/query/app/ui/actual/ && find ./cmd/query/app/ui/actual -type f | xargs gzip && \
+    exportOrFail() { echo $1; if [[ $1 == *= ]]; then echo "Error: empty variable assignment"; exit 1; else export "$1"; fi } && \
+    exportOrFail VERSION_PKG="github.com/jaegertracing/jaeger/pkg/version" && \
+    exportOrFail VERSION_DATE=`date -u +'%Y-%m-%dT%H:%M:%SZ'` && \
+    exportOrFail GIT_LATEST_TAG=`git describe --abbrev=0 --tags` && \
+    exportOrFail GIT_COMMIT_SHA=`git rev-parse HEAD` && \
+    CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -C ./cmd/query -mod=mod -tags strictfipsruntime,ui \
+      -o ./jaeger -trimpath -ldflags "-s -w" \
+      -ldflags "-X ${VERSION_PKG}.commitSHA=${GIT_COMMIT_SHA} \
+                -X ${VERSION_PKG}.latestVersion=${GIT_LATEST_TAG} \
+                -X ${VERSION_PKG}.date=${VERSION_DATE}"
 
 FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:c12e67af6a7e15113d76bc72f10bef2045c026c71ec8b7124c8a075458188a83
 WORKDIR /
 
 RUN mkdir /licenses
 COPY jaeger/LICENSE /licenses/.
-COPY --from=builder /opt/app-root/src/cmd/query/jaeger /usr/bin/jaeger
+COPY --from=builder /opt/app-root/src/jaeger/cmd/query/jaeger /usr/bin/jaeger
 
 ARG USER_UID=1001
 USER ${USER_UID}
