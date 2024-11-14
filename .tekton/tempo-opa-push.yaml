@@ -12,7 +12,7 @@ metadata:
       ".tekton/tempo-opa-pull-request.yaml".pathChanged() ||
       ".tekton/tempo-opa-push.yaml".pathChanged() ||
       "Dockerfile.opa".pathChanged() ||
-      "rpms.lock.yaml" ||
+      "rpms.lock.yaml".pathChanged() ||
       "opa-openshift".pathChanged())
   creationTimestamp: null
   labels:
