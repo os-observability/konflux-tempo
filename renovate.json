@@ -11,5 +11,14 @@
       "matchFileNames": ["bundle-patch/update_bundle.sh"],
       "groupName": "bundle images"
     }
-  ]
+  ],
+  "dockerfile": {
+    "postUpgradeTasks": {
+      "commands": [
+        "rpm-lockfile-prototype rpms.in.yaml",
+        "rpm-lockfile-prototype bundle-patch/rpms.in.yaml --outfile bundle-patch/rpms.lock.yaml"
+      ],
+      "fileFilters": ["**/rpms.lock.yaml"]
+    }
+  }
 }

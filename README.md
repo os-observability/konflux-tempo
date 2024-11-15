@@ -19,11 +19,6 @@ Update all base images (merge renovatebot PRs).
 
 Create a PR `Release - update upstream sources x.y`:
 1. Update git submodules with upstream versions
-1. Update rpm lockfiles
-   ```bash
-   rpm-lockfile-prototype --arch x86_64 --arch aarch64 --arch s390x --arch ppc64le -f Dockerfile.operator rpms.in.yaml --outfile rpms.lock.yaml
-   cd bundle-patch; rpm-lockfile-prototype --arch x86_64 rpms.in.yaml --outfile rpms.lock.yaml
-   ```
 
 ### Bundle
 Wait for renovatebot to create PRs to update the hash in the `bundle-patch/update_bundle.sh` file, and merge all of them.

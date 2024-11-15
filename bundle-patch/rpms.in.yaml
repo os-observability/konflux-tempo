@@ -7,6 +7,8 @@ contentOrigin:
   repofiles:
     - ./ubi9.repo
 packages: [python3, python3-ruamel-yaml-clib, python3-ruamel-yaml, patch]
+arches:
+  - x86_64
 context:
   containerfile:
     file: ../Dockerfile.bundle
