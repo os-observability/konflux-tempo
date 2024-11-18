@@ -1,3 +1,4 @@
+# multi-arch build pipeline for operator and operand images
 apiVersion: tekton.dev/v1
 kind: Pipeline
 metadata:
