@@ -21,8 +21,12 @@ entries:
     replaces: tempo-operator.v0.10.0-7
     skipRange: '>=0.6.0 <0.10.0-8'
   - name: tempo-operator.v0.13.0-1
+    skipRange: '>=0.6.0 <0.13.0-1'
+  - name: tempo-operator.v0.13.0-1-0.1730817419.p
     replaces: tempo-operator.v0.10.0-8
     skipRange: '>=0.6.0 <0.13.0-1'
+    skips:
+    - tempo-operator.v0.13.0-1
   - name: tempo-operator.v0.3.1-3
     replaces: tempo-operator.v0.1.0-6-0.1687199947.p
   - name: tempo-operator.v0.6.0-2
@@ -31,6 +35,9 @@ entries:
     replaces: tempo-operator.v0.6.0-2
   - name: tempo-operator.v0.8.0-3
     replaces: tempo-operator.v0.8.0-2
+  - name: tempo-operator.v0.14.1-1
+    replaces: tempo-operator.v0.13.0-1-0.1730817419.p
+    skipRange: '>=0.6.0 <0.14.1-1'
   name: stable
   package: tempo-product
   schema: olm.channel
@@ -46,6 +53,8 @@ entries:
   schema: olm.bundle
 - image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:ad1da7f9941a2a887431da733bf7e59ef931ea281cf6c36da49fb1dc1a4c4cfc
   schema: olm.bundle
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:c5d81042ce8d2f6e65b2092fb1ccbe45a2845990b54a5a2454bbf8c1eebbf2eb
+  schema: olm.bundle
 - image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:b6ec1460415bf8c69d82cf9267494dc5445242b6a0957318eae5bf333693cb2e
   schema: olm.bundle
 - image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:d3d446b9adaebd3985fb8d78176100156d9133ec2cf956d92e07c3651e60cc3d
@@ -54,5 +63,6 @@ entries:
   schema: olm.bundle
 - image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:c6c6a80101bb29b78299f2678d15822cf8d8eec300ca55c27549f1dbb1c83d9f
   schema: olm.bundle
+- image: quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-bundle@sha256:fdda4edf9468619d63c6356a4dd27ae85eb4153b5b8c84ed0a629452364246c4
+  schema: olm.bundle
 schema: olm.template.basic
-
