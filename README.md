@@ -55,9 +55,10 @@ Images can be found at https://quay.io/organization/redhat-user-workloads (searc
 ### Deploy bundle
 
 ```bash
+kubectl create namespace openshift-tempo-operator
 operator-sdk olm install
 # get latest image pullspec from https://console.redhat.com/application-pipeline/workspaces/rhosdt/applications/tempo/components/tempo-bundle-quay
-operator-sdk run bundle quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-bundle-quay@sha256:10b2bfbb9bd4b0dd6ae5093d95f9766862c6148a5f88139ccb99dc413d4a32c1
+operator-sdk run bundle -n openshift-tempo-operator quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-bundle-quay@sha256:10b2bfbb9bd4b0dd6ae5093d95f9766862c6148a5f88139ccb99dc413d4a32c1
 operator-sdk cleanup tempo-product
 ```
 
