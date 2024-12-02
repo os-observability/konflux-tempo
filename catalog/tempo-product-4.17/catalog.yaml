@@ -7223,7 +7223,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:74a371563685de7a5603c26d96b9082e20a7651040cd5efacc60184765bf189f
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:68e93fcc73ee655792657750046407a8aded47fff2c4fd1e4a9f8d62ff0494a3
 name: tempo-operator.v0.14.1-1
 package: tempo-product
 properties:
@@ -7315,8 +7315,8 @@ properties:
         ]
       capabilities: Deep Insights
       categories: Logging & Tracing,Monitoring
-      containerImage: registry.redhat.io/rhosdt/tempo-rhel8-operator@sha256:ec549ea21d5506a102a3375df68d1b0d6315aeec3de605bfc9a17aa54ac373b1
-      createdAt: 26 Nov 2024, 17:25
+      containerImage: registry.redhat.io/rhosdt/tempo-rhel8-operator@sha256:916572545f4fbd53f89f6b4d010832791c2756335534a60a81ab5e3aef98314e
+      createdAt: 02 Dec 2024, 15:19
       description: Create and manage deployments of Tempo, a high-scale distributed
         tracing backend.
       features.operators.openshift.io/cnf: "false"
@@ -8334,9 +8334,7 @@ properties:
           displayName: Prometheus endpoint
           path: template.queryFrontend.jaegerQuery.monitorTab.prometheusEndpoint
         - description: REDMetricsNamespace defines the a prefix used retrieve span
-            rate, error, and duration (RED) metrics. By default it is set to `traces.span.metrics`
-            following the default namespace of the OpenTelemetry Collector since Version
-            0.109.0.
+            rate, error, and duration (RED) metrics.
           displayName: RED Metric Namespace
           path: template.queryFrontend.jaegerQuery.monitorTab.redMetricsNamespace
         - description: Resources defines resources for this component, this will override
@@ -8531,23 +8529,23 @@ properties:
     provider:
       name: Red Hat
 relatedImages:
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:74a371563685de7a5603c26d96b9082e20a7651040cd5efacc60184765bf189f
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:68e93fcc73ee655792657750046407a8aded47fff2c4fd1e4a9f8d62ff0494a3
   name: ""
 - image: registry.redhat.io/openshift4/ose-kube-rbac-proxy:latest@sha256:7efeeb8b29872a6f0271f651d7ae02c91daea16d853c50e374c310f044d8c76c
   name: ose-kube-rbac-proxy
 - image: registry.redhat.io/openshift4/ose-oauth-proxy:latest@sha256:234af927030921ab8f7333f61f967b4b4dee37a1b3cf85689e9e63240dd62800
   name: ose-oauth-proxy
-- image: registry.redhat.io/rhosdt/tempo-gateway-opa-rhel8@sha256:9d0ec4614403bcc49f24f51845b02afa2b04f6108fb73664dbbb8c8f348c2737
+- image: registry.redhat.io/rhosdt/tempo-gateway-opa-rhel8@sha256:98bf4294a7ddb8ba9c9d8e06482ae1813ffe81484a27ce6940410745162f8054
   name: gateway-opa
-- image: registry.redhat.io/rhosdt/tempo-gateway-rhel8@sha256:ca549f05f374f72efe25ad8ff6062219bf7f7a1f5e78b989326a4ee8dd6570d3
+- image: registry.redhat.io/rhosdt/tempo-gateway-rhel8@sha256:49dbb18a17f35bf5451f5ea1245e7c76eb2fcdf8ed50c822b2a1879a105537cb
   name: gateway
-- image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel8@sha256:2cc2be758f4eb449b8054c9bbbcc79e5c7a6fac81f5aeab37b36bc4604f07fc0
+- image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel8@sha256:429125201ab9b9ba38613f7c4a11d3131b2672db0e24a7f43d216d03bb390d8d
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:7c1645b2bb8a9146b6b7eedd16098c9cc09d5b39f3ba9e6b3172ce7d3d703b8f
+- image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:ad1e5d4bf9fa7b85dd915c37ffa35ded71c70634e81e9352e759351a23ff3e79
   name: tempo-query
-- image: registry.redhat.io/rhosdt/tempo-rhel8-operator@sha256:ec549ea21d5506a102a3375df68d1b0d6315aeec3de605bfc9a17aa54ac373b1
+- image: registry.redhat.io/rhosdt/tempo-rhel8-operator@sha256:916572545f4fbd53f89f6b4d010832791c2756335534a60a81ab5e3aef98314e
   name: operator
-- image: registry.redhat.io/rhosdt/tempo-rhel8@sha256:33ec912ccf0794fe1c0bfb908651952e1ae7f66545b5067122a952c53db7d847
+- image: registry.redhat.io/rhosdt/tempo-rhel8@sha256:ae7235d3f721606afd16b0b47b9aecb45fc1a6b523246626d66236bfe4f32b8d
   name: tempo
 schema: olm.bundle
 ---
