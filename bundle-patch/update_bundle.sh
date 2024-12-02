@@ -13,7 +13,7 @@ export TEMPO_GATEWAY_IMAGE_PULLSPEC="quay.io/redhat-user-workloads/rhosdt-tenant
 # separate due to merge conflicts
 export TEMPO_OPA_IMAGE_PULLSPEC="quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-opa@sha256:9d0ec4614403bcc49f24f51845b02afa2b04f6108fb73664dbbb8c8f348c2737"
 # Separate due to merge conflicts
-export TEMPO_OPERATOR_IMAGE_PULLSPEC="quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-operator@sha256:ec549ea21d5506a102a3375df68d1b0d6315aeec3de605bfc9a17aa54ac373b1"
+export TEMPO_OPERATOR_IMAGE_PULLSPEC="quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-operator@sha256:5a4f7ce0b57e5f172ea239ed2bb96ad3835d609ceff82a90b06692d84013586a"
 # Separate due to merge conflicts
 # TODO, we used to set the proxy image per OCP version
 export OSE_KUBE_RBAC_PROXY_PULLSPEC="registry.redhat.io/openshift4/ose-kube-rbac-proxy:latest@sha256:7efeeb8b29872a6f0271f651d7ae02c91daea16d853c50e374c310f044d8c76c"
