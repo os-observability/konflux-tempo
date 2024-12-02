@@ -200,13 +200,13 @@ arches:
     name: openssl
     evr: 1:1.1.1k-14.el8_6
     sourcerpm: openssl-1.1.1k-14.el8_6.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/p/pam-1.3.1-34.el8_10.aarch64.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/p/pam-1.3.1-36.el8_10.aarch64.rpm
     repoid: ubi-8-baseos-rpms
-    size: 758924
-    checksum: sha256:1c148b02e0fe0377db946029182b1d58d89867d449912f86f66125e5f901e23d
+    size: 759728
+    checksum: sha256:0691edbea4dd8a58d9feaac40387609b509962e24dc10d958b5c17f5f8b0ee34
     name: pam
-    evr: 1.3.1-34.el8_10
-    sourcerpm: pam-1.3.1-34.el8_10.src.rpm
+    evr: 1.3.1-36.el8_10
+    sourcerpm: pam-1.3.1-36.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/s/shadow-utils-4.6-22.el8.aarch64.rpm
     repoid: ubi-8-baseos-rpms
     size: 1272288
@@ -350,12 +350,12 @@ arches:
     checksum: sha256:c97b10d6a034e025a19ec8443ef7c80755e3a407fe29a77dda95af958b199eed
     name: openssl
     evr: 1:1.1.1k-14.el8_6
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/source/SRPMS/Packages/p/pam-1.3.1-34.el8_10.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/source/SRPMS/Packages/p/pam-1.3.1-36.el8_10.src.rpm
     repoid: ubi-8-baseos-source
-    size: 1154953
-    checksum: sha256:85a47d22637bddf4884b3e64d98ed4506eb99e7d621f778e821ecb4cdd877b0f
+    size: 1166826
+    checksum: sha256:5a73a9d6ffbc3fa84853486a233e95765189dd0bf7b18059f2b8e763bfc8591f
     name: pam
-    evr: 1.3.1-34.el8_10
+    evr: 1.3.1-36.el8_10
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/source/SRPMS/Packages/s/shadow-utils-4.6-22.el8.src.rpm
     repoid: ubi-8-baseos-source
     size: 1845120
@@ -580,13 +580,13 @@ arches:
     name: openssl
     evr: 1:1.1.1k-14.el8_6
     sourcerpm: openssl-1.1.1k-14.el8_6.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/p/pam-1.3.1-34.el8_10.ppc64le.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/p/pam-1.3.1-36.el8_10.ppc64le.rpm
     repoid: ubi-8-baseos-rpms
-    size: 810840
-    checksum: sha256:6702deecfcb4941f2a698f809848bf1ce14ffabd983675d99ddc63b3e30df9b6
+    size: 812356
+    checksum: sha256:791f57c8be96fb1e8a1777efe5f2c0283e59bf661947b4281e01505fdfa4a510
     name: pam
-    evr: 1.3.1-34.el8_10
-    sourcerpm: pam-1.3.1-34.el8_10.src.rpm
+    evr: 1.3.1-36.el8_10
+    sourcerpm: pam-1.3.1-36.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/s/shadow-utils-4.6-22.el8.ppc64le.rpm
     repoid: ubi-8-baseos-rpms
     size: 1310120
@@ -736,12 +736,12 @@ arches:
     checksum: sha256:c97b10d6a034e025a19ec8443ef7c80755e3a407fe29a77dda95af958b199eed
     name: openssl
     evr: 1:1.1.1k-14.el8_6
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/source/SRPMS/Packages/p/pam-1.3.1-34.el8_10.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/source/SRPMS/Packages/p/pam-1.3.1-36.el8_10.src.rpm
     repoid: ubi-8-baseos-source
-    size: 1154953
-    checksum: sha256:85a47d22637bddf4884b3e64d98ed4506eb99e7d621f778e821ecb4cdd877b0f
+    size: 1166826
+    checksum: sha256:5a73a9d6ffbc3fa84853486a233e95765189dd0bf7b18059f2b8e763bfc8591f
     name: pam
-    evr: 1.3.1-34.el8_10
+    evr: 1.3.1-36.el8_10
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/source/SRPMS/Packages/s/shadow-utils-4.6-22.el8.src.rpm
     repoid: ubi-8-baseos-source
     size: 1845120
@@ -959,13 +959,13 @@ arches:
     name: openssl
     evr: 1:1.1.1k-14.el8_6
     sourcerpm: openssl-1.1.1k-14.el8_6.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/p/pam-1.3.1-34.el8_10.s390x.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/p/pam-1.3.1-36.el8_10.s390x.rpm
     repoid: ubi-8-baseos-rpms
-    size: 744420
-    checksum: sha256:8f24dd1172d01f47dbcb466db15d3160ee220bc2fe1bbe359f9fa3feefa0728a
+    size: 745460
+    checksum: sha256:55a9cb4fe1cdc62ba299196e2e74d01f111964f1dfc4a041826421686cdcf118
     name: pam
-    evr: 1.3.1-34.el8_10
-    sourcerpm: pam-1.3.1-34.el8_10.src.rpm
+    evr: 1.3.1-36.el8_10
+    sourcerpm: pam-1.3.1-36.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/s/shadow-utils-4.6-22.el8.s390x.rpm
     repoid: ubi-8-baseos-rpms
     size: 1270628
@@ -1109,12 +1109,12 @@ arches:
     checksum: sha256:c97b10d6a034e025a19ec8443ef7c80755e3a407fe29a77dda95af958b199eed
     name: openssl
     evr: 1:1.1.1k-14.el8_6
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/source/SRPMS/Packages/p/pam-1.3.1-34.el8_10.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/source/SRPMS/Packages/p/pam-1.3.1-36.el8_10.src.rpm
     repoid: ubi-8-baseos-source
-    size: 1154953
-    checksum: sha256:85a47d22637bddf4884b3e64d98ed4506eb99e7d621f778e821ecb4cdd877b0f
+    size: 1166826
+    checksum: sha256:5a73a9d6ffbc3fa84853486a233e95765189dd0bf7b18059f2b8e763bfc8591f
     name: pam
-    evr: 1.3.1-34.el8_10
+    evr: 1.3.1-36.el8_10
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/source/SRPMS/Packages/s/shadow-utils-4.6-22.el8.src.rpm
     repoid: ubi-8-baseos-source
     size: 1845120
@@ -1332,13 +1332,13 @@ arches:
     name: openssl
     evr: 1:1.1.1k-14.el8_6
     sourcerpm: openssl-1.1.1k-14.el8_6.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/p/pam-1.3.1-34.el8_10.x86_64.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/p/pam-1.3.1-36.el8_10.x86_64.rpm
     repoid: ubi-8-baseos-rpms
-    size: 764668
-    checksum: sha256:f33930343991c627aadfbabb30b3691a29fab85a3e7de2cf5cae335995eff88b
+    size: 765548
+    checksum: sha256:92bb7478c5945f4c83f748197ffb3ead918ba55e2d08448be6bafdbafbc2c821
     name: pam
-    evr: 1.3.1-34.el8_10
-    sourcerpm: pam-1.3.1-34.el8_10.src.rpm
+    evr: 1.3.1-36.el8_10
+    sourcerpm: pam-1.3.1-36.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/s/shadow-utils-4.6-22.el8.x86_64.rpm
     repoid: ubi-8-baseos-rpms
     size: 1292332
@@ -1482,12 +1482,12 @@ arches:
     checksum: sha256:c97b10d6a034e025a19ec8443ef7c80755e3a407fe29a77dda95af958b199eed
     name: openssl
     evr: 1:1.1.1k-14.el8_6
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/p/pam-1.3.1-34.el8_10.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/p/pam-1.3.1-36.el8_10.src.rpm
     repoid: ubi-8-baseos-source
-    size: 1154953
-    checksum: sha256:85a47d22637bddf4884b3e64d98ed4506eb99e7d621f778e821ecb4cdd877b0f
+    size: 1166826
+    checksum: sha256:5a73a9d6ffbc3fa84853486a233e95765189dd0bf7b18059f2b8e763bfc8591f
     name: pam
-    evr: 1.3.1-34.el8_10
+    evr: 1.3.1-36.el8_10
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/s/shadow-utils-4.6-22.el8.src.rpm
     repoid: ubi-8-baseos-source
     size: 1845120
