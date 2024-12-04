@@ -58,7 +58,7 @@ get latest pullspec from `kubectl get component tempo-bundle-quay -o yaml`, then
 ```bash
 kubectl create namespace openshift-tempo-operator
 operator-sdk run bundle -n openshift-tempo-operator quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-bundle-quay@sha256:2015d62b1c7f57e4724354eda7ccb2d806aa5d47e5e24b1c2e9596d3b39301c7
-operator-sdk cleanup tempo-product
+operator-sdk cleanup -n openshift-tempo-operator tempo-product
 ```
 
 ### Extract file based catalog from OpenShift index
