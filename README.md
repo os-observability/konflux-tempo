@@ -57,7 +57,7 @@ Images can be found at https://quay.io/organization/redhat-user-workloads (searc
 get latest pullspec from `kubectl get component tempo-bundle-quay -o yaml`, then run:
 ```bash
 kubectl create namespace openshift-tempo-operator
-operator-sdk run bundle -n openshift-tempo-operator quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-bundle-quay@sha256:2015d62b1c7f57e4724354eda7ccb2d806aa5d47e5e24b1c2e9596d3b39301c7
+operator-sdk run bundle -n openshift-tempo-operator quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-bundle-quay@sha256:7b3cde3d776981c8de5b394f26e560ecd25fad29f074b7ca7b11d89ebbdfc769
 operator-sdk cleanup -n openshift-tempo-operator tempo-product
 ```
 
