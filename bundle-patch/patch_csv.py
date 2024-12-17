@@ -61,7 +61,7 @@ upstream_csv['metadata']['annotations']['containerImage'] = os.getenv('TEMPO_OPE
 
 upstream_csv['spec']['relatedImages'] = [
     {'name': 'operator', 'image': os.getenv('TEMPO_OPERATOR_IMAGE_PULLSPEC')},
-    {'name': 'tempo', 'image': os.getenv('TEMPO_IMAGE_PULLSPEC')},
+    {'name': 'tempo', 'image': os.getenv('TEMPO_TEMPO_IMAGE_PULLSPEC')},
     {'name': 'tempo-query', 'image': os.getenv('TEMPO_QUERY_IMAGE_PULLSPEC')},
     {'name': 'jaeger-query', 'image': os.getenv('TEMPO_JAEGER_QUERY_IMAGE_PULLSPEC')},
     {'name': 'gateway', 'image': os.getenv('TEMPO_GATEWAY_IMAGE_PULLSPEC')},
