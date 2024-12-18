@@ -3,30 +3,57 @@ import subprocess
 import json
 import re
 import argparse
+from datetime import datetime
 
-parser = argparse.ArgumentParser()
-parser.add_argument('snapshot')
-args = parser.parse_args()
+def is_latest_creationTimestamp(a, b):
+    date_a = datetime.fromisoformat(a["metadata"]["creationTimestamp"])
+    date_b = datetime.fromisoformat(b["metadata"]["creationTimestamp"])
+    return date_a < date_b
 
-p = subprocess.run(["kubectl", "get", "snapshot", args.snapshot, "-o", "json"], capture_output=True, text=True, check=True)
-snapshot = json.loads(p.stdout)
+def get_latest_resource(resources):
+    latest_resource = None
+    for resource in resources["items"]:
+        if not latest_resource or is_latest_creationTimestamp(latest_resource, resource):
+            latest_resource = resource
+    return latest_resource
 
-with open("bundle-patch/bundle.env", "r") as f:
-    bundle_env = f.read()
+def main():
+    parser = argparse.ArgumentParser()
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument('--snapshot')
+    group.add_argument('--commit')
+    args = parser.parse_args()
 
-for component in snapshot["spec"]["components"]:
-    name = component["name"]
-    if name.endswith("-bundle") or name.endswith("-bundle-quay"):
-        continue
+    if args.snapshot:
+        p = subprocess.run(["kubectl", "get", "snapshot", args.snapshot, "-o", "json"], capture_output=True, text=True, check=True)
+        snapshot = json.loads(p.stdout)
+    elif args.commit:
+        p = subprocess.run(["kubectl", "get", "snapshot", "-l", f"pac.test.appstudio.openshift.io/sha={args.commit},appstudio.openshift.io/application=tempo", "-o", "json"], capture_output=True, text=True, check=True)
+        snapshots = json.loads(p.stdout)
+        if len(snapshots["items"]) == 0:
+            raise Exception("No snapshot found.")
+        snapshot = get_latest_resource(snapshots)
+        print(f"Using snapshot {snapshot['metadata']['name']}")
 
-    pullspec = component["containerImage"]
-    env_name = f"{name.upper().replace("-", "_")}_IMAGE_PULLSPEC"
-    line_regexp = f"^{env_name}=.+$"
+    with open("bundle-patch/bundle.env", "r") as f:
+        bundle_env = f.read()
 
-    if not re.search(line_regexp, bundle_env, flags=re.MULTILINE):
-        raise Exception(f"Cannot find env var {env_name} in bundle.env")
+    for component in snapshot["spec"]["components"]:
+        name = component["name"]
+        if name.endswith("-bundle") or name.endswith("-bundle-quay"):
+            continue
 
-    bundle_env = re.sub(line_regexp, f"{env_name}={pullspec}", bundle_env, flags=re.MULTILINE)
+        pullspec = component["containerImage"]
+        env_name = f"{name.upper().replace("-", "_")}_IMAGE_PULLSPEC"
+        line_regexp = f"^{env_name}=.+$"
 
-with open("bundle-patch/bundle.env", "w") as f:
-    f.write(bundle_env)
+        if not re.search(line_regexp, bundle_env, flags=re.MULTILINE):
+            raise Exception(f"Cannot find env var {env_name} in bundle.env")
+
+        bundle_env = re.sub(line_regexp, f"{env_name}={pullspec}", bundle_env, flags=re.MULTILINE)
+
+    with open("bundle-patch/bundle.env", "w") as f:
+        f.write(bundle_env)
+
+if __name__ == "__main__":
+    main()
