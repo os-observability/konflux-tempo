@@ -8,7 +8,7 @@
   ],
   "packageRules": [
     {
-      "matchFileNames": ["bundle-patch/update_bundle.sh"],
+      "matchFileNames": ["bundle-patch/bundle.env"],
       "groupName": "bundle images"
     }
   ],

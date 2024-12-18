@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi9/ubi:latest@sha256:2bae9062eddbbc18e76555972e7026ffe02cef560a0076e6d7f72bed2c05723f as builder-deps
+FROM registry.redhat.io/ubi9/ubi:latest@sha256:2bae9062eddbbc18e76555972e7026ffe02cef560a0076e6d7f72bed2c05723f as builder
 
 USER root
 WORKDIR /
@@ -8,9 +8,6 @@ RUN dnf install -y python3 python3-ruamel-yaml-clib python3-ruamel-yaml patch
 RUN mkdir /licenses
 COPY tempo-operator/LICENSE /licenses/.
 
-# Use a new stage to enable caching of the package installations for local development
-FROM builder-deps as builder
-
 COPY bundle-patch .
 COPY tempo-operator/bundle/openshift/manifests /manifests/
 COPY tempo-operator/bundle/openshift/metadata /metadata/
@@ -19,6 +16,7 @@ RUN ls /manifests -al
 RUN ls /metadata -al
 
 # stage - registry.stage.redhat.io, prod - registry.redhat.io
+# set by tempo-bundle-push pipeline
 ARG REGISTRY=quay.io/redhat-user-workloads
 
 RUN ./update_bundle.sh && cat /manifests/tempo-operator.clusterserviceversion.yaml /metadata/annotations.yaml
