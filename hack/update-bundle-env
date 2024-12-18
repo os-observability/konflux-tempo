@@ -6,6 +6,10 @@ import argparse
 from datetime import datetime
 
 def is_latest_creationTimestamp(a, b):
+    """
+    verifies creation timestamp of two resources
+    returns True if resource B is more recent than A
+    """
     date_a = datetime.fromisoformat(a["metadata"]["creationTimestamp"])
     date_b = datetime.fromisoformat(b["metadata"]["creationTimestamp"])
     return date_a < date_b
