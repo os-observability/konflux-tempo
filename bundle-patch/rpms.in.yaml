@@ -12,4 +12,4 @@ arches:
 context:
   containerfile:
     file: ../Dockerfile.bundle
-    stageName: builder-deps
+    stageName: builder

@@ -6,7 +6,7 @@ metadata:
     build.appstudio.redhat.com/commit_sha: '{{revision}}'
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
     pipelinesascode.tekton.dev/max-keep-runs: "3"
-    build.appstudio.openshift.io/build-nudge-files: "bundle-patch/update_bundle.sh"
+    build.appstudio.openshift.io/build-nudge-files: "bundle-patch/bundle.env"
     pipelinesascode.tekton.dev/on-cel-expression: event == "push" && target_branch == "main" &&
       (".tekton/multi-arch-build-pipeline.yaml".pathChanged() ||
       ".tekton/tempo-jaeger-query-pull-request.yaml".pathChanged() ||
