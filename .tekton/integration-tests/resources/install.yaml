@@ -1,0 +1,84 @@
+apiVersion: project.openshift.io/v1
+kind: Project
+metadata:
+  labels:
+    openshift.io/cluster-monitoring: "true"
+  name: openshift-opentelemetry-operator
+
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: openshift-opentelemetry-operator
+  namespace: openshift-opentelemetry-operator
+spec:
+  upgradeStrategy: Default
+
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: opentelemetry-product
+  namespace: openshift-opentelemetry-operator
+spec:
+  channel: stable
+  installPlanApproval: Automatic
+  name: opentelemetry-product
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: kiali-ossm
+  namespace: openshift-operators
+spec:
+  channel: stable
+  installPlanApproval: Automatic
+  name: kiali-ossm
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: servicemeshoperator
+  namespace: openshift-operators
+spec:
+  channel: stable
+  installPlanApproval: Automatic
+  name: servicemeshoperator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+
+---
+apiVersion: project.openshift.io/v1
+kind: Project
+metadata:
+  labels:
+    openshift.io/cluster-monitoring: "true"
+  name: openshift-serverless
+
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: openshift-serverless
+  namespace: openshift-serverless
+spec:
+  upgradeStrategy: Default
+
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: serverless-operator
+  namespace: openshift-serverless
+spec:
+  channel: stable
+  installPlanApproval: Automatic
+  name: serverless-operator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace

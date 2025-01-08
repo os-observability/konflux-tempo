@@ -1,0 +1,384 @@
+---
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  annotations:
+    pipelinesascode.tekton.dev/task: "[tempo-install, operators-install, tempo-e2e-tests]"
+  name: tempo-operator-e2e-tests-pipeline
+spec:
+  description: |
+    This pipeline automates the process of running end-to-end tests for OpenShift Tempo Operator
+    using a ROSA (Red Hat OpenShift Service on AWS) cluster. The pipeline provisions
+    the ROSA cluster, installs the OpenShift Tempo operator using the installer, installs dependent operators, runs the tests, collects artifacts,
+    and finally deprovisions the ROSA cluster.
+  params:
+    - name: SNAPSHOT
+      description: 'The JSON string representing the snapshot of the application under test.'
+      default: '{"components": [{"name":"test-app", "containerImage": "quay.io/example/repo:latest"}]}'
+      type: string
+    - name: test-name
+      description: 'The name of the test corresponding to a defined Konflux integration test.'
+      default: 'tempo-operator-e2e-tests'
+    - name: namespace
+      description: 'Namespace to run tests in'
+      default: 'openshift-tempo-operator'
+  tasks:
+    - name: eaas-provision-space
+      taskRef:
+        resolver: git
+        params:
+          - name: url
+            value: https://github.com/konflux-ci/build-definitions.git
+          - name: revision
+            value: main
+          - name: pathInRepo
+            value: task/eaas-provision-space/0.1/eaas-provision-space.yaml
+      params:
+        - name: ownerKind
+          value: PipelineRun
+        - name: ownerName
+          value: $(context.pipelineRun.name)
+        - name: ownerUid
+          value: $(context.pipelineRun.uid)
+    - name: provision-cluster
+      runAfter:
+        - eaas-provision-space
+      taskSpec:
+        results:
+          - name: clusterName
+            value: "$(steps.create-cluster.results.clusterName)"
+        steps:
+          - name: get-supported-versions
+            ref:
+              resolver: git
+              params:
+                - name: url
+                  value: https://github.com/konflux-ci/build-definitions.git
+                - name: revision
+                  value: main
+                - name: pathInRepo
+                  value: stepactions/eaas-get-supported-ephemeral-cluster-versions/0.1/eaas-get-supported-ephemeral-cluster-versions.yaml
+            params:
+              - name: eaasSpaceSecretRef
+                value: $(tasks.eaas-provision-space.results.secretRef)
+          - name: pick-version
+            ref:
+              resolver: git
+              params:
+                - name: url
+                  value: https://github.com/konflux-ci/build-definitions.git
+                - name: revision
+                  value: main
+                - name: pathInRepo
+                  value: stepactions/eaas-get-latest-openshift-version-by-prefix/0.1/eaas-get-latest-openshift-version-by-prefix.yaml
+            params:
+              - name: prefix
+                value: "4.14."
+          - name: create-cluster
+            ref:
+              resolver: git
+              params:
+                - name: url
+                  value: https://github.com/konflux-ci/build-definitions.git
+                - name: revision
+                  value: main
+                - name: pathInRepo
+                  value: stepactions/eaas-create-ephemeral-cluster-hypershift-aws/0.1/eaas-create-ephemeral-cluster-hypershift-aws.yaml
+            params:
+              - name: eaasSpaceSecretRef
+                value: $(tasks.eaas-provision-space.results.secretRef)
+              - name: version
+                value: "$(steps.pick-version.results.version)"
+              - name: instanceType
+                value: "m5.2xlarge"
+              - name: timeout
+                value: "40m"
+    - name: tempo-install
+      description: Task to install bundle onto ephemeral namespace
+      runAfter:
+        - provision-cluster
+      params:
+        - name: SNAPSHOT
+          value: $(params.SNAPSHOT)
+        - name: namespace
+          value: "$(params.namespace)"
+      taskSpec:
+        params:
+          - name: SNAPSHOT
+          - name: namespace
+            type: string
+        volumes:
+          - name: credentials
+            emptyDir: {}
+        steps:
+          - name: get-kubeconfig
+            ref:
+              resolver: git
+              params:
+                - name: url
+                  value: https://github.com/konflux-ci/build-definitions.git
+                - name: revision
+                  value: main
+                - name: pathInRepo
+                  value: stepactions/eaas-get-ephemeral-cluster-credentials/0.1/eaas-get-ephemeral-cluster-credentials.yaml
+            params:
+              - name: eaasSpaceSecretRef
+                value: $(tasks.eaas-provision-space.results.secretRef)
+              - name: clusterName
+                value: "$(tasks.provision-cluster.results.clusterName)"
+              - name: credentials
+                value: credentials
+          - name: install-operator
+            env:
+              - name: SNAPSHOT
+                value: $(params.SNAPSHOT)
+              - name: KONFLUX_COMPONENT_NAME
+                valueFrom:
+                  fieldRef:
+                    fieldPath: metadata.labels['appstudio.openshift.io/component']
+              - name: KUBECONFIG
+                value: "/credentials/$(steps.get-kubeconfig.results.kubeconfig)"
+            volumeMounts:
+              - name: credentials
+                mountPath: /credentials
+            image: registry.redhat.io/openshift4/ose-cli:latest
+            script: |
+              echo "Kubeconfig file"
+              cat $KUBECONFIG
+              
+              echo "Install operator-sdk and dependencies"
+              dnf -y install jq python3-pip
+              export OPERATOR_SDK_VERSION=1.36.1
+              export ARCH=$(case $(uname -m) in x86_64) echo -n amd64 ;; aarch64) echo -n arm64 ;; *) echo -n $(uname -m) ;; esac)
+              export OPERATOR_SDK_DL_URL=https://github.com/operator-framework/operator-sdk/releases/download/v${OPERATOR_SDK_VERSION}
+              curl -Lo /usr/local/bin/operator-sdk ${OPERATOR_SDK_DL_URL}/operator-sdk_linux_${ARCH}
+              chmod +x /usr/local/bin/operator-sdk
+              operator-sdk version
+
+              echo "Create namespace to install Tempo Operator"
+              oc create namespace $(params.namespace)
+              oc label namespaces $(params.namespace) openshift.io/cluster-monitoring=true --overwrite=true
+
+              echo "Apply ImageDigestMirrorSet for Tempo FBC"
+              export IMAGE_DIGEST_MIRROR_SET=https://raw.githubusercontent.com/os-observability/konflux-tempo/integration-tests/.tekton/integration-tests/resources/imagedigestmirrorset.yaml
+              curl -Lo /tmp/imagedigestmirrorset.yaml "$IMAGE_DIGEST_MIRROR_SET"
+              oc apply -f /tmp/imagedigestmirrorset.yaml
+
+              echo "Get the bundle image"
+              echo ${KONFLUX_COMPONENT_NAME}
+              export BUNDLE_IMAGE="$(jq -r --arg component_name "$KONFLUX_COMPONENT_NAME" '.components[] | select(.name == $component_name) | .containerImage' <<< "$SNAPSHOT")"
+              echo "${BUNDLE_IMAGE}"
+
+              echo "Install Tempo Operator"
+              operator-sdk run bundle --timeout=5m --namespace "$(params.namespace)" "$BUNDLE_IMAGE" --verbose
+              oc wait --for condition=Available -n "$(params.namespace)" deployment tempo-operator-controller
+    - name: operators-install
+      description: Task to install dependent operators onto ephemeral namespace
+      runAfter:
+        - tempo-install
+      params:
+        - name: SNAPSHOT
+          value: $(params.SNAPSHOT)
+        - name: namespace
+          value: "$(params.namespace)"
+      taskSpec:
+        params:
+          - name: SNAPSHOT
+          - name: namespace
+            type: string
+        volumes:
+          - name: credentials
+            emptyDir: {}
+        steps:
+          - name: get-kubeconfig
+            ref:
+              resolver: git
+              params:
+                - name: url
+                  value: https://github.com/konflux-ci/build-definitions.git
+                - name: revision
+                  value: main
+                - name: pathInRepo
+                  value: stepactions/eaas-get-ephemeral-cluster-credentials/0.1/eaas-get-ephemeral-cluster-credentials.yaml
+            params:
+              - name: eaasSpaceSecretRef
+                value: $(tasks.eaas-provision-space.results.secretRef)
+              - name: clusterName
+                value: "$(tasks.provision-cluster.results.clusterName)"
+              - name: credentials
+                value: credentials
+          - name: install-operators
+            env:
+              - name: SNAPSHOT
+                value: $(params.SNAPSHOT)
+              - name: KONFLUX_COMPONENT_NAME
+                valueFrom:
+                  fieldRef:
+                    fieldPath: metadata.labels['appstudio.openshift.io/component']
+              - name: KUBECONFIG
+                value: "/credentials/$(steps.get-kubeconfig.results.kubeconfig)"
+            volumeMounts:
+              - name: credentials
+                mountPath: /credentials
+            image: registry.redhat.io/openshift4/ose-cli:latest
+            script: |
+              echo "Kubeconfig file"
+              cat $KUBECONFIG
+              
+              echo "Installing dependent operators"
+              export OPERATORS_INSTALL=https://raw.githubusercontent.com/os-observability/konflux-tempo/integration-tests/.tekton/integration-tests/resources/install.yaml
+              curl -Lo /tmp/install.yaml "$OPERATORS_INSTALL"
+              oc apply -f /tmp/install.yaml
+
+              retry_count=30
+              sleep_duration=30
+
+              check_operator_installed() {
+                local operator=$1
+                local namespace=$2
+                local csv=""
+                local retries=0
+
+                for i in $(seq $retry_count); do
+                  if [[ -z "$csv" ]]; then
+                    csv=$(oc get subscription -n $namespace $operator -o jsonpath='{.status.installedCSV}')
+                  fi
+
+                  if [[ -z "$csv" ]]; then
+                    echo "Try ${i}/${retry_count}: can't get the $operator yet. Checking again in $sleep_duration seconds"
+                    sleep $sleep_duration
+                  else
+                    if [[ $(oc get csv -n $namespace $csv -o jsonpath='{.status.phase}') == "Succeeded" ]]; then
+                      echo "$operator is successfully installed in namespace $namespace"
+                      return 0
+                    else
+                      echo "Try ${i}/${retry_count}: $operator is not deployed yet. Checking again in $sleep_duration seconds"
+                      sleep $sleep_duration
+                    fi
+                  fi
+                done
+
+                echo "$operator installation failed after $retry_count retries in namespace $namespace."
+                return 1
+              }
+
+              echo "Checking installation status of operators..."
+              check_operator_installed "opentelemetry-product" openshift-opentelemetry-operator
+              check_operator_installed "kiali-ossm" openshift-operators
+              check_operator_installed "servicemeshoperator" openshift-operators
+              check_operator_installed "serverless-operator" openshift-serverless
+              echo "Operator installation check completed."
+    - name: tempo-e2e-tests
+      description: Task to run tests from service repository
+      runAfter:
+        - operators-install
+      taskSpec:
+        volumes:
+          - name: credentials
+            emptyDir: {}
+        steps:
+          - name: get-kubeconfig
+            ref:
+              resolver: git
+              params:
+                - name: url
+                  value: https://github.com/konflux-ci/build-definitions.git
+                - name: revision
+                  value: main
+                - name: pathInRepo
+                  value: stepactions/eaas-get-ephemeral-cluster-credentials/0.1/eaas-get-ephemeral-cluster-credentials.yaml
+            params:
+              - name: eaasSpaceSecretRef
+                value: $(tasks.eaas-provision-space.results.secretRef)
+              - name: clusterName
+                value: "$(tasks.provision-cluster.results.clusterName)"
+              - name: credentials
+                value: credentials
+          - name: run-e2e-tests
+            volumeMounts:
+              - name: credentials
+                mountPath: /credentials
+            env:
+              - name: KUBECONFIG
+                value: "/credentials/$(steps.get-kubeconfig.results.kubeconfig)"
+            image: registry.redhat.io/openshift4/ose-cli:latest
+            script: |
+              echo "Kubeconfig file"
+              cat $KUBECONFIG
+              
+              echo "Intall dependencies"
+              dnf -y install jq vim unzip git make
+
+              echo "Install GO"
+              curl -Lo /go.tar.gz https://go.dev/dl/go1.22.10.linux-amd64.tar.gz
+              tar -C /usr/local -xzf /go.tar.gz
+              export PATH=$PATH:/usr/local/go/bin
+              # Set the Go path and Go cache environment variables
+              export GOPATH=/tmp/go
+              export GOBIN=/tmp/go/bin
+              export GOCACHE=/tmp/.cache/go-build
+              export PATH=$PATH:/tmp/go/bin
+
+              # Create the /tmp/go/bin and build cache directories, and grant read and write permissions to all users
+              mkdir -p /tmp/go/bin $GOCACHE \
+                && chmod -R 777 /tmp/go/bin $GOPATH $GOCACHE
+              go version
+
+              echo "Install Chainsaw"
+              go install github.com/kyverno/chainsaw@v0.2.6
+
+              echo "Install kubectl and oc"
+              cd /tmp/ \
+              && curl -L -o oc.tar.gz https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/latest/openshift-client-linux-amd64-rhel8.tar.gz \
+              && tar -xvzf oc.tar.gz \
+              && chmod +x kubectl oc \
+              && mv oc kubectl /usr/local/bin/
+
+              echo "Install AWS CLI"
+              curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
+              && unzip awscliv2.zip \
+              && ./aws/install
+
+              echo "Install Azure CLI"
+              rpm --import https://packages.microsoft.com/keys/microsoft.asc \
+              && dnf install -y https://packages.microsoft.com/config/rhel/8/packages-microsoft-prod.rpm \
+              && dnf install -y azure-cli
+
+              echo "Install Google Cloud CLI"
+              curl -LO https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz \
+              && tar -xf google-cloud-cli-linux-x86_64.tar.gz \
+              && ./google-cloud-sdk/install.sh -q
+              export PATH="/tmp/google-cloud-sdk/bin:${PATH}"
+
+              echo "Run e2e tests"
+              git clone https://github.com/IshwarKanse/tempo-operator.git /tmp/tempo-tests
+              cd /tmp/tempo-tests
+              git checkout rhosdt-3-4-downstream
+              make build
+
+              #Enable user workload monitoring.
+              oc apply -f tests/e2e-openshift/monitoring/01-workload-monitoring.yaml
+
+              # Unset environment variable which conflicts with Chainsaw
+              unset NAMESPACE
+
+              # Initialize a variable to keep track of errors
+              any_errors=false
+
+              # Execute Tempo e2e tests
+              chainsaw test \
+              --config .chainsaw-openshift.yaml \
+              --test-dir \
+              tests/e2e \
+              tests/e2e-openshift \
+              tests/e2e-openshift-serverless \
+              tests/e2e-long-running \
+              tests/operator-metrics || any_errors=true
+
+              # Check if any errors occurred
+              if $any_errors; then
+                echo "Tests failed, check the logs for more details."
+                exit 1
+              else
+                echo "All the tests passed."
+              fi
