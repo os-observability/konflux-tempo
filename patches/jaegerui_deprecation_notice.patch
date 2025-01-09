@@ -21,7 +21,7 @@ index 810bcabc..fa73e0ad 100644
 +                message={
 +                  <span style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
 +                    Jaeger UI is deprecated and will be removed in a future release.
-+                    Please <a href="https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/cluster_observability_operator/observability-ui-plugins#distributed-tracing-ui-plugin">install the OpenShift Console distributed tracing plugin</a> to search and visualize traces in the OpenShift Console.
++                    Install the <a href="https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/cluster_observability_operator/installing-cluster-observability-operators">Cluster Observability Operator</a> and the <a href="https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/cluster_observability_operator/observability-ui-plugins#distributed-tracing-ui-plugin">distributed tracing UI plugin</a> to search and visualize traces in the OpenShift Console.
 +                  </span>
 +                }
 +              />
