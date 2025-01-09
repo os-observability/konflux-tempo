@@ -207,6 +207,13 @@ arches:
     name: pam
     evr: 1.3.1-36.el8_10
     sourcerpm: pam-1.3.1-36.el8_10.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/p/patch-2.7.6-11.el8.aarch64.rpm
+    repoid: ubi-8-baseos-rpms
+    size: 137068
+    checksum: sha256:df4e0ff529277632828222b4ad22583155c56c5fbbf95c964018ae1180d60c3a
+    name: patch
+    evr: 2.7.6-11.el8
+    sourcerpm: patch-2.7.6-11.el8.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/s/shadow-utils-4.6-22.el8.aarch64.rpm
     repoid: ubi-8-baseos-rpms
     size: 1272288
@@ -363,6 +370,12 @@ arches:
     checksum: sha256:5a73a9d6ffbc3fa84853486a233e95765189dd0bf7b18059f2b8e763bfc8591f
     name: pam
     evr: 1.3.1-36.el8_10
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/source/SRPMS/Packages/p/patch-2.7.6-11.el8.src.rpm
+    repoid: ubi-8-baseos-source
+    size: 818532
+    checksum: sha256:1dbc060aa6adf18b5269f0f878ebf26a4b3da0edd92b3bc2c152072b9ba72b61
+    name: patch
+    evr: 2.7.6-11.el8
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/source/SRPMS/Packages/s/shadow-utils-4.6-22.el8.src.rpm
     repoid: ubi-8-baseos-source
     size: 1845120
@@ -594,6 +607,13 @@ arches:
     name: pam
     evr: 1.3.1-36.el8_10
     sourcerpm: pam-1.3.1-36.el8_10.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/p/patch-2.7.6-11.el8.ppc64le.rpm
+    repoid: ubi-8-baseos-rpms
+    size: 149460
+    checksum: sha256:077aa35cfe795d8d0816c0b79083c1e65bbcb52ae3ccca4621ac3cc7c03f7297
+    name: patch
+    evr: 2.7.6-11.el8
+    sourcerpm: patch-2.7.6-11.el8.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/s/shadow-utils-4.6-22.el8.ppc64le.rpm
     repoid: ubi-8-baseos-rpms
     size: 1310120
@@ -756,6 +776,12 @@ arches:
     checksum: sha256:5a73a9d6ffbc3fa84853486a233e95765189dd0bf7b18059f2b8e763bfc8591f
     name: pam
     evr: 1.3.1-36.el8_10
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/source/SRPMS/Packages/p/patch-2.7.6-11.el8.src.rpm
+    repoid: ubi-8-baseos-source
+    size: 818532
+    checksum: sha256:1dbc060aa6adf18b5269f0f878ebf26a4b3da0edd92b3bc2c152072b9ba72b61
+    name: patch
+    evr: 2.7.6-11.el8
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/source/SRPMS/Packages/s/shadow-utils-4.6-22.el8.src.rpm
     repoid: ubi-8-baseos-source
     size: 1845120
@@ -980,6 +1006,13 @@ arches:
     name: pam
     evr: 1.3.1-36.el8_10
     sourcerpm: pam-1.3.1-36.el8_10.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/p/patch-2.7.6-11.el8.s390x.rpm
+    repoid: ubi-8-baseos-rpms
+    size: 140820
+    checksum: sha256:339df31fc25d8c0a542d3d71f99c2644327ae6bc5de383f2c77dbb70ef1846b1
+    name: patch
+    evr: 2.7.6-11.el8
+    sourcerpm: patch-2.7.6-11.el8.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/s/shadow-utils-4.6-22.el8.s390x.rpm
     repoid: ubi-8-baseos-rpms
     size: 1270628
@@ -1136,6 +1169,12 @@ arches:
     checksum: sha256:5a73a9d6ffbc3fa84853486a233e95765189dd0bf7b18059f2b8e763bfc8591f
     name: pam
     evr: 1.3.1-36.el8_10
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/source/SRPMS/Packages/p/patch-2.7.6-11.el8.src.rpm
+    repoid: ubi-8-baseos-source
+    size: 818532
+    checksum: sha256:1dbc060aa6adf18b5269f0f878ebf26a4b3da0edd92b3bc2c152072b9ba72b61
+    name: patch
+    evr: 2.7.6-11.el8
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/source/SRPMS/Packages/s/shadow-utils-4.6-22.el8.src.rpm
     repoid: ubi-8-baseos-source
     size: 1845120
@@ -1360,6 +1399,13 @@ arches:
     name: pam
     evr: 1.3.1-36.el8_10
     sourcerpm: pam-1.3.1-36.el8_10.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/p/patch-2.7.6-11.el8.x86_64.rpm
+    repoid: ubi-8-baseos-rpms
+    size: 141384
+    checksum: sha256:7962e7045eb9f550a7e0e385ebecb831c679b8a844354e05f53aec3c10cd3f31
+    name: patch
+    evr: 2.7.6-11.el8
+    sourcerpm: patch-2.7.6-11.el8.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/s/shadow-utils-4.6-22.el8.x86_64.rpm
     repoid: ubi-8-baseos-rpms
     size: 1292332
@@ -1516,6 +1562,12 @@ arches:
     checksum: sha256:5a73a9d6ffbc3fa84853486a233e95765189dd0bf7b18059f2b8e763bfc8591f
     name: pam
     evr: 1.3.1-36.el8_10
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/p/patch-2.7.6-11.el8.src.rpm
+    repoid: ubi-8-baseos-source
+    size: 818532
+    checksum: sha256:1dbc060aa6adf18b5269f0f878ebf26a4b3da0edd92b3bc2c152072b9ba72b61
+    name: patch
+    evr: 2.7.6-11.el8
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/s/shadow-utils-4.6-22.el8.src.rpm
     repoid: ubi-8-baseos-source
     size: 1845120

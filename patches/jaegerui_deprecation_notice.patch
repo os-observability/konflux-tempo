@@ -1,0 +1,43 @@
+diff --git a/packages/jaeger-ui/src/components/App/Page.tsx b/packages/jaeger-ui/src/components/App/Page.tsx
+index 810bcabc..fa73e0ad 100644
+--- a/packages/jaeger-ui/src/components/App/Page.tsx
++++ b/packages/jaeger-ui/src/components/App/Page.tsx
+@@ -13,7 +13,7 @@
+ // limitations under the License.
+ 
+ import * as React from 'react';
+-import { Layout } from 'antd';
++import { Alert, Layout } from 'antd';
+ import cx from 'classnames';
+ import Helmet from 'react-helmet';
+ import { connect } from 'react-redux';
+@@ -59,6 +59,16 @@ export class PageImpl extends React.Component<TProps> {
+         <Layout>
+           {!embedded && (
+             <Header className="Page--topNav">
++              <Alert
++                type="warning"
++                banner
++                message={
++                  <span style={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
++                    Jaeger UI is deprecated and will be removed in a future release.
++                    Install the <a href="https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/cluster_observability_operator/installing-cluster-observability-operators">Cluster Observability Operator</a> and the <a href="https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/cluster_observability_operator/observability-ui-plugins#distributed-tracing-ui-plugin">distributed tracing UI plugin</a> to search and visualize traces in the OpenShift Console.
++                  </span>
++                }
++              />
+               <TopNav />
+             </Header>
+           )}
+diff --git a/packages/jaeger-ui/src/components/common/utils.css b/packages/jaeger-ui/src/components/common/utils.css
+index 3a9027f5..3327485e 100644
+--- a/packages/jaeger-ui/src/components/common/utils.css
++++ b/packages/jaeger-ui/src/components/common/utils.css
+@@ -15,7 +15,7 @@ limitations under the License.
+ */
+ 
+ :root {
+-  --nav-height: 48px;
++  --nav-height: 86px;
+ }
+ 
+ .u-width-100 {

@@ -3,10 +3,15 @@ FROM registry.redhat.io/ubi9/nodejs-22:latest@sha256:1260d0a794193dc5939433ccab1
 WORKDIR /opt/app-root/src
 USER root
 
+COPY patches patches
 COPY jaeger-ui jaeger-ui
 # this directory is checked by ecosystem-cert-preflight-checks task in Konflux
 COPY jaeger-ui/LICENSE /licenses/
 WORKDIR /opt/app-root/src/jaeger-ui
+
+# add deprecation notice to Jaeger UI
+RUN dnf install -y patch
+RUN patch -p1 < /opt/app-root/src/patches/jaegerui_deprecation_notice.patch
 
 RUN npm ci --ignore-scripts
 RUN npm run build
