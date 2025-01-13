@@ -9,6 +9,9 @@ COPY tempo tempo
 COPY tempo/LICENSE /licenses/
 WORKDIR /opt/app-root/src/tempo
 
+RUN dnf install -y patch
+RUN patch -p1 < /opt/app-root/src/patches/tempo.patch
+
 RUN exportOrFail() { echo $1; if [[ $1 == *= ]]; then echo "Error: empty variable assignment"; exit 1; else export "$1"; fi } && \
     exportOrFail GIT_BRANCH=`git rev-parse --abbrev-ref HEAD` && \
     exportOrFail GIT_REVISION=`git rev-parse --short HEAD` && \

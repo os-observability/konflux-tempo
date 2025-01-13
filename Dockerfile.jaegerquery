@@ -27,6 +27,9 @@ COPY jaeger jaeger
 COPY jaeger/LICENSE /licenses/
 WORKDIR /opt/app-root/src/jaeger
 
+RUN dnf install -y patch
+RUN patch -p1 < /opt/app-root/src/patches/jaeger.patch
+
 COPY --from=builder-ui /opt/app-root/src/jaeger-ui /opt/app-root/src/jaeger-ui
 
 RUN rm -rf ./cmd/query/app/ui/actual && mkdir ./cmd/query/app/ui/actual && cp -r /opt/app-root/src/jaeger-ui/packages/jaeger-ui/build/* ./cmd/query/app/ui/actual/ && find ./cmd/query/app/ui/actual -type f | xargs gzip && \

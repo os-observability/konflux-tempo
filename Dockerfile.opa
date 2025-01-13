@@ -9,6 +9,9 @@ COPY opa-openshift opa-openshift
 COPY api/LICENSE /licenses/
 WORKDIR /opt/app-root/src/opa-openshift
 
+RUN dnf install -y patch
+RUN patch -p1 < /opt/app-root/src/patches/opa-openshift.patch
+
 RUN CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -mod=mod -tags strictfipsruntime -o opa-openshift -trimpath -ldflags "-s -w"
 
 FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:cf095e5668919ba1b4ace3888107684ad9d587b1830d3eb56973e6a54f456e67
