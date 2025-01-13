@@ -3,6 +3,7 @@ import subprocess
 import json
 import re
 import argparse
+from urllib.request import urlopen, Request
 from datetime import datetime
 
 def is_latest_creationTimestamp(a, b):
@@ -21,39 +22,63 @@ def get_latest_resource(resources):
             latest_resource = resource
     return latest_resource
 
-def main():
-    parser = argparse.ArgumentParser()
-    group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument('--snapshot')
-    group.add_argument('--commit')
-    args = parser.parse_args()
-
+def get_snapshot(args):
     if args.snapshot:
         p = subprocess.run(["kubectl", "get", "snapshot", args.snapshot, "-o", "json"], capture_output=True, text=True, check=True)
-        snapshot = json.loads(p.stdout)
+        return json.loads(p.stdout)
     elif args.commit:
         p = subprocess.run(["kubectl", "get", "snapshot", "-l", f"pac.test.appstudio.openshift.io/sha={args.commit},appstudio.openshift.io/application=tempo", "-o", "json"], capture_output=True, text=True, check=True)
         snapshots = json.loads(p.stdout)
         if len(snapshots["items"]) == 0:
             raise Exception("No snapshot found.")
-        snapshot = get_latest_resource(snapshots)
-        print(f"Using snapshot {snapshot['metadata']['name']}")
+        return get_latest_resource(snapshots)
+    else:
+        p = subprocess.run(["kubectl", "get", "snapshot", "-l", "appstudio.openshift.io/application=tempo", "-o", "json"], capture_output=True, text=True, check=True)
+        snapshots = json.loads(p.stdout)
+        if len(snapshots["items"]) == 0:
+            raise Exception("No snapshot found.")
+        return get_latest_resource(snapshots)
+
+COMMIT_CACHE = {}
+def get_commit_info(commit):
+    if commit in COMMIT_CACHE:
+        return COMMIT_CACHE[commit]
+
+    url = f"https://api.github.com/repos/os-observability/konflux-tempo/commits/{commit}"
+    with urlopen(Request(url)) as response:
+        COMMIT_CACHE[commit] = json.load(response)
+    return COMMIT_CACHE[commit]
+
+def main():
+    parser = argparse.ArgumentParser()
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('--snapshot')
+    group.add_argument('--commit')
+    args = parser.parse_args()
 
     with open("bundle-patch/bundle.env", "r") as f:
         bundle_env = f.read()
 
-    for component in snapshot["spec"]["components"]:
-        name = component["name"]
-        if name.endswith("-bundle") or name.endswith("-bundle-quay"):
-            continue
+    snapshot = get_snapshot(args)
+    components = [{**component, "commit_info": get_commit_info(component["source"]["git"]["revision"])} for component in snapshot["spec"]["components"]]
+    components_sorted = sorted(components, key=lambda component: component["commit_info"]["commit"]["committer"]["date"]+component["name"])
 
+    print(f"Snapshot {snapshot['metadata']['name']}\n")
+    print(f"{'COMPONENT':<18}  {'COMMIT DATE':<20}  {'REVISION':<40}")
+    for component in components_sorted:
+        name = component["name"]
         pullspec = component["containerImage"]
+        revision = component["source"]["git"]["revision"]
+        commit_date = component["commit_info"]["commit"]["committer"]["date"]
         env_name = f"{name.upper().replace("-", "_")}_IMAGE_PULLSPEC"
         line_regexp = f"^{env_name}=.+$"
 
+        print(f"{name:<18}  {commit_date:<20}  {revision:<40}")
+        if name.endswith("-bundle") or name.endswith("-bundle-quay"):
+            continue
+
         if not re.search(line_regexp, bundle_env, flags=re.MULTILINE):
             raise Exception(f"Cannot find env var {env_name} in bundle.env")
-
         bundle_env = re.sub(line_regexp, f"{env_name}={pullspec}", bundle_env, flags=re.MULTILINE)
 
     with open("bundle-patch/bundle.env", "w") as f:

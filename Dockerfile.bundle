@@ -42,8 +42,8 @@ LABEL operators.operatorframework.io.test.mediatype.v1=scorecard+v1
 LABEL operators.operatorframework.io.test.config.v1=tests/scorecard/
 
 
-LABEL release="0.14.1-1" \
-      version="0.14.1-1" \
+LABEL release="0.14.2-1" \
+      version="0.14.2-1" \
       com.redhat.openshift.versions=v4.12 \
       name="rhosdt/tempo-operator-bundle" \
       distribution-scope="public" \
