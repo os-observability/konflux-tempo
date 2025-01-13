@@ -228,13 +228,6 @@ arches:
     name: systemd
     evr: 239-82.el8_10.3
     sourcerpm: systemd-239-82.el8_10.3.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/s/systemd-libs-239-82.el8_10.3.aarch64.rpm
-    repoid: ubi-8-baseos-rpms
-    size: 1095936
-    checksum: sha256:e97d3f1a6d71c8e5253f017ff379cc45a556958c96858411dee7cccb42bb6032
-    name: systemd-libs
-    evr: 239-82.el8_10.3
-    sourcerpm: systemd-239-82.el8_10.3.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/s/systemd-pam-239-82.el8_10.3.aarch64.rpm
     repoid: ubi-8-baseos-rpms
     size: 486184
@@ -626,13 +619,6 @@ arches:
     size: 3883820
     checksum: sha256:4483328185f1712176e8f100ad126a1dcca56105de4c797db7c87fb72b1ff44b
     name: systemd
-    evr: 239-82.el8_10.3
-    sourcerpm: systemd-239-82.el8_10.3.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/s/systemd-libs-239-82.el8_10.3.ppc64le.rpm
-    repoid: ubi-8-baseos-rpms
-    size: 1200448
-    checksum: sha256:3d59b078066bf03b0ce83eab5c7cc3c061222ba3ccc28fa32191a1557b747965
-    name: systemd-libs
     evr: 239-82.el8_10.3
     sourcerpm: systemd-239-82.el8_10.3.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/s/systemd-pam-239-82.el8_10.3.ppc64le.rpm
@@ -1027,13 +1013,6 @@ arches:
     name: systemd
     evr: 239-82.el8_10.3
     sourcerpm: systemd-239-82.el8_10.3.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/s/systemd-libs-239-82.el8_10.3.s390x.rpm
-    repoid: ubi-8-baseos-rpms
-    size: 1063388
-    checksum: sha256:2c91eab41ebfa46ec04a4fe9a58954ce87f942870245c091e6a678649dd047aa
-    name: systemd-libs
-    evr: 239-82.el8_10.3
-    sourcerpm: systemd-239-82.el8_10.3.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/s/systemd-pam-239-82.el8_10.3.s390x.rpm
     repoid: ubi-8-baseos-rpms
     size: 485508
@@ -1418,13 +1397,6 @@ arches:
     size: 3824988
     checksum: sha256:43a73eadde407e528fa59af4f0c4e6f4f3b1c0f388199a54956cfcda42d0c2d9
     name: systemd
-    evr: 239-82.el8_10.3
-    sourcerpm: systemd-239-82.el8_10.3.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/s/systemd-libs-239-82.el8_10.3.x86_64.rpm
-    repoid: ubi-8-baseos-rpms
-    size: 1195952
-    checksum: sha256:b462909b029db1d1ffc2718d015f0a66881bbe2210948eb9b0ab21b037617120
-    name: systemd-libs
     evr: 239-82.el8_10.3
     sourcerpm: systemd-239-82.el8_10.3.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/s/systemd-pam-239-82.el8_10.3.x86_64.rpm
