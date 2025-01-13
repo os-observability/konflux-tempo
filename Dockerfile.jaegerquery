@@ -22,6 +22,7 @@ WORKDIR /opt/app-root/src
 USER root
 
 COPY .git .git
+COPY patches patches
 COPY jaeger jaeger
 # this directory is checked by ecosystem-cert-preflight-checks task in Konflux
 COPY jaeger/LICENSE /licenses/

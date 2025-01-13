@@ -4,6 +4,7 @@ WORKDIR /opt/app-root/src
 USER root
 
 COPY .git .git
+COPY patches patches
 COPY tempo tempo
 # this directory is checked by ecosystem-cert-preflight-checks task in Konflux
 COPY tempo/LICENSE /licenses/

@@ -4,6 +4,7 @@ WORKDIR /opt/app-root/src
 USER root
 
 COPY .git .git
+COPY patches patches
 COPY opa-openshift opa-openshift
 # this directory is checked by ecosystem-cert-preflight-checks task in Konflux
 COPY api/LICENSE /licenses/
