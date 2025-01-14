@@ -17,8 +17,8 @@ RUN exportOrFail() { echo $1; if [[ $1 == *= ]]; then echo "Error: empty variabl
     exportOrFail TEMPO_VERSION=`cat config/manager/manager.yaml | grep -oP "docker.io/grafana/tempo:\K.*"` && \
     exportOrFail TEMPO_QUERY_VERSION=`cat config/manager/manager.yaml | grep -oP "docker.io/grafana/tempo-query:\K.*"` && \
     CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -mod=mod -tags strictfipsruntime \
-      -o "tempo-operator" -trimpath -ldflags "-s -w" \
-      -ldflags "-X ${VERSION_PKG}.buildDate=${BUILD_DATE} \
+      -o "tempo-operator" -trimpath -ldflags "-s -w \
+                -X ${VERSION_PKG}.buildDate=${BUILD_DATE} \
                 -X ${VERSION_PKG}.revision=${COMMIT_SHA} \
                 -X ${VERSION_PKG}.operatorVersion=${GIT_LATEST_TAG_AND_SHA} \
                 -X ${VERSION_PKG}.tempoVersion=${TEMPO_VERSION} \
