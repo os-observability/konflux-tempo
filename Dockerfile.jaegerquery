@@ -36,8 +36,8 @@ RUN rm -rf ./cmd/query/app/ui/actual && mkdir ./cmd/query/app/ui/actual && cp -r
     exportOrFail GIT_LATEST_TAG=`git describe --abbrev=0 --tags --always` && \
     exportOrFail GIT_COMMIT_SHA=`git rev-parse HEAD` && \
     CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -C ./cmd/query -mod=mod -tags strictfipsruntime,ui \
-      -o ./jaeger -trimpath -ldflags "-s -w" \
-      -ldflags "-X ${VERSION_PKG}.commitSHA=${GIT_COMMIT_SHA} \
+      -o ./jaeger -trimpath -ldflags "-s -w \
+                -X ${VERSION_PKG}.commitSHA=${GIT_COMMIT_SHA} \
                 -X ${VERSION_PKG}.latestVersion=${GIT_LATEST_TAG} \
                 -X ${VERSION_PKG}.date=${VERSION_DATE}"
 
