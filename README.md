@@ -18,7 +18,9 @@ podman build -t docker.io/user/tempo-operator:$(date +%s) -f Dockerfile.operator
 Update all base images (merge renovatebot PRs).
 
 Create a PR `Release - update upstream sources x.y`:
-1. Update git submodules with upstream versions
+1. Update git submodules with upstream versions.
+  **Note:** If you use a forked repository instead of upstream, you must sync the git tags.
+  The version information is set dynamically using `git describe --tags` in the Dockerfile, and is crucial for e.g. the upgrade process of the operator.
 
 ### Bundle
 Wait for renovatebot to create PRs to update the hash in the `bundle-patch/update_bundle.sh` file, and merge all of them.
