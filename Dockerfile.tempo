@@ -12,7 +12,7 @@ WORKDIR /opt/app-root/src/tempo
 RUN exportOrFail() { echo $1; if [[ $1 == *= ]]; then echo "Error: empty variable assignment"; exit 1; else export "$1"; fi } && \
     exportOrFail GIT_BRANCH=`git rev-parse --abbrev-ref HEAD` && \
     exportOrFail GIT_REVISION=`git rev-parse --short HEAD` && \
-    exportOrFail VERSION=2.6.1 && \
+    exportOrFail VERSION=`git describe --tags --abbrev=0 | sed 's/^v//'` && \
     CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -C ./cmd/tempo -tags strictfipsruntime -mod vendor \
       -o "tempo" -trimpath -ldflags "-s -w -X main.Branch=${GIT_BRANCH} -X main.Revision=${GIT_REVISION} -X main.Version=${VERSION}"
 
