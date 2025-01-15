@@ -160,7 +160,7 @@ spec:
               oc label namespaces $(params.namespace) openshift.io/cluster-monitoring=true --overwrite=true
 
               echo "Apply ImageDigestMirrorSet for Tempo FBC"
-              export IMAGE_DIGEST_MIRROR_SET=https://raw.githubusercontent.com/os-observability/konflux-tempo/integration-tests/.tekton/integration-tests/resources/imagedigestmirrorset.yaml
+              export IMAGE_DIGEST_MIRROR_SET=https://raw.githubusercontent.com/os-observability/konflux-tempo/refs/heads/main/.tekton/integration-tests/resources/imagedigestmirrorset.yaml
               curl -Lo /tmp/imagedigestmirrorset.yaml "$IMAGE_DIGEST_MIRROR_SET"
               oc apply -f /tmp/imagedigestmirrorset.yaml
 
@@ -226,7 +226,7 @@ spec:
               cat $KUBECONFIG
               
               echo "Installing dependent operators"
-              export OPERATORS_INSTALL=https://raw.githubusercontent.com/os-observability/konflux-tempo/integration-tests/.tekton/integration-tests/resources/install.yaml
+              export OPERATORS_INSTALL=https://raw.githubusercontent.com/os-observability/konflux-tempo/refs/heads/main/.tekton/integration-tests/resources/install.yaml
               curl -Lo /tmp/install.yaml "$OPERATORS_INSTALL"
               oc apply -f /tmp/install.yaml
 
