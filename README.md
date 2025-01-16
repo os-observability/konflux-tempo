@@ -39,16 +39,11 @@ Create a PR `Release - update bundle version x.y` and update [patch_csv.yaml](./
    ```
 
 ### Catalog
-Once the PR is merged and bundle is built, create another PR `Release - update catalog x.y` with:
-* Updated [catalog template](./catalog/catalog-template.yaml) with the new bundle (get the bundle pullspec from `kubectl get component tempo-bundle -o yaml`):
-   ```bash
-   opm alpha render-template basic --output yaml catalog/catalog-template.yaml > catalog/tempo-product/catalog.yaml && \
-   opm alpha render-template basic --output yaml --migrate-level bundle-object-to-csv-metadata catalog/catalog-template.yaml > catalog/tempo-product-4.17/catalog.yaml && \
-   sed -i 's#quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-bundle#registry.redhat.io/rhosdt/tempo-operator-bundle#g' catalog/tempo-product/catalog.yaml  && \
-   sed -i 's#quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-bundle#registry.redhat.io/rhosdt/tempo-operator-bundle#g' catalog/tempo-product-4.17/catalog.yaml  && \
-   opm validate catalog/tempo-product && \
-   opm validate catalog/tempo-product-4.17
-   ```
+Once the PR is merged and bundle is built, create another PR `Release - update catalog x.y` with the changes from this command:
+```
+./hack/update-catalog --snapshot <tested_snapshot_by_QE>
+```
+
 
 ## Test locally
 
