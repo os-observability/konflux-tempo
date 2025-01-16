@@ -93,6 +93,29 @@ spec:
                 value: "m5.2xlarge"
               - name: timeout
                 value: "40m"
+              - name: imageContentSources
+                value: |
+                  - source: registry.redhat.io/rhosdt/tempo-rhel8-operator
+                    mirrors:
+                      - quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-operator
+                  - source: registry.redhat.io/rhosdt/tempo-rhel8
+                    mirrors:
+                      - quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo
+                  - source: registry.redhat.io/rhosdt/tempo-query-rhel8
+                    mirrors:
+                      - quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-query
+                  - source: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel8
+                    mirrors:
+                      - quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-jaeger-query
+                  - source: registry.redhat.io/rhosdt/tempo-gateway-rhel8
+                    mirrors:
+                      - quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-gateway
+                  - source: registry.redhat.io/rhosdt/tempo-gateway-opa-rhel8
+                    mirrors:
+                      - quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-opa
+                  - source: registry.redhat.io/rhosdt/tempo-operator-bundle
+                    mirrors:
+                      - quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-bundle
     - name: tempo-install
       description: Task to install bundle onto ephemeral namespace
       runAfter:
@@ -158,11 +181,6 @@ spec:
               echo "Create namespace to install Tempo Operator"
               oc create namespace $(params.namespace)
               oc label namespaces $(params.namespace) openshift.io/cluster-monitoring=true --overwrite=true
-
-              echo "Apply ImageDigestMirrorSet for Tempo FBC"
-              export IMAGE_DIGEST_MIRROR_SET=https://raw.githubusercontent.com/os-observability/konflux-tempo/refs/heads/main/.tekton/integration-tests/resources/imagedigestmirrorset.yaml
-              curl -Lo /tmp/imagedigestmirrorset.yaml "$IMAGE_DIGEST_MIRROR_SET"
-              oc apply -f /tmp/imagedigestmirrorset.yaml
 
               echo "Get the bundle image"
               echo ${KONFLUX_COMPONENT_NAME}
