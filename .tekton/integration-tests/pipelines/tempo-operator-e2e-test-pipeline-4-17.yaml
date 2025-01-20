@@ -295,10 +295,30 @@ spec:
           value: $(params.SNAPSHOT)
         - name: namespace
           value: "$(params.namespace)"
+        - name: JAEGER_QUERY_VERSION
+          value: "$(params.jaeger_query_version)"
+        - name: OPERATOR_VERSION
+          value: "$(params.operator_version)"
+        - name: OPERATOR_TEMPO_VERSION
+          value: "$(params.operator_tempo_version)"
+        - name: OPERATOR_TEMPO_QUERY_VERSION
+          value: "$(params.operator_tempo_query_version)"
+        - name: OPERAND_TEMPO_VERSION
+          value: "$(params.operand_tempo_version)"
       taskSpec:
         params:
           - name: SNAPSHOT
           - name: namespace
+            type: string
+          - name: JAEGER_QUERY_VERSION
+            type: string
+          - name: OPERATOR_VERSION
+            type: string
+          - name: OPERATOR_TEMPO_VERSION
+            type: string
+          - name: OPERATOR_TEMPO_QUERY_VERSION
+            type: string
+          - name: OPERAND_TEMPO_VERSION
             type: string
         volumes:
           - name: credentials
@@ -334,11 +354,11 @@ spec:
               set -eu
 
               # Variables for strings to check
-              JAEGER_QUERY_VERSION="gitVersion\":\"v1.62.0"
-              OPERATOR_VERSION="operator-version\":\"0.14.2"
-              OPERATOR_TEMPO_VERSION="tempo-version\":\"2.6.1"
-              OPERATOR_TEMPO_QUERY_VERSION="tempo-query-version\":\"2.6.1"
-              OPERAND_TEMPO_VERSION="tempo, version 2.6.1"
+              JAEGER_QUERY_VERSION=$(params.JAEGER_QUERY_VERSION)
+              OPERATOR_VERSION=$(params.OPERATOR_VERSION)
+              OPERATOR_TEMPO_VERSION=$(params.OPERATOR_TEMPO_VERSION)
+              OPERATOR_TEMPO_QUERY_VERSION=$(params.OPERATOR_TEMPO_QUERY_VERSION)
+              OPERAND_TEMPO_VERSION=$(params.OPERAND_TEMPO_VERSION)
 
               function log_cmd() {
                   echo "\$ $*"
