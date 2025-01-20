@@ -22,6 +22,16 @@ spec:
     - name: namespace
       description: 'Namespace to run tests in'
       default: 'openshift-tempo-operator'
+    - name: jaeger_query_version
+      description: Version of Jaeger Query
+    - name: operator_version
+      description: Version of the operator
+    - name: operator_tempo_version
+      description: Version of the Tempo operator
+    - name: operator_tempo_query_version
+      description: Version of the Tempo query
+    - name: operand_tempo_version
+      description: Version of the Tempo operand
   tasks:
     - name: eaas-provision-space
       taskRef:
