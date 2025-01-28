@@ -16,10 +16,10 @@ metadata:
       "tempo-operator".pathChanged())
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: tempo
-    appstudio.openshift.io/component: tempo-bundle-quay
+    appstudio.openshift.io/application: tempo-{{target_branch}}
+    appstudio.openshift.io/component: tempo-bundle-quay-{{target_branch}}
     pipelines.appstudio.openshift.io/type: build
-  name: tempo-bundle-quay-on-pull-request
+  name: tempo-bundle-quay-{{target_branch}}-on-pull-request
   namespace: rhosdt-tenant
 spec:
   params:

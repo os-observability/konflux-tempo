@@ -16,10 +16,10 @@ metadata:
       "api".pathChanged())
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: tempo
-    appstudio.openshift.io/component: tempo-gateway
+    appstudio.openshift.io/application: tempo-{{target_branch}}
+    appstudio.openshift.io/component: tempo-gateway-{{target_branch}}
     pipelines.appstudio.openshift.io/type: build
-  name: tempo-gateway-on-push
+  name: tempo-gateway-{{target_branch}}-on-push
   namespace: rhosdt-tenant
 spec:
   params:

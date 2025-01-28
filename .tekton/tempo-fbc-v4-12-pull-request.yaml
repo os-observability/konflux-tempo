@@ -10,14 +10,14 @@ metadata:
     pipelinesascode.tekton.dev/on-cel-expression: event == "pull_request" && target_branch == "main" &&
       (".tekton/tempo-fbc-v4-12-pull-request.yaml".pathChanged() ||
       ".tekton/tempo-fbc-v4-12-push.yaml".pathChanged() ||
-      "Dockerfile-4.12.catalog".pathChanged() ||
+      "Dockerfile-v4-12.catalog".pathChanged() ||
       "catalog/***".pathChanged())
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: tempo-fbc-v4-12
-    appstudio.openshift.io/component: tempo-fbc-v4-12
+    appstudio.openshift.io/application: tempo-fbc-v4-12-{{target_branch}}
+    appstudio.openshift.io/component: tempo-fbc-v4-12-{{target_branch}}
     pipelines.appstudio.openshift.io/type: build
-  name: tempo-fbc-v4-12-on-pull-request
+  name: tempo-fbc-v4-12-{{target_branch}}-on-pull-request
   namespace: rhosdt-tenant
 spec:
   params:
@@ -32,7 +32,7 @@ spec:
   - name: image-expires-after
     value: 5d
   - name: dockerfile
-    value: Dockerfile-4.12.catalog
+    value: Dockerfile-v4-12.catalog
   - name: path-context
     value: .
   - name: build-platforms
