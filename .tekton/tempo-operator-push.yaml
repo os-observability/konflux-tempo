@@ -16,10 +16,10 @@ metadata:
       "tempo-operator".pathChanged())
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: tempo-{{target_branch}}
-    appstudio.openshift.io/component: tempo-operator-{{target_branch}}
+    appstudio.openshift.io/application: tempo-main
+    appstudio.openshift.io/component: tempo-operator-main
     pipelines.appstudio.openshift.io/type: build
-  name: tempo-operator-{{target_branch}}-on-push
+  name: tempo-operator-main-on-push
   namespace: rhosdt-tenant
 spec:
   params:

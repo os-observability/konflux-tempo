@@ -16,10 +16,10 @@ metadata:
       "tempo".pathChanged())
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: tempo-{{target_branch}}
-    appstudio.openshift.io/component: tempo-tempo-{{target_branch}}
+    appstudio.openshift.io/application: tempo-main
+    appstudio.openshift.io/component: tempo-tempo-main
     pipelines.appstudio.openshift.io/type: build
-  name: tempo-tempo-{{target_branch}}-on-pull-request
+  name: tempo-tempo-main-on-pull-request
   namespace: rhosdt-tenant
 spec:
   taskRunSpecs:

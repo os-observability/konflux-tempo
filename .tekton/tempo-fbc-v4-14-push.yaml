@@ -13,10 +13,10 @@ metadata:
       "catalog/***".pathChanged())
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: tempo-fbc-v4-14-{{target_branch}}
-    appstudio.openshift.io/component: tempo-fbc-v4-14-{{target_branch}}
+    appstudio.openshift.io/application: tempo-fbc-v4-14-main
+    appstudio.openshift.io/component: tempo-fbc-v4-14-main
     pipelines.appstudio.openshift.io/type: build
-  name: tempo-fbc-v4-14-{{target_branch}}-on-push
+  name: tempo-fbc-v4-14-main-on-push
   namespace: rhosdt-tenant
 spec:
   params:

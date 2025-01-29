@@ -16,10 +16,10 @@ metadata:
       "opa-openshift".pathChanged())
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: tempo-{{target_branch}}
-    appstudio.openshift.io/component: tempo-opa-{{target_branch}}
+    appstudio.openshift.io/application: tempo-main
+    appstudio.openshift.io/component: tempo-opa-main
     pipelines.appstudio.openshift.io/type: build
-  name: tempo-opa-{{target_branch}}-on-pull-request
+  name: tempo-opa-main-on-pull-request
   namespace: rhosdt-tenant
 spec:
   params:
