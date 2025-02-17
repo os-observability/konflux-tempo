@@ -84,5 +84,3 @@ spec:
                         value: tempo-opa-container-pullspec
                       - name: RELATED_IMAGE_OAUTH_PROXY
                         value: ose-oauth-proxy-container-pullspec
-                  - name: kube-rbac-proxy
-                    image: ose-kube-rbac-proxy-container-pullspec
