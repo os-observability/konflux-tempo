@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi9/nodejs-22:latest@sha256:a61181c964de5b9589d7cf62a7d3f1e659b35f3ab92c8f72f932d930e3314440 as builder-ui
+FROM registry.redhat.io/ubi9/nodejs-22:latest@sha256:81dcfe68f1c740b166c641ac43967ce1580f5242414fc7c0edb4c3dae71d57e9 as builder-ui
 
 WORKDIR /opt/app-root/src
 USER root
