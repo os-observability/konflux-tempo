@@ -1,6 +1,6 @@
 [submodule "tempo-operator"]
 	path = tempo-operator
-	url = https://github.com/os-observability/tempo-operator.git
+	url = https://github.com/grafana/tempo-operator.git
 [submodule "tempo"]
 	path = tempo
 	url = https://github.com/os-observability/tempo.git
@@ -9,10 +9,10 @@
 	url = https://github.com/os-observability/api.git
 [submodule "opa-openshift"]
 	path = opa-openshift
-	url = https://github.com/os-observability/opa-openshift.git
+	url = https://github.com/observatorium/opa-openshift.git
 [submodule "jaeger"]
 	path = jaeger
-	url = https://github.com/os-observability/jaeger.git
+	url = https://github.com/jaegertracing/jaeger.git
 [submodule "jaeger-ui"]
 	path = jaeger-ui
 	url = https://github.com/jaegertracing/jaeger-ui
