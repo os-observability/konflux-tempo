@@ -1,10 +1,27 @@
 import os
+import yaml
 from collections import OrderedDict
 from sys import exit as sys_exit
 from datetime import datetime
-from ruamel.yaml import YAML
-yaml = YAML()
-yaml.preserve_quotes = True
+
+def _str_presenter(dumper, data):
+    """
+    Preserve multiline strings when dumping yaml.
+    https://github.com/yaml/pyyaml/issues/240
+    """
+    if "\n" in data:
+        # Remove trailing spaces messing out the output.
+        block = "\n".join([line.rstrip() for line in data.splitlines()])
+        if data.endswith("\n"):
+            block += "\n"
+        return dumper.represent_scalar("tag:yaml.org,2002:str", block, style="|")
+    if data == "":
+        return dumper.represent_scalar("tag:yaml.org,2002:str", data, style='"')
+
+    return dumper.represent_scalar("tag:yaml.org,2002:str", data)
+
+yaml.add_representer(str, _str_presenter)
+yaml.representer.SafeRepresenter.add_representer(str, _str_presenter)
 
 def load_manifest(pathn):
    if not pathn.endswith(".yaml"):
@@ -18,7 +35,7 @@ def load_manifest(pathn):
 
 def dump_manifest(pathn, manifest):
    with open(pathn, "w") as f:
-      yaml.dump(manifest, f)
+      yaml.dump(manifest, f,  default_flow_style=False, encoding='utf-8', allow_unicode=True)
    return
 
 def get_container(containers_array, container_name):
@@ -71,7 +88,7 @@ upstream_csv['spec']['relatedImages'] = [
 with open('./patch_csv.yaml') as pf:
     patch = yaml.load(pf)
 
-    if patch['metadata'].get(['labels']) is not None:
+    if patch['metadata'].get('labels') is not None:
         upstream_csv['metadata']['labels'].update(patch['metadata']['labels'])
     upstream_csv['metadata']['annotations'].update(patch['metadata']['extra_annotations'])
     upstream_csv['spec']['description'] = patch['spec']['description']

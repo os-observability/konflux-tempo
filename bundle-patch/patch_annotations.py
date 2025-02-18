@@ -1,9 +1,8 @@
 import os
+import yaml
 from collections import OrderedDict
 from sys import exit as sys_exit
 from datetime import datetime
-from ruamel.yaml import YAML
-yaml = YAML()
 
 annotations_file = "/metadata/annotations.yaml"
 
@@ -15,4 +14,4 @@ with open('./patch_annotations.yaml') as pf:
         upstream_annotations['annotations'].update(patch['extra_annotations'])
 
     with open(annotations_file, 'w') as f:
-        yaml.dump(upstream_annotations, f)
+        yaml.dump(upstream_annotations, f, default_flow_style=False, encoding='utf-8', allow_unicode=True)

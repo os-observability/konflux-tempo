@@ -1,9 +1,10 @@
-FROM registry.redhat.io/ubi9/ubi:latest@sha256:d342aa80781bf41c4c73485c41d8f1e2dbc40ee491633d9cafe787c361dd44ff as builder
+FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:d16d4445b1567f29449fba3b6d2bc37db467dc3067d33e940477e55aecdf6e8e as builder
 
 USER root
 WORKDIR /
 
-RUN dnf install -y python3 python3-ruamel-yaml-clib python3-ruamel-yaml patch
+RUN microdnf update -y && rm -rf /var/cache/yum && \
+    microdnf install -y python3 python3-pyyaml patch
 
 RUN mkdir /licenses
 COPY tempo-operator/LICENSE /licenses/.
