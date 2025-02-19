@@ -314,9 +314,6 @@ spec:
         operator: in
         values:
         - "false"
-      workspaces:
-        - name: source
-          workspace: workspace
     - name: sast-coverity-check
       params:
         - name: image-url
