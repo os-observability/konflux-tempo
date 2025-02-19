@@ -49,3 +49,5 @@ spec:
     - name: git-auth
       secret:
         secretName: '{{ git_auth_secret }}'
+    - name: source
+      workspace: workspace
