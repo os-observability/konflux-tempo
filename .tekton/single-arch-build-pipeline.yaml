@@ -421,6 +421,8 @@ spec:
     workspaces:
     - name: git-auth
       optional: true
+    - name: workspace
+      optional: true
     results:
     - name: IMAGE_URL
       description: ''
@@ -467,6 +469,4 @@ spec:
         value: "$(params.output-image)"
       - name: build-task-status
         value: "$(tasks.build-container.status)"
-    - name: workspace
-      optional: true
 
