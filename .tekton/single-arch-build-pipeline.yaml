@@ -292,6 +292,9 @@ spec:
           operator: in
           values:
             - success
+      workspaces:
+        - name: source
+          workspace: workspace
     - name: coverity-availability-check
       runAfter:
         - build-container
