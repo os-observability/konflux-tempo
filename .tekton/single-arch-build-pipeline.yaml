@@ -464,3 +464,4 @@ spec:
         value: "$(params.output-image)"
       - name: build-task-status
         value: "$(tasks.build-container.status)"
+
