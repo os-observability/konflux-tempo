@@ -166,7 +166,7 @@ arches:
     name: python3
     evr: 3.6.8-69.el8_10
   module_metadata:
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/7c8043c03b11b584ceb6cf27c6019ee6d712333db0a084d18f0fe79d8ef7ae30-modules.yaml.gz
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/55d582302088194eb99939d043ef544e00a3c14e2e8d989417a34be0b2057936-modules.yaml.gz
     repoid: ubi-8-for-x86_64-appstream-rpms
-    size: 60338
-    checksum: sha256:7c8043c03b11b584ceb6cf27c6019ee6d712333db0a084d18f0fe79d8ef7ae30
+    size: 60352
+    checksum: sha256:55d582302088194eb99939d043ef544e00a3c14e2e8d989417a34be0b2057936
