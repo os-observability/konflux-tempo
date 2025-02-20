@@ -19,5 +19,8 @@
       ],
       "fileFilters": ["**/rpms.lock.yaml"]
     }
+  },
+  "git-submodules": {
+    "enabled": false
   }
 }
