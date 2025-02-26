@@ -4,7 +4,7 @@ from collections import OrderedDict
 from sys import exit as sys_exit
 from datetime import datetime
 
-annotations_file = "/metadata/annotations.yaml"
+annotations_file = "metadata/annotations.yaml"
 
 with open('./patch_annotations.yaml') as pf:
     patch = yaml.load(pf)

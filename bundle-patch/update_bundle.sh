@@ -13,7 +13,7 @@ if [[ $REGISTRY == "registry.redhat.io" || $REGISTRY == "registry.stage.redhat.i
 fi
 
 
-export CSV_FILE=/manifests/tempo-operator.clusterserviceversion.yaml
+export CSV_FILE=manifests/tempo-operator.clusterserviceversion.yaml
 
 sed -i "s#tempo-container-pullspec#$TEMPO_TEMPO_IMAGE_PULLSPEC#g" patch_csv.yaml
 sed -i "s#tempo-query-container-pullspec#$TEMPO_QUERY_IMAGE_PULLSPEC#g" patch_csv.yaml
