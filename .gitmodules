@@ -3,10 +3,10 @@
 	url = https://github.com/grafana/tempo-operator.git
 [submodule "tempo"]
 	path = tempo
-	url = https://github.com/os-observability/tempo.git
+	url = https://github.com/grafana/tempo.git
 [submodule "api"]
 	path = api
-	url = https://github.com/os-observability/api.git
+	url = https://github.com/observatorium/api.git
 [submodule "opa-openshift"]
 	path = opa-openshift
 	url = https://github.com/observatorium/opa-openshift.git
