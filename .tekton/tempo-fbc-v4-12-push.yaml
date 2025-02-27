@@ -9,7 +9,7 @@ metadata:
     pipelinesascode.tekton.dev/on-cel-expression: event == "push" && target_branch == "main" &&
       (".tekton/tempo-fbc-v4-12-pull-request.yaml".pathChanged() ||
       ".tekton/tempo-fbc-v4-12-push.yaml".pathChanged() ||
-      ".tekton/single-arch-build-pipeline.yaml".pathChanged() ||
+      ".tekton/fbc-build-pipeline.yaml".pathChanged() ||
       "Dockerfile-v4-12.catalog".pathChanged() ||
       "catalog/***".pathChanged())
   creationTimestamp: null
