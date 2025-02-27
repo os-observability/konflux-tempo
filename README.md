@@ -54,14 +54,77 @@ Once the PR is merged and bundle is built, create another PR `Release - update c
 
 Images can be found at https://quay.io/organization/redhat-user-workloads (search for `rhosdt-tenant/tempo`).
 
+### Deploy Image Digest Mirror Set
+
+Before using the bundle or catalog method for installing the operator, the ImageDigestMirrorSet needs to be created. The bundle and catalog uses pullspecs from `registry.redhat.io` which are not available before the release. Therefore the images need to be re-mapped.
+
+From https://konflux.pages.redhat.com/docs/users/getting-started/building-olm-products.html#releasing-a-fbc-component
+
+```yaml
+kubectl apply -f - <<EOF
+apiVersion: config.openshift.io/v1
+kind: ImageDigestMirrorSet
+metadata:
+  name: tempo-idms
+spec:
+  imageDigestMirrors:
+  - source: registry.redhat.io/rhosdt/tempo-rhel8-operator
+    mirrors:
+      - quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-operator
+  - source: registry.redhat.io/rhosdt/tempo-rhel8
+    mirrors:
+      - quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo
+  - source: registry.redhat.io/rhosdt/tempo-query-rhel8
+    mirrors:
+      - quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-query
+  - source: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel8
+    mirrors:
+      - quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-jaeger-query
+  - source: registry.redhat.io/rhosdt/tempo-gateway-rhel8
+    mirrors:
+      - quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-gateway
+  - source: registry.redhat.io/rhosdt/tempo-gateway-opa-rhel8
+    mirrors:
+      - quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-opa
+  - source: registry.redhat.io/rhosdt/tempo-operator-bundle
+    mirrors:
+      - quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-bundle
+EOF
+```
+
 ### Deploy bundle
 
-get latest pullspec from `kubectl get component tempo-bundle-quay -o yaml`, then run:
+get latest pullspec from `kubectl get component tempo-bundle-main -o yaml`, then run:
 ```bash
 kubectl create namespace openshift-tempo-operator
 operator-sdk run bundle -n openshift-tempo-operator quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-bundle-quay@sha256:7b3cde3d776981c8de5b394f26e560ecd25fad29f074b7ca7b11d89ebbdfc769
 operator-sdk cleanup -n openshift-tempo-operator tempo-product
 ```
+### Deploy catalog
+
+Get catalog for specific version from [Konflux](https://console.redhat.com/application-pipeline/workspaces/rhosdt/applications/tempo-fbc-v4-15-main/components/tempo-fbc-v4-15-main)
+
+```yaml
+kubectl apply -f - <<EOF
+apiVersion: operators.coreos.com/v1alpha1
+kind: CatalogSource
+metadata:
+   name: konflux-catalog-tempo
+   namespace: openshift-marketplace
+spec:
+   sourceType: grpc
+   image: 
+Latest image
+quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-fbc-v4-15:d64cfe50d37c2ceece690d283806f8170f27a4d0
+   displayName: Konflux Catalog Tempo
+   publisher: grpc
+EOF
+
+kubectl get pods -w -n openshift-marketplace
+kubectl delete CatalogSource konflux-catalog-tempo -n openshift-marketplace
+```
+
+`Konflux catalog Tempo` menu should appear in the OCP console under Operators->OperatorHub.
 
 ### Extract file based catalog from OpenShift index
 
