@@ -61,35 +61,7 @@ Before using the bundle or catalog method for installing the operator, the Image
 From https://konflux.pages.redhat.com/docs/users/getting-started/building-olm-products.html#releasing-a-fbc-component
 
 ```yaml
-kubectl apply -f - <<EOF
-apiVersion: config.openshift.io/v1
-kind: ImageDigestMirrorSet
-metadata:
-  name: tempo-idms
-spec:
-  imageDigestMirrors:
-  - source: registry.redhat.io/rhosdt/tempo-rhel8-operator
-    mirrors:
-      - quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-operator
-  - source: registry.redhat.io/rhosdt/tempo-rhel8
-    mirrors:
-      - quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo
-  - source: registry.redhat.io/rhosdt/tempo-query-rhel8
-    mirrors:
-      - quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-query
-  - source: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel8
-    mirrors:
-      - quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-jaeger-query
-  - source: registry.redhat.io/rhosdt/tempo-gateway-rhel8
-    mirrors:
-      - quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-gateway
-  - source: registry.redhat.io/rhosdt/tempo-gateway-opa-rhel8
-    mirrors:
-      - quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-opa
-  - source: registry.redhat.io/rhosdt/tempo-operator-bundle
-    mirrors:
-      - quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-bundle
-EOF
+kubectl apply -f ./tekton/images-mirror-set.yaml
 ```
 
 ### Deploy bundle
