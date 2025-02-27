@@ -115,6 +115,32 @@ spec:
     workspaces:
     - name: basic-auth
       workspace: git-auth
+  - name: prefetch-dependencies
+    params:
+      - name: input
+        value: $(params.prefetch-input)
+      - name: SOURCE_ARTIFACT
+        value: $(tasks.clone-repository.results.SOURCE_ARTIFACT)
+      - name: ociStorage
+        value: $(params.output-image).prefetch
+      - name: ociArtifactExpiresAfter
+        value: $(params.image-expires-after)
+    runAfter:
+      - clone-repository
+    taskRef:
+      params:
+        - name: name
+          value: prefetch-dependencies-oci-ta
+        - name: bundle
+          value: quay.io/konflux-ci/tekton-catalog/task-prefetch-dependencies-oci-ta:0.2@sha256:752230a646483aebd465a942aef4f35c08e67185609ac26e19a3b931de9b7b0a
+        - name: kind
+          value: task
+      resolver: bundles
+    workspaces:
+      - name: git-basic-auth
+        workspace: git-auth
+      - name: netrc
+        workspace: netrc
   - matrix:
       params:
       - name: PLATFORM
@@ -242,6 +268,56 @@ spec:
       operator: in
       values:
       - "false"
+  - name: fbc-target-index-pruning-check
+    params:
+      - name: IMAGE_URL
+        value: $(tasks.build-image-index.results.IMAGE_URL)
+      - name: IMAGE_DIGEST
+        value: $(tasks.build-image-index.results.IMAGE_DIGEST)
+      - name: TARGET_INDEX
+        value: registry.redhat.io/redhat/redhat-operator-index
+      - name: RENDERED_CATALOG_DIGEST
+        value: $(tasks.validate-fbc.results.RENDERED_CATALOG_DIGEST)
+    runAfter:
+      - validate-fbc
+    taskRef:
+      params:
+        - name: name
+          value: fbc-target-index-pruning-check
+        - name: bundle
+          value: quay.io/konflux-ci/tekton-catalog/task-fbc-target-index-pruning-check:0.1@sha256:299c44a5d6930f7a2c878f20853c705f155231cae36d9f37add4cdb7e75e2e12
+        - name: kind
+          value: task
+      resolver: bundles
+    when:
+      - input: $(params.skip-checks)
+        operator: in
+        values:
+          - "false"
+  - name: fbc-fips-check-oci-ta
+    params:
+      - name: image-digest
+        value: $(tasks.build-image-index.results.IMAGE_DIGEST)
+      - name: image-url
+        value: $(tasks.build-image-index.results.IMAGE_URL)
+      - name: SOURCE_ARTIFACT
+        value: $(tasks.prefetch-dependencies.results.SOURCE_ARTIFACT)
+    runAfter:
+      - build-image-index
+    taskRef:
+      params:
+        - name: name
+          value: fbc-fips-check-oci-ta
+        - name: bundle
+          value: quay.io/konflux-ci/tekton-catalog/task-fbc-fips-check-oci-ta@sha256:cb263beb7f4da0d76e01f1fe299f6ff724b78fdd65c4f1a3caedf5ecda2a64b2
+        - name: kind
+          value: task
+      resolver: bundles
+    when:
+      - input: $(params.skip-checks)
+        operator: in
+        values:
+          - "false"
   workspaces:
   - name: git-auth
     optional: true
