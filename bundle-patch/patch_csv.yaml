@@ -15,6 +15,7 @@ metadata:
     features.operators.openshift.io/cnf: "false"
     features.operators.openshift.io/cni: "false"
     features.operators.openshift.io/csi: "false"
+    console.openshift.io/operator-monitoring-default: "true"
     olm.skipRange: '>=0.6.0 <0.15.3-1'
   name: tempo-operator.v0.15.3-1
 spec:
