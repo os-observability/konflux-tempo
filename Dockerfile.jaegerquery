@@ -44,6 +44,10 @@ RUN rm -rf ./cmd/query/app/ui/actual && mkdir ./cmd/query/app/ui/actual && cp -r
 FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:c38cc770631788157f8ea989df65ff30359c9f8af3246fef244b32caed9d5862
 WORKDIR /
 
+# For installing RPM updates from lock file
+RUN microdnf update -y && rm -rf /var/cache/yum && \
+    microdnf clean all
+
 RUN mkdir /licenses
 COPY jaeger/LICENSE /licenses/.
 COPY --from=builder /opt/app-root/src/jaeger/cmd/query/jaeger /usr/bin/jaeger
