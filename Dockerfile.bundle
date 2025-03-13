@@ -18,7 +18,7 @@ RUN ls metadata -al
 
 # stage - registry.stage.redhat.io, prod - registry.redhat.io
 # set by tempo-bundle-push pipeline
-ARG REGISTRY=quay.io/redhat-user-workloads
+ARG REGISTRY=registry.redhat.io
 
 RUN ./update_bundle.sh && cat manifests/tempo-operator.clusterserviceversion.yaml metadata/annotations.yaml
 
