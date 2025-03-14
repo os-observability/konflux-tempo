@@ -11,7 +11,7 @@ WORKDIR /opt/app-root/src/opa-openshift
 
 RUN CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -mod=mod -tags strictfipsruntime -o opa-openshift -trimpath -ldflags "-s -w"
 
-FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:c38cc770631788157f8ea989df65ff30359c9f8af3246fef244b32caed9d5862
+FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:3544399c893a7f32d16220d22d493ae32e61379668e32bc54a74d8eb6ece80fc
 WORKDIR /
 
 RUN microdnf update -y && rm -rf /var/cache/yum && \
