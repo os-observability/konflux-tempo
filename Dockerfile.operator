@@ -26,7 +26,7 @@ RUN exportOrFail() { echo $1; if [[ $1 == *= ]]; then echo "Error: empty variabl
                 -X ${VERSION_PKG}.tempoQueryVersion=${TEMPO_QUERY_VERSION}" \
                 cmd/main.go
 
-FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:c38cc770631788157f8ea989df65ff30359c9f8af3246fef244b32caed9d5862
+FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:33161cf5ec11ea13bfe60cad64f56a3aa4d893852e8ec44b2fd2a6b40cc38539
 WORKDIR /
 
 RUN microdnf update -y && rm -rf /var/cache/yum && \
