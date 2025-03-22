@@ -117,30 +117,30 @@ spec:
       workspace: git-auth
   - name: prefetch-dependencies
     params:
-      - name: input
-        value: $(params.prefetch-input)
-      - name: SOURCE_ARTIFACT
-        value: $(tasks.clone-repository.results.SOURCE_ARTIFACT)
-      - name: ociStorage
-        value: $(params.output-image).prefetch
-      - name: ociArtifactExpiresAfter
-        value: $(params.image-expires-after)
+    - name: input
+      value: $(params.prefetch-input)
+    - name: SOURCE_ARTIFACT
+      value: $(tasks.clone-repository.results.SOURCE_ARTIFACT)
+    - name: ociStorage
+      value: $(params.output-image).prefetch
+    - name: ociArtifactExpiresAfter
+      value: $(params.image-expires-after)
     runAfter:
-      - clone-repository
+    - clone-repository
     taskRef:
       params:
-        - name: name
-          value: prefetch-dependencies-oci-ta
-        - name: bundle
-          value: quay.io/konflux-ci/tekton-catalog/task-prefetch-dependencies-oci-ta:0.2@sha256:786a6601c654a48e32ea51b2636982d2e096da3027ea701009ca956b74a7d400
-        - name: kind
-          value: task
+      - name: name
+        value: prefetch-dependencies-oci-ta
+      - name: bundle
+        value: quay.io/konflux-ci/tekton-catalog/task-prefetch-dependencies-oci-ta:0.2@sha256:786a6601c654a48e32ea51b2636982d2e096da3027ea701009ca956b74a7d400
+      - name: kind
+        value: task
       resolver: bundles
     workspaces:
-      - name: git-basic-auth
-        workspace: git-auth
-      - name: netrc
-        workspace: netrc
+    - name: git-basic-auth
+      workspace: git-auth
+    - name: netrc
+      workspace: netrc
   - matrix:
       params:
       - name: PLATFORM
@@ -259,7 +259,7 @@ spec:
       - name: name
         value: validate-fbc
       - name: bundle
-        value: quay.io/konflux-ci/tekton-catalog/task-validate-fbc:0.1@sha256:eb9ab5e0f8eef5700dbe08cf7576b71f6f218e5f7d4c53fe82c6c76a43111d12
+        value: quay.io/konflux-ci/tekton-catalog/task-validate-fbc:0.1@sha256:ecb9fa56b199afef7a39c6311f3d9c25129797d8c3c103770a7133af617768ee
       - name: kind
         value: task
       resolver: bundles
@@ -270,54 +270,54 @@ spec:
       - "false"
   - name: fbc-target-index-pruning-check
     params:
-      - name: IMAGE_URL
-        value: $(tasks.build-image-index.results.IMAGE_URL)
-      - name: IMAGE_DIGEST
-        value: $(tasks.build-image-index.results.IMAGE_DIGEST)
-      - name: TARGET_INDEX
-        value: registry.redhat.io/redhat/redhat-operator-index
-      - name: RENDERED_CATALOG_DIGEST
-        value: $(tasks.validate-fbc.results.RENDERED_CATALOG_DIGEST)
+    - name: IMAGE_URL
+      value: $(tasks.build-image-index.results.IMAGE_URL)
+    - name: IMAGE_DIGEST
+      value: $(tasks.build-image-index.results.IMAGE_DIGEST)
+    - name: TARGET_INDEX
+      value: registry.redhat.io/redhat/redhat-operator-index
+    - name: RENDERED_CATALOG_DIGEST
+      value: $(tasks.validate-fbc.results.RENDERED_CATALOG_DIGEST)
     runAfter:
-      - validate-fbc
+    - validate-fbc
     taskRef:
       params:
-        - name: name
-          value: fbc-target-index-pruning-check
-        - name: bundle
-          value: quay.io/konflux-ci/tekton-catalog/task-fbc-target-index-pruning-check:0.1@sha256:9c8488152c335b61fc830a83ee57b3eb9784cbc95816d5f2f0a2551177728629
-        - name: kind
-          value: task
+      - name: name
+        value: fbc-target-index-pruning-check
+      - name: bundle
+        value: quay.io/konflux-ci/tekton-catalog/task-fbc-target-index-pruning-check:0.1@sha256:e83a377233b9ef4d8bcfd4b42d7b00d1bb45bd65bf7eaf06a9676b3c1facb955
+      - name: kind
+        value: task
       resolver: bundles
     when:
-      - input: $(params.skip-checks)
-        operator: in
-        values:
-          - "false"
+    - input: $(params.skip-checks)
+      operator: in
+      values:
+      - "false"
   - name: fbc-fips-check-oci-ta
     params:
-      - name: image-digest
-        value: $(tasks.build-image-index.results.IMAGE_DIGEST)
-      - name: image-url
-        value: $(tasks.build-image-index.results.IMAGE_URL)
-      - name: SOURCE_ARTIFACT
-        value: $(tasks.prefetch-dependencies.results.SOURCE_ARTIFACT)
+    - name: image-digest
+      value: $(tasks.build-image-index.results.IMAGE_DIGEST)
+    - name: image-url
+      value: $(tasks.build-image-index.results.IMAGE_URL)
+    - name: SOURCE_ARTIFACT
+      value: $(tasks.prefetch-dependencies.results.SOURCE_ARTIFACT)
     runAfter:
-      - build-image-index
+    - build-image-index
     taskRef:
       params:
-        - name: name
-          value: fbc-fips-check-oci-ta
-        - name: bundle
-          value: quay.io/konflux-ci/tekton-catalog/task-fbc-fips-check-oci-ta:0.1@sha256:c7a6265b875ee3e25183b7eb5d8ab4fc6182c20fe875a47d89d5e92593801270
-        - name: kind
-          value: task
+      - name: name
+        value: fbc-fips-check-oci-ta
+      - name: bundle
+        value: quay.io/konflux-ci/tekton-catalog/task-fbc-fips-check-oci-ta:0.1@sha256:c7a6265b875ee3e25183b7eb5d8ab4fc6182c20fe875a47d89d5e92593801270
+      - name: kind
+        value: task
       resolver: bundles
     when:
-      - input: $(params.skip-checks)
-        operator: in
-        values:
-          - "false"
+    - input: $(params.skip-checks)
+      operator: in
+      values:
+      - "false"
   workspaces:
   - name: git-auth
     optional: true
