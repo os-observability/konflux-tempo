@@ -9,8 +9,6 @@ packages:
   - openssl
   - systemd
   - patch
-  - libxml2-2.9.7-19.el8_10
-  - krb5-libs-1.18.2-31.el8_10
 arches:
   - x86_64
   - aarch64
