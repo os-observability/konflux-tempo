@@ -1,0 +1,689 @@
+From c5df0fbdae4f7d77cae5b51d0b5b2fb323389ea0 Mon Sep 17 00:00:00 2001
+From: Andreas Gerstmayr <agerstmayr@redhat.com>
+Date: Tue, 25 Mar 2025 17:04:13 +0100
+Subject: [PATCH] Limit granted permissions of the Tempo Service Account when
+ enabling the Jaeger UI Monitor tab on OpenShift (#10)
+
+Signed-off-by: Andreas Gerstmayr <agerstmayr@redhat.com>
+---
+ .chloggen/thanos_tenancy_port.yaml            | 24 +++++++++
+ .../tempo-operator.clusterserviceversion.yaml | 11 +++-
+ .../tempo-operator.clusterserviceversion.yaml | 11 +++-
+ config/rbac/role.yaml                         |  9 ++++
+ .../tempo/tempomonolithic_controller.go       | 50 ++++++++++++++++++-
+ .../controller/tempo/tempostack_controller.go |  8 ++-
+ .../tempo/tempostack_create_or_update.go      | 44 ++++++++++++++++
+ .../manifests/queryfrontend/query_frontend.go | 45 +++++++++++++----
+ .../queryfrontend/query_frontend_test.go      | 19 ++++---
+ internal/upgrade/v0_15_4.go                   | 15 ++++++
+ internal/upgrade/versions.go                  |  4 ++
+ .../monitoring-monolithic/check_metrics.sh    |  5 +-
+ .../generate-traces-assert.yaml               |  2 +-
+ tests/e2e-openshift/monitoring/03-assert.yaml |  2 +-
+ .../e2e-openshift/monitoring/check_metrics.sh |  5 +-
+ .../check_operator_servicemonitor.yaml        |  1 -
+ .../e2e-openshift/multitenancy/01-assert.yaml |  1 +
+ .../e2e-openshift/red-metrics/03-assert.yaml  | 22 ++++++--
+ .../red-metrics/03-install-tempo.yaml         |  2 +-
+ .../e2e-openshift/red-metrics/05-assert.yaml  |  2 +-
+ .../red-metrics/chainsaw-test.yaml            |  1 +
+ .../red-metrics/check_metrics.sh              |  5 +-
+ 22 files changed, 254 insertions(+), 34 deletions(-)
+ create mode 100755 .chloggen/thanos_tenancy_port.yaml
+ create mode 100644 internal/upgrade/v0_15_4.go
+
+diff --git a/.chloggen/thanos_tenancy_port.yaml b/.chloggen/thanos_tenancy_port.yaml
+new file mode 100755
+index 0000000..8ec9522
+--- /dev/null
++++ b/.chloggen/thanos_tenancy_port.yaml
+@@ -0,0 +1,24 @@
++# One of 'breaking', 'deprecation', 'new_component', 'enhancement', 'bug_fix'
++change_type: bug_fix
++
++# The name of the component, or a single word describing the area of concern, (e.g. tempostack, tempomonolithic, github action)
++component: tempostack
++
++# A brief description of the change. Surround your text with quotes ("") if it needs to start with a backtick (`).
++note: Limit granted permissions of the Tempo Service Account when enabling the Jaeger UI Monitor tab on OpenShift
++
++# One or more tracking issues related to the change
++issues: []
++
++# (Optional) One or more lines of additional information to render under the primary note.
++# These lines will be padded with 2 spaces and then inserted directly into the document.
++# Use pipe (|) for multiline entries.
++subtext: |
++  Previously, the operator assigned the `cluster-monitoring-view` ClusterRole to the Tempo Service Account
++  when the Prometheus endpoint of the Jaeger UI Monitor tab is set to the Thanos Querier on OpenShift.
++
++  With this change, the operator limits the granted permissions to only view metrics of the namespace of the Tempo instance.
++  Additionally, the recommended port of the Thanos Querier service changed from `9091` to `9092` (tenancy-aware port):
++  `.spec.template.queryFrontend.jaegerQuery.monitorTab.prometheusEndpoint: https://thanos-querier.openshift-monitoring.svc.cluster.local:9092`.
++
++  All existing installations, which have the Thanos Querier configured at port 9091, will be upgraded automatically to use port 9092.
+diff --git a/bundle/community/manifests/tempo-operator.clusterserviceversion.yaml b/bundle/community/manifests/tempo-operator.clusterserviceversion.yaml
+index 17f82bc..0bc1c23 100644
+--- a/bundle/community/manifests/tempo-operator.clusterserviceversion.yaml
++++ b/bundle/community/manifests/tempo-operator.clusterserviceversion.yaml
+@@ -74,7 +74,7 @@ metadata:
+     capabilities: Deep Insights
+     categories: Logging & Tracing,Monitoring
+     containerImage: ghcr.io/grafana/tempo-operator/tempo-operator:v0.15.3
+-    createdAt: "2025-02-25T15:23:55Z"
++    createdAt: "2025-03-25T14:45:36Z"
+     description: Create and manage deployments of Tempo, a high-scale distributed
+       tracing backend.
+     operatorframework.io/cluster-monitoring: "true"
+@@ -1388,6 +1388,13 @@ spec:
+           - patch
+           - update
+           - watch
++        - apiGroups:
++          - metrics.k8s.io
++          resources:
++          - pods
++          verbs:
++          - create
++          - get
+         - apiGroups:
+           - monitoring.coreos.com
+           resources:
+@@ -1426,6 +1433,8 @@ spec:
+           resources:
+           - clusterrolebindings
+           - clusterroles
++          - rolebindings
++          - roles
+           verbs:
+           - create
+           - delete
+diff --git a/bundle/openshift/manifests/tempo-operator.clusterserviceversion.yaml b/bundle/openshift/manifests/tempo-operator.clusterserviceversion.yaml
+index f128cba..bf137ff 100644
+--- a/bundle/openshift/manifests/tempo-operator.clusterserviceversion.yaml
++++ b/bundle/openshift/manifests/tempo-operator.clusterserviceversion.yaml
+@@ -74,7 +74,7 @@ metadata:
+     capabilities: Deep Insights
+     categories: Logging & Tracing,Monitoring
+     containerImage: ghcr.io/grafana/tempo-operator/tempo-operator:v0.15.3
+-    createdAt: "2025-02-25T15:23:53Z"
++    createdAt: "2025-03-25T14:45:34Z"
+     description: Create and manage deployments of Tempo, a high-scale distributed
+       tracing backend.
+     operatorframework.io/cluster-monitoring: "true"
+@@ -1398,6 +1398,13 @@ spec:
+           - patch
+           - update
+           - watch
++        - apiGroups:
++          - metrics.k8s.io
++          resources:
++          - pods
++          verbs:
++          - create
++          - get
+         - apiGroups:
+           - monitoring.coreos.com
+           resources:
+@@ -1436,6 +1443,8 @@ spec:
+           resources:
+           - clusterrolebindings
+           - clusterroles
++          - rolebindings
++          - roles
+           verbs:
+           - create
+           - delete
+diff --git a/config/rbac/role.yaml b/config/rbac/role.yaml
+index ed18fc2..6965149 100644
+--- a/config/rbac/role.yaml
++++ b/config/rbac/role.yaml
+@@ -90,6 +90,13 @@ rules:
+   - patch
+   - update
+   - watch
++- apiGroups:
++  - metrics.k8s.io
++  resources:
++  - pods
++  verbs:
++  - create
++  - get
+ - apiGroups:
+   - monitoring.coreos.com
+   resources:
+@@ -128,6 +135,8 @@ rules:
+   resources:
+   - clusterrolebindings
+   - clusterroles
++  - rolebindings
++  - roles
+   verbs:
+   - create
+   - delete
+diff --git a/internal/controller/tempo/tempomonolithic_controller.go b/internal/controller/tempo/tempomonolithic_controller.go
+index f00a7f3..8f34e0f 100644
+--- a/internal/controller/tempo/tempomonolithic_controller.go
++++ b/internal/controller/tempo/tempomonolithic_controller.go
+@@ -10,6 +10,7 @@ import (
+ 	appsv1 "k8s.io/api/apps/v1"
+ 	corev1 "k8s.io/api/core/v1"
+ 	networkingv1 "k8s.io/api/networking/v1"
++	rbacv1 "k8s.io/api/rbac/v1"
+ 	apierrors "k8s.io/apimachinery/pkg/api/errors"
+ 	"k8s.io/apimachinery/pkg/labels"
+ 	"k8s.io/apimachinery/pkg/runtime"
+@@ -158,6 +159,9 @@ func (r *TempoMonolithicReconciler) getOwnedObjects(ctx context.Context, tempo v
+ 		Namespace:     tempo.GetNamespace(),
+ 		LabelSelector: labels.SelectorFromSet(monolithic.CommonLabels(tempo.Name)),
+ 	}
++	clusterWideListOps := &client.ListOptions{
++		LabelSelector: labels.SelectorFromSet(monolithic.CommonLabels(tempo.Name)),
++	}
+ 
+ 	// Add all resources where the operator can conditionally create an object.
+ 	// For example, Ingress and Route can be enabled or disabled in the CR.
+@@ -180,6 +184,46 @@ func (r *TempoMonolithicReconciler) getOwnedObjects(ctx context.Context, tempo v
+ 		ownedObjects[ingressList.Items[i].GetUID()] = &ingressList.Items[i]
+ 	}
+ 
++	// metrics reader for Jaeger UI Monitor Tab
++	rolesList := &rbacv1.RoleList{}
++	err = r.List(ctx, rolesList, listOps)
++	if err != nil {
++		return nil, fmt.Errorf("error listing roles: %w", err)
++	}
++	for i := range rolesList.Items {
++		ownedObjects[rolesList.Items[i].GetUID()] = &rolesList.Items[i]
++	}
++
++	// metrics reader for Jaeger UI Monitor Tab
++	roleBindingList := &rbacv1.RoleBindingList{}
++	err = r.List(ctx, roleBindingList, listOps)
++	if err != nil {
++		return nil, fmt.Errorf("error listing role bindings: %w", err)
++	}
++	for i := range roleBindingList.Items {
++		ownedObjects[roleBindingList.Items[i].GetUID()] = &roleBindingList.Items[i]
++	}
++
++	// TokenReview and SubjectAccessReview when gateway is configured with multi-tenancy in OpenShift mode
++	clusterRoleList := &rbacv1.ClusterRoleList{}
++	err = r.List(ctx, clusterRoleList, clusterWideListOps)
++	if err != nil {
++		return nil, fmt.Errorf("error listing cluster roles: %w", err)
++	}
++	for i := range clusterRoleList.Items {
++		ownedObjects[clusterRoleList.Items[i].GetUID()] = &clusterRoleList.Items[i]
++	}
++
++	// TokenReview and SubjectAccessReview when gateway is configured with multi-tenancy in OpenShift mode
++	clusterRoleBindingList := &rbacv1.ClusterRoleBindingList{}
++	err = r.List(ctx, clusterRoleBindingList, clusterWideListOps)
++	if err != nil {
++		return nil, fmt.Errorf("error listing cluster role bindings: %w", err)
++	}
++	for i := range clusterRoleBindingList.Items {
++		ownedObjects[clusterRoleBindingList.Items[i].GetUID()] = &clusterRoleBindingList.Items[i]
++	}
++
+ 	if r.CtrlConfig.Gates.PrometheusOperator {
+ 		servicemonitorList := &monitoringv1.ServiceMonitorList{}
+ 		err := r.List(ctx, servicemonitorList, listOps)
+@@ -234,7 +278,11 @@ func (r *TempoMonolithicReconciler) SetupWithManager(mgr ctrl.Manager) error {
+ 		Owns(&corev1.Service{}).
+ 		Owns(&corev1.ServiceAccount{}).
+ 		Owns(&appsv1.StatefulSet{}).
+-		Owns(&networkingv1.Ingress{})
++		Owns(&networkingv1.Ingress{}).
++		Owns(&rbacv1.ClusterRole{}).
++		Owns(&rbacv1.ClusterRoleBinding{}).
++		Owns(&rbacv1.Role{}).
++		Owns(&rbacv1.RoleBinding{})
+ 
+ 	if r.CtrlConfig.Gates.OpenShift.OpenShiftRoute {
+ 		builder = builder.Owns(&routev1.Route{})
+diff --git a/internal/controller/tempo/tempostack_controller.go b/internal/controller/tempo/tempostack_controller.go
+index 3dbe2aa..62e913d 100644
+--- a/internal/controller/tempo/tempostack_controller.go
++++ b/internal/controller/tempo/tempostack_controller.go
+@@ -12,6 +12,7 @@ import (
+ 	appsv1 "k8s.io/api/apps/v1"
+ 	corev1 "k8s.io/api/core/v1"
+ 	networkingv1 "k8s.io/api/networking/v1"
++	rbacv1 "k8s.io/api/rbac/v1"
+ 	apierrors "k8s.io/apimachinery/pkg/api/errors"
+ 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+ 	"k8s.io/apimachinery/pkg/fields"
+@@ -53,7 +54,8 @@ type TempoStackReconciler struct {
+ // +kubebuilder:rbac:groups=apps,resources=deployments;statefulsets,verbs=get;list;watch;create;update;patch;delete
+ // +kubebuilder:rbac:groups=apps,resources=deployments/finalizers,verbs=update
+ // +kubebuilder:rbac:groups=networking.k8s.io,resources=ingresses,verbs=get;list;watch;create;update;patch;delete
+-// +kubebuilder:rbac:groups=rbac.authorization.k8s.io,resources=clusterrolebindings;clusterroles,verbs=get;list;watch;create;update;patch;delete
++// +kubebuilder:rbac:groups=rbac.authorization.k8s.io,resources=clusterrolebindings;clusterroles;rolebindings;roles,verbs=get;list;watch;create;update;patch;delete
++// +kubebuilder:rbac:groups=metrics.k8s.io,resources=pods,verbs=create;get
+ // +kubebuilder:rbac:groups=route.openshift.io,resources=routes;routes/custom-host,verbs=get;list;watch;create;update;delete
+ // +kubebuilder:rbac:groups=operator.openshift.io,resources=ingresscontrollers,verbs=get;list;watch
+ // +kubebuilder:rbac:groups=config.openshift.io,resources=dnses,verbs=get;list;watch
+@@ -207,6 +209,10 @@ func (r *TempoStackReconciler) SetupWithManager(mgr ctrl.Manager) error {
+ 		Owns(&appsv1.StatefulSet{}).
+ 		Owns(&appsv1.Deployment{}).
+ 		Owns(&networkingv1.Ingress{}).
++		Owns(&rbacv1.ClusterRole{}).
++		Owns(&rbacv1.ClusterRoleBinding{}).
++		Owns(&rbacv1.Role{}).
++		Owns(&rbacv1.RoleBinding{}).
+ 		Watches(
+ 			&corev1.Secret{},
+ 			handler.EnqueueRequestsFromMapFunc(r.findTempoStackForStorageSecret),
+diff --git a/internal/controller/tempo/tempostack_create_or_update.go b/internal/controller/tempo/tempostack_create_or_update.go
+index b731459..034f3b3 100644
+--- a/internal/controller/tempo/tempostack_create_or_update.go
++++ b/internal/controller/tempo/tempostack_create_or_update.go
+@@ -8,6 +8,7 @@ import (
+ 	routev1 "github.com/openshift/api/route/v1"
+ 	monitoringv1 "github.com/prometheus-operator/prometheus-operator/pkg/apis/monitoring/v1"
+ 	networkingv1 "k8s.io/api/networking/v1"
++	rbacv1 "k8s.io/api/rbac/v1"
+ 	"k8s.io/apimachinery/pkg/labels"
+ 	"k8s.io/apimachinery/pkg/types"
+ 	"k8s.io/apimachinery/pkg/util/validation/field"
+@@ -89,6 +90,9 @@ func (r *TempoStackReconciler) findObjectsOwnedByTempoOperator(ctx context.Conte
+ 		Namespace:     tempo.GetNamespace(),
+ 		LabelSelector: labels.SelectorFromSet(manifestutils.CommonLabels(tempo.Name)),
+ 	}
++	clusterWideListOps := &client.ListOptions{
++		LabelSelector: labels.SelectorFromSet(manifestutils.CommonLabels(tempo.Name)),
++	}
+ 
+ 	// Add all resources where the operator can conditionally create an object.
+ 	// For example, Ingress and Route can be enabled or disabled in the CR.
+@@ -102,6 +106,46 @@ func (r *TempoStackReconciler) findObjectsOwnedByTempoOperator(ctx context.Conte
+ 		ownedObjects[ingressList.Items[i].GetUID()] = &ingressList.Items[i]
+ 	}
+ 
++	// metrics reader for Jaeger UI Monitor Tab
++	rolesList := &rbacv1.RoleList{}
++	err = r.List(ctx, rolesList, listOps)
++	if err != nil {
++		return nil, fmt.Errorf("error listing roles: %w", err)
++	}
++	for i := range rolesList.Items {
++		ownedObjects[rolesList.Items[i].GetUID()] = &rolesList.Items[i]
++	}
++
++	// metrics reader for Jaeger UI Monitor Tab
++	roleBindingList := &rbacv1.RoleBindingList{}
++	err = r.List(ctx, roleBindingList, listOps)
++	if err != nil {
++		return nil, fmt.Errorf("error listing role bindings: %w", err)
++	}
++	for i := range roleBindingList.Items {
++		ownedObjects[roleBindingList.Items[i].GetUID()] = &roleBindingList.Items[i]
++	}
++
++	// TokenReview and SubjectAccessReview when gateway is configured with multi-tenancy in OpenShift mode
++	clusterRoleList := &rbacv1.ClusterRoleList{}
++	err = r.List(ctx, clusterRoleList, clusterWideListOps)
++	if err != nil {
++		return nil, fmt.Errorf("error listing cluster roles: %w", err)
++	}
++	for i := range clusterRoleList.Items {
++		ownedObjects[clusterRoleList.Items[i].GetUID()] = &clusterRoleList.Items[i]
++	}
++
++	// TokenReview and SubjectAccessReview when gateway is configured with multi-tenancy in OpenShift mode
++	clusterRoleBindingList := &rbacv1.ClusterRoleBindingList{}
++	err = r.List(ctx, clusterRoleBindingList, clusterWideListOps)
++	if err != nil {
++		return nil, fmt.Errorf("error listing cluster role bindings: %w", err)
++	}
++	for i := range clusterRoleBindingList.Items {
++		ownedObjects[clusterRoleBindingList.Items[i].GetUID()] = &clusterRoleBindingList.Items[i]
++	}
++
+ 	if r.CtrlConfig.Gates.PrometheusOperator {
+ 		servicemonitorList := &monitoringv1.ServiceMonitorList{}
+ 		err := r.List(ctx, servicemonitorList, listOps)
+diff --git a/internal/manifests/queryfrontend/query_frontend.go b/internal/manifests/queryfrontend/query_frontend.go
+index 236b6b1..9420d87 100644
+--- a/internal/manifests/queryfrontend/query_frontend.go
++++ b/internal/manifests/queryfrontend/query_frontend.go
+@@ -27,7 +27,7 @@ import (
+ const (
+ 	grpclbPortName                   = "grpclb"
+ 	portGRPCLBServer                 = 9096
+-	thanosQuerierOpenShiftMonitoring = "https://thanos-querier.openshift-monitoring.svc.cluster.local:9091"
++	thanosQuerierOpenShiftMonitoring = "https://thanos-querier.openshift-monitoring.svc.cluster.local:9092"
+ )
+ 
+ const (
+@@ -113,8 +113,8 @@ func BuildQueryFrontend(params manifestutils.Params) ([]client.Object, error) {
+ 
+ 	if tempo.Spec.Template.QueryFrontend.JaegerQuery.Enabled && tempo.Spec.Template.QueryFrontend.JaegerQuery.MonitorTab.Enabled &&
+ 		tempo.Spec.Template.QueryFrontend.JaegerQuery.MonitorTab.PrometheusEndpoint == thanosQuerierOpenShiftMonitoring {
+-		clusterRoleBinding := openShiftMonitoringClusterRoleBinding(tempo, d)
+-		manifests = append(manifests, &clusterRoleBinding)
++		rbac := openShiftMonitoringRBAC(tempo, d)
++		manifests = append(manifests, rbac...)
+ 	}
+ 
+ 	return manifests, nil
+@@ -412,7 +412,9 @@ func enableMonitoringTab(tempo v1alpha1.TempoStack, jaegerQueryContainer corev1.
+ 			// enabled bearer token propagation, overrides the settings and token from the context (incoming) request is used.
+ 			"--prometheus.token-file=/var/run/secrets/kubernetes.io/serviceaccount/token",
+ 			"--prometheus.token-override-from-context=false",
+-			"--prometheus.tls.ca=/var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt")
++			"--prometheus.tls.ca=/var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt",
++			fmt.Sprintf("--prometheus.query.extra-query-params=namespace=%s", tempo.Namespace),
++		)
+ 	}
+ 
+ 	if tempo.Spec.Template.QueryFrontend.JaegerQuery.MonitorTab.REDMetricsNamespace != nil {
+@@ -431,12 +433,33 @@ func enableMonitoringTab(tempo v1alpha1.TempoStack, jaegerQueryContainer corev1.
+ 	return jaegerQueryContainer, nil
+ }
+ 
+-func openShiftMonitoringClusterRoleBinding(tempo v1alpha1.TempoStack, d *appsv1.Deployment) rbacv1.ClusterRoleBinding {
++// Grant the jaeger-query container access to read metrics from the namespace of the Tempo instance
++// This is required to access the RED metrics in the Monitor tab of Jaeger UI
++func openShiftMonitoringRBAC(tempo v1alpha1.TempoStack, d *appsv1.Deployment) []client.Object {
++	name := naming.Name("metrics-reader", tempo.Name)
+ 	labels := manifestutils.ComponentLabels(manifestutils.QueryFrontendComponentName, tempo.Name)
+-	return rbacv1.ClusterRoleBinding{
++
++	// Same role as https://github.com/openshift/cluster-monitoring-operator/pull/2475
++	// The pod-metrics-reader role is available since OCP 4.18
++	role := &rbacv1.Role{
+ 		ObjectMeta: metav1.ObjectMeta{
+-			Name:   naming.Name("cluster-monitoring-view", tempo.Name),
+-			Labels: labels,
++			Name:      name,
++			Namespace: tempo.Namespace,
++			Labels:    labels,
++		},
++		Rules: []rbacv1.PolicyRule{{
++			APIGroups: []string{"metrics.k8s.io"},
++			Resources: []string{"pods"},
++			// 'create' is required because the Prometheus client uses POST for queries
++			Verbs: []string{"get", "create"},
++		}},
++	}
++
++	roleBinding := &rbacv1.RoleBinding{
++		ObjectMeta: metav1.ObjectMeta{
++			Name:      name,
++			Namespace: tempo.Namespace,
++			Labels:    labels,
+ 		},
+ 		Subjects: []rbacv1.Subject{
+ 			{
+@@ -447,10 +470,12 @@ func openShiftMonitoringClusterRoleBinding(tempo v1alpha1.TempoStack, d *appsv1.
+ 		},
+ 		RoleRef: rbacv1.RoleRef{
+ 			APIGroup: "rbac.authorization.k8s.io",
+-			Kind:     "ClusterRole",
+-			Name:     "cluster-monitoring-view",
++			Kind:     "Role",
++			Name:     name,
+ 		},
+ 	}
++
++	return []client.Object{role, roleBinding}
+ }
+ 
+ func services(params manifestutils.Params) []*corev1.Service {
+diff --git a/internal/manifests/queryfrontend/query_frontend_test.go b/internal/manifests/queryfrontend/query_frontend_test.go
+index 2d15091..76316b9 100644
+--- a/internal/manifests/queryfrontend/query_frontend_test.go
++++ b/internal/manifests/queryfrontend/query_frontend_test.go
+@@ -678,7 +678,8 @@ func TestBuildQueryFrontendWithJaegerMonitorTab(t *testing.T) {
+ 			name: "OpenShift user-workload monitoring",
+ 			tempo: v1alpha1.TempoStack{
+ 				ObjectMeta: metav1.ObjectMeta{
+-					Name: "simplest",
++					Name:      "simplest",
++					Namespace: "observability",
+ 				},
+ 				Spec: v1alpha1.TempoStackSpec{
+ 					Template: v1alpha1.TempoTemplateSpec{
+@@ -687,7 +688,7 @@ func TestBuildQueryFrontendWithJaegerMonitorTab(t *testing.T) {
+ 								Enabled: true,
+ 								MonitorTab: v1alpha1.JaegerQueryMonitor{
+ 									Enabled:            true,
+-									PrometheusEndpoint: "https://thanos-querier.openshift-monitoring.svc.cluster.local:9091",
++									PrometheusEndpoint: "https://thanos-querier.openshift-monitoring.svc.cluster.local:9092",
+ 								},
+ 							},
+ 						},
+@@ -703,10 +704,11 @@ func TestBuildQueryFrontendWithJaegerMonitorTab(t *testing.T) {
+ 				"--prometheus.token-file=/var/run/secrets/kubernetes.io/serviceaccount/token",
+ 				"--prometheus.token-override-from-context=false",
+ 				"--prometheus.tls.ca=/var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt",
++				"--prometheus.query.extra-query-params=namespace=observability",
+ 			},
+ 			env: []corev1.EnvVar{
+ 				{Name: "METRICS_STORAGE_TYPE", Value: "prometheus"},
+-				{Name: "PROMETHEUS_SERVER_URL", Value: "https://thanos-querier.openshift-monitoring.svc.cluster.local:9091"},
++				{Name: "PROMETHEUS_SERVER_URL", Value: "https://thanos-querier.openshift-monitoring.svc.cluster.local:9092"},
+ 			},
+ 		},
+ 	}
+@@ -726,12 +728,13 @@ func TestBuildQueryFrontendWithJaegerMonitorTab(t *testing.T) {
+ 					Tempo: test.tempo,
+ 				})
+ 				require.NoError(t, err)
+-				assert.Equal(t, 4, len(objects))
++				assert.Equal(t, 5, len(objects))
+ 
+-				assert.Equal(t, "tempo-simplest-cluster-monitoring-view", objects[3].GetName())
+-				crb := objects[3].(*rbacv1.ClusterRoleBinding)
+-				assert.Equal(t, crb.Subjects[0].Kind, "ServiceAccount")
+-				assert.Equal(t, dep.Spec.Template.Spec.ServiceAccountName, crb.Subjects[0].Name)
++				assert.Equal(t, "tempo-simplest-metrics-reader", objects[3].GetName())
++				assert.Equal(t, "tempo-simplest-metrics-reader", objects[4].GetName())
++				rb := objects[4].(*rbacv1.RoleBinding)
++				assert.Equal(t, rb.Subjects[0].Kind, "ServiceAccount")
++				assert.Equal(t, dep.Spec.Template.Spec.ServiceAccountName, rb.Subjects[0].Name)
+ 			}
+ 		})
+ 	}
+diff --git a/internal/upgrade/v0_15_4.go b/internal/upgrade/v0_15_4.go
+new file mode 100644
+index 0000000..56e745f
+--- /dev/null
++++ b/internal/upgrade/v0_15_4.go
+@@ -0,0 +1,15 @@
++package upgrade
++
++import (
++	"context"
++
++	"github.com/grafana/tempo-operator/api/tempo/v1alpha1"
++)
++
++// Switch thanos-querier port to tenancy-enabled port
++func upgrade0_15_4(ctx context.Context, u Upgrade, tempo *v1alpha1.TempoStack) error {
++	if tempo.Spec.Template.QueryFrontend.JaegerQuery.MonitorTab.PrometheusEndpoint == "https://thanos-querier.openshift-monitoring.svc.cluster.local:9091" {
++		tempo.Spec.Template.QueryFrontend.JaegerQuery.MonitorTab.PrometheusEndpoint = "https://thanos-querier.openshift-monitoring.svc.cluster.local:9092"
++	}
++	return nil
++}
+diff --git a/internal/upgrade/versions.go b/internal/upgrade/versions.go
+index 8a1a4bb..7b82330 100644
+--- a/internal/upgrade/versions.go
++++ b/internal/upgrade/versions.go
+@@ -50,5 +50,9 @@ var (
+ 			upgradeTempoStack:      upgrade0_11_0,
+ 			upgradeTempoMonolithic: upgrade0_11_0_monolithic,
+ 		},
++		{
++			version:           *semver.MustParse("0.15.4"),
++			upgradeTempoStack: upgrade0_15_4,
++		},
+ 	}
+ )
+diff --git a/tests/e2e-openshift/monitoring-monolithic/check_metrics.sh b/tests/e2e-openshift/monitoring-monolithic/check_metrics.sh
+index 9de36cb..89b6cfe 100755
+--- a/tests/e2e-openshift/monitoring-monolithic/check_metrics.sh
++++ b/tests/e2e-openshift/monitoring-monolithic/check_metrics.sh
+@@ -1,6 +1,9 @@
+ #!/bin/bash
+ 
+-TOKEN=$(oc create token prometheus-user-workload -n openshift-user-workload-monitoring)
++oc create serviceaccount e2e-test-metrics-reader -n $NAMESPACE
++oc adm policy add-cluster-role-to-user cluster-monitoring-view system:serviceaccount:$NAMESPACE:e2e-test-metrics-reader
++
++TOKEN=$(oc create token e2e-test-metrics-reader -n $NAMESPACE)
+ THANOS_QUERIER_HOST=$(oc get route thanos-querier -n openshift-monitoring -o json | jq -r '.spec.host')
+ 
+ #Check TempoMonolithc metircs
+diff --git a/tests/e2e-openshift/monitoring-monolithic/generate-traces-assert.yaml b/tests/e2e-openshift/monitoring-monolithic/generate-traces-assert.yaml
+index e42532b..5b558c5 100644
+--- a/tests/e2e-openshift/monitoring-monolithic/generate-traces-assert.yaml
++++ b/tests/e2e-openshift/monitoring-monolithic/generate-traces-assert.yaml
+@@ -3,4 +3,4 @@ kind: Job
+ metadata:
+   name: generate-traces
+ status:
+-  active: 1
++  succeeded: 1
+diff --git a/tests/e2e-openshift/monitoring/03-assert.yaml b/tests/e2e-openshift/monitoring/03-assert.yaml
+index e42532b..5b558c5 100644
+--- a/tests/e2e-openshift/monitoring/03-assert.yaml
++++ b/tests/e2e-openshift/monitoring/03-assert.yaml
+@@ -3,4 +3,4 @@ kind: Job
+ metadata:
+   name: generate-traces
+ status:
+-  active: 1
++  succeeded: 1
+diff --git a/tests/e2e-openshift/monitoring/check_metrics.sh b/tests/e2e-openshift/monitoring/check_metrics.sh
+index 0c0d9ad..63fbc37 100755
+--- a/tests/e2e-openshift/monitoring/check_metrics.sh
++++ b/tests/e2e-openshift/monitoring/check_metrics.sh
+@@ -1,6 +1,9 @@
+ #!/bin/bash
+ 
+-TOKEN=$(oc create token prometheus-user-workload -n openshift-user-workload-monitoring)
++oc create serviceaccount e2e-test-metrics-reader -n $NAMESPACE
++oc adm policy add-cluster-role-to-user cluster-monitoring-view system:serviceaccount:$NAMESPACE:e2e-test-metrics-reader
++
++TOKEN=$(oc create token e2e-test-metrics-reader -n $NAMESPACE)
+ THANOS_QUERIER_HOST=$(oc get route thanos-querier -n openshift-monitoring -o json | jq -r '.spec.host')
+ 
+ #Check metrics used in the prometheus rules created for TempoStack. Refer issue https://issues.redhat.com/browse/TRACING-3399 for skipped metrics.
+diff --git a/tests/e2e-openshift/monitoring/check_operator_servicemonitor.yaml b/tests/e2e-openshift/monitoring/check_operator_servicemonitor.yaml
+index cdf9c23..ac2cf37 100644
+--- a/tests/e2e-openshift/monitoring/check_operator_servicemonitor.yaml
++++ b/tests/e2e-openshift/monitoring/check_operator_servicemonitor.yaml
+@@ -6,7 +6,6 @@ metadata:
+     app.kubernetes.io/name: tempo-operator
+     app.kubernetes.io/part-of: tempo-operator
+     control-plane: controller-manager
+-    olm.managed: "true"
+   name: tempo-operator-controller-manager-metrics-service
+   namespace: ($TEMPO_NAMESPACE)
+ spec:
+diff --git a/tests/e2e-openshift/multitenancy/01-assert.yaml b/tests/e2e-openshift/multitenancy/01-assert.yaml
+index ea174f1..86de05d 100644
+--- a/tests/e2e-openshift/multitenancy/01-assert.yaml
++++ b/tests/e2e-openshift/multitenancy/01-assert.yaml
+@@ -117,6 +117,7 @@ roleRef:
+ subjects:
+   - kind: ServiceAccount
+     name: tempo-simplest-gateway
++    namespace: chainsaw-multitenancy
+ ---
+ apiVersion: apps/v1
+ kind: Deployment
+diff --git a/tests/e2e-openshift/red-metrics/03-assert.yaml b/tests/e2e-openshift/red-metrics/03-assert.yaml
+index 4580013..0bed7ad 100755
+--- a/tests/e2e-openshift/red-metrics/03-assert.yaml
++++ b/tests/e2e-openshift/red-metrics/03-assert.yaml
+@@ -52,18 +52,32 @@ status:
+   readyReplicas: 1
+ ---
+ apiVersion: rbac.authorization.k8s.io/v1
+-kind: ClusterRoleBinding
++kind: Role
+ metadata:
+   labels:
+     app.kubernetes.io/component: query-frontend
+     app.kubernetes.io/instance: redmetrics
+     app.kubernetes.io/managed-by: tempo-operator
+     app.kubernetes.io/name: tempo
+-  name: tempo-redmetrics-cluster-monitoring-view
++  name: tempo-redmetrics-metrics-reader
++rules:
++- apiGroups: [metrics.k8s.io]
++  resources: [pods]
++  verbs: [get, create]
++---
++apiVersion: rbac.authorization.k8s.io/v1
++kind: RoleBinding
++metadata:
++  labels:
++    app.kubernetes.io/component: query-frontend
++    app.kubernetes.io/instance: redmetrics
++    app.kubernetes.io/managed-by: tempo-operator
++    app.kubernetes.io/name: tempo
++  name: tempo-redmetrics-metrics-reader
+ roleRef:
+   apiGroup: rbac.authorization.k8s.io
+-  kind: ClusterRole
+-  name: cluster-monitoring-view
++  kind: Role
++  name: tempo-redmetrics-metrics-reader
+ subjects:
+ - kind: ServiceAccount
+   name: tempo-redmetrics-query-frontend
+diff --git a/tests/e2e-openshift/red-metrics/03-install-tempo.yaml b/tests/e2e-openshift/red-metrics/03-install-tempo.yaml
+index dd81212..e7368bf 100644
+--- a/tests/e2e-openshift/red-metrics/03-install-tempo.yaml
++++ b/tests/e2e-openshift/red-metrics/03-install-tempo.yaml
+@@ -27,6 +27,6 @@ spec:
+         enabled: true
+         monitorTab:
+           enabled: true
+-          prometheusEndpoint: https://thanos-querier.openshift-monitoring.svc.cluster.local:9091
++          prometheusEndpoint: https://thanos-querier.openshift-monitoring.svc.cluster.local:9092
+         ingress:
+           type: route
+diff --git a/tests/e2e-openshift/red-metrics/05-assert.yaml b/tests/e2e-openshift/red-metrics/05-assert.yaml
+index d7291c2..24b6ead 100644
+--- a/tests/e2e-openshift/red-metrics/05-assert.yaml
++++ b/tests/e2e-openshift/red-metrics/05-assert.yaml
+@@ -3,4 +3,4 @@ kind: Job
+ metadata:
+   name: hotrod-curl
+ status:
+-  active: 1
++  succeeded: 1
+diff --git a/tests/e2e-openshift/red-metrics/chainsaw-test.yaml b/tests/e2e-openshift/red-metrics/chainsaw-test.yaml
+index 02aece1..15294aa 100755
+--- a/tests/e2e-openshift/red-metrics/chainsaw-test.yaml
++++ b/tests/e2e-openshift/red-metrics/chainsaw-test.yaml
+@@ -5,6 +5,7 @@ metadata:
+   creationTimestamp: null
+   name: red-metrics
+ spec:
++  namespace: chainsaw-redmetrics
+   # Avoid running this test case in parallel to prevent the deletion of shared resources used by multiple tests, specifically in the context of OpenShift user workload monitoring.
+   concurrent: false
+   steps:
+diff --git a/tests/e2e-openshift/red-metrics/check_metrics.sh b/tests/e2e-openshift/red-metrics/check_metrics.sh
+index 6dd9d00..e9140f8 100755
+--- a/tests/e2e-openshift/red-metrics/check_metrics.sh
++++ b/tests/e2e-openshift/red-metrics/check_metrics.sh
+@@ -1,6 +1,9 @@
+ #!/bin/bash
+ 
+-TOKEN=$(oc create token tempo-redmetrics-query-frontend -n $NAMESPACE)
++oc create serviceaccount e2e-test-metrics-reader -n $NAMESPACE
++oc adm policy add-cluster-role-to-user cluster-monitoring-view system:serviceaccount:$NAMESPACE:e2e-test-metrics-reader
++
++TOKEN=$(oc create token e2e-test-metrics-reader -n $NAMESPACE)
+ THANOS_QUERIER_HOST=$(oc get route thanos-querier -n openshift-monitoring -o json | jq -r '.spec.host')
+ 
+ #Check metrics used in the prometheus rules created for TempoStack. Refer issue https://issues.redhat.com/browse/TRACING-3399 for skipped metrics.
