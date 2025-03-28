@@ -243,6 +243,11 @@ spec:
             env:
               - name: SNAPSHOT
                 value: $(params.SNAPSHOT)
+              - name: KONFLUX_TEMPO_TOKEN
+                valueFrom:
+                  secretKeyRef:
+                    name: konflux-tempo-access-token-read-only
+                    key: token
               - name: KONFLUX_COMPONENT_NAME
                 valueFrom:
                   fieldRef:
@@ -259,7 +264,7 @@ spec:
               
               echo "Installing dependent operators"
               export OPERATORS_INSTALL=https://raw.githubusercontent.com/os-observability/konflux-tempo/refs/heads/main/.tekton/integration-tests/resources/install.yaml
-              curl -Lo /tmp/install.yaml "$OPERATORS_INSTALL"
+              curl -H "Authorization: token $KONFLUX_TEMPO_TOKEN" -Lo /tmp/install.yaml "$OPERATORS_INSTALL"
               oc apply -f /tmp/install.yaml
 
               retry_count=30
@@ -359,6 +364,11 @@ spec:
             env:
               - name: KUBECONFIG
                 value: "/credentials/$(steps.get-kubeconfig.results.kubeconfig)"
+              - name: KONFLUX_TEMPO_TOKEN
+                valueFrom:
+                  secretKeyRef:
+                    name: konflux-tempo-access-token-read-only
+                    key: token
             volumeMounts:
               - name: credentials
                 mountPath: /credentials
@@ -431,7 +441,7 @@ spec:
               echo
 
               export TEMPO_ICSP=https://raw.githubusercontent.com/os-observability/konflux-tempo/refs/heads/main/.tekton/integration-tests/resources/ImageContentSourcePolicy.yaml
-              curl -Lo /tmp/ImageContentSourcePolicy.yaml "$TEMPO_ICSP"
+              curl -H "Authorization: token $KONFLUX_TEMPO_TOKEN" -Lo /tmp/ImageContentSourcePolicy.yaml "$TEMPO_ICSP"
 
               tempo_images=$(oc get deployment tempo-operator-controller -n openshift-tempo-operator -o yaml | grep -o "registry.redhat.io/rhosdt/.*" | sort | uniq)
               [ $(echo "$tempo_images" | wc -l) -eq 6 ] || exit_error "Expected 6 images, found:\n$tempo_images"
