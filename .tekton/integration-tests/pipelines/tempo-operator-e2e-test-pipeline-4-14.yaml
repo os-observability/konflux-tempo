@@ -243,6 +243,11 @@ spec:
             env:
               - name: SNAPSHOT
                 value: $(params.SNAPSHOT)
+              - name: KONFLUX_TEMPO_TOKEN
+                valueFrom:
+                  secretKeyRef:
+                    name: konflux-tempo-access-token-read-only
+                    key: token
               - name: KONFLUX_COMPONENT_NAME
                 valueFrom:
                   fieldRef:
@@ -259,7 +264,7 @@ spec:
               
               echo "Installing dependent operators"
               export OPERATORS_INSTALL=https://raw.githubusercontent.com/os-observability/konflux-tempo/refs/heads/main/.tekton/integration-tests/resources/install.yaml
-              curl -Lo /tmp/install.yaml "$OPERATORS_INSTALL"
+              curl -H "Authorization: token $KONFLUX_TEMPO_TOKEN" -Lo /tmp/install.yaml "$OPERATORS_INSTALL"
               oc apply -f /tmp/install.yaml
 
               retry_count=30
@@ -359,6 +364,11 @@ spec:
             env:
               - name: KUBECONFIG
                 value: "/credentials/$(steps.get-kubeconfig.results.kubeconfig)"
+              - name: KONFLUX_TEMPO_TOKEN
+                valueFrom:
+                  secretKeyRef:
+                    name: konflux-tempo-access-token-read-only
+                    key: token
             volumeMounts:
               - name: credentials
                 mountPath: /credentials
@@ -431,7 +441,7 @@ spec:
               echo
 
               export TEMPO_ICSP=https://raw.githubusercontent.com/os-observability/konflux-tempo/refs/heads/main/.tekton/integration-tests/resources/ImageContentSourcePolicy.yaml
-              curl -Lo /tmp/ImageContentSourcePolicy.yaml "$TEMPO_ICSP"
+              curl -H "Authorization: token $KONFLUX_TEMPO_TOKEN" -Lo /tmp/ImageContentSourcePolicy.yaml "$TEMPO_ICSP"
 
               tempo_images=$(oc get deployment tempo-operator-controller -n openshift-tempo-operator -o yaml | grep -o "registry.redhat.io/rhosdt/.*" | sort | uniq)
               [ $(echo "$tempo_images" | wc -l) -eq 6 ] || exit_error "Expected 6 images, found:\n$tempo_images"
@@ -470,10 +480,88 @@ spec:
                   echo
                   echo
               done
+    - name: dast-test
+      description: Task to run Dynamic Application Security Testing (DAST) using RapiDAST
+      runAfter:
+        - operators-install
+      taskSpec:
+        volumes:
+          - name: credentials
+            emptyDir: {}
+        steps:
+          - name: get-kubeconfig
+            ref:
+              resolver: git
+              params:
+                - name: url
+                  value: https://github.com/konflux-ci/build-definitions.git
+                - name: revision
+                  value: main
+                - name: pathInRepo
+                  value: stepactions/eaas-get-ephemeral-cluster-credentials/0.1/eaas-get-ephemeral-cluster-credentials.yaml
+            params:
+              - name: eaasSpaceSecretRef
+                value: $(tasks.eaas-provision-space.results.secretRef)
+              - name: clusterName
+                value: "$(tasks.provision-cluster.results.clusterName)"
+              - name: credentials
+                value: credentials
+          - name: rapidast-scan
+            volumeMounts:
+              - name: credentials
+                mountPath: /credentials
+            env:
+              - name: KUBECONFIG
+                value: "/credentials/$(steps.get-kubeconfig.results.kubeconfig)"
+            image: registry.redhat.io/openshift4/ose-cli:latest
+            script: |
+              echo "Kubeconfig file"
+              cat $KUBECONFIG
+
+              echo "Intall dependencies"
+              dnf -y install jq vim unzip git make
+
+              echo "Install GO"
+              curl -Lo /go.tar.gz https://go.dev/dl/go1.22.10.linux-amd64.tar.gz
+              tar -C /usr/local -xzf /go.tar.gz
+              export PATH=$PATH:/usr/local/go/bin
+              # Set the Go path and Go cache environment variables
+              export GOPATH=/tmp/go
+              export GOBIN=/tmp/go/bin
+              export GOCACHE=/tmp/.cache/go-build
+              export PATH=$PATH:/tmp/go/bin
+
+              # Create the /tmp/go/bin and build cache directories, and grant read and write permissions to all users
+              mkdir -p /tmp/go/bin $GOCACHE \
+                && chmod -R 777 /tmp/go/bin $GOPATH $GOCACHE
+              go version
+
+              echo "Install Chainsaw"
+              go install github.com/kyverno/chainsaw@v0.2.6
+
+              echo "Install kubectl and oc"
+              cd /tmp/ \
+              && curl -L -o oc.tar.gz https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/latest/openshift-client-linux-amd64-rhel8.tar.gz \
+              && tar -xvzf oc.tar.gz \
+              && chmod +x kubectl oc \
+              && mv oc kubectl /usr/local/bin/
+
+              echo "Clone distributed-tracing-qe repository"
+              git clone https://github.com/openshift/distributed-tracing-qe.git /tmp/distributed-tracing-tests
+              cd /tmp/distributed-tracing-tests
+
+              # Unset environment variable which conflicts with Chainsaw
+              unset NAMESPACE
+
+              # Execute DAST test using RapiDAST
+              chainsaw test \
+              --config .chainsaw-rh-sdl.yaml \
+              --test-dir \
+              tests/e2e-rh-sdl/rapidast-tempo
     - name: tempo-e2e-tests
       description: Task to run tests from service repository
       runAfter:
-        - operators-install
+        - dast-test
       params:
         - name: TEMPO_TESTS_BRANCH
           value: $(params.tempo_tests_branch)
