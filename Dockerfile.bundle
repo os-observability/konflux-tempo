@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:c38cc770631788157f8ea989df65ff30359c9f8af3246fef244b32caed9d5862 as builder
+FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:33161cf5ec11ea13bfe60cad64f56a3aa4d893852e8ec44b2fd2a6b40cc38539 as builder
 
 USER root
 WORKDIR /opt/bundle-build
@@ -9,16 +9,23 @@ RUN microdnf update -y && rm -rf /var/cache/yum && \
 RUN mkdir /licenses
 COPY tempo-operator/LICENSE /licenses/.
 
+COPY patches patches
+COPY tempo-operator tempo-operator
+
+# fix CVE-2025-2786 and CVE-2025-2842
+RUN cd tempo-operator; patch -p1 < /opt/bundle-build/patches/subjectaccessreview.patch
+RUN cd tempo-operator; patch -p1 < /opt/bundle-build/patches/metrics_role.patch
+
 COPY bundle-patch .
-COPY tempo-operator/bundle/openshift/manifests manifests/
-COPY tempo-operator/bundle/openshift/metadata metadata/
+RUN cp -a tempo-operator/bundle/openshift/manifests .
+RUN cp -a tempo-operator/bundle/openshift/metadata .
 
 RUN ls manifests -al
 RUN ls metadata -al
 
 # stage - registry.stage.redhat.io, prod - registry.redhat.io
 # set by tempo-bundle-push pipeline
-ARG REGISTRY=quay.io/redhat-user-workloads
+ARG REGISTRY=registry.redhat.io
 
 RUN ./update_bundle.sh && cat manifests/tempo-operator.clusterserviceversion.yaml metadata/annotations.yaml
 
@@ -42,8 +49,8 @@ LABEL operators.operatorframework.io.test.mediatype.v1=scorecard+v1
 LABEL operators.operatorframework.io.test.config.v1=tests/scorecard/
 
 
-LABEL release="0.15.3-1" \
-      version="0.15.3-1" \
+LABEL release="0.15.4-1" \
+      version="0.15.4-1" \
       com.redhat.openshift.versions=v4.12 \
       name="rhosdt/tempo-operator-bundle" \
       distribution-scope="public" \
