@@ -11,12 +11,20 @@ WORKDIR /opt/app-root/src/opa-openshift
 
 RUN CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -mod=mod -tags strictfipsruntime -o opa-openshift -trimpath -ldflags "-s -w"
 
-FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:33161cf5ec11ea13bfe60cad64f56a3aa4d893852e8ec44b2fd2a6b40cc38539
-WORKDIR /
+FROM registry.redhat.io/ubi8/ubi-micro:latest@sha256:eae27ba458e682d6d830f6c77c9e3a4c33cf1718461397b741e674d9d37450f3 AS target-base
+FROM registry.redhat.io/ubi8/ubi:latest@sha256:8bd1b6306f8164de7fb0974031a0f903bd3ab3e6bcab835854d3d9a1a74ea5db as ubi-micro-additional-packages
+COPY --from=target-base / /mnt/rootfs
+RUN rpm --root /mnt/rootfs --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+# Install the systemd package which provides journalctl required by journald receiver and add user to systemd-journal group.
+RUN dnf update -y && \
+    dnf install --installroot /mnt/rootfs --releasever 8 --setopt install_weak_deps=false --setopt reposdir=/etc/yum.repos.d --nodocs -y openssl && \
+    dnf clean all && \
+    rm -rf /var/cache/yum
+RUN rm -rf /mnt/rootfs/var/cache/*
 
-RUN microdnf update -y && rm -rf /var/cache/yum && \
-    microdnf install openssl -y && \
-    microdnf clean all
+FROM scratch
+WORKDIR /
+COPY --from=ubi-micro-additional-packages /mnt/rootfs/ /
 
 RUN mkdir /licenses
 COPY opa-openshift/LICENSE /licenses/.

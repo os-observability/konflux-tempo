@@ -17,3 +17,4 @@ arches:
 context:
   containerfile:
     file: Dockerfile.operator
+    stageName: target-base
