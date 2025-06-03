@@ -17,3 +17,7 @@ arches:
 context:
   containerfile:
     file: Dockerfile.operator
+    # The lock file generator uses a layer from the Dockerfile to determine the base image.
+    # Then it includes all the RPM packages that are needed to install the packages from this file including its dependencies.
+    # We use the target-base which is ubi-micro. The ubi-micro has fewer installed RPMs therefore the lock file is larger than for ubi-minimal.
+    stageName: target-base
