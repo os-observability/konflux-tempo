@@ -1,0 +1,52 @@
+name: Generate FBC catalogs
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+    branches:
+      - main
+      - development
+    paths:
+      - 'catalog/**'
+
+permissions:
+  contents: write
+
+jobs:
+  update-catalog:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Install OPM
+        run: |
+          wget https://github.com/operator-framework/operator-registry/releases/download/v1.53.0/linux-amd64-opm
+          chmod +x linux-amd64-opm
+          mkdir .bin
+          mv linux-amd64-opm ./.bin/opm
+          echo "$GITHUB_WORKSPACE/.bin" >> $GITHUB_PATH
+
+      - name: Log into registry.redhat.io
+        uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3.4.0
+        with:
+          registry: registry.redhat.io
+          username: ${{ secrets.RH_REGISTRY_USERNAME }}
+          password: ${{ secrets.RH_REGISTRY_TOKEN }}
+
+      - name: Generate catalog
+        run: |
+          source ./catalog/catalog.env
+          sed -i 's#quay.*#'"$TEMPO_BUNDLE_IMAGE_PULLSPEC"'#g' catalog/catalog-template.yaml
+          wget https://raw.githubusercontent.com/os-observability/konflux-opentelemetry/refs/heads/main/scripts/update-catalog-opm.sh
+          chmod +x update-catalog-opm.sh
+          ./update-catalog-opm.sh tempo
+
+      - name: Commit the changes
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add catalog
+          git commit -m "Add generated catalogs" | true
+          git push
