@@ -6,6 +6,8 @@ contentOrigin:
   repofiles:
     - ubi8.repo
 packages:
+  - git
+  - golang
   - openssl
   - systemd
   - patch
