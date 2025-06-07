@@ -14,10 +14,7 @@ COPY tempo-operator tempo-operator
 COPY tempo-operator/LICENSE /licenses/
 WORKDIR /opt/app-root/src/tempo-operator
 
-# fix CVE-2025-2786 and CVE-2025-2842
-RUN dnf install -y patch
-RUN patch -p1 < /opt/app-root/src/patches/subjectaccessreview.patch
-RUN patch -p1 < /opt/app-root/src/patches/metrics_role.patch
+
 
 RUN exportOrFail() { echo $1; if [[ $1 == *= ]]; then echo "Error: empty variable assignment"; exit 1; else export "$1"; fi } && \
     exportOrFail VERSION_PKG="github.com/grafana/tempo-operator/internal/version" && \
