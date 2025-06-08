@@ -12,7 +12,7 @@
 	url = https://github.com/observatorium/opa-openshift.git
 [submodule "jaeger"]
 	path = jaeger
-	url = https://github.com/os-observability/jaeger.git
+	url = https://github.com/jaegertracing/jaeger.git
 [submodule "jaeger-ui"]
 	path = jaeger-ui
 	url = https://github.com/jaegertracing/jaeger-ui
