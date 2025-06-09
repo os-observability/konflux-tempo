@@ -256,41 +256,41 @@ arches:
     name: gdbm-libs
     evr: 1:1.18-2.el8
     sourcerpm: gdbm-1.18-2.el8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/g/glibc-2.28-251.el8_10.16.aarch64.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/g/glibc-2.28-251.el8_10.22.aarch64.rpm
     repoid: ubi-8-for-aarch64-baseos-rpms
-    size: 1883420
-    checksum: sha256:b383729919938b24d0dab0f092a8e147db499cc7cbac019757689a0c870032e1
+    size: 1884372
+    checksum: sha256:69753d1783f9ff7d0bb47cd8faf5b009d5d38955bd0195ebc0f49e714945eda2
     name: glibc
-    evr: 2.28-251.el8_10.16
-    sourcerpm: glibc-2.28-251.el8_10.16.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/g/glibc-common-2.28-251.el8_10.16.aarch64.rpm
+    evr: 2.28-251.el8_10.22
+    sourcerpm: glibc-2.28-251.el8_10.22.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/g/glibc-common-2.28-251.el8_10.22.aarch64.rpm
     repoid: ubi-8-for-aarch64-baseos-rpms
-    size: 1040100
-    checksum: sha256:333a9c73dfb2bf8e6073755fa6ed5ac17b426e360c43b07a3f1f1d1c3505d9e9
+    size: 1040804
+    checksum: sha256:c8cb4afb9958dcacf52476b32a5a307506f743c9d2c1bd94b974de1a0cde85a9
     name: glibc-common
-    evr: 2.28-251.el8_10.16
-    sourcerpm: glibc-2.28-251.el8_10.16.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/g/glibc-devel-2.28-251.el8_10.16.aarch64.rpm
+    evr: 2.28-251.el8_10.22
+    sourcerpm: glibc-2.28-251.el8_10.22.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/g/glibc-devel-2.28-251.el8_10.22.aarch64.rpm
     repoid: ubi-8-for-aarch64-baseos-rpms
-    size: 89504
-    checksum: sha256:ba65ef6cd0febfba9f2cc886d5a7f824e86cd4bbfe0f09faf6bf2fffdffda90e
+    size: 90284
+    checksum: sha256:6fb81255e64880ecd9d9a8c87129b1667500c0ccb8c5ccfaae400757313bbd3f
     name: glibc-devel
-    evr: 2.28-251.el8_10.16
-    sourcerpm: glibc-2.28-251.el8_10.16.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/g/glibc-headers-2.28-251.el8_10.16.aarch64.rpm
+    evr: 2.28-251.el8_10.22
+    sourcerpm: glibc-2.28-251.el8_10.22.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/g/glibc-headers-2.28-251.el8_10.22.aarch64.rpm
     repoid: ubi-8-for-aarch64-baseos-rpms
-    size: 496592
-    checksum: sha256:8fda674bfdea3868b9b71f0305338fdd7ad295a1892ebf830bbc9ccafd27afd0
+    size: 497336
+    checksum: sha256:2f05b9071e10608e58c35798866b14c86f397b081d295a0f380f3b5691e87779
     name: glibc-headers
-    evr: 2.28-251.el8_10.16
-    sourcerpm: glibc-2.28-251.el8_10.16.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/g/glibc-minimal-langpack-2.28-251.el8_10.16.aarch64.rpm
+    evr: 2.28-251.el8_10.22
+    sourcerpm: glibc-2.28-251.el8_10.22.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/g/glibc-minimal-langpack-2.28-251.el8_10.22.aarch64.rpm
     repoid: ubi-8-for-aarch64-baseos-rpms
-    size: 72664
-    checksum: sha256:26a6dc8101ca7b60910bf2c4006b4d9a327bae046481587854cfb06730153b6a
+    size: 73440
+    checksum: sha256:b51593784c12882625331b1890f8a40beffbee081f5db9fe9c88898b37599254
     name: glibc-minimal-langpack
-    evr: 2.28-251.el8_10.16
-    sourcerpm: glibc-2.28-251.el8_10.16.src.rpm
+    evr: 2.28-251.el8_10.22
+    sourcerpm: glibc-2.28-251.el8_10.22.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/g/gmp-6.1.2-11.el8.aarch64.rpm
     repoid: ubi-8-for-aarch64-baseos-rpms
     size: 269880
@@ -1564,12 +1564,12 @@ arches:
     checksum: sha256:e91abeb46538fc264936c0eed825c28eab9eef47288c9eb1d2d4d078bccad5d1
     name: gdbm
     evr: 1:1.18-2.el8
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/g/glibc-2.28-251.el8_10.16.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/g/glibc-2.28-251.el8_10.22.src.rpm
     repoid: ubi-8-for-x86_64-baseos-source-rpms
-    size: 18487094
-    checksum: sha256:f988b183ac97142187843e95dab32f9d7bc8bce3723c80a535a3dfdabba08a44
+    size: 18504270
+    checksum: sha256:35eeb3cb436be1c5000daf8c55cc31181101a8f5cf7d814ad4f3f800a7db533b
     name: glibc
-    evr: 2.28-251.el8_10.16
+    evr: 2.28-251.el8_10.22
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/g/gmp-6.1.2-11.el8.src.rpm
     repoid: ubi-8-for-x86_64-baseos-source-rpms
     size: 2430007
@@ -2129,14 +2129,14 @@ arches:
     name: zstd
     evr: 1.4.4-1.el8
   module_metadata:
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/appstream/os/repodata/99662ddceeb7babde24874e3f11dadcdf8f4eaaade493c703224a2629b3eabc7-modules.yaml.gz
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/appstream/os/repodata/1b19e7c9ad603524b9cdc5a628b47b04e9497aae6b50031b7893a24eb6f50833-modules.yaml.gz
     repoid: ubi-8-for-aarch64-appstream-rpms
-    size: 56259
-    checksum: sha256:99662ddceeb7babde24874e3f11dadcdf8f4eaaade493c703224a2629b3eabc7
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/46fe5e5711b748c24e0763d7d1fe1c62c0c05010d3ee50dde364243af6765631-modules.yaml.gz
+    size: 56957
+    checksum: sha256:1b19e7c9ad603524b9cdc5a628b47b04e9497aae6b50031b7893a24eb6f50833
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/151f25c214f626a2889ea3776620fb48a8d28aea811cca9927bc090afcd2314f-modules.yaml.gz
     repoid: ubi-8-for-x86_64-appstream-rpms
-    size: 59487
-    checksum: sha256:46fe5e5711b748c24e0763d7d1fe1c62c0c05010d3ee50dde364243af6765631
+    size: 59636
+    checksum: sha256:151f25c214f626a2889ea3776620fb48a8d28aea811cca9927bc090afcd2314f
 - arch: ppc64le
   packages:
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/appstream/os/Packages/c/cpp-8.5.0-26.el8_10.ppc64le.rpm
@@ -2391,41 +2391,41 @@ arches:
     name: gdbm-libs
     evr: 1:1.18-2.el8
     sourcerpm: gdbm-1.18-2.el8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/g/glibc-2.28-251.el8_10.16.ppc64le.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/g/glibc-2.28-251.el8_10.22.ppc64le.rpm
     repoid: ubi-8-for-ppc64le-baseos-rpms
-    size: 3515976
-    checksum: sha256:653266bdf56a2b9431674d322e98db8727e5bb5a1f9ff8220c37b73122a8c4fd
+    size: 3517064
+    checksum: sha256:086755feebe384dff990542893969340324ae4e9ec1cd505d947760b399dbe78
     name: glibc
-    evr: 2.28-251.el8_10.16
-    sourcerpm: glibc-2.28-251.el8_10.16.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/g/glibc-common-2.28-251.el8_10.16.ppc64le.rpm
+    evr: 2.28-251.el8_10.22
+    sourcerpm: glibc-2.28-251.el8_10.22.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/g/glibc-common-2.28-251.el8_10.22.ppc64le.rpm
     repoid: ubi-8-for-ppc64le-baseos-rpms
-    size: 1055244
-    checksum: sha256:005b83a0dba278074b5dea0d8829aed74e9db152347f003e9a856dca6ed52c2c
+    size: 1056024
+    checksum: sha256:375a186554c632ba14d341130b6c935fb51e55de31009beb8bbb9b296a353957
     name: glibc-common
-    evr: 2.28-251.el8_10.16
-    sourcerpm: glibc-2.28-251.el8_10.16.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/g/glibc-devel-2.28-251.el8_10.16.ppc64le.rpm
+    evr: 2.28-251.el8_10.22
+    sourcerpm: glibc-2.28-251.el8_10.22.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/g/glibc-devel-2.28-251.el8_10.22.ppc64le.rpm
     repoid: ubi-8-for-ppc64le-baseos-rpms
-    size: 108456
-    checksum: sha256:f96c033df6dcc7fe7d64c9595e27e113cc15839502acefc91c404f8872b439af
+    size: 109228
+    checksum: sha256:7c389b370e62577ff5870e36ccbbd0739a567faf3d0359eace3bc4563fdb7e09
     name: glibc-devel
-    evr: 2.28-251.el8_10.16
-    sourcerpm: glibc-2.28-251.el8_10.16.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/g/glibc-headers-2.28-251.el8_10.16.ppc64le.rpm
+    evr: 2.28-251.el8_10.22
+    sourcerpm: glibc-2.28-251.el8_10.22.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/g/glibc-headers-2.28-251.el8_10.22.ppc64le.rpm
     repoid: ubi-8-for-ppc64le-baseos-rpms
-    size: 504148
-    checksum: sha256:b31079b948c08e76ef157b23b66c5b195f40ff4e07320dd174728e214b5fe11a
+    size: 504936
+    checksum: sha256:6f6f0be7c53cedaed054128c1a2b964c910693e42b52b8e2d50c7b3c7b5ff444
     name: glibc-headers
-    evr: 2.28-251.el8_10.16
-    sourcerpm: glibc-2.28-251.el8_10.16.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/g/glibc-minimal-langpack-2.28-251.el8_10.16.ppc64le.rpm
+    evr: 2.28-251.el8_10.22
+    sourcerpm: glibc-2.28-251.el8_10.22.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/g/glibc-minimal-langpack-2.28-251.el8_10.22.ppc64le.rpm
     repoid: ubi-8-for-ppc64le-baseos-rpms
-    size: 72668
-    checksum: sha256:15cc622c01977ce30d5d082856dde649170f320586410fd72fba347f7f8847fc
+    size: 73440
+    checksum: sha256:bc0b65925c4a4556e23a6cb79e3ca7ba3b2e86435618f64fff22d62aa5ce5703
     name: glibc-minimal-langpack
-    evr: 2.28-251.el8_10.16
-    sourcerpm: glibc-2.28-251.el8_10.16.src.rpm
+    evr: 2.28-251.el8_10.22
+    sourcerpm: glibc-2.28-251.el8_10.22.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/g/gmp-6.1.2-11.el8.ppc64le.rpm
     repoid: ubi-8-for-ppc64le-baseos-rpms
     size: 296280
@@ -3712,12 +3712,12 @@ arches:
     checksum: sha256:e91abeb46538fc264936c0eed825c28eab9eef47288c9eb1d2d4d078bccad5d1
     name: gdbm
     evr: 1:1.18-2.el8
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/g/glibc-2.28-251.el8_10.16.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/g/glibc-2.28-251.el8_10.22.src.rpm
     repoid: ubi-8-for-x86_64-baseos-source-rpms
-    size: 18487094
-    checksum: sha256:f988b183ac97142187843e95dab32f9d7bc8bce3723c80a535a3dfdabba08a44
+    size: 18504270
+    checksum: sha256:35eeb3cb436be1c5000daf8c55cc31181101a8f5cf7d814ad4f3f800a7db533b
     name: glibc
-    evr: 2.28-251.el8_10.16
+    evr: 2.28-251.el8_10.22
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/g/gmp-6.1.2-11.el8.src.rpm
     repoid: ubi-8-for-x86_64-baseos-source-rpms
     size: 2430007
@@ -4277,14 +4277,14 @@ arches:
     name: zstd
     evr: 1.4.4-1.el8
   module_metadata:
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/appstream/os/repodata/67983ddf60c435db0c4b1530c4443c55a04a19f1b5aac912a1eb47cc9061b712-modules.yaml.gz
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/appstream/os/repodata/3b4de0bbeab2581e2716119750338202acd7740006ee8e514175357f6db19ac3-modules.yaml.gz
     repoid: ubi-8-for-ppc64le-appstream-rpms
-    size: 56428
-    checksum: sha256:67983ddf60c435db0c4b1530c4443c55a04a19f1b5aac912a1eb47cc9061b712
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/46fe5e5711b748c24e0763d7d1fe1c62c0c05010d3ee50dde364243af6765631-modules.yaml.gz
+    size: 56052
+    checksum: sha256:3b4de0bbeab2581e2716119750338202acd7740006ee8e514175357f6db19ac3
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/151f25c214f626a2889ea3776620fb48a8d28aea811cca9927bc090afcd2314f-modules.yaml.gz
     repoid: ubi-8-for-x86_64-appstream-rpms
-    size: 59487
-    checksum: sha256:46fe5e5711b748c24e0763d7d1fe1c62c0c05010d3ee50dde364243af6765631
+    size: 59636
+    checksum: sha256:151f25c214f626a2889ea3776620fb48a8d28aea811cca9927bc090afcd2314f
 - arch: s390x
   packages:
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/appstream/os/Packages/c/cpp-8.5.0-26.el8_10.s390x.rpm
@@ -4539,41 +4539,41 @@ arches:
     name: gdbm-libs
     evr: 1:1.18-2.el8
     sourcerpm: gdbm-1.18-2.el8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/g/glibc-2.28-251.el8_10.16.s390x.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/g/glibc-2.28-251.el8_10.22.s390x.rpm
     repoid: ubi-8-for-s390x-baseos-rpms
-    size: 1875436
-    checksum: sha256:eb2e1d9b0f6ca8aea4dfe91395cb0327054a029992b33f6bc6dfe164826b9af1
+    size: 1876720
+    checksum: sha256:6c0187eda8d1ec3a7c57cf4324357c410f05e34507f41d164835bc7d609ccdff
     name: glibc
-    evr: 2.28-251.el8_10.16
-    sourcerpm: glibc-2.28-251.el8_10.16.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/g/glibc-common-2.28-251.el8_10.16.s390x.rpm
+    evr: 2.28-251.el8_10.22
+    sourcerpm: glibc-2.28-251.el8_10.22.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/g/glibc-common-2.28-251.el8_10.22.s390x.rpm
     repoid: ubi-8-for-s390x-baseos-rpms
-    size: 1220648
-    checksum: sha256:2437a444b3f2f2ae873f6508df18e7771cecb81e2747429270ed7f21a4eafe3f
+    size: 1221424
+    checksum: sha256:7494f0a9e3d69477ace840ad20e47492dcd46c1e8be44909836f9fa36162ab99
     name: glibc-common
-    evr: 2.28-251.el8_10.16
-    sourcerpm: glibc-2.28-251.el8_10.16.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/g/glibc-devel-2.28-251.el8_10.16.s390x.rpm
+    evr: 2.28-251.el8_10.22
+    sourcerpm: glibc-2.28-251.el8_10.22.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/g/glibc-devel-2.28-251.el8_10.22.s390x.rpm
     repoid: ubi-8-for-s390x-baseos-rpms
-    size: 108516
-    checksum: sha256:5cd8bd5061062cce34a94d1aef028cba393fa25a91fa4cdcdca76b4f784f5745
+    size: 109312
+    checksum: sha256:07f02e28302eb44e4fd9b83d4c3bdbd7bed7b79de0819cf79c43756f09b47702
     name: glibc-devel
-    evr: 2.28-251.el8_10.16
-    sourcerpm: glibc-2.28-251.el8_10.16.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/g/glibc-headers-2.28-251.el8_10.16.s390x.rpm
+    evr: 2.28-251.el8_10.22
+    sourcerpm: glibc-2.28-251.el8_10.22.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/g/glibc-headers-2.28-251.el8_10.22.s390x.rpm
     repoid: ubi-8-for-s390x-baseos-rpms
-    size: 497776
-    checksum: sha256:405d9ec69caff6367383ed4b273925aba09e376df6004a42081221cf49952cd4
+    size: 498540
+    checksum: sha256:d945136a82894ef1f1c1665ae6708c01aa14d89558839c47eb7992872eda8f20
     name: glibc-headers
-    evr: 2.28-251.el8_10.16
-    sourcerpm: glibc-2.28-251.el8_10.16.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/g/glibc-minimal-langpack-2.28-251.el8_10.16.s390x.rpm
+    evr: 2.28-251.el8_10.22
+    sourcerpm: glibc-2.28-251.el8_10.22.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/g/glibc-minimal-langpack-2.28-251.el8_10.22.s390x.rpm
     repoid: ubi-8-for-s390x-baseos-rpms
-    size: 72672
-    checksum: sha256:4edb8575ca08c0d23dc69529ca1addbe4fd4dc5af62a491dff16a2719fd4fbac
+    size: 73448
+    checksum: sha256:5d3647aa9463b51d0455429b667857202bf89d6ad92d339f5bdc16a3ffafca4a
     name: glibc-minimal-langpack
-    evr: 2.28-251.el8_10.16
-    sourcerpm: glibc-2.28-251.el8_10.16.src.rpm
+    evr: 2.28-251.el8_10.22
+    sourcerpm: glibc-2.28-251.el8_10.22.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/g/gmp-6.1.2-11.el8.s390x.rpm
     repoid: ubi-8-for-s390x-baseos-rpms
     size: 288604
@@ -5847,12 +5847,12 @@ arches:
     checksum: sha256:e91abeb46538fc264936c0eed825c28eab9eef47288c9eb1d2d4d078bccad5d1
     name: gdbm
     evr: 1:1.18-2.el8
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/g/glibc-2.28-251.el8_10.16.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/g/glibc-2.28-251.el8_10.22.src.rpm
     repoid: ubi-8-for-x86_64-baseos-source-rpms
-    size: 18487094
-    checksum: sha256:f988b183ac97142187843e95dab32f9d7bc8bce3723c80a535a3dfdabba08a44
+    size: 18504270
+    checksum: sha256:35eeb3cb436be1c5000daf8c55cc31181101a8f5cf7d814ad4f3f800a7db533b
     name: glibc
-    evr: 2.28-251.el8_10.16
+    evr: 2.28-251.el8_10.22
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/g/gmp-6.1.2-11.el8.src.rpm
     repoid: ubi-8-for-x86_64-baseos-source-rpms
     size: 2430007
@@ -6412,14 +6412,14 @@ arches:
     name: zstd
     evr: 1.4.4-1.el8
   module_metadata:
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/appstream/os/repodata/0b528812fee677de3612708aefa5a1a5b34392c3e35a6f32d20d4f31126ea4c0-modules.yaml.gz
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/appstream/os/repodata/7a904c6bd3af423fe7e991279b69a43557ed3167eec68e788dd772d96bf747ab-modules.yaml.gz
     repoid: ubi-8-for-s390x-appstream-rpms
-    size: 56644
-    checksum: sha256:0b528812fee677de3612708aefa5a1a5b34392c3e35a6f32d20d4f31126ea4c0
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/46fe5e5711b748c24e0763d7d1fe1c62c0c05010d3ee50dde364243af6765631-modules.yaml.gz
+    size: 56627
+    checksum: sha256:7a904c6bd3af423fe7e991279b69a43557ed3167eec68e788dd772d96bf747ab
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/151f25c214f626a2889ea3776620fb48a8d28aea811cca9927bc090afcd2314f-modules.yaml.gz
     repoid: ubi-8-for-x86_64-appstream-rpms
-    size: 59487
-    checksum: sha256:46fe5e5711b748c24e0763d7d1fe1c62c0c05010d3ee50dde364243af6765631
+    size: 59636
+    checksum: sha256:151f25c214f626a2889ea3776620fb48a8d28aea811cca9927bc090afcd2314f
 - arch: x86_64
   packages:
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/c/cpp-8.5.0-26.el8_10.x86_64.rpm
@@ -6793,41 +6793,41 @@ arches:
     name: gdbm-libs
     evr: 1:1.18-2.el8
     sourcerpm: gdbm-1.18-2.el8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/g/glibc-2.28-251.el8_10.16.x86_64.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/g/glibc-2.28-251.el8_10.22.x86_64.rpm
     repoid: ubi-8-for-x86_64-baseos-rpms
-    size: 2305632
-    checksum: sha256:788907956d1b917b55f8234ec6fe9da3e5b32fe7dc82d57de5ac102335abd7a9
+    size: 2307480
+    checksum: sha256:1142cb82a1cb383c724941571de24279868a83f63a0bfe0a19f9d209003ab1ae
     name: glibc
-    evr: 2.28-251.el8_10.16
-    sourcerpm: glibc-2.28-251.el8_10.16.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/g/glibc-common-2.28-251.el8_10.16.x86_64.rpm
+    evr: 2.28-251.el8_10.22
+    sourcerpm: glibc-2.28-251.el8_10.22.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/g/glibc-common-2.28-251.el8_10.22.x86_64.rpm
     repoid: ubi-8-for-x86_64-baseos-rpms
-    size: 1052168
-    checksum: sha256:34f130bbb239441b0b177f059ce832159d968249db5242905c2c5a90559afb21
+    size: 1053008
+    checksum: sha256:f6e81fe53463a28eaf7eabcc71fbd7cb128960a9a2de98bc6db29d68cd34c7b3
     name: glibc-common
-    evr: 2.28-251.el8_10.16
-    sourcerpm: glibc-2.28-251.el8_10.16.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/g/glibc-devel-2.28-251.el8_10.16.x86_64.rpm
+    evr: 2.28-251.el8_10.22
+    sourcerpm: glibc-2.28-251.el8_10.22.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/g/glibc-devel-2.28-251.el8_10.22.x86_64.rpm
     repoid: ubi-8-for-x86_64-baseos-rpms
-    size: 91136
-    checksum: sha256:d51421bb11b703bd5070f4f3cfb7707e2df6304ebb719ada510c72424b8f0bf2
+    size: 91924
+    checksum: sha256:bc6581d5f5c4c2681093f772fe55b173706fd99e35ee4d2d27f0f786fa5c0bf5
     name: glibc-devel
-    evr: 2.28-251.el8_10.16
-    sourcerpm: glibc-2.28-251.el8_10.16.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/g/glibc-headers-2.28-251.el8_10.16.x86_64.rpm
+    evr: 2.28-251.el8_10.22
+    sourcerpm: glibc-2.28-251.el8_10.22.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/g/glibc-headers-2.28-251.el8_10.22.x86_64.rpm
     repoid: ubi-8-for-x86_64-baseos-rpms
-    size: 505860
-    checksum: sha256:7db16391024e67a9c748c72cb1b340d00fb8699429381e30ccc47d547189812e
+    size: 506616
+    checksum: sha256:0ee590c9959f614ec25ca6548c2c66df2c5611588c6943f26434c9468f5d73ad
     name: glibc-headers
-    evr: 2.28-251.el8_10.16
-    sourcerpm: glibc-2.28-251.el8_10.16.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/g/glibc-minimal-langpack-2.28-251.el8_10.16.x86_64.rpm
+    evr: 2.28-251.el8_10.22
+    sourcerpm: glibc-2.28-251.el8_10.22.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/g/glibc-minimal-langpack-2.28-251.el8_10.22.x86_64.rpm
     repoid: ubi-8-for-x86_64-baseos-rpms
-    size: 72688
-    checksum: sha256:ff281ed13c3ab1ea5752b5c1715b5e7c39aad6eaf5ac529d05d10c31d4f5293d
+    size: 73464
+    checksum: sha256:6c127ec983552bc9e6d18b9155d0768855c326c99d1d958fad214a8e37e3781c
     name: glibc-minimal-langpack
-    evr: 2.28-251.el8_10.16
-    sourcerpm: glibc-2.28-251.el8_10.16.src.rpm
+    evr: 2.28-251.el8_10.22
+    sourcerpm: glibc-2.28-251.el8_10.22.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/g/gmp-6.1.2-11.el8.x86_64.rpm
     repoid: ubi-8-for-x86_64-baseos-rpms
     size: 325760
@@ -7961,12 +7961,12 @@ arches:
     checksum: sha256:e91abeb46538fc264936c0eed825c28eab9eef47288c9eb1d2d4d078bccad5d1
     name: gdbm
     evr: 1:1.18-2.el8
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/g/glibc-2.28-251.el8_10.16.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/g/glibc-2.28-251.el8_10.22.src.rpm
     repoid: ubi-8-for-x86_64-baseos-source-rpms
-    size: 18487094
-    checksum: sha256:f988b183ac97142187843e95dab32f9d7bc8bce3723c80a535a3dfdabba08a44
+    size: 18504270
+    checksum: sha256:35eeb3cb436be1c5000daf8c55cc31181101a8f5cf7d814ad4f3f800a7db533b
     name: glibc
-    evr: 2.28-251.el8_10.16
+    evr: 2.28-251.el8_10.22
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/g/gmp-6.1.2-11.el8.src.rpm
     repoid: ubi-8-for-x86_64-baseos-source-rpms
     size: 2430007
@@ -8526,7 +8526,7 @@ arches:
     name: zstd
     evr: 1.4.4-1.el8
   module_metadata:
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/46fe5e5711b748c24e0763d7d1fe1c62c0c05010d3ee50dde364243af6765631-modules.yaml.gz
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/151f25c214f626a2889ea3776620fb48a8d28aea811cca9927bc090afcd2314f-modules.yaml.gz
     repoid: ubi-8-for-x86_64-appstream-rpms
-    size: 59487
-    checksum: sha256:46fe5e5711b748c24e0763d7d1fe1c62c0c05010d3ee50dde364243af6765631
+    size: 59636
+    checksum: sha256:151f25c214f626a2889ea3776620fb48a8d28aea811cca9927bc090afcd2314f
