@@ -9,16 +9,9 @@ RUN microdnf update -y && rm -rf /var/cache/yum && \
 RUN mkdir /licenses
 COPY tempo-operator/LICENSE /licenses/.
 
-COPY patches patches
-COPY tempo-operator tempo-operator
-
-# fix CVE-2025-2786 and CVE-2025-2842
-RUN cd tempo-operator; patch -p1 < /opt/bundle-build/patches/subjectaccessreview.patch
-RUN cd tempo-operator; patch -p1 < /opt/bundle-build/patches/metrics_role.patch
-
 COPY bundle-patch .
-RUN cp -a tempo-operator/bundle/openshift/manifests .
-RUN cp -a tempo-operator/bundle/openshift/metadata .
+COPY tempo-operator/bundle/openshift/manifests manifests/
+COPY tempo-operator/bundle/openshift/metadata metadata/
 
 RUN ls manifests -al
 RUN ls metadata -al
@@ -49,8 +42,8 @@ LABEL operators.operatorframework.io.test.mediatype.v1=scorecard+v1
 LABEL operators.operatorframework.io.test.config.v1=tests/scorecard/
 
 
-LABEL release="0.15.4-1" \
-      version="0.15.4-1" \
+LABEL release="0.16.0-1" \
+      version="0.16.0-1" \
       com.redhat.openshift.versions=v4.12 \
       name="rhosdt/tempo-operator-bundle" \
       distribution-scope="public" \

@@ -1,7 +1,11 @@
-FROM brew.registry.redhat.io/rh-osbs/openshift-golang-builder:rhel_8_golang_1.23@sha256:0a070e4a8f2698b6aba3630a49eb995ff1b0a182d0c5fa264888acf9d535f384 as builder
+FROM registry.redhat.io/ubi8/ubi:latest@sha256:0c1757c4526cfd7fdfedc54fadf4940e7f453201de65c0fefd454f3dde117273 as builder
 
 WORKDIR /opt/app-root/src
 USER root
+
+RUN dnf install --nodocs -y golang && \
+    dnf clean all && \
+    rm -rf /var/cache/yum
 
 COPY .git .git
 COPY opa-openshift opa-openshift
@@ -12,7 +16,8 @@ WORKDIR /opt/app-root/src/opa-openshift
 RUN CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -mod=mod -tags strictfipsruntime -o opa-openshift -trimpath -ldflags "-s -w"
 
 FROM registry.redhat.io/ubi8/ubi-micro:latest@sha256:eae27ba458e682d6d830f6c77c9e3a4c33cf1718461397b741e674d9d37450f3 AS target-base
-FROM registry.redhat.io/ubi8/ubi:latest@sha256:8bd1b6306f8164de7fb0974031a0f903bd3ab3e6bcab835854d3d9a1a74ea5db as install-additional-packages
+
+FROM registry.redhat.io/ubi8/ubi:latest@sha256:0c1757c4526cfd7fdfedc54fadf4940e7f453201de65c0fefd454f3dde117273 as install-additional-packages
 COPY --from=target-base / /mnt/rootfs
 RUN rpm --root /mnt/rootfs --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 

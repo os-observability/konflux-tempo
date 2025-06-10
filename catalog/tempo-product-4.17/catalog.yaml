@@ -12652,8 +12652,6 @@ properties:
     provider:
       name: Red Hat
 relatedImages:
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:311f7152652df58705aeda77b9053e29f2333a146eb8f686db39938cb2c84f90
-  name: ""
 - image: registry.redhat.io/openshift4/ose-oauth-proxy@sha256:234af927030921ab8f7333f61f967b4b4dee37a1b3cf85689e9e63240dd62800
   name: ose-oauth-proxy
 - image: registry.redhat.io/rhosdt/tempo-gateway-opa-rhel8@sha256:e2b9ef3a1accbe2cf6e28ff12acbf1acbfbbcf9aff2bd1d22d06651727fb54cc
@@ -12662,6 +12660,8 @@ relatedImages:
   name: gateway
 - image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel8@sha256:6f7076797bce3c6ec75249b29ebfa884f9048a6e98176654513ab1fea04a3c10
   name: jaeger-query
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:311f7152652df58705aeda77b9053e29f2333a146eb8f686db39938cb2c84f90
+  name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:a2af0da11beef0e876855b571243eeee7ac8f82c4339c7b4299187051ab70833
   name: tempo-query
 - image: registry.redhat.io/rhosdt/tempo-rhel8-operator@sha256:fd4c625295a8d07167be016365af38dc33dc7b91773581bbf99d503d864db2d5
