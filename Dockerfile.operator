@@ -56,7 +56,12 @@ ARG USER_UID=1001
 USER ${USER_UID}
 ENTRYPOINT ["/usr/bin/tempo-operator"]
 
-LABEL com.redhat.component="tempo-operator-container" \
+LABEL release="0.16.0-1" \
+      version="0.16.0-1" \
+      vendor="Red Hat, Inc." \
+      distribution-scope="public" \
+      url="https://github.com/grafana/tempo-operator" \
+      com.redhat.component="tempo-operator-container" \
       name="rhosdt/tempo-rhel8-operator" \
       summary="Tempo Operator" \
       description="Operator for the Tempo" \

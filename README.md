@@ -30,7 +30,7 @@ Create a PR `Release - update bundle version x.y` and update [patch_csv.yaml](./
 1. `metadata.extra_annotations.olm.skipRange` with the version being productized e.g. `'>=0.33.0 <1.58.0-1'`
 1. `spec.version` with the current version e.g. `tempo-operator.v1.58.0-1`
 1. `spec.replaces` with [the previous shipped version](https://catalog.redhat.com/software/containers/rhosdt/tempo-operator-bundle/642c3e0eacf1b5bdbba7654a) of CSV e.g. `tempo-operator.v1.57.0-1`
-1. Update `release`, `version` and `com.redhat.openshift.versions` (minimum OCP version) labels in [bundle dockerfile](./Dockerfile.bundle)
+1. Update `release`, `version` and `com.redhat.openshift.versions` (minimum OCP version) labels in all Dockerfiles e.g. `sed -i 's/0.107.0-4/0.108.0-1/g' Dockerfile.*`
 1. Verify diff of upstream and downstream ClusterServiceVersion
    ```bash
    podman build -t tempo-bundle -f Dockerfile.bundle . && podman cp $(podman create tempo-bundle):/manifests/tempo-operator.clusterserviceversion.yaml .

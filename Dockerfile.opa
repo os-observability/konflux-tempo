@@ -38,7 +38,12 @@ ARG USER_UID=1001
 USER ${USER_UID}
 ENTRYPOINT ["/usr/bin/opa-openshift"]
 
-LABEL com.redhat.component="tempo-gateway-opa-container" \
+LABEL release="0.16.0-1" \
+      version="0.16.0-1" \
+      vendor="Red Hat, Inc." \
+      distribution-scope="public" \
+      url="https://github.com/grafana/tempo-operator" \
+      com.redhat.component="tempo-gateway-opa-container" \
       name="rhosdt/tempo-gateway-opa-rhel8" \
       summary="Tempo OPA OpenShift" \
       description="An OPA-compatible API for making OpenShift access review requests" \
