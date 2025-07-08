@@ -61,6 +61,10 @@ spec:
     - name: eaas-provision-space
       runAfter:
         - parse-metadata
+      when:
+        - input: $(tasks.parse-metadata.results.test-event-type)
+          operator: in
+          values: [ "push", "Push", "PUSH" ]
       taskRef:
         resolver: git
         params:
