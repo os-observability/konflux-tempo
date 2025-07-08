@@ -49,6 +49,10 @@ spec:
       description: Task to run tests from service repository
       runAfter:
         - parse-metadata
+      when:
+        - input: $(tasks.parse-metadata.results.test-event-type)
+          operator: in
+          values: [ "push", "Push", "PUSH" ]
       params:
         - name: GANGWAY_API_URL
           value: $(params.gangway_api_url)
