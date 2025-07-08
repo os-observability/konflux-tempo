@@ -50,6 +50,9 @@ entries:
   - name: tempo-operator.v0.16.0-1
     replaces: tempo-operator.v0.15.4-1
     skipRange: '>=0.6.0 <0.16.0-1'
+  - name: tempo-operator.v0.16.0-2
+    replaces: tempo-operator.v0.16.0-1
+    skipRange: '>=0.6.0 <0.16.0-2'  
   name: stable
   package: tempo-product
   schema: olm.channel
