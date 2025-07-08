@@ -2133,10 +2133,10 @@ arches:
     repoid: ubi-8-for-aarch64-appstream-rpms
     size: 56956
     checksum: sha256:5b4cd0f4d406abcfbaf92b44ec5d19cc4bea690548cfec7a1c61af286b4695f2
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/98c24c17f13e74a27bfc3cd8486a765a89cb4c6af8bd0f91e5c360f27f66adae-modules.yaml.gz
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/6b87215b58708620a2f8e46361bf35161fc1d9f79863e65fdc37d6acd4439adb-modules.yaml.gz
     repoid: ubi-8-for-x86_64-appstream-rpms
-    size: 59543
-    checksum: sha256:98c24c17f13e74a27bfc3cd8486a765a89cb4c6af8bd0f91e5c360f27f66adae
+    size: 60171
+    checksum: sha256:6b87215b58708620a2f8e46361bf35161fc1d9f79863e65fdc37d6acd4439adb
 - arch: ppc64le
   packages:
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/appstream/os/Packages/c/cpp-8.5.0-26.el8_10.ppc64le.rpm
@@ -4281,10 +4281,10 @@ arches:
     repoid: ubi-8-for-ppc64le-appstream-rpms
     size: 55937
     checksum: sha256:9f4a790ddb0e77fe6c669aaba0c0c3b128c42bb568a1ba76d1d6a618d21bd923
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/98c24c17f13e74a27bfc3cd8486a765a89cb4c6af8bd0f91e5c360f27f66adae-modules.yaml.gz
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/6b87215b58708620a2f8e46361bf35161fc1d9f79863e65fdc37d6acd4439adb-modules.yaml.gz
     repoid: ubi-8-for-x86_64-appstream-rpms
-    size: 59543
-    checksum: sha256:98c24c17f13e74a27bfc3cd8486a765a89cb4c6af8bd0f91e5c360f27f66adae
+    size: 60171
+    checksum: sha256:6b87215b58708620a2f8e46361bf35161fc1d9f79863e65fdc37d6acd4439adb
 - arch: s390x
   packages:
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/appstream/os/Packages/c/cpp-8.5.0-26.el8_10.s390x.rpm
@@ -6412,14 +6412,14 @@ arches:
     name: zstd
     evr: 1.4.4-1.el8
   module_metadata:
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/appstream/os/repodata/6fd06cde4dc2352eb81fc06b91d50df8251af81a1cbe1eacb5c7f93bd6e7e176-modules.yaml.gz
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/appstream/os/repodata/90f9a1dfac3b2c2d56478ddc8941942f0652978564db0b09d5541a1ffbb6abe3-modules.yaml.gz
     repoid: ubi-8-for-s390x-appstream-rpms
-    size: 56571
-    checksum: sha256:6fd06cde4dc2352eb81fc06b91d50df8251af81a1cbe1eacb5c7f93bd6e7e176
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/98c24c17f13e74a27bfc3cd8486a765a89cb4c6af8bd0f91e5c360f27f66adae-modules.yaml.gz
+    size: 56651
+    checksum: sha256:90f9a1dfac3b2c2d56478ddc8941942f0652978564db0b09d5541a1ffbb6abe3
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/6b87215b58708620a2f8e46361bf35161fc1d9f79863e65fdc37d6acd4439adb-modules.yaml.gz
     repoid: ubi-8-for-x86_64-appstream-rpms
-    size: 59543
-    checksum: sha256:98c24c17f13e74a27bfc3cd8486a765a89cb4c6af8bd0f91e5c360f27f66adae
+    size: 60171
+    checksum: sha256:6b87215b58708620a2f8e46361bf35161fc1d9f79863e65fdc37d6acd4439adb
 - arch: x86_64
   packages:
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/c/cpp-8.5.0-26.el8_10.x86_64.rpm
@@ -8526,7 +8526,7 @@ arches:
     name: zstd
     evr: 1.4.4-1.el8
   module_metadata:
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/98c24c17f13e74a27bfc3cd8486a765a89cb4c6af8bd0f91e5c360f27f66adae-modules.yaml.gz
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/6b87215b58708620a2f8e46361bf35161fc1d9f79863e65fdc37d6acd4439adb-modules.yaml.gz
     repoid: ubi-8-for-x86_64-appstream-rpms
-    size: 59543
-    checksum: sha256:98c24c17f13e74a27bfc3cd8486a765a89cb4c6af8bd0f91e5c360f27f66adae
+    size: 60171
+    checksum: sha256:6b87215b58708620a2f8e46361bf35161fc1d9f79863e65fdc37d6acd4439adb
