@@ -38,8 +38,8 @@ ARG USER_UID=1001
 USER ${USER_UID}
 ENTRYPOINT ["/usr/bin/opa-openshift"]
 
-LABEL release="0.16.0-1" \
-      version="0.16.0-1" \
+LABEL release="0.16.0-2" \
+      version="0.16.0-2" \
       vendor="Red Hat, Inc." \
       distribution-scope="public" \
       url="https://github.com/grafana/tempo-operator" \
