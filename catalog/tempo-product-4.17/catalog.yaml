@@ -14070,7 +14070,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:a04696c0d4a2b1b4122f535cb087f958dc7cfcb84b9db1be178f71da9cc1954b
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:37fdc76a67305b307a6b0d5d672c9b2e471bda16c66f630477c2580433a60780
 name: tempo-operator.v0.16.0-2
 package: tempo-product
 properties:
@@ -14164,7 +14164,7 @@ properties:
       categories: Logging & Tracing,Monitoring
       console.openshift.io/operator-monitoring-default: "true"
       containerImage: registry.redhat.io/rhosdt/tempo-rhel8-operator@sha256:0e1f40b07d764e150065edd475377f9542eba67656b3fbfd5994f9cff48f0cfc
-      createdAt: 09 Jul 2025, 02:05
+      createdAt: 09 Jul 2025, 15:35
       description: Create and manage deployments of Tempo, a high-scale distributed
         tracing backend.
       features.operators.openshift.io/cnf: "false"
@@ -15446,7 +15446,7 @@ properties:
     provider:
       name: Red Hat
 relatedImages:
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:a04696c0d4a2b1b4122f535cb087f958dc7cfcb84b9db1be178f71da9cc1954b
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:37fdc76a67305b307a6b0d5d672c9b2e471bda16c66f630477c2580433a60780
   name: ""
 - image: registry.redhat.io/openshift4/ose-oauth-proxy@sha256:234af927030921ab8f7333f61f967b4b4dee37a1b3cf85689e9e63240dd62800
   name: ose-oauth-proxy
@@ -15456,7 +15456,7 @@ relatedImages:
   name: gateway
 - image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel8@sha256:8b43703fcf69923c09542cdfb8dc09df3961a913735d78afdb39fb260954c370
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:1d3abd33a74ad6983f1bd505689018cf4fb3fd0106598dc71daad7e6d58f59b9
+- image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:51fcd7bdf4c0a504c0abf4cc116cf6d346930cfc4be5574d83bd9512ce099000
   name: tempo-query
 - image: registry.redhat.io/rhosdt/tempo-rhel8-operator@sha256:0e1f40b07d764e150065edd475377f9542eba67656b3fbfd5994f9cff48f0cfc
   name: operator
