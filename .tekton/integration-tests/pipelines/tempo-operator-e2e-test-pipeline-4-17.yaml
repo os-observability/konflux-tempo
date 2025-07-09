@@ -76,6 +76,10 @@ spec:
     - name: provision-cluster
       runAfter:
         - eaas-provision-space
+      when:
+        - input: $(tasks.parse-metadata.results.test-event-type)
+          operator: in
+          values: [ "push", "Push", "PUSH" ]
       taskSpec:
         results:
           - name: clusterName
@@ -153,6 +157,10 @@ spec:
       description: Task to install bundle onto ephemeral namespace
       runAfter:
         - provision-cluster
+      when:
+        - input: $(tasks.parse-metadata.results.test-event-type)
+          operator: in
+          values: [ "push", "Push", "PUSH" ]
       params:
         - name: SNAPSHOT
           value: $(params.SNAPSHOT)
@@ -227,6 +235,10 @@ spec:
       description: Task to install dependent operators onto ephemeral namespace
       runAfter:
         - tempo-install
+      when:
+        - input: $(tasks.parse-metadata.results.test-event-type)
+          operator: in
+          values: [ "push", "Push", "PUSH" ]
       params:
         - name: SNAPSHOT
           value: $(params.SNAPSHOT)
@@ -328,6 +340,10 @@ spec:
       description: The task checks Tempo operator and operand version details and image info
       runAfter:
         - tempo-install
+      when:
+        - input: $(tasks.parse-metadata.results.test-event-type)
+          operator: in
+          values: [ "push", "Push", "PUSH" ]
       params:
         - name: SNAPSHOT
           value: $(params.SNAPSHOT)
@@ -503,6 +519,10 @@ spec:
       description: Task to run Dynamic Application Security Testing (DAST) using RapiDAST
       runAfter:
         - operators-install
+      when:
+        - input: $(tasks.parse-metadata.results.test-event-type)
+          operator: in
+          values: [ "push", "Push", "PUSH" ]
       taskSpec:
         volumes:
           - name: credentials
@@ -581,6 +601,10 @@ spec:
       description: Task to run tests from service repository
       runAfter:
         - dast-test
+      when:
+        - input: $(tasks.parse-metadata.results.test-event-type)
+          operator: in
+          values: [ "push", "Push", "PUSH" ]
       params:
         - name: TEMPO_TESTS_BRANCH
           value: $(params.tempo_tests_branch)
