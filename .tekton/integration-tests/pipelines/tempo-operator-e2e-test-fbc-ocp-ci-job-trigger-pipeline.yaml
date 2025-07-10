@@ -95,11 +95,8 @@ spec:
                 value: "$(params.OCP_CI_JOB_NAME)"
               - name: MULTISTAGE_PARAM_OVERRIDE_KEY
                 value: "$(params.MULTISTAGE_PARAM_OVERRIDE_KEY)"
-            image: registry.redhat.io/openshift4/ose-cli:latest
+            image: quay.io/redhat-distributed-tracing-qe/konflux-e2e:latest
             script: |
-              echo "Install dependencies"
-              dnf -y install jq
-
               # Read the token from the secret file
               GANGWAY_API_TOKEN=$(cat /secrets/gangway-api-token/gangway_api_token)
 
@@ -153,7 +150,7 @@ spec:
                     break
                   else
                     echo "Job URL not yet available, waiting 5 seconds..."
-                    sleep 5
+                    sleep 15
                     ATTEMPT=$((ATTEMPT + 1))
                   fi
                 done
