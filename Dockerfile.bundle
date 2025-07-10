@@ -55,7 +55,7 @@ LABEL release="0.16.0-2" \
       io.k8s.display-name="Tempo Operator Bundle" \
       url="https://github.com/grafana/tempo-operator" \
       vendor="Red Hat, Inc." \
-      summary="Tempo operator Bundle" \
+      summary="Tempo operator bundle" \
       maintainer="support@redhat.com"
 
 # Copy files to locations specified by labels.
