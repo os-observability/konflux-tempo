@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi8/ubi:latest@sha256:312668d24dfec2e2869ab11b679728745a2745835a12aafda8e77f42aec666cb as builder
+FROM registry.redhat.io/ubi8/ubi:latest@sha256:c0b07294568b8c1281d3ad89616ce036095da770a4410147c1755d930b562682 as builder
 
 WORKDIR /opt/app-root/src
 USER root
@@ -17,7 +17,7 @@ RUN CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -mod=mod -tags strictf
 
 FROM registry.redhat.io/ubi8/ubi-micro:latest@sha256:eae27ba458e682d6d830f6c77c9e3a4c33cf1718461397b741e674d9d37450f3 AS target-base
 
-FROM registry.redhat.io/ubi8/ubi:latest@sha256:312668d24dfec2e2869ab11b679728745a2745835a12aafda8e77f42aec666cb as install-additional-packages
+FROM registry.redhat.io/ubi8/ubi:latest@sha256:c0b07294568b8c1281d3ad89616ce036095da770a4410147c1755d930b562682 as install-additional-packages
 COPY --from=target-base / /mnt/rootfs
 RUN rpm --root /mnt/rootfs --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 
