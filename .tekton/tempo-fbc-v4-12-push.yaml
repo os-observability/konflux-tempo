@@ -36,10 +36,6 @@ spec:
   - name: build-platforms
     value:
       - localhost
-      #      - linux/x86_64
-      - linux/arm64
-      - linux/ppc64le
-      - linux/s390x
   pipelineRef:
     name: fbc-build-pipeline
   taskRunTemplate: {}
