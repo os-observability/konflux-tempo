@@ -1,26 +1,21 @@
 {
-  "extends": [
-    "github>konflux-ci/mintmaker//config/renovate/renovate.json"
-  ],
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "ignoreDeps": [
     "registry.redhat.io/openshift4/ose-operator-registry",
     "registry.redhat.io/openshift4/ose-operator-registry-rhel9"
   ],
-  "packageRules": [
-    {
-      "matchFileNames": ["bundle-patch/bundle.env"],
-      "groupName": "bundle images"
-    }
-  ],
-  "dockerfile": {
-    "postUpgradeTasks": {
-      "commands": [
-        "rpm-lockfile-prototype rpms.in.yaml"
-      ],
-      "fileFilters": ["**/rpms.lock.yaml"]
-    }
-  },
   "git-submodules": {
     "enabled": false
-  }
+  },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update digest of container images in .env files",
+      "managerFilePatterns": ["/\\.env$/"],
+      "matchStrings": [
+        "# renovate: follow_tag=(?<currentValue>[a-z-]+?)\\s.+?=(?<packageName>[^@:]+?)@(?<currentDigest>.+?)\\s"
+      ],
+      "datasourceTemplate": "docker"
+    }
+  ]
 }
