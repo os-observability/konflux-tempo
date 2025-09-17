@@ -30,6 +30,8 @@ FROM scratch
 WORKDIR /
 COPY --from=install-additional-packages /mnt/rootfs/ /
 
+ARG VERSION=0.16.0-2
+
 RUN mkdir /licenses
 COPY opa-openshift/LICENSE /licenses/.
 COPY --from=builder /opt/app-root/src/opa-openshift/opa-openshift /usr/bin/opa-openshift
@@ -38,8 +40,8 @@ ARG USER_UID=1001
 USER ${USER_UID}
 ENTRYPOINT ["/usr/bin/opa-openshift"]
 
-LABEL release="0.16.0-2" \
-      version="0.16.0-2" \
+LABEL release="${VERSION}" \
+      version="${VERSION}" \
       vendor="Red Hat, Inc." \
       distribution-scope="public" \
       url="https://github.com/grafana/tempo-operator" \

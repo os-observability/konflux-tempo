@@ -225,6 +225,8 @@ spec:
       value: "$(tasks.build-container.results.IMAGE_DIGEST)"
     - name: image-url
       value: "$(tasks.build-container.results.IMAGE_URL)"
+    - name: ARGS
+      value: "--project-name=red-hat-openshift-distributed-tracing --report --org=0eebca54-4fa1-4638-9ac6-f95f789a9d3e"
   - name: clamav-scan
     taskRef:
       resolver: bundles
