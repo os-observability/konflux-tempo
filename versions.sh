@@ -12,8 +12,8 @@ git submodule foreach --recursive "git fetch --tags"
 OPERATOR_VERSION=$(cd tempo-operator && git describe --tags --abbrev=0 | sed 's/^v//')
 TEMPO_VERSION=$(cd tempo && git describe --tags --abbrev=0 | sed 's/^v//')
 JAEGER_VERSION=$(cd jaeger && git describe --tags --abbrev=0 | sed 's/^v//')
-BUNDLE_VERSION=${OPERATOR_VERSION}-2
-PREVIOUS_BUNDLE_VERSION=0.16.0-1
+BUNDLE_VERSION=${OPERATOR_VERSION}-1
+PREVIOUS_BUNDLE_VERSION=0.16.0-2
 MIN_OPENSHIFT_VERSION=4.12
 
 # version information in binaries
