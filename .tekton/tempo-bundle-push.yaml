@@ -31,8 +31,6 @@ spec:
     value: '[{"type": "rpm", "path": "./bundle-patch"}]'
   - name: hermetic
     value: "true"
-  - name: prefetch-dev-package-managers-enabled
-    value: "true"
   - name: output-image
     value: quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-bundle:{{revision}}
   - name: dockerfile

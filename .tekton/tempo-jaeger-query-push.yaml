@@ -38,8 +38,6 @@ spec:
     value: '[{"type": "gomod", "path": "./jaeger"} ,{"type": "npm", "path": "./jaeger-ui"}, {"type": "rpm"}]'
   - name: hermetic
     value: "true"
-  - name: prefetch-dev-package-managers-enabled
-    value: "true"
   - name: output-image
     value: quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-jaeger-query:{{revision}}
   - name: dockerfile
