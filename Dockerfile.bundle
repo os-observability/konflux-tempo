@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:fceb1f445ccd61a60d91d404fd76dbebaf3403e6cc2219cf6d6af4fd4bf7df6a as builder
+FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:43dde01be4e94afd22d8d95ee8abcc9f610b4e50aff5bcc141b558c74d4c68b5 as builder
 
 USER root
 WORKDIR /opt/bundle-build
@@ -25,6 +25,8 @@ RUN ./update_bundle.sh && cat manifests/tempo-operator.clusterserviceversion.yam
 FROM scratch
 WORKDIR /
 
+ARG VERSION=0.16.0-2
+
 COPY tempo-operator/LICENSE /licenses/.
 
 # Core bundle labels.
@@ -42,8 +44,8 @@ LABEL operators.operatorframework.io.test.mediatype.v1=scorecard+v1
 LABEL operators.operatorframework.io.test.config.v1=tests/scorecard/
 
 
-LABEL release="0.16.0-2" \
-      version="0.16.0-2" \
+LABEL release="${VERSION}" \
+      version="${VERSION}" \
       com.redhat.openshift.versions=v4.12 \
       name="rhosdt/tempo-operator-bundle" \
       distribution-scope="public" \

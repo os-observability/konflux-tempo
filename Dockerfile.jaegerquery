@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi9/nodejs-22:latest@sha256:12e822f12a5df428dee0a91d7b2610256264adfadda742c40ff0bfb7e733db2d as builder-ui
+FROM registry.redhat.io/ubi9/nodejs-22:latest@sha256:bc98821fd474e197d6a935964a0de14b7cd69ddcf67f7580a7b4c42e00fc0851 as builder-ui
  
 WORKDIR /opt/app-root/src
 USER root
@@ -16,7 +16,7 @@ RUN patch -p1 < /opt/app-root/src/patches/jaegerui_deprecation_notice.patch
 RUN npm ci --ignore-scripts
 RUN npm run build
 
-FROM registry.redhat.io/ubi8/ubi:latest@sha256:312668d24dfec2e2869ab11b679728745a2745835a12aafda8e77f42aec666cb as builder
+FROM registry.redhat.io/ubi8/ubi:latest@sha256:534c2c0efa4150ede18e3f9d7480d3b9ec2a52e62bc91cd54e08ee7336819619 as builder
 
 WORKDIR /opt/app-root/src
 USER root
@@ -45,9 +45,9 @@ RUN rm -rf ./cmd/query/app/ui/actual && mkdir ./cmd/query/app/ui/actual && cp -r
                 -X ${VERSION_PKG}.latestVersion=${GIT_LATEST_TAG} \
                 -X ${VERSION_PKG}.date=${VERSION_DATE}"
 
-FROM registry.redhat.io/ubi8/ubi-micro:latest@sha256:eae27ba458e682d6d830f6c77c9e3a4c33cf1718461397b741e674d9d37450f3 AS target-base
+FROM registry.redhat.io/ubi8/ubi-micro:latest@sha256:9ad92923c8d98240cf8df732b3e7a2f322df6e4e501b551deca2231b2679919e AS target-base
 
-FROM registry.redhat.io/ubi8/ubi:latest@sha256:312668d24dfec2e2869ab11b679728745a2745835a12aafda8e77f42aec666cb as install-additional-packages
+FROM registry.redhat.io/ubi8/ubi:latest@sha256:534c2c0efa4150ede18e3f9d7480d3b9ec2a52e62bc91cd54e08ee7336819619 as install-additional-packages
 COPY --from=target-base / /mnt/rootfs
 RUN rpm --root /mnt/rootfs --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 
@@ -57,6 +57,8 @@ RUN dnf install --installroot /mnt/rootfs --releasever 8 --setopt install_weak_d
 RUN rm -rf /mnt/rootfs/var/cache/*
 
 FROM scratch
+
+ARG VERSION=0.16.0-2
 
 WORKDIR /opt/app-root/src/
 COPY --from=install-additional-packages /mnt/rootfs/ /
@@ -69,8 +71,8 @@ ARG USER_UID=1001
 USER ${USER_UID}
 ENTRYPOINT ["/usr/bin/jaeger"]
 
-LABEL release="0.16.0-2" \
-      version="0.16.0-2" \
+LABEL release="${VERSION}" \
+      version="${VERSION}" \
       vendor="Red Hat, Inc." \
       distribution-scope="public" \
       url="https://github.com/grafana/tempo-operator" \

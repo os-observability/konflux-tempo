@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi8/ubi:latest@sha256:312668d24dfec2e2869ab11b679728745a2745835a12aafda8e77f42aec666cb as builder
+FROM registry.redhat.io/ubi8/ubi:latest@sha256:534c2c0efa4150ede18e3f9d7480d3b9ec2a52e62bc91cd54e08ee7336819619 as builder
 
 WORKDIR /opt/app-root/src
 USER root
@@ -15,9 +15,9 @@ WORKDIR /opt/app-root/src/opa-openshift
 
 RUN CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -mod=mod -tags strictfipsruntime -o opa-openshift -trimpath -ldflags "-s -w"
 
-FROM registry.redhat.io/ubi8/ubi-micro:latest@sha256:eae27ba458e682d6d830f6c77c9e3a4c33cf1718461397b741e674d9d37450f3 AS target-base
+FROM registry.redhat.io/ubi8/ubi-micro:latest@sha256:9ad92923c8d98240cf8df732b3e7a2f322df6e4e501b551deca2231b2679919e AS target-base
 
-FROM registry.redhat.io/ubi8/ubi:latest@sha256:312668d24dfec2e2869ab11b679728745a2745835a12aafda8e77f42aec666cb as install-additional-packages
+FROM registry.redhat.io/ubi8/ubi:latest@sha256:534c2c0efa4150ede18e3f9d7480d3b9ec2a52e62bc91cd54e08ee7336819619 as install-additional-packages
 COPY --from=target-base / /mnt/rootfs
 RUN rpm --root /mnt/rootfs --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 
@@ -30,6 +30,8 @@ FROM scratch
 WORKDIR /
 COPY --from=install-additional-packages /mnt/rootfs/ /
 
+ARG VERSION=0.16.0-2
+
 RUN mkdir /licenses
 COPY opa-openshift/LICENSE /licenses/.
 COPY --from=builder /opt/app-root/src/opa-openshift/opa-openshift /usr/bin/opa-openshift
@@ -38,8 +40,8 @@ ARG USER_UID=1001
 USER ${USER_UID}
 ENTRYPOINT ["/usr/bin/opa-openshift"]
 
-LABEL release="0.16.0-2" \
-      version="0.16.0-2" \
+LABEL release="${VERSION}" \
+      version="${VERSION}" \
       vendor="Red Hat, Inc." \
       distribution-scope="public" \
       url="https://github.com/grafana/tempo-operator" \
