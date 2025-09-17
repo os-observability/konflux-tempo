@@ -58,6 +58,8 @@ RUN rm -rf /mnt/rootfs/var/cache/*
 
 FROM scratch
 
+ARG VERSION=0.16.0-2
+
 WORKDIR /opt/app-root/src/
 COPY --from=install-additional-packages /mnt/rootfs/ /
 
@@ -69,8 +71,8 @@ ARG USER_UID=1001
 USER ${USER_UID}
 ENTRYPOINT ["/usr/bin/jaeger"]
 
-LABEL release="0.16.0-2" \
-      version="0.16.0-2" \
+LABEL release="${VERSION}" \
+      version="${VERSION}" \
       vendor="Red Hat, Inc." \
       distribution-scope="public" \
       url="https://github.com/grafana/tempo-operator" \
