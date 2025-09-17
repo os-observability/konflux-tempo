@@ -25,7 +25,7 @@ RUN ./update_bundle.sh && cat manifests/tempo-operator.clusterserviceversion.yam
 FROM scratch
 WORKDIR /
 
-ARG VERSION=0.16.0-2
+ARG VERSION=0.18.0-1
 
 COPY tempo-operator/LICENSE /licenses/.
 

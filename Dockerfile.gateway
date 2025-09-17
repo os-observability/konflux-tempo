@@ -30,7 +30,7 @@ FROM scratch
 WORKDIR /
 COPY --from=install-additional-packages /mnt/rootfs/ /
 
-ARG VERSION=0.16.0-2
+ARG VERSION=0.18.0-1
 
 RUN mkdir /licenses
 COPY api/LICENSE /licenses/.
