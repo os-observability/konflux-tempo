@@ -15467,7 +15467,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:ec474668925d4a128ff1d18753dd7a92edca9bdad3408d0dd9b316fdc3e9376f
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:9a09382de7ec0e9c35de2459950fca7ccf3d08d33fe36e93ac862105ca1894a3
 name: tempo-operator.v0.18.0-1
 package: tempo-product
 properties:
@@ -15561,7 +15561,7 @@ properties:
       categories: Logging & Tracing,Monitoring
       console.openshift.io/operator-monitoring-default: "true"
       containerImage: registry.redhat.io/rhosdt/tempo-rhel8-operator@sha256:b473f9a715af3eaacd8589e9d5eaf4e59912bf5c471de4e4b13d06b83cc73ce4
-      createdAt: 18 Sep 2025, 09:41
+      createdAt: 18 Sep 2025, 15:26
       description: Create and manage deployments of Tempo, a high-scale distributed
         tracing backend.
       features.operators.openshift.io/cnf: "false"
@@ -16857,7 +16857,7 @@ properties:
     provider:
       name: Red Hat
 relatedImages:
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:ec474668925d4a128ff1d18753dd7a92edca9bdad3408d0dd9b316fdc3e9376f
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:9a09382de7ec0e9c35de2459950fca7ccf3d08d33fe36e93ac862105ca1894a3
   name: ""
 - image: registry.redhat.io/openshift4/ose-oauth-proxy@sha256:dc24aa382e02c4ac058d4b824a21f0e90a6259d6d817d0341b2a41809b5daa78
   name: ose-oauth-proxy
