@@ -51,7 +51,7 @@ spec:
     
     ### Support & Troubleshooting
     Tempo Operator is available and supported as part of a Red Hat OpenShift subscription.
-    Checking the [Red Hat Documentation](https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/distributed_tracing/distributed-tracing-platform-tempo) is recommended when installing, configuring, and managing the Operator and instances.
+    Checking the [Red Hat Documentation](https://docs.redhat.com/en/documentation/openshift_container_platform/latest/html/distributed_tracing) is recommended when installing, configuring, and managing the Operator and instances.
   displayName: 'Tempo Operator'
   maintainers:
     - email: support@redhat.com
