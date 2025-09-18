@@ -54,6 +54,8 @@ spec:
   #     - linux/arm64
   #     - linux/ppc64le
   #     - linux/s390x
+  - name: snyk-project
+    value: tempo-query
   pipelineRef:
     name: build-pipeline
   taskRunTemplate: {}
