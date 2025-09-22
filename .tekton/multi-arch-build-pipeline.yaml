@@ -1,4 +1,4 @@
-# build pipeline for all components excl. bundle
+#  build pipeline for all components excl. bundle
 apiVersion: tekton.dev/v1
 kind: Pipeline
 metadata:
