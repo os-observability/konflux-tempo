@@ -82,6 +82,10 @@ spec:
     type: string
     description: Snyk project name
     default: 'red-hat-openshift-distributed-tracing'
+  - name: snyk-ignore-file-paths
+    type: string
+    description: Ignore snyk project paths (comma separated)
+    default: ""
   results:
   - description: ""
     name: IMAGE_URL
@@ -369,6 +373,8 @@ spec:
       value: $(tasks.prefetch-dependencies.results.CACHI2_ARTIFACT)
     - name: ARGS
       value: "--project-name=$(params.snyk-project) --report --org=0eebca54-4fa1-4638-9ac6-f95f789a9d3e"
+    - name: IGNORE_FILE_PATHS
+      value: $(params.snyk-ignore-file-paths)
     runAfter:
     - build-image-index
     taskRef:

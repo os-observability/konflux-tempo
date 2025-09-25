@@ -47,6 +47,8 @@ spec:
       - linux/s390x
   - name: snyk-project
     value: tempo-operator
+  - name: snyk-ignore-file-paths
+    value: "tempo/,jaeger/,jaeger-ui/,api/,opa-openshift/"
   pipelineRef:
     name: build-pipeline
   taskRunTemplate: {}
