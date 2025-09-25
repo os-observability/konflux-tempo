@@ -51,4 +51,5 @@ LABEL release="${VERSION}" \
       description="Horizontally-scalable authn/authz-securing reverse proxy for Tempo" \
       io.k8s.description="Horizontally-scalable authn/authz-securing reverse proxy for Tempo." \
       io.openshift.tags="tracing" \
-      io.k8s.display-name="Tempo Gateway"
+      io.k8s.display-name="Tempo Gateway" \
+      cpe="cpe:/a:redhat:openshift_distributed_tracing:3.6::el8"
