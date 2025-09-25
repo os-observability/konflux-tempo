@@ -57,4 +57,5 @@ LABEL release="${VERSION}" \
       io.k8s.description="This container exposes a Jaeger Query compatible API from Tempo." \
       io.openshift.expose-services="16686:http,16687:metrics" \
       io.openshift.tags="tracing" \
-      io.k8s.display-name="Tempo Query"
+      io.k8s.display-name="Tempo Query" \
+      cpe="cpe:/a:redhat:openshift_distributed_tracing:3.6::el8"
