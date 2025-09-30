@@ -1,20 +1,27 @@
 #!/bin/bash
 set -eu
 
-#
-# A central place to store all version numbers.
-# This script will update the (static) version numbers which are embedded in other files (e.g. Dockerfile).
-#
+# Propagates version information to various static files.
+# This file is intentionally kept as a shellscript, to simplify product-specific modifications.
 
-echo "Fetching tags of all submodules"
-git submodule foreach --recursive "git fetch --tags"
+echo "Fetching tags of all submodules..."
+git submodule foreach --recursive "git fetch --tags" > /dev/null 2>&1
 
 OPERATOR_VERSION=$(cd tempo-operator && git describe --tags --abbrev=0 | sed 's/^v//')
 TEMPO_VERSION=$(cd tempo && git describe --tags --abbrev=0 | sed 's/^v//')
 JAEGER_VERSION=$(cd jaeger && git describe --tags --abbrev=0 | sed 's/^v//')
+
 BUNDLE_VERSION=${OPERATOR_VERSION}-1
 PREVIOUS_BUNDLE_VERSION=0.16.0-2
 MIN_OPENSHIFT_VERSION=4.12
+
+echo "Updating version numbers in Dockerfiles and bundle..."
+echo
+echo "Operator: ${OPERATOR_VERSION}"
+echo "Tempo: ${TEMPO_VERSION}"
+echo "Jaeger: ${JAEGER_VERSION}"
+echo "Bundle: ${BUNDLE_VERSION} (previous: ${PREVIOUS_BUNDLE_VERSION})"
+echo "Min OpenShift version: ${MIN_OPENSHIFT_VERSION}"
 
 # version information in binaries
 sed -Ei "s/exportOrFail OPERATOR_VERSION=[^ ]*/exportOrFail OPERATOR_VERSION=\"${OPERATOR_VERSION}\"/g" Dockerfile.operator
