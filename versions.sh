@@ -11,6 +11,7 @@ OPERATOR_VERSION=$(cd tempo-operator && git describe --tags --abbrev=0 | sed 's/
 TEMPO_VERSION=$(cd tempo && git describe --tags --abbrev=0 | sed 's/^v//')
 JAEGER_VERSION=$(cd jaeger && git describe --tags --abbrev=0 | sed 's/^v//')
 
+RHOSDT_VERSION=3.7
 BUNDLE_VERSION=${OPERATOR_VERSION}-1
 PREVIOUS_BUNDLE_VERSION=0.16.0-2
 MIN_OPENSHIFT_VERSION=4.12
@@ -30,6 +31,7 @@ sed -Ei "s/exportOrFail GIT_LATEST_TAG=[^ ]*/exportOrFail GIT_LATEST_TAG=\"${JAE
 
 # container labels
 sed -Ei "s/ARG VERSION=.*/ARG VERSION=${BUNDLE_VERSION}/g" Dockerfile.*
+sed -Ei "s/cpe=[^ ]*/cpe=\"cpe:\/a:redhat:openshift_distributed_tracing:${RHOSDT_VERSION}::el8\"/g" Dockerfile.*
 sed -Ei "s/com.redhat.openshift.versions=[^ ]*/com.redhat.openshift.versions=v${MIN_OPENSHIFT_VERSION}/g" Dockerfile.bundle
 
 # CSV
