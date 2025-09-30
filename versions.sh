@@ -35,7 +35,7 @@ sed -Ei "s/cpe=[^ ]*/cpe=\"cpe:\/a:redhat:openshift_distributed_tracing:${RHOSDT
 sed -Ei "s/com.redhat.openshift.versions=[^ ]*/com.redhat.openshift.versions=v${MIN_OPENSHIFT_VERSION}/g" Dockerfile.bundle
 
 # CSV
-sed -Ei "s/  version: .*/  version: ${BUNDLE_VERSION}/g" bundle-patch/patch_csv.yaml
-sed -Ei "s/name: tempo-operator.v.*/name: tempo-operator.v${BUNDLE_VERSION}/g" bundle-patch/patch_csv.yaml
-sed -Ei "s/replaces: tempo-operator.v.*/replaces: tempo-operator.v${PREVIOUS_BUNDLE_VERSION}/g" bundle-patch/patch_csv.yaml
+yq -i e ".spec.version = \"${BUNDLE_VERSION}\"" bundle-patch/patch_csv.yaml
+yq -i e ".metadata.name = \"tempo-operator.v${BUNDLE_VERSION}\"" bundle-patch/patch_csv.yaml
+yq -i e ".spec.replaces = \"tempo-operator.v${PREVIOUS_BUNDLE_VERSION}\"" bundle-patch/patch_csv.yaml
 sed -Ei "s/olm.skipRange: '>=(.*) <[^']*/olm.skipRange: '>=\1 <${BUNDLE_VERSION}/g" bundle-patch/patch_csv.yaml
