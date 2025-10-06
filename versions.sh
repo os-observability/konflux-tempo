@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eu
+set -euo pipefail
 
 # Propagates version information to various static files.
 # This file is intentionally kept as a shellscript, to simplify product-specific modifications.
