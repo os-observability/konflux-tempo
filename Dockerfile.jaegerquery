@@ -45,7 +45,7 @@ RUN rm -rf ./cmd/query/app/ui/actual && mkdir ./cmd/query/app/ui/actual && cp -r
                 -X ${VERSION_PKG}.latestVersion=${GIT_LATEST_TAG} \
                 -X ${VERSION_PKG}.date=${VERSION_DATE}"
 
-FROM registry.redhat.io/ubi8/ubi-micro:latest@sha256:0b348ff16700e13fef3753b7124c0ed618af9accc360ded37afb53ef490c155f AS target-base
+FROM registry.redhat.io/ubi8/ubi-micro:latest@sha256:37552f11d3b39b3360f7be7c13f6a617e468f39be915cd4f8c8a8531ffc9d43d AS target-base
 
 FROM registry.redhat.io/ubi8/ubi:latest@sha256:2f698e145dd30ac9f611b8984b910640bc210fae476dc36aa9ba200fad2a30ed as install-additional-packages
 COPY --from=target-base / /mnt/rootfs
