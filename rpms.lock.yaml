@@ -6328,7 +6328,7 @@ arches:
     name: zstd
     evr: 1.4.4-1.el8
   module_metadata:
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/appstream/os/repodata/2508f3a12aa7ee1a9fd665d60aa474d0dd1ae1ff73ec978e5eace717842abc40-modules.yaml.gz
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/appstream/os/repodata/ba775bf0d1c58ed444736628d96a5798ee28260c42ba4796ae904858ae9993a8-modules.yaml.gz
     repoid: ubi-8-for-s390x-appstream-rpms
     size: 56989
     checksum: sha256:2508f3a12aa7ee1a9fd665d60aa474d0dd1ae1ff73ec978e5eace717842abc40
