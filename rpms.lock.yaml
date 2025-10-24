@@ -6331,7 +6331,7 @@ arches:
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/appstream/os/repodata/ba775bf0d1c58ed444736628d96a5798ee28260c42ba4796ae904858ae9993a8-modules.yaml.gz
     repoid: ubi-8-for-s390x-appstream-rpms
     size: 56989
-    checksum: sha256:ba775bf0d1c58ed444736628d96a5798ee28260c42ba4796ae904858ae9993a8
+    checksum: sha256:2508f3a12aa7ee1a9fd665d60aa474d0dd1ae1ff73ec978e5eace717842abc40
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/15aad3221165af96b49d2aea94edb580c8ce58f28daa9459fdb68e419decb4fd-modules.yaml.gz
     repoid: ubi-8-for-x86_64-appstream-rpms
     size: 59092
