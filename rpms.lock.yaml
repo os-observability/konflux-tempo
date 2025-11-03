@@ -1019,6 +1019,13 @@ arches:
     name: zlib-devel
     evr: 1.2.11-25.el8
     sourcerpm: zlib-1.2.11-25.el8.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/c/ca-certificates-2025.2.80_v9.0.304-80.2.el8_10.noarch.rpm
+    repoid: ubi-8-for-s390x-baseos-rpms
+    size: 1048264
+    checksum: sha256:01d249b3d9889ab05adea246a1e84571e817013e06b24bbfc4bb42a1d7d8aa50
+    name: ca-certificates
+    evr: 2025.2.80_v9.0.304-80.2.el8_10
+    sourcerpm: ca-certificates-2025.2.80_v9.0.304-80.2.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/g/git-core-doc-2.43.7-1.el8_10.noarch.rpm
     repoid: ubi-8-for-x86_64-appstream-rpms
     size: 3216756
@@ -1096,13 +1103,6 @@ arches:
     name: xkeyboard-config
     evr: 2.28-1.el8
     sourcerpm: xkeyboard-config-2.28-1.el8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/c/ca-certificates-2024.2.69_v8.0.303-80.0.el8_10.noarch.rpm
-    repoid: ubi-8-for-x86_64-baseos-rpms
-    size: 1006212
-    checksum: sha256:5b97c63d4978f82a8d73cb83c81c438d69309bc929d35c6bebf5868f128da13f
-    name: ca-certificates
-    evr: 2024.2.69_v8.0.303-80.0.el8_10
-    sourcerpm: ca-certificates-2024.2.69_v8.0.303-80.0.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/c/crypto-policies-20230731-1.git3177e06.el8.noarch.rpm
     repoid: ubi-8-for-x86_64-baseos-rpms
     size: 65848
@@ -1314,6 +1314,12 @@ arches:
     evr: 39.2.0-9.el8_10
     sourcerpm: python-setuptools-39.2.0-9.el8_10.src.rpm
   source:
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/source/SRPMS/Packages/c/ca-certificates-2025.2.80_v9.0.304-80.2.el8_10.src.rpm
+    repoid: ubi-8-for-s390x-baseos-source-rpms
+    size: 742547
+    checksum: sha256:879547af21a33e8e0a2356bc7cbd8c4fdc17d4830fbcadbf9aac1cfbbcf140f5
+    name: ca-certificates
+    evr: 2025.2.80_v9.0.304-80.2.el8_10
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/source/SRPMS/Packages/g/git-2.43.7-1.el8_10.src.rpm
     repoid: ubi-8-for-x86_64-appstream-source-rpms
     size: 7499245
@@ -1440,12 +1446,6 @@ arches:
     checksum: sha256:9c1d697f675f5889c57e7f983afa4b3e3f6e2334887ded9d7c10c5a205d1b06a
     name: bzip2
     evr: 1.0.6-28.el8_10
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/c/ca-certificates-2024.2.69_v8.0.303-80.0.el8_10.src.rpm
-    repoid: ubi-8-for-x86_64-baseos-source-rpms
-    size: 715540
-    checksum: sha256:a066b501d49019ad53d7a8bd7badd1b073f317e406561f0cfad59b7bdfaba0a6
-    name: ca-certificates
-    evr: 2024.2.69_v8.0.303-80.0.el8_10
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/c/chkconfig-1.19.2-1.el8.src.rpm
     repoid: ubi-8-for-x86_64-baseos-source-rpms
     size: 221618
@@ -3133,6 +3133,13 @@ arches:
     name: zlib-devel
     evr: 1.2.11-25.el8
     sourcerpm: zlib-1.2.11-25.el8.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/c/ca-certificates-2025.2.80_v9.0.304-80.2.el8_10.noarch.rpm
+    repoid: ubi-8-for-s390x-baseos-rpms
+    size: 1048264
+    checksum: sha256:01d249b3d9889ab05adea246a1e84571e817013e06b24bbfc4bb42a1d7d8aa50
+    name: ca-certificates
+    evr: 2025.2.80_v9.0.304-80.2.el8_10
+    sourcerpm: ca-certificates-2025.2.80_v9.0.304-80.2.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/g/git-core-doc-2.43.7-1.el8_10.noarch.rpm
     repoid: ubi-8-for-x86_64-appstream-rpms
     size: 3216756
@@ -3210,13 +3217,6 @@ arches:
     name: xkeyboard-config
     evr: 2.28-1.el8
     sourcerpm: xkeyboard-config-2.28-1.el8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/c/ca-certificates-2024.2.69_v8.0.303-80.0.el8_10.noarch.rpm
-    repoid: ubi-8-for-x86_64-baseos-rpms
-    size: 1006212
-    checksum: sha256:5b97c63d4978f82a8d73cb83c81c438d69309bc929d35c6bebf5868f128da13f
-    name: ca-certificates
-    evr: 2024.2.69_v8.0.303-80.0.el8_10
-    sourcerpm: ca-certificates-2024.2.69_v8.0.303-80.0.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/c/crypto-policies-20230731-1.git3177e06.el8.noarch.rpm
     repoid: ubi-8-for-x86_64-baseos-rpms
     size: 65848
@@ -3434,6 +3434,12 @@ arches:
     checksum: sha256:75bfe42fde48fabf15d5209b0e03d3f84612278cc13c5355b8a3107f4d50a66b
     name: librtas
     evr: 2.0.2-1.el8
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/source/SRPMS/Packages/c/ca-certificates-2025.2.80_v9.0.304-80.2.el8_10.src.rpm
+    repoid: ubi-8-for-s390x-baseos-source-rpms
+    size: 742547
+    checksum: sha256:879547af21a33e8e0a2356bc7cbd8c4fdc17d4830fbcadbf9aac1cfbbcf140f5
+    name: ca-certificates
+    evr: 2025.2.80_v9.0.304-80.2.el8_10
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/source/SRPMS/Packages/g/git-2.43.7-1.el8_10.src.rpm
     repoid: ubi-8-for-x86_64-appstream-source-rpms
     size: 7499245
@@ -3560,12 +3566,6 @@ arches:
     checksum: sha256:9c1d697f675f5889c57e7f983afa4b3e3f6e2334887ded9d7c10c5a205d1b06a
     name: bzip2
     evr: 1.0.6-28.el8_10
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/c/ca-certificates-2024.2.69_v8.0.303-80.0.el8_10.src.rpm
-    repoid: ubi-8-for-x86_64-baseos-source-rpms
-    size: 715540
-    checksum: sha256:a066b501d49019ad53d7a8bd7badd1b073f317e406561f0cfad59b7bdfaba0a6
-    name: ca-certificates
-    evr: 2024.2.69_v8.0.303-80.0.el8_10
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/c/chkconfig-1.19.2-1.el8.src.rpm
     repoid: ubi-8-for-x86_64-baseos-source-rpms
     size: 221618
@@ -4350,6 +4350,13 @@ arches:
     name: bzip2-libs
     evr: 1.0.6-28.el8_10
     sourcerpm: bzip2-1.0.6-28.el8_10.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/c/ca-certificates-2025.2.80_v9.0.304-80.2.el8_10.noarch.rpm
+    repoid: ubi-8-for-s390x-baseos-rpms
+    size: 1048264
+    checksum: sha256:01d249b3d9889ab05adea246a1e84571e817013e06b24bbfc4bb42a1d7d8aa50
+    name: ca-certificates
+    evr: 2025.2.80_v9.0.304-80.2.el8_10
+    sourcerpm: ca-certificates-2025.2.80_v9.0.304-80.2.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/c/chkconfig-1.19.2-1.el8.s390x.rpm
     repoid: ubi-8-for-s390x-baseos-rpms
     size: 201200
@@ -4546,13 +4553,13 @@ arches:
     name: json-c
     evr: 0.13.1-3.el8
     sourcerpm: json-c-0.13.1-3.el8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/k/kernel-headers-4.18.0-553.80.1.el8_10.s390x.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/k/kernel-headers-4.18.0-553.81.1.el8_10.s390x.rpm
     repoid: ubi-8-for-s390x-baseos-rpms
-    size: 12435040
-    checksum: sha256:398fc910446102d29e70cd6b655a0db43c961ce136722d28fd133e52c150c431
+    size: 12443632
+    checksum: sha256:5dd2d83316e92a558b10995c0abd1cdb5c63f25282606a8493b7d240514bd395
     name: kernel-headers
-    evr: 4.18.0-553.80.1.el8_10
-    sourcerpm: kernel-4.18.0-553.80.1.el8_10.src.rpm
+    evr: 4.18.0-553.81.1.el8_10
+    sourcerpm: kernel-4.18.0-553.81.1.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/k/keyutils-libs-1.5.10-9.el8.s390x.rpm
     repoid: ubi-8-for-s390x-baseos-rpms
     size: 34356
@@ -5323,13 +5330,6 @@ arches:
     name: xkeyboard-config
     evr: 2.28-1.el8
     sourcerpm: xkeyboard-config-2.28-1.el8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/c/ca-certificates-2024.2.69_v8.0.303-80.0.el8_10.noarch.rpm
-    repoid: ubi-8-for-x86_64-baseos-rpms
-    size: 1006212
-    checksum: sha256:5b97c63d4978f82a8d73cb83c81c438d69309bc929d35c6bebf5868f128da13f
-    name: ca-certificates
-    evr: 2024.2.69_v8.0.303-80.0.el8_10
-    sourcerpm: ca-certificates-2024.2.69_v8.0.303-80.0.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/c/crypto-policies-20230731-1.git3177e06.el8.noarch.rpm
     repoid: ubi-8-for-x86_64-baseos-rpms
     size: 65848
@@ -5541,6 +5541,12 @@ arches:
     evr: 39.2.0-9.el8_10
     sourcerpm: python-setuptools-39.2.0-9.el8_10.src.rpm
   source:
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/source/SRPMS/Packages/c/ca-certificates-2025.2.80_v9.0.304-80.2.el8_10.src.rpm
+    repoid: ubi-8-for-s390x-baseos-source-rpms
+    size: 742547
+    checksum: sha256:879547af21a33e8e0a2356bc7cbd8c4fdc17d4830fbcadbf9aac1cfbbcf140f5
+    name: ca-certificates
+    evr: 2025.2.80_v9.0.304-80.2.el8_10
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/source/SRPMS/Packages/g/git-2.43.7-1.el8_10.src.rpm
     repoid: ubi-8-for-x86_64-appstream-source-rpms
     size: 7499245
@@ -5667,12 +5673,6 @@ arches:
     checksum: sha256:9c1d697f675f5889c57e7f983afa4b3e3f6e2334887ded9d7c10c5a205d1b06a
     name: bzip2
     evr: 1.0.6-28.el8_10
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/c/ca-certificates-2024.2.69_v8.0.303-80.0.el8_10.src.rpm
-    repoid: ubi-8-for-x86_64-baseos-source-rpms
-    size: 715540
-    checksum: sha256:a066b501d49019ad53d7a8bd7badd1b073f317e406561f0cfad59b7bdfaba0a6
-    name: ca-certificates
-    evr: 2024.2.69_v8.0.303-80.0.el8_10
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/c/chkconfig-1.19.2-1.el8.src.rpm
     repoid: ubi-8-for-x86_64-baseos-source-rpms
     size: 221618
@@ -6328,16 +6328,23 @@ arches:
     name: zstd
     evr: 1.4.4-1.el8
   module_metadata:
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/appstream/os/repodata/2508f3a12aa7ee1a9fd665d60aa474d0dd1ae1ff73ec978e5eace717842abc40-modules.yaml.gz
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/appstream/os/repodata/7c3a71b4cba836ea0d5068b74029ae5bc87a79af085457e3e80cea09c068f066-modules.yaml.gz
     repoid: ubi-8-for-s390x-appstream-rpms
     size: 56989
-    checksum: sha256:2508f3a12aa7ee1a9fd665d60aa474d0dd1ae1ff73ec978e5eace717842abc40
+    checksum: sha256:7c3a71b4cba836ea0d5068b74029ae5bc87a79af085457e3e80cea09c068f066
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/15aad3221165af96b49d2aea94edb580c8ce58f28daa9459fdb68e419decb4fd-modules.yaml.gz
     repoid: ubi-8-for-x86_64-appstream-rpms
     size: 59092
     checksum: sha256:15aad3221165af96b49d2aea94edb580c8ce58f28daa9459fdb68e419decb4fd
 - arch: x86_64
   packages:
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/c/ca-certificates-2025.2.80_v9.0.304-80.2.el8_10.noarch.rpm
+    repoid: ubi-8-for-s390x-baseos-rpms
+    size: 1048264
+    checksum: sha256:01d249b3d9889ab05adea246a1e84571e817013e06b24bbfc4bb42a1d7d8aa50
+    name: ca-certificates
+    evr: 2025.2.80_v9.0.304-80.2.el8_10
+    sourcerpm: ca-certificates-2025.2.80_v9.0.304-80.2.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/c/cpp-8.5.0-28.el8_10.x86_64.rpm
     repoid: ubi-8-for-x86_64-appstream-rpms
     size: 10970260
@@ -6534,13 +6541,6 @@ arches:
     name: bzip2-libs
     evr: 1.0.6-28.el8_10
     sourcerpm: bzip2-1.0.6-28.el8_10.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/c/ca-certificates-2024.2.69_v8.0.303-80.0.el8_10.noarch.rpm
-    repoid: ubi-8-for-x86_64-baseos-rpms
-    size: 1006212
-    checksum: sha256:5b97c63d4978f82a8d73cb83c81c438d69309bc929d35c6bebf5868f128da13f
-    name: ca-certificates
-    evr: 2024.2.69_v8.0.303-80.0.el8_10
-    sourcerpm: ca-certificates-2024.2.69_v8.0.303-80.0.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/c/chkconfig-1.19.2-1.el8.x86_64.rpm
     repoid: ubi-8-for-x86_64-baseos-rpms
     size: 203364
@@ -7627,6 +7627,12 @@ arches:
     evr: 1.2.11-25.el8
     sourcerpm: zlib-1.2.11-25.el8.src.rpm
   source:
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/source/SRPMS/Packages/c/ca-certificates-2025.2.80_v9.0.304-80.2.el8_10.src.rpm
+    repoid: ubi-8-for-s390x-baseos-source-rpms
+    size: 742547
+    checksum: sha256:879547af21a33e8e0a2356bc7cbd8c4fdc17d4830fbcadbf9aac1cfbbcf140f5
+    name: ca-certificates
+    evr: 2025.2.80_v9.0.304-80.2.el8_10
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/source/SRPMS/Packages/g/git-2.43.7-1.el8_10.src.rpm
     repoid: ubi-8-for-x86_64-appstream-source-rpms
     size: 7499245
@@ -7753,12 +7759,6 @@ arches:
     checksum: sha256:9c1d697f675f5889c57e7f983afa4b3e3f6e2334887ded9d7c10c5a205d1b06a
     name: bzip2
     evr: 1.0.6-28.el8_10
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/c/ca-certificates-2024.2.69_v8.0.303-80.0.el8_10.src.rpm
-    repoid: ubi-8-for-x86_64-baseos-source-rpms
-    size: 715540
-    checksum: sha256:a066b501d49019ad53d7a8bd7badd1b073f317e406561f0cfad59b7bdfaba0a6
-    name: ca-certificates
-    evr: 2024.2.69_v8.0.303-80.0.el8_10
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/c/chkconfig-1.19.2-1.el8.src.rpm
     repoid: ubi-8-for-x86_64-baseos-source-rpms
     size: 221618
