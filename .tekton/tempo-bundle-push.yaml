@@ -44,6 +44,8 @@ spec:
       - REGISTRY=registry.redhat.io
   pipelineRef:
     name: single-arch-build-pipeline
+  taskRunTemplate:
+    serviceAccountName: build-pipeline-tempo-bundle-main
   workspaces:
     - name: git-auth
       secret:

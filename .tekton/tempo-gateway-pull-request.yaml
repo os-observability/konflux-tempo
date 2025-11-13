@@ -53,7 +53,8 @@ spec:
     value: "tempo/,tempo-operator/,jaeger/,jaeger-ui/,opa-openshift/"
   pipelineRef:
     name: build-pipeline
-  taskRunTemplate: {}
+  taskRunTemplate:
+    serviceAccountName: build-pipeline-tempo-gateway-main
   workspaces:
     - name: git-auth
       secret:

@@ -53,7 +53,8 @@ spec:
     value: tempo-operator
   pipelineRef:
     name: build-pipeline
-  taskRunTemplate: {}
+  taskRunTemplate:
+    serviceAccountName: build-pipeline-tempo-operator-main
   workspaces:
     - name: git-auth
       secret:
