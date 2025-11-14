@@ -53,7 +53,8 @@ spec:
     value: tempo-opa
   pipelineRef:
     name: build-pipeline
-  taskRunTemplate: {}
+  taskRunTemplate:
+    serviceAccountName: build-pipeline-tempo-opa-main
   workspaces:
     - name: git-auth
       secret:

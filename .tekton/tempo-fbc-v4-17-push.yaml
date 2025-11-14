@@ -38,7 +38,8 @@ spec:
       - localhost
   pipelineRef:
     name: fbc-build-pipeline
-  taskRunTemplate: {}
+  taskRunTemplate:
+    serviceAccountName: build-pipeline-tempo-fbc-v4-17-main
   workspaces:
     - name: git-auth
       secret:
