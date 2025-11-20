@@ -5,7 +5,7 @@ set -euo pipefail
 # This file is intentionally kept as a shellscript, to simplify product-specific modifications.
 
 
-# TODO: update version
+# TODO: update version (major.minor)
 RHOSDT_VERSION=3.7
 # TODO: set latest supported OCP version, see https://access.redhat.com/support/policy/updates/openshift#dates
 MIN_OPENSHIFT_VERSION=4.12

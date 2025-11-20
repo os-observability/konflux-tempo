@@ -35,7 +35,7 @@ FROM scratch
 WORKDIR /
 COPY --from=install-additional-packages /mnt/rootfs/ /
 
-ARG VERSION=0.18.0-1
+ARG VERSION=0.18.0-2
 
 RUN mkdir /licenses
 COPY tempo/LICENSE /licenses/.

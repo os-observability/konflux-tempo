@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi9/nodejs-22:latest@sha256:c8a0df4d374a0f41a3d796ac22dbd359d79e019cd11ff81c93816217d79a4f6c as builder-ui
+FROM registry.redhat.io/ubi9/nodejs-22:latest@sha256:bbd844ea3b94690ed065ab4d45c212bda1533fe076da25e1434461239ddbd27b as builder-ui
  
 WORKDIR /opt/app-root/src
 USER root
@@ -58,7 +58,7 @@ RUN rm -rf /mnt/rootfs/var/cache/*
 
 FROM scratch
 
-ARG VERSION=0.18.0-1
+ARG VERSION=0.18.0-2
 
 WORKDIR /opt/app-root/src/
 COPY --from=install-additional-packages /mnt/rootfs/ /
