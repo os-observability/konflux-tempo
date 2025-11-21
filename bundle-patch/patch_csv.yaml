@@ -16,11 +16,11 @@ metadata:
     features.operators.openshift.io/cni: "false"
     features.operators.openshift.io/csi: "false"
     console.openshift.io/operator-monitoring-default: "true"
-    olm.skipRange: '>=0.6.0 <0.18.0-2'
-  name: tempo-operator.v0.18.0-2
+    olm.skipRange: '>=0.6.0 <0.19.0-1'
+  name: tempo-operator.v0.19.0-1
 spec:
-  version: 0.18.0-2
-  replaces: tempo-operator.v0.18.0-1
+  version: 0.19.0-1
+  replaces: tempo-operator.v0.18.0-2
   description: |-
     Red Hat OpenShift distributed tracing platform based on Tempo. Tempo is an open-source, easy-to-use, and highly scalable distributed tracing backend. It provides observability for microservices architectures by allowing developers to track requests as they flow through distributed systems. Tempo is optimized to handle large volumes of trace data and is designed to be highly performant even under heavy loads.
     It can ingest common open source tracing protocols including Jaeger, Zipkin, and OpenTelemetry and requires only object storage to operate.
