@@ -228,13 +228,13 @@ arches:
     name: elfutils-libs
     evr: 0.190-2.el8
     sourcerpm: elfutils-0.190-2.el8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/e/expat-2.2.5-17.el8_10.aarch64.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/e/expat-2.5.0-1.el8_10.aarch64.rpm
     repoid: ubi-8-for-aarch64-baseos-rpms
-    size: 107844
-    checksum: sha256:7a560a41ad9b82fbbe3a5dd65c31ce5b996a76732d856561567d9ba795d04868
+    size: 124144
+    checksum: sha256:b5791923f62b8666b34052bd76a3ff745d3733110fdd4a7a3502a9a777afac2f
     name: expat
-    evr: 2.2.5-17.el8_10
-    sourcerpm: expat-2.2.5-17.el8_10.src.rpm
+    evr: 2.5.0-1.el8_10
+    sourcerpm: expat-2.5.0-1.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/g/gawk-4.2.1-4.el8.aarch64.rpm
     repoid: ubi-8-for-aarch64-baseos-rpms
     size: 1162284
@@ -319,13 +319,13 @@ arches:
     name: json-c
     evr: 0.13.1-3.el8
     sourcerpm: json-c-0.13.1-3.el8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/k/kernel-headers-4.18.0-553.82.1.el8_10.aarch64.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/k/kernel-headers-4.18.0-553.84.1.el8_10.aarch64.rpm
     repoid: ubi-8-for-aarch64-baseos-rpms
-    size: 12430416
-    checksum: sha256:8b35021292410d09b09954178794f96a482185d4ff6ea516ceae71c44b5fa3c9
+    size: 12432596
+    checksum: sha256:79a474789157f90d8213728dc29ae2677996a8189fa8e29b63b5107f52b49123
     name: kernel-headers
-    evr: 4.18.0-553.82.1.el8_10
-    sourcerpm: kernel-4.18.0-553.82.1.el8_10.src.rpm
+    evr: 4.18.0-553.84.1.el8_10
+    sourcerpm: kernel-4.18.0-553.84.1.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/k/keyutils-libs-1.5.10-9.el8.aarch64.rpm
     repoid: ubi-8-for-aarch64-baseos-rpms
     size: 34656
@@ -1512,12 +1512,12 @@ arches:
     checksum: sha256:0ae17757b5e99bef9393d2d25c4bfc5884c48b825307a71b3c330dd72558aa1e
     name: emacs
     evr: 1:26.1-15.el8_10
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/e/expat-2.2.5-17.el8_10.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/e/expat-2.5.0-1.el8_10.src.rpm
     repoid: ubi-8-for-x86_64-baseos-source-rpms
-    size: 8345318
-    checksum: sha256:41de03fcbf3a8f7fa42e7017058ae0186e98a0e448ce01772de7af0a856a749d
+    size: 8388946
+    checksum: sha256:566456bc755b628dc5a4ce77b6a643769165202f0ddd852ba73dd9512b994d2b
     name: expat
-    evr: 2.2.5-17.el8_10
+    evr: 2.5.0-1.el8_10
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/g/gawk-4.2.1-4.el8.src.rpm
     repoid: ubi-8-for-x86_64-baseos-source-rpms
     size: 3036497
@@ -2101,14 +2101,14 @@ arches:
     name: zstd
     evr: 1.4.4-1.el8
   module_metadata:
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/appstream/os/repodata/43701c96e4eb6974d97bbe6303f405c831e942c5f4bdb3fa24dc786a6452f9af-modules.yaml.gz
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/appstream/os/repodata/d09d4895506a27c73d4acc1bc7e59b360e26387758924bb15614d69e65f41311-modules.yaml.gz
     repoid: ubi-8-for-aarch64-appstream-rpms
-    size: 57035
-    checksum: sha256:43701c96e4eb6974d97bbe6303f405c831e942c5f4bdb3fa24dc786a6452f9af
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/603d85b5f8de22fc4c4c6a530eb23aed2f46fb8ca93be3252c5d44a6cbdf70cd-modules.yaml.gz
+    size: 58174
+    checksum: sha256:d09d4895506a27c73d4acc1bc7e59b360e26387758924bb15614d69e65f41311
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/9215ac8d1279f1de1cb37d8eac3ca002ecb3b43ed292a8b7b36f22c2ace314c3-modules.yaml.gz
     repoid: ubi-8-for-x86_64-appstream-rpms
-    size: 59092
-    checksum: sha256:603d85b5f8de22fc4c4c6a530eb23aed2f46fb8ca93be3252c5d44a6cbdf70cd
+    size: 59446
+    checksum: sha256:9215ac8d1279f1de1cb37d8eac3ca002ecb3b43ed292a8b7b36f22c2ace314c3
 - arch: ppc64le
   packages:
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/appstream/os/Packages/c/cpp-8.5.0-28.el8_10.ppc64le.rpm
@@ -2335,13 +2335,13 @@ arches:
     name: elfutils-libs
     evr: 0.190-2.el8
     sourcerpm: elfutils-0.190-2.el8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/e/expat-2.2.5-17.el8_10.ppc64le.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/e/expat-2.5.0-1.el8_10.ppc64le.rpm
     repoid: ubi-8-for-ppc64le-baseos-rpms
-    size: 119236
-    checksum: sha256:c7fad5d488549d79f4566b701be1f65c322096b55fd021abb4fe662eb08bf9d6
+    size: 136140
+    checksum: sha256:2568a6eca06a1d26161eb976577b719cbdb979690f1b6f3dbeecb2ad75402029
     name: expat
-    evr: 2.2.5-17.el8_10
-    sourcerpm: expat-2.2.5-17.el8_10.src.rpm
+    evr: 2.5.0-1.el8_10
+    sourcerpm: expat-2.5.0-1.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/g/gawk-4.2.1-4.el8.ppc64le.rpm
     repoid: ubi-8-for-ppc64le-baseos-rpms
     size: 1205792
@@ -2426,13 +2426,13 @@ arches:
     name: json-c
     evr: 0.13.1-3.el8
     sourcerpm: json-c-0.13.1-3.el8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/k/kernel-headers-4.18.0-553.82.1.el8_10.ppc64le.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/k/kernel-headers-4.18.0-553.84.1.el8_10.ppc64le.rpm
     repoid: ubi-8-for-ppc64le-baseos-rpms
-    size: 12449712
-    checksum: sha256:d13d5e1ab6b94d53d82ec4bf09cadd8379c048756b01f80e4fe63a91739fcba2
+    size: 12452184
+    checksum: sha256:9bf0e46130c054c9ccc6488849a0fffccc72e06df9becf2f96178ce0d6f8b579
     name: kernel-headers
-    evr: 4.18.0-553.82.1.el8_10
-    sourcerpm: kernel-4.18.0-553.82.1.el8_10.src.rpm
+    evr: 4.18.0-553.84.1.el8_10
+    sourcerpm: kernel-4.18.0-553.84.1.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/k/keyutils-libs-1.5.10-9.el8.ppc64le.rpm
     repoid: ubi-8-for-ppc64le-baseos-rpms
     size: 35664
@@ -3632,12 +3632,12 @@ arches:
     checksum: sha256:0ae17757b5e99bef9393d2d25c4bfc5884c48b825307a71b3c330dd72558aa1e
     name: emacs
     evr: 1:26.1-15.el8_10
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/e/expat-2.2.5-17.el8_10.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/e/expat-2.5.0-1.el8_10.src.rpm
     repoid: ubi-8-for-x86_64-baseos-source-rpms
-    size: 8345318
-    checksum: sha256:41de03fcbf3a8f7fa42e7017058ae0186e98a0e448ce01772de7af0a856a749d
+    size: 8388946
+    checksum: sha256:566456bc755b628dc5a4ce77b6a643769165202f0ddd852ba73dd9512b994d2b
     name: expat
-    evr: 2.2.5-17.el8_10
+    evr: 2.5.0-1.el8_10
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/g/gawk-4.2.1-4.el8.src.rpm
     repoid: ubi-8-for-x86_64-baseos-source-rpms
     size: 3036497
@@ -4221,14 +4221,14 @@ arches:
     name: zstd
     evr: 1.4.4-1.el8
   module_metadata:
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/appstream/os/repodata/b0684dd0474ea365b253fe956107bd517a115e75e117a7ee80868cb398c9c79b-modules.yaml.gz
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/appstream/os/repodata/7006286e8c383f284c3c41a270552b0cab3e5c7efde54424c052be264e3ccfb5-modules.yaml.gz
     repoid: ubi-8-for-ppc64le-appstream-rpms
-    size: 55946
-    checksum: sha256:b0684dd0474ea365b253fe956107bd517a115e75e117a7ee80868cb398c9c79b
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/603d85b5f8de22fc4c4c6a530eb23aed2f46fb8ca93be3252c5d44a6cbdf70cd-modules.yaml.gz
+    size: 56043
+    checksum: sha256:7006286e8c383f284c3c41a270552b0cab3e5c7efde54424c052be264e3ccfb5
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/9215ac8d1279f1de1cb37d8eac3ca002ecb3b43ed292a8b7b36f22c2ace314c3-modules.yaml.gz
     repoid: ubi-8-for-x86_64-appstream-rpms
-    size: 59092
-    checksum: sha256:603d85b5f8de22fc4c4c6a530eb23aed2f46fb8ca93be3252c5d44a6cbdf70cd
+    size: 59446
+    checksum: sha256:9215ac8d1279f1de1cb37d8eac3ca002ecb3b43ed292a8b7b36f22c2ace314c3
 - arch: s390x
   packages:
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/appstream/os/Packages/c/cpp-8.5.0-28.el8_10.s390x.rpm
@@ -4546,13 +4546,13 @@ arches:
     name: json-c
     evr: 0.13.1-3.el8
     sourcerpm: json-c-0.13.1-3.el8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/k/kernel-headers-4.18.0-553.82.1.el8_10.s390x.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/k/kernel-headers-4.18.0-553.84.1.el8_10.s390x.rpm
     repoid: ubi-8-for-s390x-baseos-rpms
-    size: 12457328
-    checksum: sha256:8f54f5edbf61dae13b60a2431c0c3781b15ca2a443e36728744f4e74ba500cd3
+    size: 12460032
+    checksum: sha256:a90fc15c3387d8ace147f57fc43bf6243f72b73580c85bb17f284af3aaaedb0a
     name: kernel-headers
-    evr: 4.18.0-553.82.1.el8_10
-    sourcerpm: kernel-4.18.0-553.82.1.el8_10.src.rpm
+    evr: 4.18.0-553.84.1.el8_10
+    sourcerpm: kernel-4.18.0-553.84.1.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/k/keyutils-libs-1.5.10-9.el8.s390x.rpm
     repoid: ubi-8-for-s390x-baseos-rpms
     size: 34356
@@ -5541,6 +5541,12 @@ arches:
     evr: 39.2.0-9.el8_10
     sourcerpm: python-setuptools-39.2.0-9.el8_10.src.rpm
   source:
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/source/SRPMS/Packages/e/expat-2.2.5-17.el8_10.src.rpm
+    repoid: ubi-8-for-s390x-baseos-source-rpms
+    size: 8345318
+    checksum: sha256:41de03fcbf3a8f7fa42e7017058ae0186e98a0e448ce01772de7af0a856a749d
+    name: expat
+    evr: 2.2.5-17.el8_10
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/source/SRPMS/Packages/g/git-2.43.7-1.el8_10.src.rpm
     repoid: ubi-8-for-x86_64-appstream-source-rpms
     size: 7499245
@@ -5739,12 +5745,6 @@ arches:
     checksum: sha256:0ae17757b5e99bef9393d2d25c4bfc5884c48b825307a71b3c330dd72558aa1e
     name: emacs
     evr: 1:26.1-15.el8_10
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/e/expat-2.2.5-17.el8_10.src.rpm
-    repoid: ubi-8-for-x86_64-baseos-source-rpms
-    size: 8345318
-    checksum: sha256:41de03fcbf3a8f7fa42e7017058ae0186e98a0e448ce01772de7af0a856a749d
-    name: expat
-    evr: 2.2.5-17.el8_10
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/g/gawk-4.2.1-4.el8.src.rpm
     repoid: ubi-8-for-x86_64-baseos-source-rpms
     size: 3036497
@@ -6328,14 +6328,14 @@ arches:
     name: zstd
     evr: 1.4.4-1.el8
   module_metadata:
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/appstream/os/repodata/7c3a71b4cba836ea0d5068b74029ae5bc87a79af085457e3e80cea09c068f066-modules.yaml.gz
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/appstream/os/repodata/0e7ce40f094e65aaa70055a86fa2e0dda22337218c1b1c577ed2f558f792bafe-modules.yaml.gz
     repoid: ubi-8-for-s390x-appstream-rpms
-    size: 56989
-    checksum: sha256:7c3a71b4cba836ea0d5068b74029ae5bc87a79af085457e3e80cea09c068f066
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/603d85b5f8de22fc4c4c6a530eb23aed2f46fb8ca93be3252c5d44a6cbdf70cd-modules.yaml.gz
+    size: 57030
+    checksum: sha256:0e7ce40f094e65aaa70055a86fa2e0dda22337218c1b1c577ed2f558f792bafe
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/9215ac8d1279f1de1cb37d8eac3ca002ecb3b43ed292a8b7b36f22c2ace314c3-modules.yaml.gz
     repoid: ubi-8-for-x86_64-appstream-rpms
-    size: 59092
-    checksum: sha256:603d85b5f8de22fc4c4c6a530eb23aed2f46fb8ca93be3252c5d44a6cbdf70cd
+    size: 59446
+    checksum: sha256:9215ac8d1279f1de1cb37d8eac3ca002ecb3b43ed292a8b7b36f22c2ace314c3
 - arch: x86_64
   packages:
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/c/cpp-8.5.0-28.el8_10.x86_64.rpm
@@ -6681,13 +6681,13 @@ arches:
     name: emacs-filesystem
     evr: 1:26.1-15.el8_10
     sourcerpm: emacs-26.1-15.el8_10.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/e/expat-2.2.5-17.el8_10.x86_64.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/e/expat-2.5.0-1.el8_10.x86_64.rpm
     repoid: ubi-8-for-x86_64-baseos-rpms
-    size: 117960
-    checksum: sha256:d01df6f542762d94bd73a87f61d19fb98a6304eb9a2eb114a872a91d3312ea34
+    size: 134428
+    checksum: sha256:ea9b034a79279668a1eca4be141617e6a9f04ffc616033f035380f80c073837a
     name: expat
-    evr: 2.2.5-17.el8_10
-    sourcerpm: expat-2.2.5-17.el8_10.src.rpm
+    evr: 2.5.0-1.el8_10
+    sourcerpm: expat-2.5.0-1.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/g/gawk-4.2.1-4.el8.x86_64.rpm
     repoid: ubi-8-for-x86_64-baseos-rpms
     size: 1190704
@@ -6772,13 +6772,13 @@ arches:
     name: json-c
     evr: 0.13.1-3.el8
     sourcerpm: json-c-0.13.1-3.el8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/k/kernel-headers-4.18.0-553.82.1.el8_10.x86_64.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/k/kernel-headers-4.18.0-553.84.1.el8_10.x86_64.rpm
     repoid: ubi-8-for-x86_64-baseos-rpms
-    size: 12462132
-    checksum: sha256:796f5dad2d6a8b7841603258254e2321d00b5865d090346aa0308ad29ca01be7
+    size: 12464400
+    checksum: sha256:4c4eebbf96a7ebecbb90fa052acc52cc17dbfa3661aa0a9b369d53ca18916907
     name: kernel-headers
-    evr: 4.18.0-553.82.1.el8_10
-    sourcerpm: kernel-4.18.0-553.82.1.el8_10.src.rpm
+    evr: 4.18.0-553.84.1.el8_10
+    sourcerpm: kernel-4.18.0-553.84.1.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/k/keyutils-libs-1.5.10-9.el8.x86_64.rpm
     repoid: ubi-8-for-x86_64-baseos-rpms
     size: 34816
@@ -7825,12 +7825,12 @@ arches:
     checksum: sha256:0ae17757b5e99bef9393d2d25c4bfc5884c48b825307a71b3c330dd72558aa1e
     name: emacs
     evr: 1:26.1-15.el8_10
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/e/expat-2.2.5-17.el8_10.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/e/expat-2.5.0-1.el8_10.src.rpm
     repoid: ubi-8-for-x86_64-baseos-source-rpms
-    size: 8345318
-    checksum: sha256:41de03fcbf3a8f7fa42e7017058ae0186e98a0e448ce01772de7af0a856a749d
+    size: 8388946
+    checksum: sha256:566456bc755b628dc5a4ce77b6a643769165202f0ddd852ba73dd9512b994d2b
     name: expat
-    evr: 2.2.5-17.el8_10
+    evr: 2.5.0-1.el8_10
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/source/SRPMS/Packages/g/gawk-4.2.1-4.el8.src.rpm
     repoid: ubi-8-for-x86_64-baseos-source-rpms
     size: 3036497
@@ -8414,7 +8414,7 @@ arches:
     name: zstd
     evr: 1.4.4-1.el8
   module_metadata:
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/603d85b5f8de22fc4c4c6a530eb23aed2f46fb8ca93be3252c5d44a6cbdf70cd-modules.yaml.gz
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/9215ac8d1279f1de1cb37d8eac3ca002ecb3b43ed292a8b7b36f22c2ace314c3-modules.yaml.gz
     repoid: ubi-8-for-x86_64-appstream-rpms
-    size: 59092
-    checksum: sha256:603d85b5f8de22fc4c4c6a530eb23aed2f46fb8ca93be3252c5d44a6cbdf70cd
+    size: 59446
+    checksum: sha256:9215ac8d1279f1de1cb37d8eac3ca002ecb3b43ed292a8b7b36f22c2ace314c3
