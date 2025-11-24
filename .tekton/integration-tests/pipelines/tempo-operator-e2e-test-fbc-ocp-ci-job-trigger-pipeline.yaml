@@ -52,7 +52,7 @@ spec:
       when:
         - input: $(tasks.parse-metadata.results.test-event-type)
           operator: in
-          values: [ "push", "Push", "PUSH" ]
+          values: [ "push", "Push", "PUSH", "incoming", "Incoming", "INCOMING" ]
       params:
         - name: GANGWAY_API_URL
           value: $(params.gangway_api_url)
