@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi8/ubi:latest@sha256:bcfca5f27e2d2a822bdbbe7390601edefee48c3cae03b552a33235dcca4a0e24 as builder
+FROM registry.redhat.io/ubi8/ubi:latest@sha256:7d7ca86d832d1dc7aba4583414475c15686291b1c2cf75fe63ca03526c3b89ae as builder
 
 WORKDIR /opt/app-root/src
 USER root
@@ -19,7 +19,7 @@ WORKDIR /opt/app-root/src/tempo-operator
 RUN exportOrFail() { echo $1; if [[ $1 == *= ]]; then echo "Error: empty variable assignment"; exit 1; else export "$1"; fi } && \
     exportOrFail VERSION_PKG="github.com/grafana/tempo-operator/internal/version" && \
     exportOrFail BUILD_DATE=`date -u +'%Y-%m-%dT%H:%M:%SZ'` && \
-    exportOrFail OPERATOR_VERSION="0.18.0" && \
+    exportOrFail OPERATOR_VERSION="0.19.0" && \
     exportOrFail COMMIT_SHA=`git rev-parse HEAD` && \
     exportOrFail TEMPO_VERSION=`cat config/manager/manager.yaml | grep -oP "docker.io/grafana/tempo:\K.*"` && \
     exportOrFail TEMPO_QUERY_VERSION=`cat config/manager/manager.yaml | grep -oP "docker.io/grafana/tempo-query:\K.*"` && \
@@ -35,7 +35,7 @@ RUN exportOrFail() { echo $1; if [[ $1 == *= ]]; then echo "Error: empty variabl
 
 FROM registry.redhat.io/ubi8/ubi-micro:latest@sha256:37552f11d3b39b3360f7be7c13f6a617e468f39be915cd4f8c8a8531ffc9d43d AS target-base
 
-FROM registry.redhat.io/ubi8/ubi:latest@sha256:bcfca5f27e2d2a822bdbbe7390601edefee48c3cae03b552a33235dcca4a0e24 as install-additional-packages
+FROM registry.redhat.io/ubi8/ubi:latest@sha256:7d7ca86d832d1dc7aba4583414475c15686291b1c2cf75fe63ca03526c3b89ae as install-additional-packages
 COPY --from=target-base / /mnt/rootfs
 RUN rpm --root /mnt/rootfs --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 
@@ -48,7 +48,7 @@ FROM scratch
 WORKDIR /
 COPY --from=install-additional-packages /mnt/rootfs/ /
 
-ARG VERSION=0.18.0-2
+ARG VERSION=0.19.0-1
 
 RUN mkdir /licenses
 COPY tempo-operator/LICENSE /licenses/.
@@ -64,7 +64,7 @@ LABEL release="${VERSION}" \
       distribution-scope="public" \
       url="https://github.com/grafana/tempo-operator" \
       com.redhat.component="tempo-operator-container" \
-      cpe="cpe:/a:redhat:openshift_distributed_tracing:3.7::el8" \
+      cpe="cpe:/a:redhat:openshift_distributed_tracing:3.8::el8" \
       name="rhosdt/tempo-rhel8-operator" \
       summary="Tempo Operator" \
       description="Operator for the Tempo" \

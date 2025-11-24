@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi8/ubi:latest@sha256:bcfca5f27e2d2a822bdbbe7390601edefee48c3cae03b552a33235dcca4a0e24 as builder
+FROM registry.redhat.io/ubi8/ubi:latest@sha256:7d7ca86d832d1dc7aba4583414475c15686291b1c2cf75fe63ca03526c3b89ae as builder
 
 WORKDIR /opt/app-root/src
 USER root
@@ -17,7 +17,7 @@ RUN CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -mod=mod -tags strictf
 
 FROM registry.redhat.io/ubi8/ubi-micro:latest@sha256:37552f11d3b39b3360f7be7c13f6a617e468f39be915cd4f8c8a8531ffc9d43d AS target-base
 
-FROM registry.redhat.io/ubi8/ubi:latest@sha256:bcfca5f27e2d2a822bdbbe7390601edefee48c3cae03b552a33235dcca4a0e24 as install-additional-packages
+FROM registry.redhat.io/ubi8/ubi:latest@sha256:7d7ca86d832d1dc7aba4583414475c15686291b1c2cf75fe63ca03526c3b89ae as install-additional-packages
 COPY --from=target-base / /mnt/rootfs
 RUN rpm --root /mnt/rootfs --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 
@@ -30,7 +30,7 @@ FROM scratch
 WORKDIR /
 COPY --from=install-additional-packages /mnt/rootfs/ /
 
-ARG VERSION=0.18.0-2
+ARG VERSION=0.19.0-1
 
 RUN mkdir /licenses
 COPY opa-openshift/LICENSE /licenses/.
@@ -52,4 +52,4 @@ LABEL release="${VERSION}" \
       io.k8s.description="An OPA-compatible API for making OpenShift access review requests." \
       io.openshift.tags="tracing" \
       io.k8s.display-name="Tempo OPA" \
-      cpe="cpe:/a:redhat:openshift_distributed_tracing:3.7::el8"
+      cpe="cpe:/a:redhat:openshift_distributed_tracing:3.8::el8"
