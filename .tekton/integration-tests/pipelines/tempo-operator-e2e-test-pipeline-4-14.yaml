@@ -550,6 +550,7 @@ spec:
 
               # Execute DAST test using RapiDAST
               chainsaw test \
+              --quiet \
               --config .chainsaw-rh-sdl.yaml \
               --test-dir \
               tests/e2e-rh-sdl/rapidast-tempo
@@ -641,6 +642,7 @@ spec:
 
               # Execute Tempo e2e tests
               chainsaw test \
+              --quiet \
               --config .chainsaw-openshift.yaml \
               --test-dir \
               tests/e2e \
