@@ -32,20 +32,27 @@ arches:
     name: git-core
     evr: 2.43.7-1.el8_10
     sourcerpm: git-2.43.7-1.el8_10.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/appstream/os/Packages/g/golang-1.24.6-1.module+el8.10.0+23407+428597c7.aarch64.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/appstream/os/Packages/g/golang-1.25.3-2.module+el8.10.0+23746+9db33b5e.aarch64.rpm
     repoid: ubi-8-for-aarch64-appstream-rpms
-    size: 1398942
-    checksum: sha256:4323f9c2de2a1677758ca57e48e0314b452c3ab9498e9791df45df295daec367
+    size: 1400694
+    checksum: sha256:ba45d9e0d26690cb8dbe78f90a75a42257298608c57bc287aae631b342764109
     name: golang
-    evr: 1.24.6-1.module+el8.10.0+23407+428597c7
-    sourcerpm: golang-1.24.6-1.module+el8.10.0+23407+428597c7.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/appstream/os/Packages/g/golang-bin-1.24.6-1.module+el8.10.0+23407+428597c7.aarch64.rpm
+    evr: 1.25.3-2.module+el8.10.0+23746+9db33b5e
+    sourcerpm: golang-1.25.3-2.module+el8.10.0+23746+9db33b5e.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/appstream/os/Packages/g/golang-bin-1.25.3-2.module+el8.10.0+23746+9db33b5e.aarch64.rpm
     repoid: ubi-8-for-aarch64-appstream-rpms
-    size: 72224362
-    checksum: sha256:206542787cb5e8c9d85ddb95682cd95cc82776931cc1ded32dfd8f04861f7990
+    size: 37237598
+    checksum: sha256:0d8901122746f909233c8ca7adec28c17ba5f4dcb5bed11e99b20d1cd7642aeb
     name: golang-bin
-    evr: 1.24.6-1.module+el8.10.0+23407+428597c7
-    sourcerpm: golang-1.24.6-1.module+el8.10.0+23407+428597c7.src.rpm
+    evr: 1.25.3-2.module+el8.10.0+23746+9db33b5e
+    sourcerpm: golang-1.25.3-2.module+el8.10.0+23746+9db33b5e.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/appstream/os/Packages/g/golang-race-1.25.3-2.module+el8.10.0+23746+9db33b5e.aarch64.rpm
+    repoid: ubi-8-for-aarch64-appstream-rpms
+    size: 706802
+    checksum: sha256:b4c743f281eea107d96b6d79e0d3eb788219935079c6c791f5ee8936cf07fdfc
+    name: golang-race
+    evr: 1.25.3-2.module+el8.10.0+23746+9db33b5e
+    sourcerpm: golang-1.25.3-2.module+el8.10.0+23746+9db33b5e.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/appstream/os/Packages/i/isl-0.16.1-6.el8.aarch64.rpm
     repoid: ubi-8-for-aarch64-appstream-rpms
     size: 796384
@@ -319,13 +326,13 @@ arches:
     name: json-c
     evr: 0.13.1-3.el8
     sourcerpm: json-c-0.13.1-3.el8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/k/kernel-headers-4.18.0-553.85.1.el8_10.aarch64.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/k/kernel-headers-4.18.0-553.87.1.el8_10.aarch64.rpm
     repoid: ubi-8-for-aarch64-baseos-rpms
-    size: 12434048
-    checksum: sha256:03b48101c59c309177d1ca515697f1881fa19645329520d5de46ebbc1510e78b
+    size: 12435808
+    checksum: sha256:fdfd78488bc4c1635ba23f0275b75131ee32f8d41578c07be1d4e9d66bd2e69b
     name: kernel-headers
-    evr: 4.18.0-553.85.1.el8_10
-    sourcerpm: kernel-4.18.0-553.85.1.el8_10.src.rpm
+    evr: 4.18.0-553.87.1.el8_10
+    sourcerpm: kernel-4.18.0-553.87.1.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/baseos/os/Packages/k/keyutils-libs-1.5.10-9.el8.aarch64.rpm
     repoid: ubi-8-for-aarch64-baseos-rpms
     size: 34656
@@ -1026,13 +1033,13 @@ arches:
     name: git-core-doc
     evr: 2.43.7-1.el8_10
     sourcerpm: git-2.43.7-1.el8_10.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/g/golang-src-1.24.6-1.module+el8.10.0+23407+428597c7.noarch.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/g/golang-src-1.25.3-2.module+el8.10.0+23746+9db33b5e.noarch.rpm
     repoid: ubi-8-for-x86_64-appstream-rpms
-    size: 13050450
-    checksum: sha256:5a6b5c4cc43309fe020027a7edbef2edd05a77a5b99e6623a6bd1fc91d1f60b7
+    size: 12125078
+    checksum: sha256:04d209e651fe04a86a1cd2b5ce7953fdbe8942e6aed8e85305e74a5c793091d4
     name: golang-src
-    evr: 1.24.6-1.module+el8.10.0+23407+428597c7
-    sourcerpm: golang-1.24.6-1.module+el8.10.0+23407+428597c7.src.rpm
+    evr: 1.25.3-2.module+el8.10.0+23746+9db33b5e
+    sourcerpm: golang-1.25.3-2.module+el8.10.0+23746+9db33b5e.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/p/perl-Digest-1.17-395.el8.noarch.rpm
     repoid: ubi-8-for-x86_64-appstream-rpms
     size: 27624
@@ -1320,12 +1327,12 @@ arches:
     checksum: sha256:8fe83f047e58c61e0e1bc807de211bbd62e24f5023cc6a0c63b01dca8b904bfe
     name: git
     evr: 2.43.7-1.el8_10
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/source/SRPMS/Packages/g/golang-1.24.6-1.module+el8.10.0+23407+428597c7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/source/SRPMS/Packages/g/golang-1.25.3-2.module+el8.10.0+23746+9db33b5e.src.rpm
     repoid: ubi-8-for-x86_64-appstream-source-rpms
-    size: 30724885
-    checksum: sha256:ab50d56c18801172ea68b8fc430ec369f4e511b41cd229f00cea3893c469ba0e
+    size: 34364762
+    checksum: sha256:0ea2b5237f1d110b319e2efd614854736c1759fe9f3e0ea8a5354a9ffa3f9989
     name: golang
-    evr: 1.24.6-1.module+el8.10.0+23407+428597c7
+    evr: 1.25.3-2.module+el8.10.0+23746+9db33b5e
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/source/SRPMS/Packages/i/isl-0.16.1-6.el8.src.rpm
     repoid: ubi-8-for-x86_64-appstream-source-rpms
     size: 2707870
@@ -2101,14 +2108,14 @@ arches:
     name: zstd
     evr: 1.4.4-1.el8
   module_metadata:
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/appstream/os/repodata/beff8868a981731e641731379387bb9a28cb26a508511ccafa329ec92ed2a4e9-modules.yaml.gz
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/aarch64/appstream/os/repodata/8853832a00d0beea7214cecdc487eaece6ed2f71c068b745e05caf2075923892-modules.yaml.gz
     repoid: ubi-8-for-aarch64-appstream-rpms
-    size: 58174
-    checksum: sha256:beff8868a981731e641731379387bb9a28cb26a508511ccafa329ec92ed2a4e9
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/cf78e8ae3beea40ae183db2a530f95fa402ffbc0efe0797963b066dbfadaa4c2-modules.yaml.gz
+    size: 57082
+    checksum: sha256:8853832a00d0beea7214cecdc487eaece6ed2f71c068b745e05caf2075923892
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/c3990dbed0af08ab22a6323504a4a02d52887525525976452598a68b4e1c52a5-modules.yaml.gz
     repoid: ubi-8-for-x86_64-appstream-rpms
-    size: 59446
-    checksum: sha256:cf78e8ae3beea40ae183db2a530f95fa402ffbc0efe0797963b066dbfadaa4c2
+    size: 59432
+    checksum: sha256:c3990dbed0af08ab22a6323504a4a02d52887525525976452598a68b4e1c52a5
 - arch: ppc64le
   packages:
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/appstream/os/Packages/c/cpp-8.5.0-28.el8_10.ppc64le.rpm
@@ -2139,20 +2146,27 @@ arches:
     name: git-core
     evr: 2.43.7-1.el8_10
     sourcerpm: git-2.43.7-1.el8_10.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/appstream/os/Packages/g/golang-1.24.6-1.module+el8.10.0+23407+428597c7.ppc64le.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/appstream/os/Packages/g/golang-1.25.3-2.module+el8.10.0+23746+9db33b5e.ppc64le.rpm
     repoid: ubi-8-for-ppc64le-appstream-rpms
-    size: 1398818
-    checksum: sha256:1026c831ddb6f0c69ba9276cf1ef6c1db9c0ddfe12c1d08716ef3ac35a3d7951
+    size: 1400626
+    checksum: sha256:e1cdd463282fd86eb5d4bee91fa3f173c746da870c59e8bc1a52303b0c6f56dc
     name: golang
-    evr: 1.24.6-1.module+el8.10.0+23407+428597c7
-    sourcerpm: golang-1.24.6-1.module+el8.10.0+23407+428597c7.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/appstream/os/Packages/g/golang-bin-1.24.6-1.module+el8.10.0+23407+428597c7.ppc64le.rpm
+    evr: 1.25.3-2.module+el8.10.0+23746+9db33b5e
+    sourcerpm: golang-1.25.3-2.module+el8.10.0+23746+9db33b5e.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/appstream/os/Packages/g/golang-bin-1.25.3-2.module+el8.10.0+23746+9db33b5e.ppc64le.rpm
     repoid: ubi-8-for-ppc64le-appstream-rpms
-    size: 73379530
-    checksum: sha256:90381f781c392d16ea533186d8317a6968ec9523b212aa1e35b80f34fb43eae2
+    size: 38089942
+    checksum: sha256:462f9454e94d32aa275ef6800294fef1d559af8eaa709e301d4b9f3c03587f99
     name: golang-bin
-    evr: 1.24.6-1.module+el8.10.0+23407+428597c7
-    sourcerpm: golang-1.24.6-1.module+el8.10.0+23407+428597c7.src.rpm
+    evr: 1.25.3-2.module+el8.10.0+23746+9db33b5e
+    sourcerpm: golang-1.25.3-2.module+el8.10.0+23746+9db33b5e.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/appstream/os/Packages/g/golang-race-1.25.3-2.module+el8.10.0+23746+9db33b5e.ppc64le.rpm
+    repoid: ubi-8-for-ppc64le-appstream-rpms
+    size: 696022
+    checksum: sha256:2fb807c976cd2e9c1e475648befa2b650cb9ce2b58d6cff295aa573e38cf3cd8
+    name: golang-race
+    evr: 1.25.3-2.module+el8.10.0+23746+9db33b5e
+    sourcerpm: golang-1.25.3-2.module+el8.10.0+23746+9db33b5e.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/appstream/os/Packages/i/isl-0.16.1-6.el8.ppc64le.rpm
     repoid: ubi-8-for-ppc64le-appstream-rpms
     size: 1212912
@@ -2426,13 +2440,13 @@ arches:
     name: json-c
     evr: 0.13.1-3.el8
     sourcerpm: json-c-0.13.1-3.el8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/k/kernel-headers-4.18.0-553.85.1.el8_10.ppc64le.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/k/kernel-headers-4.18.0-553.87.1.el8_10.ppc64le.rpm
     repoid: ubi-8-for-ppc64le-baseos-rpms
-    size: 12453284
-    checksum: sha256:b8d904e85538e996aecf0733a88f02b5f294889a16b9ad367d2c9bbbab0fc02b
+    size: 12454988
+    checksum: sha256:7af7b5c05704696ac62602e35164bdfd60882fb40bd0844b4f1d2dbdd9b78ee8
     name: kernel-headers
-    evr: 4.18.0-553.85.1.el8_10
-    sourcerpm: kernel-4.18.0-553.85.1.el8_10.src.rpm
+    evr: 4.18.0-553.87.1.el8_10
+    sourcerpm: kernel-4.18.0-553.87.1.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/baseos/os/Packages/k/keyutils-libs-1.5.10-9.el8.ppc64le.rpm
     repoid: ubi-8-for-ppc64le-baseos-rpms
     size: 35664
@@ -3140,13 +3154,13 @@ arches:
     name: git-core-doc
     evr: 2.43.7-1.el8_10
     sourcerpm: git-2.43.7-1.el8_10.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/g/golang-src-1.24.6-1.module+el8.10.0+23407+428597c7.noarch.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/g/golang-src-1.25.3-2.module+el8.10.0+23746+9db33b5e.noarch.rpm
     repoid: ubi-8-for-x86_64-appstream-rpms
-    size: 13050450
-    checksum: sha256:5a6b5c4cc43309fe020027a7edbef2edd05a77a5b99e6623a6bd1fc91d1f60b7
+    size: 12125078
+    checksum: sha256:04d209e651fe04a86a1cd2b5ce7953fdbe8942e6aed8e85305e74a5c793091d4
     name: golang-src
-    evr: 1.24.6-1.module+el8.10.0+23407+428597c7
-    sourcerpm: golang-1.24.6-1.module+el8.10.0+23407+428597c7.src.rpm
+    evr: 1.25.3-2.module+el8.10.0+23746+9db33b5e
+    sourcerpm: golang-1.25.3-2.module+el8.10.0+23746+9db33b5e.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/p/perl-Digest-1.17-395.el8.noarch.rpm
     repoid: ubi-8-for-x86_64-appstream-rpms
     size: 27624
@@ -3440,12 +3454,12 @@ arches:
     checksum: sha256:8fe83f047e58c61e0e1bc807de211bbd62e24f5023cc6a0c63b01dca8b904bfe
     name: git
     evr: 2.43.7-1.el8_10
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/source/SRPMS/Packages/g/golang-1.24.6-1.module+el8.10.0+23407+428597c7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/source/SRPMS/Packages/g/golang-1.25.3-2.module+el8.10.0+23746+9db33b5e.src.rpm
     repoid: ubi-8-for-x86_64-appstream-source-rpms
-    size: 30724885
-    checksum: sha256:ab50d56c18801172ea68b8fc430ec369f4e511b41cd229f00cea3893c469ba0e
+    size: 34364762
+    checksum: sha256:0ea2b5237f1d110b319e2efd614854736c1759fe9f3e0ea8a5354a9ffa3f9989
     name: golang
-    evr: 1.24.6-1.module+el8.10.0+23407+428597c7
+    evr: 1.25.3-2.module+el8.10.0+23746+9db33b5e
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/source/SRPMS/Packages/i/isl-0.16.1-6.el8.src.rpm
     repoid: ubi-8-for-x86_64-appstream-source-rpms
     size: 2707870
@@ -4221,14 +4235,14 @@ arches:
     name: zstd
     evr: 1.4.4-1.el8
   module_metadata:
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/appstream/os/repodata/813b9bed3a2c0a095be844ccb73258f094d1b903eb83e97f2c4c003462fca775-modules.yaml.gz
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/ppc64le/appstream/os/repodata/7dfc8759abb864029731ee6a6df0c9d042d01ca30d1b862858dfac5ae70f498d-modules.yaml.gz
     repoid: ubi-8-for-ppc64le-appstream-rpms
-    size: 56043
-    checksum: sha256:813b9bed3a2c0a095be844ccb73258f094d1b903eb83e97f2c4c003462fca775
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/cf78e8ae3beea40ae183db2a530f95fa402ffbc0efe0797963b066dbfadaa4c2-modules.yaml.gz
+    size: 55981
+    checksum: sha256:7dfc8759abb864029731ee6a6df0c9d042d01ca30d1b862858dfac5ae70f498d
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/c3990dbed0af08ab22a6323504a4a02d52887525525976452598a68b4e1c52a5-modules.yaml.gz
     repoid: ubi-8-for-x86_64-appstream-rpms
-    size: 59446
-    checksum: sha256:cf78e8ae3beea40ae183db2a530f95fa402ffbc0efe0797963b066dbfadaa4c2
+    size: 59432
+    checksum: sha256:c3990dbed0af08ab22a6323504a4a02d52887525525976452598a68b4e1c52a5
 - arch: s390x
   packages:
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/appstream/os/Packages/c/cpp-8.5.0-28.el8_10.s390x.rpm
@@ -4259,20 +4273,27 @@ arches:
     name: git-core
     evr: 2.43.7-1.el8_10
     sourcerpm: git-2.43.7-1.el8_10.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/appstream/os/Packages/g/golang-1.24.6-1.module+el8.10.0+23407+428597c7.s390x.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/appstream/os/Packages/g/golang-1.25.3-2.module+el8.10.0+23746+9db33b5e.s390x.rpm
     repoid: ubi-8-for-s390x-appstream-rpms
-    size: 1398874
-    checksum: sha256:30f8f9ab28fdc790dc6c5ad00cf5317eed65aaf52ee4442c56837084f23fc1c2
+    size: 1400710
+    checksum: sha256:2481f7fb82c5c9adc8337793b154d65c23a1a08fe433111a741d314123185f3b
     name: golang
-    evr: 1.24.6-1.module+el8.10.0+23407+428597c7
-    sourcerpm: golang-1.24.6-1.module+el8.10.0+23407+428597c7.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/appstream/os/Packages/g/golang-bin-1.24.6-1.module+el8.10.0+23407+428597c7.s390x.rpm
+    evr: 1.25.3-2.module+el8.10.0+23746+9db33b5e
+    sourcerpm: golang-1.25.3-2.module+el8.10.0+23746+9db33b5e.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/appstream/os/Packages/g/golang-bin-1.25.3-2.module+el8.10.0+23746+9db33b5e.s390x.rpm
     repoid: ubi-8-for-s390x-appstream-rpms
-    size: 75965334
-    checksum: sha256:782c3398f09b8e7d7d8d0cbcb37e063e0da8ae655ba4f32f798f30c18e6d2ac6
+    size: 39650602
+    checksum: sha256:22050b8d3b2f995fdf32af718d991378778b4a7d6391ed0e0858ad5173b28e56
     name: golang-bin
-    evr: 1.24.6-1.module+el8.10.0+23407+428597c7
-    sourcerpm: golang-1.24.6-1.module+el8.10.0+23407+428597c7.src.rpm
+    evr: 1.25.3-2.module+el8.10.0+23746+9db33b5e
+    sourcerpm: golang-1.25.3-2.module+el8.10.0+23746+9db33b5e.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/appstream/os/Packages/g/golang-race-1.25.3-2.module+el8.10.0+23746+9db33b5e.s390x.rpm
+    repoid: ubi-8-for-s390x-appstream-rpms
+    size: 653934
+    checksum: sha256:dc8164fee93d13affd29d8e37768409000d9b344cedd1efeef64e10dbae28beb
+    name: golang-race
+    evr: 1.25.3-2.module+el8.10.0+23746+9db33b5e
+    sourcerpm: golang-1.25.3-2.module+el8.10.0+23746+9db33b5e.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/appstream/os/Packages/i/isl-0.16.1-6.el8.s390x.rpm
     repoid: ubi-8-for-s390x-appstream-rpms
     size: 820236
@@ -4546,13 +4567,13 @@ arches:
     name: json-c
     evr: 0.13.1-3.el8
     sourcerpm: json-c-0.13.1-3.el8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/k/kernel-headers-4.18.0-553.85.1.el8_10.s390x.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/k/kernel-headers-4.18.0-553.87.1.el8_10.s390x.rpm
     repoid: ubi-8-for-s390x-baseos-rpms
-    size: 12461000
-    checksum: sha256:50ad25b96dca6a4d475634625badbf36f7a2a8467e4ec57a5a1845983d0909b8
+    size: 12463124
+    checksum: sha256:67861db6c4311d406b432464a903e3699c8f01e5379ec4f06f12996c7c76976a
     name: kernel-headers
-    evr: 4.18.0-553.85.1.el8_10
-    sourcerpm: kernel-4.18.0-553.85.1.el8_10.src.rpm
+    evr: 4.18.0-553.87.1.el8_10
+    sourcerpm: kernel-4.18.0-553.87.1.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/baseos/os/Packages/k/keyutils-libs-1.5.10-9.el8.s390x.rpm
     repoid: ubi-8-for-s390x-baseos-rpms
     size: 34356
@@ -5253,13 +5274,13 @@ arches:
     name: git-core-doc
     evr: 2.43.7-1.el8_10
     sourcerpm: git-2.43.7-1.el8_10.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/g/golang-src-1.24.6-1.module+el8.10.0+23407+428597c7.noarch.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/g/golang-src-1.25.3-2.module+el8.10.0+23746+9db33b5e.noarch.rpm
     repoid: ubi-8-for-x86_64-appstream-rpms
-    size: 13050450
-    checksum: sha256:5a6b5c4cc43309fe020027a7edbef2edd05a77a5b99e6623a6bd1fc91d1f60b7
+    size: 12125078
+    checksum: sha256:04d209e651fe04a86a1cd2b5ce7953fdbe8942e6aed8e85305e74a5c793091d4
     name: golang-src
-    evr: 1.24.6-1.module+el8.10.0+23407+428597c7
-    sourcerpm: golang-1.24.6-1.module+el8.10.0+23407+428597c7.src.rpm
+    evr: 1.25.3-2.module+el8.10.0+23746+9db33b5e
+    sourcerpm: golang-1.25.3-2.module+el8.10.0+23746+9db33b5e.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/p/perl-Digest-1.17-395.el8.noarch.rpm
     repoid: ubi-8-for-x86_64-appstream-rpms
     size: 27624
@@ -5547,12 +5568,12 @@ arches:
     checksum: sha256:8fe83f047e58c61e0e1bc807de211bbd62e24f5023cc6a0c63b01dca8b904bfe
     name: git
     evr: 2.43.7-1.el8_10
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/source/SRPMS/Packages/g/golang-1.24.6-1.module+el8.10.0+23407+428597c7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/source/SRPMS/Packages/g/golang-1.25.3-2.module+el8.10.0+23746+9db33b5e.src.rpm
     repoid: ubi-8-for-x86_64-appstream-source-rpms
-    size: 30724885
-    checksum: sha256:ab50d56c18801172ea68b8fc430ec369f4e511b41cd229f00cea3893c469ba0e
+    size: 34364762
+    checksum: sha256:0ea2b5237f1d110b319e2efd614854736c1759fe9f3e0ea8a5354a9ffa3f9989
     name: golang
-    evr: 1.24.6-1.module+el8.10.0+23407+428597c7
+    evr: 1.25.3-2.module+el8.10.0+23746+9db33b5e
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/source/SRPMS/Packages/i/isl-0.16.1-6.el8.src.rpm
     repoid: ubi-8-for-x86_64-appstream-source-rpms
     size: 2707870
@@ -6328,14 +6349,14 @@ arches:
     name: zstd
     evr: 1.4.4-1.el8
   module_metadata:
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/appstream/os/repodata/1b312afe0f59219665bd480ab06ec357d540630f6dcdd0770120d07520c09c78-modules.yaml.gz
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/s390x/appstream/os/repodata/4e02604d9abfb217b3a0ae28a3ae7bd49492576e2487ec4ca4d37cc9a5172f71-modules.yaml.gz
     repoid: ubi-8-for-s390x-appstream-rpms
-    size: 57030
-    checksum: sha256:1b312afe0f59219665bd480ab06ec357d540630f6dcdd0770120d07520c09c78
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/cf78e8ae3beea40ae183db2a530f95fa402ffbc0efe0797963b066dbfadaa4c2-modules.yaml.gz
+    size: 57036
+    checksum: sha256:4e02604d9abfb217b3a0ae28a3ae7bd49492576e2487ec4ca4d37cc9a5172f71
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/c3990dbed0af08ab22a6323504a4a02d52887525525976452598a68b4e1c52a5-modules.yaml.gz
     repoid: ubi-8-for-x86_64-appstream-rpms
-    size: 59446
-    checksum: sha256:cf78e8ae3beea40ae183db2a530f95fa402ffbc0efe0797963b066dbfadaa4c2
+    size: 59432
+    checksum: sha256:c3990dbed0af08ab22a6323504a4a02d52887525525976452598a68b4e1c52a5
 - arch: x86_64
   packages:
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/c/cpp-8.5.0-28.el8_10.x86_64.rpm
@@ -6373,27 +6394,34 @@ arches:
     name: git-core-doc
     evr: 2.43.7-1.el8_10
     sourcerpm: git-2.43.7-1.el8_10.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/g/golang-1.24.6-1.module+el8.10.0+23407+428597c7.x86_64.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/g/golang-1.25.3-2.module+el8.10.0+23746+9db33b5e.x86_64.rpm
     repoid: ubi-8-for-x86_64-appstream-rpms
-    size: 1399042
-    checksum: sha256:696c373028cf7ff33744d9865c5b9b6da0cf5dba61bbe9d46bc25b50692f0a90
+    size: 1400634
+    checksum: sha256:348bdc1476f71f4aaa816e4413f8910672a4ab4b94d27836b9dc374f74f9e8ee
     name: golang
-    evr: 1.24.6-1.module+el8.10.0+23407+428597c7
-    sourcerpm: golang-1.24.6-1.module+el8.10.0+23407+428597c7.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/g/golang-bin-1.24.6-1.module+el8.10.0+23407+428597c7.x86_64.rpm
+    evr: 1.25.3-2.module+el8.10.0+23746+9db33b5e
+    sourcerpm: golang-1.25.3-2.module+el8.10.0+23746+9db33b5e.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/g/golang-bin-1.25.3-2.module+el8.10.0+23746+9db33b5e.x86_64.rpm
     repoid: ubi-8-for-x86_64-appstream-rpms
-    size: 80403054
-    checksum: sha256:fe1769ca161c10fe62688240b7c42477b4eb11531320ad77074f334e47b998b1
+    size: 42079062
+    checksum: sha256:d097e6db7549a2a204d99a6aee5f6fe7d78c0ed3f2d9ead1bc46737c0d6fcae7
     name: golang-bin
-    evr: 1.24.6-1.module+el8.10.0+23407+428597c7
-    sourcerpm: golang-1.24.6-1.module+el8.10.0+23407+428597c7.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/g/golang-src-1.24.6-1.module+el8.10.0+23407+428597c7.noarch.rpm
+    evr: 1.25.3-2.module+el8.10.0+23746+9db33b5e
+    sourcerpm: golang-1.25.3-2.module+el8.10.0+23746+9db33b5e.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/g/golang-race-1.25.3-2.module+el8.10.0+23746+9db33b5e.x86_64.rpm
     repoid: ubi-8-for-x86_64-appstream-rpms
-    size: 13050450
-    checksum: sha256:5a6b5c4cc43309fe020027a7edbef2edd05a77a5b99e6623a6bd1fc91d1f60b7
+    size: 1333550
+    checksum: sha256:cea4de7161b05abb16f3610f0ec711a7ba3eb88f6c0d9f9eca7b3d285632dc08
+    name: golang-race
+    evr: 1.25.3-2.module+el8.10.0+23746+9db33b5e
+    sourcerpm: golang-1.25.3-2.module+el8.10.0+23746+9db33b5e.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/g/golang-src-1.25.3-2.module+el8.10.0+23746+9db33b5e.noarch.rpm
+    repoid: ubi-8-for-x86_64-appstream-rpms
+    size: 12125078
+    checksum: sha256:04d209e651fe04a86a1cd2b5ce7953fdbe8942e6aed8e85305e74a5c793091d4
     name: golang-src
-    evr: 1.24.6-1.module+el8.10.0+23407+428597c7
-    sourcerpm: golang-1.24.6-1.module+el8.10.0+23407+428597c7.src.rpm
+    evr: 1.25.3-2.module+el8.10.0+23746+9db33b5e
+    sourcerpm: golang-1.25.3-2.module+el8.10.0+23746+9db33b5e.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/Packages/i/isl-0.16.1-6.el8.x86_64.rpm
     repoid: ubi-8-for-x86_64-appstream-rpms
     size: 861300
@@ -6772,13 +6800,13 @@ arches:
     name: json-c
     evr: 0.13.1-3.el8
     sourcerpm: json-c-0.13.1-3.el8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/k/kernel-headers-4.18.0-553.85.1.el8_10.x86_64.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/k/kernel-headers-4.18.0-553.87.1.el8_10.x86_64.rpm
     repoid: ubi-8-for-x86_64-baseos-rpms
-    size: 12465736
-    checksum: sha256:76fb34f2e8379b670e9acc8b9f513b115aeff8d60dddc9e2db4fe052be7633ba
+    size: 12467464
+    checksum: sha256:2eaf1fe2bac157e0822d2df430260eaf03abe853e1ff93219b64a228d5f29f29
     name: kernel-headers
-    evr: 4.18.0-553.85.1.el8_10
-    sourcerpm: kernel-4.18.0-553.85.1.el8_10.src.rpm
+    evr: 4.18.0-553.87.1.el8_10
+    sourcerpm: kernel-4.18.0-553.87.1.el8_10.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/Packages/k/keyutils-libs-1.5.10-9.el8.x86_64.rpm
     repoid: ubi-8-for-x86_64-baseos-rpms
     size: 34816
@@ -7633,12 +7661,12 @@ arches:
     checksum: sha256:8fe83f047e58c61e0e1bc807de211bbd62e24f5023cc6a0c63b01dca8b904bfe
     name: git
     evr: 2.43.7-1.el8_10
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/source/SRPMS/Packages/g/golang-1.24.6-1.module+el8.10.0+23407+428597c7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/source/SRPMS/Packages/g/golang-1.25.3-2.module+el8.10.0+23746+9db33b5e.src.rpm
     repoid: ubi-8-for-x86_64-appstream-source-rpms
-    size: 30724885
-    checksum: sha256:ab50d56c18801172ea68b8fc430ec369f4e511b41cd229f00cea3893c469ba0e
+    size: 34364762
+    checksum: sha256:0ea2b5237f1d110b319e2efd614854736c1759fe9f3e0ea8a5354a9ffa3f9989
     name: golang
-    evr: 1.24.6-1.module+el8.10.0+23407+428597c7
+    evr: 1.25.3-2.module+el8.10.0+23746+9db33b5e
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/source/SRPMS/Packages/i/isl-0.16.1-6.el8.src.rpm
     repoid: ubi-8-for-x86_64-appstream-source-rpms
     size: 2707870
@@ -8414,7 +8442,7 @@ arches:
     name: zstd
     evr: 1.4.4-1.el8
   module_metadata:
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/cf78e8ae3beea40ae183db2a530f95fa402ffbc0efe0797963b066dbfadaa4c2-modules.yaml.gz
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/repodata/c3990dbed0af08ab22a6323504a4a02d52887525525976452598a68b4e1c52a5-modules.yaml.gz
     repoid: ubi-8-for-x86_64-appstream-rpms
-    size: 59446
-    checksum: sha256:cf78e8ae3beea40ae183db2a530f95fa402ffbc0efe0797963b066dbfadaa4c2
+    size: 59432
+    checksum: sha256:c3990dbed0af08ab22a6323504a4a02d52887525525976452598a68b4e1c52a5
