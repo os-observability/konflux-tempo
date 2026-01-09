@@ -54,7 +54,7 @@ RUN mkdir /licenses
 COPY tempo-operator/LICENSE /licenses/.
 COPY --from=builder /opt/app-root/src/tempo-operator/tempo-operator /usr/bin/tempo-operator
 
-ARG USER_UID=1001
+ARG USER_UID=10001
 USER ${USER_UID}
 ENTRYPOINT ["/usr/bin/tempo-operator"]
 

@@ -67,7 +67,7 @@ RUN mkdir /licenses
 COPY jaeger/LICENSE /licenses/.
 COPY --from=builder /opt/app-root/src/jaeger/cmd/query/jaeger /usr/bin/jaeger
 
-ARG USER_UID=1001
+ARG USER_UID=10001
 USER ${USER_UID}
 ENTRYPOINT ["/usr/bin/jaeger"]
 

@@ -36,7 +36,7 @@ RUN mkdir /licenses
 COPY opa-openshift/LICENSE /licenses/.
 COPY --from=builder /opt/app-root/src/opa-openshift/opa-openshift /usr/bin/opa-openshift
 
-ARG USER_UID=1001
+ARG USER_UID=10001
 USER ${USER_UID}
 ENTRYPOINT ["/usr/bin/opa-openshift"]
 
