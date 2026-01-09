@@ -66,5 +66,5 @@ COPY --from=builder /opt/bundle-build/manifests /manifests/
 COPY --from=builder /opt/bundle-build/metadata /metadata/
 COPY tempo-operator/bundle/openshift/tests/scorecard /tests/scorecard/
 
-ARG USER_UID=1001
+ARG USER_UID=10001
 USER ${USER_UID}

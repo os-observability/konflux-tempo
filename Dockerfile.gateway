@@ -36,7 +36,7 @@ RUN mkdir /licenses
 COPY api/LICENSE /licenses/.
 COPY --from=builder /opt/app-root/src/api/tempostack-gateway /usr/bin/tempostack-gateway
 
-ARG USER_UID=1001
+ARG USER_UID=10001
 USER ${USER_UID}
 ENTRYPOINT ["/usr/bin/tempostack-gateway"]
 
