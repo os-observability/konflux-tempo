@@ -30,7 +30,7 @@ FROM scratch
 WORKDIR /
 COPY --from=install-additional-packages /mnt/rootfs/ /
 
-ARG VERSION=0.19.0-2
+ARG VERSION=0.19.0-3
 
 RUN mkdir /licenses
 COPY opa-openshift/LICENSE /licenses/.
