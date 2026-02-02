@@ -550,7 +550,6 @@ spec:
 
               # Execute DAST test using RapiDAST
               chainsaw test \
-              --quiet \
               --config .chainsaw-rh-sdl.yaml \
               --test-dir \
               tests/e2e-rh-sdl/rapidast-tempo
