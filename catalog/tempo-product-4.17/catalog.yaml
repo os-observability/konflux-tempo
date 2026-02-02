@@ -19796,8 +19796,8 @@ properties:
       capabilities: Deep Insights
       categories: Logging & Tracing,Monitoring
       console.openshift.io/operator-monitoring-default: "true"
-      containerImage: registry.redhat.io/rhosdt/tempo-rhel8-operator@sha256:ff3e2e9327647110b0ca3271b12dda87e05e4780637dfc0d552159614144755e
-      createdAt: 11 Dec 2025, 21:33
+      containerImage: registry.redhat.io/rhosdt/tempo-rhel8-operator@sha256:2b2a842990cabc139c7cc4fdeb4c681cc2221e95d49f713a3b9608dadbc51265
+      createdAt: 16 Dec 2025, 17:37
       description: Create and manage deployments of Tempo, a high-scale distributed
         tracing backend.
       features.operators.openshift.io/cnf: "false"
@@ -21093,25 +21093,25 @@ properties:
     provider:
       name: Red Hat
 relatedImages:
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:59faa931ced3fb7d6121c0dd212e0a43e99d6e09d01a8eb0cf77694dabaabdac
-  name: ""
 - image: registry.redhat.io/openshift4/ose-oauth-proxy@sha256:6bcfa981a7a75c242a16afa6dab36bf6e3b8a1442fa863875919ad551f48eceb
   name: ose-oauth-proxy
-- image: registry.redhat.io/rhosdt/tempo-gateway-opa-rhel8@sha256:dd84866c5d31faf9cd056d55f1640d9b4c8ee0608dd7cb1f1639fc31c167b5fb
+- image: registry.redhat.io/rhosdt/tempo-gateway-opa-rhel8@sha256:18b76c6fd9ad82b8c62830f89332f85fa8d68e583f647a48b478fc44793d1261
   name: gateway-opa
-- image: registry.redhat.io/rhosdt/tempo-gateway-rhel8@sha256:26ddf4300d9f7e6601dbc137a1ea0fbeff0ab3e982e566540f01d67c3eecdc7d
+- image: registry.redhat.io/rhosdt/tempo-gateway-rhel8@sha256:b49ff19c40327b90a149edc98a57887f44c88310489dfca33c62b201d1faee58
   name: gateway
-- image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel8@sha256:0135881ac89db318da597c5d5f3120c0eb7e1005e71df43723c664fd95e3c637
+- image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel8@sha256:2c587b52015b07feea05c7cdb79e20362675bb5073e50eee1114476a9ca405dc
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:5f002865ebe3c5af668961b537850ad9f6246504649a496b9182c5de3f057949
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:59faa931ced3fb7d6121c0dd212e0a43e99d6e09d01a8eb0cf77694dabaabdac
+  name: ""
+- image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:3aa486ed176f695af57b2b8d58dc53a070fbcef3ba0f233afdde0656eb55d5f6
   name: tempo-query
-- image: registry.redhat.io/rhosdt/tempo-rhel8-operator@sha256:ff3e2e9327647110b0ca3271b12dda87e05e4780637dfc0d552159614144755e
+- image: registry.redhat.io/rhosdt/tempo-rhel8-operator@sha256:2b2a842990cabc139c7cc4fdeb4c681cc2221e95d49f713a3b9608dadbc51265
   name: operator
-- image: registry.redhat.io/rhosdt/tempo-rhel8@sha256:a0fb2ce613f1ba6cf6d5d757e54990757537dd38c896a7f4308925fce95762b6
+- image: registry.redhat.io/rhosdt/tempo-rhel8@sha256:49c858da31e0bbede4ad67a1b34fac2910a777677ea46d2460b3c11ac51c6bab
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:5aa0efed8dcaa243a0ef634ff9bb1c5c1cd0604b9126ca8c5d2be783b0ce9ce4
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:c5408544bbfdd152cff9274264df05d4f32971bb3deb361ad757058c8710f10b
 name: tempo-operator.v0.19.0-3
 package: tempo-product
 properties:
@@ -21205,7 +21205,7 @@ properties:
       categories: Logging & Tracing,Monitoring
       console.openshift.io/operator-monitoring-default: "true"
       containerImage: registry.redhat.io/rhosdt/tempo-rhel8-operator@sha256:b8717d3a7723402220093f78ff7b5c3b111ebffcac376a0b3cc6e24a3173a25f
-      createdAt: 24 Jan 2026, 01:01
+      createdAt: 02 Feb 2026, 04:04
       description: Create and manage deployments of Tempo, a high-scale distributed
         tracing backend.
       features.operators.openshift.io/cnf: "false"
@@ -22501,7 +22501,7 @@ properties:
     provider:
       name: Red Hat
 relatedImages:
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:5aa0efed8dcaa243a0ef634ff9bb1c5c1cd0604b9126ca8c5d2be783b0ce9ce4
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:c5408544bbfdd152cff9274264df05d4f32971bb3deb361ad757058c8710f10b
   name: ""
 - image: registry.redhat.io/openshift4/ose-oauth-proxy@sha256:6bcfa981a7a75c242a16afa6dab36bf6e3b8a1442fa863875919ad551f48eceb
   name: ose-oauth-proxy
