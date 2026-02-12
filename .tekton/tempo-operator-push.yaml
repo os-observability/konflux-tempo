@@ -22,6 +22,14 @@ metadata:
   name: tempo-operator-main-on-push
   namespace: rhosdt-tenant
 spec:
+  taskRunSpecs:
+  - pipelineTaskName: prefetch-dependencies
+    computeResources:
+      requests:
+        cpu: 300m
+        memory: 256Mi
+      limits:
+        memory: 4Gi
   params:
   - name: git-url
     value: '{{source_url}}'
