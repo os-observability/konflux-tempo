@@ -6,9 +6,9 @@ set -euo pipefail
 
 
 # TODO: update version (major.minor)
-RHOSDT_VERSION=3.8
+RHOSDT_VERSION=3.9
 # TODO: set latest supported OCP version, see https://access.redhat.com/support/policy/updates/openshift#dates
-MIN_OPENSHIFT_VERSION=4.12
+MIN_OPENSHIFT_VERSION=4.14
 
 
 echo "Fetching tags of all submodules..."
@@ -43,7 +43,7 @@ sed -Ei "s/exportOrFail GIT_LATEST_TAG=[^ ]*/exportOrFail GIT_LATEST_TAG=\"${JAE
 
 # container labels
 sed -Ei "s/^ARG VERSION=.*/ARG VERSION=${BUNDLE_VERSION}/g" Dockerfile.*
-sed -Ei "s/cpe=[^ ]*/cpe=\"cpe:\/a:redhat:openshift_distributed_tracing:${RHOSDT_VERSION}::el8\"/g" Dockerfile.*
+sed -Ei "s/cpe=[^ ]*/cpe=\"cpe:\/a:redhat:openshift_distributed_tracing:${RHOSDT_VERSION}::el9\"/g" Dockerfile.*
 sed -Ei "s/com.redhat.openshift.versions=[^ ]*/com.redhat.openshift.versions=v${MIN_OPENSHIFT_VERSION}/g" Dockerfile.bundle
 
 # CSV
