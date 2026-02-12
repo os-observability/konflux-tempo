@@ -1,0 +1,50 @@
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  annotations:
+    build.appstudio.openshift.io/repo: https://github.com/os-observability/konflux-tempo?rev={{revision}}
+    build.appstudio.redhat.com/commit_sha: '{{revision}}'
+    build.appstudio.redhat.com/pull_request_number: '{{pull_request_number}}'
+    build.appstudio.redhat.com/target_branch: '{{target_branch}}'
+    pipelinesascode.tekton.dev/max-keep-runs: "3"
+    pipelinesascode.tekton.dev/on-cel-expression: event == "pull_request" && target_branch == "main" &&
+      (".tekton/tempo-fbc-v4-12-pull-request.yaml".pathChanged() ||
+      ".tekton/tempo-fbc-v4-12-push.yaml".pathChanged() ||
+      ".tekton/fbc-build-pipeline.yaml".pathChanged() ||
+      "Dockerfile-v4-12.catalog".pathChanged() ||
+      "catalog/***".pathChanged())
+  creationTimestamp: null
+  labels:
+    appstudio.openshift.io/application: tempo-fbc-v4-12-main
+    appstudio.openshift.io/component: tempo-fbc-v4-12-main
+    pipelines.appstudio.openshift.io/type: build
+  name: tempo-fbc-v4-12-main-on-pull-request
+  namespace: rhosdt-tenant
+spec:
+  params:
+  - name: git-url
+    value: '{{source_url}}'
+  - name: revision
+    value: '{{revision}}'
+  - name: hermetic
+    value: "true"
+  - name: output-image
+    value: quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-fbc-v4-12:on-pr-{{revision}}
+  - name: image-expires-after
+    value: 5d
+  - name: dockerfile
+    value: Dockerfile-v4-12.catalog
+  - name: path-context
+    value: .
+  - name: build-platforms
+    value:
+      - localhost
+  pipelineRef:
+    name: fbc-build-pipeline
+  taskRunTemplate:
+    serviceAccountName: build-pipeline-tempo-fbc-v4-12-main
+  workspaces:
+    - name: git-auth
+      secret:
+        secretName: '{{ git_auth_secret }}'
+status: {}
