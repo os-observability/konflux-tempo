@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi8/ubi-minimal:latest@sha256:0242c82019281bfb1a078db61b3710251af550cc7bc98aa34a9a3211dba3d4d8 as builder
+FROM registry.redhat.io/ubi9/ubi-minimal:latest@sha256:759f5f42d9d6ce2a705e290b7fc549e2d2cd39312c4fa345f93c02e4abb8da95 as builder
 
 USER root
 WORKDIR /opt/bundle-build
@@ -25,7 +25,7 @@ RUN ./update_bundle.sh && cat manifests/tempo-operator.clusterserviceversion.yam
 FROM scratch
 WORKDIR /
 
-ARG VERSION=0.19.0-3
+ARG VERSION=0.19.0-4
 
 COPY tempo-operator/LICENSE /licenses/.
 
@@ -46,14 +46,14 @@ LABEL operators.operatorframework.io.test.config.v1=tests/scorecard/
 
 LABEL release="${VERSION}" \
       version="${VERSION}" \
-      com.redhat.openshift.versions=v4.12 \
+      com.redhat.openshift.versions=v4.14 \
       name="rhosdt/tempo-operator-bundle" \
       distribution-scope="public" \
       description="Bundle for Tempo operator" \
       io.k8s.description="Bundle for Tempo operator." \
       # TODO check if this is correct
       com.redhat.component="rhosdt" \
-      cpe="cpe:/a:redhat:openshift_distributed_tracing:3.8::el8" \
+      cpe="cpe:/a:redhat:openshift_distributed_tracing:3.9::el9" \
       io.openshift.tags="tracing" \
       io.k8s.display-name="Tempo Operator Bundle" \
       url="https://github.com/grafana/tempo-operator" \

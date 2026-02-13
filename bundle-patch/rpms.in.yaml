@@ -5,7 +5,7 @@
 # ~/.local/bin/rpm-lockfile-prototype --arch x86_64 -f ../Dockerfile.bundle rpms.in.yaml --outfile rpms.lock.yaml
 contentOrigin:
   repofiles:
-    - ./ubi8.repo
+    - ./ubi9.repo
 packages: [python3, python3-pyyaml, patch]
 arches:
   - x86_64

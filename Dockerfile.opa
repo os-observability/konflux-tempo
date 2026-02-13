@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi8/ubi:latest@sha256:00da037bbdbacdeb2bd15c4e8f4a4a89b56063757f14c52ef6e68766831acd7b as builder
+FROM registry.redhat.io/ubi9/ubi:latest@sha256:b8923f58ef6aebe2b8f543f8f6c5af15c6f9aeeef34ba332f33bf7610012de0c as builder
 
 WORKDIR /opt/app-root/src
 USER root
@@ -15,13 +15,13 @@ WORKDIR /opt/app-root/src/opa-openshift
 
 RUN CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -mod=mod -tags strictfipsruntime -o opa-openshift -trimpath -ldflags "-s -w"
 
-FROM registry.redhat.io/ubi8/ubi-micro:latest@sha256:37552f11d3b39b3360f7be7c13f6a617e468f39be915cd4f8c8a8531ffc9d43d AS target-base
+FROM registry.redhat.io/ubi9/ubi-micro:latest@sha256:e9765516d74cafded50d8ef593331eeca2ef6eababdda118e5297898d99b7433 AS target-base
 
-FROM registry.redhat.io/ubi8/ubi:latest@sha256:00da037bbdbacdeb2bd15c4e8f4a4a89b56063757f14c52ef6e68766831acd7b as install-additional-packages
+FROM registry.redhat.io/ubi9/ubi:latest@sha256:b8923f58ef6aebe2b8f543f8f6c5af15c6f9aeeef34ba332f33bf7610012de0c as install-additional-packages
 COPY --from=target-base / /mnt/rootfs
 RUN rpm --root /mnt/rootfs --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 
-RUN dnf install --installroot /mnt/rootfs --releasever 8 --setopt install_weak_deps=false --setopt reposdir=/etc/yum.repos.d --nodocs -y openssl systemd && \
+RUN dnf install --installroot /mnt/rootfs --releasever 9 --setopt install_weak_deps=false --setopt reposdir=/etc/yum.repos.d --nodocs -y openssl systemd && \
     dnf clean all && \
     rm -rf /var/cache/yum
 RUN rm -rf /mnt/rootfs/var/cache/*
@@ -30,7 +30,7 @@ FROM scratch
 WORKDIR /
 COPY --from=install-additional-packages /mnt/rootfs/ /
 
-ARG VERSION=0.19.0-3
+ARG VERSION=0.19.0-4
 
 RUN mkdir /licenses
 COPY opa-openshift/LICENSE /licenses/.
@@ -46,10 +46,10 @@ LABEL release="${VERSION}" \
       distribution-scope="public" \
       url="https://github.com/grafana/tempo-operator" \
       com.redhat.component="tempo-gateway-opa-container" \
-      name="rhosdt/tempo-gateway-opa-rhel8" \
+      name="rhosdt/tempo-gateway-opa-rhel9" \
       summary="Tempo OPA OpenShift" \
       description="An OPA-compatible API for making OpenShift access review requests" \
       io.k8s.description="An OPA-compatible API for making OpenShift access review requests." \
       io.openshift.tags="tracing" \
       io.k8s.display-name="Tempo OPA" \
-      cpe="cpe:/a:redhat:openshift_distributed_tracing:3.8::el8"
+      cpe="cpe:/a:redhat:openshift_distributed_tracing:3.9::el9"
