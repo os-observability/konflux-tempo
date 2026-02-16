@@ -29,6 +29,12 @@ spec:
           memory: 3Gi
         limits:
           memory: 4Gi
+    - pipelineTaskName: sast-shell-check
+      computeResources:
+        requests:
+          memory: 1Gi
+        limits:
+          memory: 4Gi
   params:
   - name: git-url
     value: '{{source_url}}'
