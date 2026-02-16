@@ -3,15 +3,17 @@ FROM registry.redhat.io/ubi9/ubi:latest@sha256:b8923f58ef6aebe2b8f543f8f6c5af15c
 WORKDIR /opt/app-root/src
 USER root
 
-RUN dnf install --nodocs -y golang git && \
+RUN dnf install --nodocs -y golang git patch && \
     dnf clean all && \
     rm -rf /var/cache/yum
 
 COPY .git .git
+COPY patches patches
 COPY tempo tempo
 # this directory is checked by ecosystem-cert-preflight-checks task in Konflux
 COPY tempo/LICENSE /licenses/
 WORKDIR /opt/app-root/src/tempo
+RUN patch -p1 < /opt/app-root/src/patches/tempo_go_version.patch
 
 RUN exportOrFail() { echo $1; if [[ $1 == *= ]]; then echo "Error: empty variable assignment"; exit 1; else export "$1"; fi } && \
     exportOrFail GIT_BRANCH=`git rev-parse --abbrev-ref HEAD` && \
