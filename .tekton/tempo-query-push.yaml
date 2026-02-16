@@ -32,9 +32,15 @@ spec:
     - pipelineTaskName: sast-shell-check
       computeResources:
         requests:
-          memory: 1Gi
+          memory: 6Gi # default: 4Gi
         limits:
-          memory: 4Gi
+          memory: 6Gi # default: 4Gi
+    - pipelineTaskName: sast-unicode-check
+      computeResources:
+        requests:
+          memory: 6Gi # default: 4Gi
+        limits:
+          memory: 6Gi # default: 4Gi
   params:
   - name: git-url
     value: '{{source_url}}'
