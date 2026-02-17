@@ -358,6 +358,11 @@ spec:
       operator: in
       values:
       - "false"
+    # Temporarily skip fbc-fips-check-oci-ta on OCP 4.16 due to https://issues.redhat.com/browse/KONFLUX-12211
+    - input: $(params.dockerfile)
+      operator: notin
+      values:
+      - Dockerfile-v4-16.catalog
   workspaces:
   - name: git-auth
     optional: true
