@@ -130,6 +130,8 @@ spec:
                 value: "m5.2xlarge"
               - name: timeout
                 value: "40m"
+              - name: fips
+                value: "false"
               - name: imageContentSources
                 value: |
                   - source: registry.redhat.io/rhosdt/tempo-rhel9-operator
