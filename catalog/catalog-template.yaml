@@ -8,9 +8,6 @@ entries:
   schema: olm.package
 - entries:
   - name: tempo-operator.v0.1.0-6
-  - name: tempo-operator.v0.1.0-6-0.1687199947.p
-    skips:
-    - tempo-operator.v0.1.0-6
   - name: tempo-operator.v0.10.0-6
     replaces: tempo-operator.v0.8.0-3
     skipRange: '>=0.6.0 <0.10.0-6'
@@ -21,14 +18,10 @@ entries:
     replaces: tempo-operator.v0.10.0-7
     skipRange: '>=0.6.0 <0.10.0-8'
   - name: tempo-operator.v0.13.0-1
-    skipRange: '>=0.6.0 <0.13.0-1'
-  - name: tempo-operator.v0.13.0-1-0.1730817419.p
     replaces: tempo-operator.v0.10.0-8
     skipRange: '>=0.6.0 <0.13.0-1'
-    skips:
-    - tempo-operator.v0.13.0-1
   - name: tempo-operator.v0.3.1-3
-    replaces: tempo-operator.v0.1.0-6-0.1687199947.p
+    replaces: tempo-operator.v0.1.0-6
   - name: tempo-operator.v0.6.0-2
     replaces: tempo-operator.v0.3.1-3
   - name: tempo-operator.v0.8.0-2
@@ -36,7 +29,7 @@ entries:
   - name: tempo-operator.v0.8.0-3
     replaces: tempo-operator.v0.8.0-2
   - name: tempo-operator.v0.14.1-1
-    replaces: tempo-operator.v0.13.0-1-0.1730817419.p
+    replaces: tempo-operator.v0.13.0-1
     skipRange: '>=0.6.0 <0.14.1-1'
   - name: tempo-operator.v0.14.1-2
     replaces: tempo-operator.v0.14.1-1
@@ -68,6 +61,9 @@ entries:
   - name: tempo-operator.v0.19.0-3
     replaces: tempo-operator.v0.19.0-2
     skipRange: '>=0.6.0 <0.19.0-3'
+  - name: tempo-operator.v0.20.0-1
+    replaces: tempo-operator.v0.19.0-3
+    skipRange: '>=0.6.0 <0.20.0-1'
   name: stable
   package: tempo-product
   schema: olm.channel
@@ -113,6 +109,8 @@ entries:
   schema: olm.bundle
 - image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:59faa931ced3fb7d6121c0dd212e0a43e99d6e09d01a8eb0cf77694dabaabdac
   schema: olm.bundle
-- image: quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-bundle@sha256:5aa0efed8dcaa243a0ef634ff9bb1c5c1cd0604b9126ca8c5d2be783b0ce9ce4
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:5aa0efed8dcaa243a0ef634ff9bb1c5c1cd0604b9126ca8c5d2be783b0ce9ce4
+  schema: olm.bundle
+- image: quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-bundle@sha256:4fdbc852065833f6fdd184a3fa2e53a072151962205a76496eb241ab2d7b9047
   schema: olm.bundle
 schema: olm.template.basic
