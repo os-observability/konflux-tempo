@@ -613,7 +613,6 @@ spec:
               git clone https://github.com/IshwarKanse/tempo-operator.git /tmp/tempo-tests
               cd /tmp/tempo-tests
               git checkout $TEMPO_TESTS_BRANCH
-              make build
 
               #Enable user workload monitoring.
               oc apply -f tests/e2e-openshift/monitoring/01-workload-monitoring.yaml
