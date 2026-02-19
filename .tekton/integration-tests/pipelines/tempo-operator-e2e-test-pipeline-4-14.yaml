@@ -36,6 +36,8 @@ spec:
       description: "The repository branch from which to run the tests"
     - name: skip_tests
       description: "Tests to be skipped seperated with a space delimiter"
+    - name: rhosdt_version
+      description: "RHOSDT product version used to tag RapiDAST scan results in GCS"
   tasks:
     - name: parse-metadata
       taskRef:
@@ -544,6 +546,8 @@ spec:
             env:
               - name: KUBECONFIG
                 value: "/credentials/$(steps.get-kubeconfig.results.kubeconfig)"
+              - name: RHOSDT_VERSION
+                value: $(params.rhosdt_version)
             image: quay.io/redhat-distributed-tracing-qe/konflux-e2e:latest
             script: |
               echo "Kubeconfig file"
