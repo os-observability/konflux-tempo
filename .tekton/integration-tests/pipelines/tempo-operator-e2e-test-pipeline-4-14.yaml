@@ -513,6 +513,9 @@ spec:
         volumes:
           - name: credentials
             emptyDir: {}
+          - name: gcs-key
+            secret:
+              secretName: rapidast-sa-rhosdt-key
         steps:
           - name: get-kubeconfig
             ref:
@@ -535,6 +538,9 @@ spec:
             volumeMounts:
               - name: credentials
                 mountPath: /credentials
+              - name: gcs-key
+                mountPath: /etc/gcs
+                readOnly: true
             env:
               - name: KUBECONFIG
                 value: "/credentials/$(steps.get-kubeconfig.results.kubeconfig)"
@@ -546,6 +552,12 @@ spec:
               echo "Clone distributed-tracing-qe repository"
               git clone https://github.com/openshift/distributed-tracing-qe.git /tmp/distributed-tracing-tests
               cd /tmp/distributed-tracing-tests
+
+              # Generate GCS secret manifest for chainsaw to apply on the ephemeral cluster
+              kubectl create secret generic rapidast-sa-rhosdt-key \
+                --from-file=sa-key=/etc/gcs/sa-key \
+                --namespace=rapidast-tempo \
+                --dry-run=client -o yaml > tests/e2e-rh-sdl/rapidast-tempo/gcs-secret.yaml
 
               # Unset environment variable which conflicts with Chainsaw
               unset NAMESPACE
