@@ -22,6 +22,25 @@ metadata:
   name: tempo-gateway-main-on-push
   namespace: rhosdt-tenant
 spec:
+  taskRunSpecs:
+  - pipelineTaskName: prefetch-dependencies
+    stepSpecs:
+    - name: prefetch-dependencies
+      computeResources:
+        limits:
+          memory: 4Gi # default: 3Gi
+  - pipelineTaskName: sast-shell-check
+    stepSpecs:
+    - name: use-trusted-artifact
+      computeResources:
+        limits:
+          memory: 4Gi
+  - pipelineTaskName: sast-unicode-check
+    stepSpecs:
+    - name: use-trusted-artifact
+      computeResources:
+        limits:
+          memory: 4Gi
   params:
   - name: git-url
     value: '{{source_url}}'
