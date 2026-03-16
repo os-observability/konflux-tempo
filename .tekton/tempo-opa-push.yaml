@@ -23,10 +23,22 @@ metadata:
   namespace: rhosdt-tenant
 spec:
   taskRunSpecs:
-    - pipelineTaskName: prefetch-dependencies
+  - pipelineTaskName: prefetch-dependencies
+    stepSpecs:
+    - name: prefetch-dependencies
       computeResources:
-        requests:
-          memory: 3Gi
+        limits:
+          memory: 4Gi # default: 3Gi
+  - pipelineTaskName: sast-shell-check
+    stepSpecs:
+    - name: use-trusted-artifact
+      computeResources:
+        limits:
+          memory: 4Gi
+  - pipelineTaskName: sast-unicode-check
+    stepSpecs:
+    - name: use-trusted-artifact
+      computeResources:
         limits:
           memory: 4Gi
   params:
