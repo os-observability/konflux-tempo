@@ -123,6 +123,6 @@ entries:
   schema: olm.bundle
 - image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:90d1a71febb6cac99b64fc4863bcb66b11aa18c30dad93b244aca3290c3574e0
   schema: olm.bundle
-- image: quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-bundle@sha256:70d1cd3908693ac34f57ddcb32e73ff06da759162d4171cf0b7605f02ff06b35
+- image: quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-bundle@sha256:44aab3cb00053aff888ce8bbadca241807c6d400e881db4208dbcd1c311335ad
   schema: olm.bundle
 schema: olm.template.basic
