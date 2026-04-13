@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi9/ubi-minimal:latest@sha256:69f5c9886ecb19b23e88275a5cd904c47dd982dfa370fbbd0c356d7b1047ef68 as builder
+FROM registry.redhat.io/ubi9/ubi-minimal:latest@sha256:fe688da81a696387ca53a4c19231e99289591f990c904ef913c51b6e87d4e4df as builder
 
 USER root
 WORKDIR /opt/bundle-build
