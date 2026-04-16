@@ -20,7 +20,7 @@ RUN exportOrFail() { echo $1; if [[ $1 == *= ]]; then echo "Error: empty variabl
     CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -C ./cmd/tempo -tags strictfipsruntime -mod vendor \
       -o "tempo" -trimpath -ldflags "-s -w -X main.Branch=${GIT_BRANCH} -X main.Revision=${GIT_REVISION} -X main.Version=${VERSION}"
 
-FROM registry.redhat.io/ubi9/ubi-micro:latest@sha256:093a704be0eaef9bb52d9bc0219c67ee9db13c2e797da400ddb5d5ae6849fa10 AS target-base
+FROM registry.redhat.io/ubi9/ubi-micro:latest@sha256:2173487b3b72b1a7b11edc908e9bbf1726f9df46a4f78fd6d19a2bab0a701f38 AS target-base
 
 FROM registry.redhat.io/ubi9/ubi:latest@sha256:6ed9f6f637fe731d93ec60c065dbced79273f1e0b5f512951f2c0b0baedb16ad as install-additional-packages
 COPY --from=target-base / /mnt/rootfs
