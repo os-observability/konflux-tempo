@@ -46,34 +46,34 @@ arches:
     name: glibc-devel
     evr: 2.34-231.el9_7.10
     sourcerpm: glibc-2.34-231.el9_7.10.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/appstream/os/Packages/g/golang-1.25.7-1.el9_7.aarch64.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/appstream/os/Packages/g/golang-1.25.8-1.el9_7.aarch64.rpm
     repoid: ubi-9-for-aarch64-appstream-rpms
-    size: 1323794
-    checksum: sha256:31903e0b2905dd2c957e3e0b31372fe4582b70272170e3aa2b059f517f01e1f3
+    size: 1324441
+    checksum: sha256:c96eba3d1dd82e1e44b5ccdc8a91529595ab63d078cdb2d838afd2f623547ad5
     name: golang
-    evr: 1.25.7-1.el9_7
-    sourcerpm: golang-1.25.7-1.el9_7.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/appstream/os/Packages/g/golang-bin-1.25.7-1.el9_7.aarch64.rpm
+    evr: 1.25.8-1.el9_7
+    sourcerpm: golang-1.25.8-1.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/appstream/os/Packages/g/golang-bin-1.25.8-1.el9_7.aarch64.rpm
     repoid: ubi-9-for-aarch64-appstream-rpms
-    size: 34386629
-    checksum: sha256:ae3708c923b831c8bfa25e2c8e184ba62b0915298d1c863bea0c3bd5df6a8c85
+    size: 34403992
+    checksum: sha256:d8a464cbfb4affc7be90a25fea1ddacfe716e03001e6afba187e6f86f9e0534e
     name: golang-bin
-    evr: 1.25.7-1.el9_7
-    sourcerpm: golang-1.25.7-1.el9_7.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/appstream/os/Packages/g/golang-race-1.25.7-1.el9_7.aarch64.rpm
+    evr: 1.25.8-1.el9_7
+    sourcerpm: golang-1.25.8-1.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/appstream/os/Packages/g/golang-race-1.25.8-1.el9_7.aarch64.rpm
     repoid: ubi-9-for-aarch64-appstream-rpms
-    size: 1770537
-    checksum: sha256:63bda5b76079d2128785345dec7bc9139b908e2797e7d2a11e6b538e80ff7a15
+    size: 1770506
+    checksum: sha256:3c69537324b8875e86da43b228c4c118fb34042ed415ab1c5e40cd9986aaaeaf
     name: golang-race
-    evr: 1.25.7-1.el9_7
-    sourcerpm: golang-1.25.7-1.el9_7.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/appstream/os/Packages/k/kernel-headers-5.14.0-611.41.1.el9_7.aarch64.rpm
+    evr: 1.25.8-1.el9_7
+    sourcerpm: golang-1.25.8-1.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/appstream/os/Packages/k/kernel-headers-5.14.0-611.45.1.el9_7.aarch64.rpm
     repoid: ubi-9-for-aarch64-appstream-rpms
-    size: 2983373
-    checksum: sha256:1038cfa43ab3b4f6b7eff2c3e5ddd5d670911fef8d1f3fb06da3219d8286c23b
+    size: 2986145
+    checksum: sha256:fbdcc54177b86fc7047b81f326cde1d606f97b722169d2c6319e47559bad89bc
     name: kernel-headers
-    evr: 5.14.0-611.41.1.el9_7
-    sourcerpm: kernel-5.14.0-611.41.1.el9_7.src.rpm
+    evr: 5.14.0-611.45.1.el9_7
+    sourcerpm: kernel-5.14.0-611.45.1.el9_7.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/appstream/os/Packages/l/libasan-11.5.0-11.el9.aarch64.rpm
     repoid: ubi-9-for-aarch64-appstream-rpms
     size: 408716
@@ -767,20 +767,20 @@ arches:
     name: openldap
     evr: 2.6.8-4.el9
     sourcerpm: openldap-2.6.8-4.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/baseos/os/Packages/o/openssh-8.7p1-47.el9_7.aarch64.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/baseos/os/Packages/o/openssh-8.7p1-48.el9_7.aarch64.rpm
     repoid: ubi-9-for-aarch64-baseos-rpms
-    size: 457197
-    checksum: sha256:80f3b5be41982ee637ffba3354170b4873c46c47460149c82f9821cd3a1ebf8e
+    size: 464217
+    checksum: sha256:bd9450a83d00d528e56191d05bc11ec94b616c13f8d89f02455c6fd060df8559
     name: openssh
-    evr: 8.7p1-47.el9_7
-    sourcerpm: openssh-8.7p1-47.el9_7.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/baseos/os/Packages/o/openssh-clients-8.7p1-47.el9_7.aarch64.rpm
+    evr: 8.7p1-48.el9_7
+    sourcerpm: openssh-8.7p1-48.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/baseos/os/Packages/o/openssh-clients-8.7p1-48.el9_7.aarch64.rpm
     repoid: ubi-9-for-aarch64-baseos-rpms
-    size: 696884
-    checksum: sha256:5c294f4427bb2f80b699d6f8c6163659413b2821ac6db38cc8fa21c544694503
+    size: 703700
+    checksum: sha256:958e905253df69a927ceca84c0a2fdd75107b5cc3a244ae5ca45becb633765ad
     name: openssh-clients
-    evr: 8.7p1-47.el9_7
-    sourcerpm: openssh-8.7p1-47.el9_7.src.rpm
+    evr: 8.7p1-48.el9_7
+    sourcerpm: openssh-8.7p1-48.el9_7.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/baseos/os/Packages/o/openssl-3.5.1-7.el9_7.aarch64.rpm
     repoid: ubi-9-for-aarch64-baseos-rpms
     size: 1541274
@@ -935,13 +935,13 @@ arches:
     name: git-core-doc
     evr: 2.47.3-1.el9_6
     sourcerpm: git-2.47.3-1.el9_6.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-src-1.25.7-1.el9_7.noarch.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-src-1.25.8-1.el9_7.noarch.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
-    size: 12171111
-    checksum: sha256:e7bf59a08d4d4cafb27ae42015e734aacadf515883e9610fc23825a8de0688d0
+    size: 12177496
+    checksum: sha256:8c2cb1d68e2672326170c0f8f0b0c57dc283c56312f0b72ac9810ac358348d6d
     name: golang-src
-    evr: 1.25.7-1.el9_7
-    sourcerpm: golang-1.25.7-1.el9_7.src.rpm
+    evr: 1.25.8-1.el9_7
+    sourcerpm: golang-1.25.8-1.el9_7.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/perl-AutoLoader-5.74-481.1.el9_6.noarch.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
     size: 21344
@@ -1305,12 +1305,12 @@ arches:
     checksum: sha256:815c2ae9574006ecb596000492929264de785444736ee3968d5ee34cb6e75159
     name: git
     evr: 2.47.3-1.el9_6
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/g/golang-1.25.7-1.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/g/golang-1.25.8-1.el9_7.src.rpm
     repoid: ubi-9-for-x86_64-appstream-source-rpms
-    size: 34378630
-    checksum: sha256:d92011126029b9e602e5a0f258bca72538193f1470747caa7c4f427b1c371f7f
+    size: 34356510
+    checksum: sha256:94039ae48deab0610cf3eb87d1a492def881c41eb8e04ab6acee602f82c59a59
     name: golang
-    evr: 1.25.7-1.el9_7
+    evr: 1.25.8-1.el9_7
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/l/libmpc-1.2.1-4.el9.src.rpm
     repoid: ubi-9-for-x86_64-appstream-source-rpms
     size: 846236
@@ -1905,12 +1905,12 @@ arches:
     checksum: sha256:0d21c12c55d40d1fc2f006c8ec187b5fcc799b794cfd31ed2d98434189c62800
     name: openldap
     evr: 2.6.8-4.el9
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/o/openssh-8.7p1-47.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/o/openssh-8.7p1-48.el9_7.src.rpm
     repoid: ubi-9-for-x86_64-baseos-source-rpms
-    size: 2411231
-    checksum: sha256:d05ad155b72ffe35154b872fc96a4afdb55d0f0cbe171022ff421f0a76725382
+    size: 2418264
+    checksum: sha256:51e5e74c35ef3c86adc180a365ab45dfabb0f8f6e6c7b644cd0b16bc15ae0f95
     name: openssh
-    evr: 8.7p1-47.el9_7
+    evr: 8.7p1-48.el9_7
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/o/openssl-3.5.1-7.el9_7.src.rpm
     repoid: ubi-9-for-x86_64-baseos-source-rpms
     size: 53417882
@@ -2052,34 +2052,34 @@ arches:
     name: glibc-devel
     evr: 2.34-231.el9_7.10
     sourcerpm: glibc-2.34-231.el9_7.10.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/appstream/os/Packages/g/golang-1.25.7-1.el9_7.ppc64le.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/appstream/os/Packages/g/golang-1.25.8-1.el9_7.ppc64le.rpm
     repoid: ubi-9-for-ppc64le-appstream-rpms
-    size: 1324209
-    checksum: sha256:a1397d60660a250b4d926eb395be36a35c0abb7ee18fa9afdcd6b88c199f0c40
+    size: 1324361
+    checksum: sha256:2d5b072e40f51fb85fb2e7144056a0095d3f4aba1cf673c2b3933853f74c49ae
     name: golang
-    evr: 1.25.7-1.el9_7
-    sourcerpm: golang-1.25.7-1.el9_7.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/appstream/os/Packages/g/golang-bin-1.25.7-1.el9_7.ppc64le.rpm
+    evr: 1.25.8-1.el9_7
+    sourcerpm: golang-1.25.8-1.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/appstream/os/Packages/g/golang-bin-1.25.8-1.el9_7.ppc64le.rpm
     repoid: ubi-9-for-ppc64le-appstream-rpms
-    size: 35097684
-    checksum: sha256:333dc53caa2eea1c765b88edc4e604f10ba90e57e487c9c4ca748420a62eacbc
+    size: 35124779
+    checksum: sha256:592abaeda68bc1034ac66cb62821bbfe5a9ec1be7beb5adb8fa82f10194c5319
     name: golang-bin
-    evr: 1.25.7-1.el9_7
-    sourcerpm: golang-1.25.7-1.el9_7.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/appstream/os/Packages/g/golang-race-1.25.7-1.el9_7.ppc64le.rpm
+    evr: 1.25.8-1.el9_7
+    sourcerpm: golang-1.25.8-1.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/appstream/os/Packages/g/golang-race-1.25.8-1.el9_7.ppc64le.rpm
     repoid: ubi-9-for-ppc64le-appstream-rpms
-    size: 1692896
-    checksum: sha256:4315a865b0a33b24c4bb5bcc3143c07faedac294b37f0fdfbabdae4002a66f57
+    size: 1692869
+    checksum: sha256:6ea7be39e4973556394466e37287e0da893942fbf0b7f6b13cbb68e10bdef15c
     name: golang-race
-    evr: 1.25.7-1.el9_7
-    sourcerpm: golang-1.25.7-1.el9_7.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/appstream/os/Packages/k/kernel-headers-5.14.0-611.41.1.el9_7.ppc64le.rpm
+    evr: 1.25.8-1.el9_7
+    sourcerpm: golang-1.25.8-1.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/appstream/os/Packages/k/kernel-headers-5.14.0-611.45.1.el9_7.ppc64le.rpm
     repoid: ubi-9-for-ppc64le-appstream-rpms
-    size: 3005065
-    checksum: sha256:aadc9c312a502a1233b05c98c1024f91e87d6a028110385a2dc105031c95d865
+    size: 3007813
+    checksum: sha256:5d0ee7e2e6a8915f6b6ed21afa67eadc7c1de1d9a596e791af4bd335b083b30c
     name: kernel-headers
-    evr: 5.14.0-611.41.1.el9_7
-    sourcerpm: kernel-5.14.0-611.41.1.el9_7.src.rpm
+    evr: 5.14.0-611.45.1.el9_7
+    sourcerpm: kernel-5.14.0-611.45.1.el9_7.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/appstream/os/Packages/l/libasan-11.5.0-11.el9.ppc64le.rpm
     repoid: ubi-9-for-ppc64le-appstream-rpms
     size: 440457
@@ -2780,20 +2780,20 @@ arches:
     name: openldap
     evr: 2.6.8-4.el9
     sourcerpm: openldap-2.6.8-4.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/baseos/os/Packages/o/openssh-8.7p1-47.el9_7.ppc64le.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/baseos/os/Packages/o/openssh-8.7p1-48.el9_7.ppc64le.rpm
     repoid: ubi-9-for-ppc64le-baseos-rpms
-    size: 480572
-    checksum: sha256:61f60d1c4e0fd54fbd9fe2cbb3a824af06837c4b925a603421cb84c74cdbe8ce
+    size: 487512
+    checksum: sha256:94bcd7a39cce25a18345ccb091bc2f7f217d1db65ecd560568990709da543eb1
     name: openssh
-    evr: 8.7p1-47.el9_7
-    sourcerpm: openssh-8.7p1-47.el9_7.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/baseos/os/Packages/o/openssh-clients-8.7p1-47.el9_7.ppc64le.rpm
+    evr: 8.7p1-48.el9_7
+    sourcerpm: openssh-8.7p1-48.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/baseos/os/Packages/o/openssh-clients-8.7p1-48.el9_7.ppc64le.rpm
     repoid: ubi-9-for-ppc64le-baseos-rpms
-    size: 754554
-    checksum: sha256:f6c7c3a1408c0de2fa4eec2c6f53636cd71f0da730a87ec3e02051fe91e3976c
+    size: 761928
+    checksum: sha256:16edef0f3ba6f6ca005e0dcceeee31f6df4ed3871e2da119fa4c64ae8588ef0d
     name: openssh-clients
-    evr: 8.7p1-47.el9_7
-    sourcerpm: openssh-8.7p1-47.el9_7.src.rpm
+    evr: 8.7p1-48.el9_7
+    sourcerpm: openssh-8.7p1-48.el9_7.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/baseos/os/Packages/o/openssl-3.5.1-7.el9_7.ppc64le.rpm
     repoid: ubi-9-for-ppc64le-baseos-rpms
     size: 1566615
@@ -2948,13 +2948,13 @@ arches:
     name: git-core-doc
     evr: 2.47.3-1.el9_6
     sourcerpm: git-2.47.3-1.el9_6.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-src-1.25.7-1.el9_7.noarch.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-src-1.25.8-1.el9_7.noarch.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
-    size: 12171111
-    checksum: sha256:e7bf59a08d4d4cafb27ae42015e734aacadf515883e9610fc23825a8de0688d0
+    size: 12177496
+    checksum: sha256:8c2cb1d68e2672326170c0f8f0b0c57dc283c56312f0b72ac9810ac358348d6d
     name: golang-src
-    evr: 1.25.7-1.el9_7
-    sourcerpm: golang-1.25.7-1.el9_7.src.rpm
+    evr: 1.25.8-1.el9_7
+    sourcerpm: golang-1.25.8-1.el9_7.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/perl-AutoLoader-5.74-481.1.el9_6.noarch.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
     size: 21344
@@ -3324,12 +3324,12 @@ arches:
     checksum: sha256:815c2ae9574006ecb596000492929264de785444736ee3968d5ee34cb6e75159
     name: git
     evr: 2.47.3-1.el9_6
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/g/golang-1.25.7-1.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/g/golang-1.25.8-1.el9_7.src.rpm
     repoid: ubi-9-for-x86_64-appstream-source-rpms
-    size: 34378630
-    checksum: sha256:d92011126029b9e602e5a0f258bca72538193f1470747caa7c4f427b1c371f7f
+    size: 34356510
+    checksum: sha256:94039ae48deab0610cf3eb87d1a492def881c41eb8e04ab6acee602f82c59a59
     name: golang
-    evr: 1.25.7-1.el9_7
+    evr: 1.25.8-1.el9_7
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/l/libmpc-1.2.1-4.el9.src.rpm
     repoid: ubi-9-for-x86_64-appstream-source-rpms
     size: 846236
@@ -3924,12 +3924,12 @@ arches:
     checksum: sha256:0d21c12c55d40d1fc2f006c8ec187b5fcc799b794cfd31ed2d98434189c62800
     name: openldap
     evr: 2.6.8-4.el9
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/o/openssh-8.7p1-47.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/o/openssh-8.7p1-48.el9_7.src.rpm
     repoid: ubi-9-for-x86_64-baseos-source-rpms
-    size: 2411231
-    checksum: sha256:d05ad155b72ffe35154b872fc96a4afdb55d0f0cbe171022ff421f0a76725382
+    size: 2418264
+    checksum: sha256:51e5e74c35ef3c86adc180a365ab45dfabb0f8f6e6c7b644cd0b16bc15ae0f95
     name: openssh
-    evr: 8.7p1-47.el9_7
+    evr: 8.7p1-48.el9_7
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/o/openssl-3.5.1-7.el9_7.src.rpm
     repoid: ubi-9-for-x86_64-baseos-source-rpms
     size: 53417882
@@ -4078,34 +4078,34 @@ arches:
     name: glibc-headers
     evr: 2.34-231.el9_7.10
     sourcerpm: glibc-2.34-231.el9_7.10.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/appstream/os/Packages/g/golang-1.25.7-1.el9_7.s390x.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/appstream/os/Packages/g/golang-1.25.8-1.el9_7.s390x.rpm
     repoid: ubi-9-for-s390x-appstream-rpms
-    size: 1324350
-    checksum: sha256:0b66927acf151c5874ef51ac7f994ebae8fd979617cac47700d16b5c6c6b50a7
+    size: 1323398
+    checksum: sha256:98b4a2def0f1d000d7c088772c602a3732a2d8489fb451d2029743567bc7d92e
     name: golang
-    evr: 1.25.7-1.el9_7
-    sourcerpm: golang-1.25.7-1.el9_7.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/appstream/os/Packages/g/golang-bin-1.25.7-1.el9_7.s390x.rpm
+    evr: 1.25.8-1.el9_7
+    sourcerpm: golang-1.25.8-1.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/appstream/os/Packages/g/golang-bin-1.25.8-1.el9_7.s390x.rpm
     repoid: ubi-9-for-s390x-appstream-rpms
-    size: 36917198
-    checksum: sha256:6e06fd350f7670a33ff231a6495489dfa3713c386a3fcda41110c88560550eaa
+    size: 36968394
+    checksum: sha256:0c67c0a1bdd5f66bb142aef7fe8bff362c15e8ef3410edb84232752f21809a79
     name: golang-bin
-    evr: 1.25.7-1.el9_7
-    sourcerpm: golang-1.25.7-1.el9_7.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/appstream/os/Packages/g/golang-race-1.25.7-1.el9_7.s390x.rpm
+    evr: 1.25.8-1.el9_7
+    sourcerpm: golang-1.25.8-1.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/appstream/os/Packages/g/golang-race-1.25.8-1.el9_7.s390x.rpm
     repoid: ubi-9-for-s390x-appstream-rpms
-    size: 1740013
-    checksum: sha256:bcfebd7ea64add9c829f3ecf0556a9b48d5449b4ddcd04c100452cce1614f9b0
+    size: 1740005
+    checksum: sha256:3f52a51f05f1d223ad686f6aaf517eb1729f983ffda23757e6de0768c66a4730
     name: golang-race
-    evr: 1.25.7-1.el9_7
-    sourcerpm: golang-1.25.7-1.el9_7.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/appstream/os/Packages/k/kernel-headers-5.14.0-611.41.1.el9_7.s390x.rpm
+    evr: 1.25.8-1.el9_7
+    sourcerpm: golang-1.25.8-1.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/appstream/os/Packages/k/kernel-headers-5.14.0-611.45.1.el9_7.s390x.rpm
     repoid: ubi-9-for-s390x-appstream-rpms
-    size: 3013597
-    checksum: sha256:75faed2761a1c077521ec57f7492e9d8a6f58b9b482eaf09c0b0aea8a7b5e83b
+    size: 3016369
+    checksum: sha256:f9a73a1c848773ca4319f6c0e9bc7b09337dd63ae57929e6e569acc223873765
     name: kernel-headers
-    evr: 5.14.0-611.41.1.el9_7
-    sourcerpm: kernel-5.14.0-611.41.1.el9_7.src.rpm
+    evr: 5.14.0-611.45.1.el9_7
+    sourcerpm: kernel-5.14.0-611.45.1.el9_7.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/appstream/os/Packages/l/libasan-11.5.0-11.el9.s390x.rpm
     repoid: ubi-9-for-s390x-appstream-rpms
     size: 412655
@@ -4799,20 +4799,20 @@ arches:
     name: openldap
     evr: 2.6.8-4.el9
     sourcerpm: openldap-2.6.8-4.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/baseos/os/Packages/o/openssh-8.7p1-47.el9_7.s390x.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/baseos/os/Packages/o/openssh-8.7p1-48.el9_7.s390x.rpm
     repoid: ubi-9-for-s390x-baseos-rpms
-    size: 452850
-    checksum: sha256:304d07af2fd37c108dcbb16cb998211d78b4617bc366d263401daf58a272f07f
+    size: 459811
+    checksum: sha256:f0d5f3b02fbbdf785b310d54755b6994050b2067a632a230d79db33bb7d76633
     name: openssh
-    evr: 8.7p1-47.el9_7
-    sourcerpm: openssh-8.7p1-47.el9_7.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/baseos/os/Packages/o/openssh-clients-8.7p1-47.el9_7.s390x.rpm
+    evr: 8.7p1-48.el9_7
+    sourcerpm: openssh-8.7p1-48.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/baseos/os/Packages/o/openssh-clients-8.7p1-48.el9_7.s390x.rpm
     repoid: ubi-9-for-s390x-baseos-rpms
-    size: 681961
-    checksum: sha256:f8a9c90a9516ce6a5cff8b5d8122993fa37bc2539edc4557d63a0384862c95d0
+    size: 689011
+    checksum: sha256:894c0c9fae5b1a5d85b642994dd48bd577821ce394f377abe068c83eda9fa9a2
     name: openssh-clients
-    evr: 8.7p1-47.el9_7
-    sourcerpm: openssh-8.7p1-47.el9_7.src.rpm
+    evr: 8.7p1-48.el9_7
+    sourcerpm: openssh-8.7p1-48.el9_7.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/baseos/os/Packages/o/openssl-3.5.1-7.el9_7.s390x.rpm
     repoid: ubi-9-for-s390x-baseos-rpms
     size: 1548995
@@ -4967,13 +4967,13 @@ arches:
     name: git-core-doc
     evr: 2.47.3-1.el9_6
     sourcerpm: git-2.47.3-1.el9_6.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-src-1.25.7-1.el9_7.noarch.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-src-1.25.8-1.el9_7.noarch.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
-    size: 12171111
-    checksum: sha256:e7bf59a08d4d4cafb27ae42015e734aacadf515883e9610fc23825a8de0688d0
+    size: 12177496
+    checksum: sha256:8c2cb1d68e2672326170c0f8f0b0c57dc283c56312f0b72ac9810ac358348d6d
     name: golang-src
-    evr: 1.25.7-1.el9_7
-    sourcerpm: golang-1.25.7-1.el9_7.src.rpm
+    evr: 1.25.8-1.el9_7
+    sourcerpm: golang-1.25.8-1.el9_7.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/perl-AutoLoader-5.74-481.1.el9_6.noarch.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
     size: 21344
@@ -5337,12 +5337,12 @@ arches:
     checksum: sha256:815c2ae9574006ecb596000492929264de785444736ee3968d5ee34cb6e75159
     name: git
     evr: 2.47.3-1.el9_6
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/g/golang-1.25.7-1.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/g/golang-1.25.8-1.el9_7.src.rpm
     repoid: ubi-9-for-x86_64-appstream-source-rpms
-    size: 34378630
-    checksum: sha256:d92011126029b9e602e5a0f258bca72538193f1470747caa7c4f427b1c371f7f
+    size: 34356510
+    checksum: sha256:94039ae48deab0610cf3eb87d1a492def881c41eb8e04ab6acee602f82c59a59
     name: golang
-    evr: 1.25.7-1.el9_7
+    evr: 1.25.8-1.el9_7
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/l/libmpc-1.2.1-4.el9.src.rpm
     repoid: ubi-9-for-x86_64-appstream-source-rpms
     size: 846236
@@ -5937,12 +5937,12 @@ arches:
     checksum: sha256:0d21c12c55d40d1fc2f006c8ec187b5fcc799b794cfd31ed2d98434189c62800
     name: openldap
     evr: 2.6.8-4.el9
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/o/openssh-8.7p1-47.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/o/openssh-8.7p1-48.el9_7.src.rpm
     repoid: ubi-9-for-x86_64-baseos-source-rpms
-    size: 2411231
-    checksum: sha256:d05ad155b72ffe35154b872fc96a4afdb55d0f0cbe171022ff421f0a76725382
+    size: 2418264
+    checksum: sha256:51e5e74c35ef3c86adc180a365ab45dfabb0f8f6e6c7b644cd0b16bc15ae0f95
     name: openssh
-    evr: 8.7p1-47.el9_7
+    evr: 8.7p1-48.el9_7
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/o/openssl-3.5.1-7.el9_7.src.rpm
     repoid: ubi-9-for-x86_64-baseos-source-rpms
     size: 53417882
@@ -6105,41 +6105,41 @@ arches:
     name: glibc-headers
     evr: 2.34-231.el9_7.10
     sourcerpm: glibc-2.34-231.el9_7.10.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-1.25.7-1.el9_7.x86_64.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-1.25.8-1.el9_7.x86_64.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
-    size: 1324426
-    checksum: sha256:b554a4e9bb635fcda6af898191436ab7dbb17a90d76b647331fec49e3cde1a23
+    size: 1324556
+    checksum: sha256:f8d452f6bf69543bcded24cf5ef05790ce78ebc101959756ab31b7d7f62c30fe
     name: golang
-    evr: 1.25.7-1.el9_7
-    sourcerpm: golang-1.25.7-1.el9_7.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-bin-1.25.7-1.el9_7.x86_64.rpm
+    evr: 1.25.8-1.el9_7
+    sourcerpm: golang-1.25.8-1.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-bin-1.25.8-1.el9_7.x86_64.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
-    size: 38259745
-    checksum: sha256:169accd8939fc22c3e005cf2fc300dcd3f4dfb7dbffc172ee23d28dbb822fc67
+    size: 38268341
+    checksum: sha256:72c41054c6d08259f912bfc9f8a089a77da96212915ec2e6b5303fdc9a46cb6b
     name: golang-bin
-    evr: 1.25.7-1.el9_7
-    sourcerpm: golang-1.25.7-1.el9_7.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-race-1.25.7-1.el9_7.x86_64.rpm
+    evr: 1.25.8-1.el9_7
+    sourcerpm: golang-1.25.8-1.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-race-1.25.8-1.el9_7.x86_64.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
-    size: 1771804
-    checksum: sha256:734fca732791a0f4ee20080c054d910d418e060d61ac25715b694796cd574d13
+    size: 1771761
+    checksum: sha256:d18f5ce921eb7ddbed3bf3b36230c5f2512ff9fcfa09d9e6bca3f69c3063761c
     name: golang-race
-    evr: 1.25.7-1.el9_7
-    sourcerpm: golang-1.25.7-1.el9_7.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-src-1.25.7-1.el9_7.noarch.rpm
+    evr: 1.25.8-1.el9_7
+    sourcerpm: golang-1.25.8-1.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-src-1.25.8-1.el9_7.noarch.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
-    size: 12171111
-    checksum: sha256:e7bf59a08d4d4cafb27ae42015e734aacadf515883e9610fc23825a8de0688d0
+    size: 12177496
+    checksum: sha256:8c2cb1d68e2672326170c0f8f0b0c57dc283c56312f0b72ac9810ac358348d6d
     name: golang-src
-    evr: 1.25.7-1.el9_7
-    sourcerpm: golang-1.25.7-1.el9_7.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/k/kernel-headers-5.14.0-611.41.1.el9_7.x86_64.rpm
+    evr: 1.25.8-1.el9_7
+    sourcerpm: golang-1.25.8-1.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/k/kernel-headers-5.14.0-611.45.1.el9_7.x86_64.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
-    size: 3022401
-    checksum: sha256:bcaa0e68129def3ec17dfb112f33af36dc863df47bb89b137f3d57e980012b62
+    size: 3025189
+    checksum: sha256:eb6aafff64717dc24622c8990dfd50c2a5778b6ec71fac8360d28a524d22bc41
     name: kernel-headers
-    evr: 5.14.0-611.41.1.el9_7
-    sourcerpm: kernel-5.14.0-611.41.1.el9_7.src.rpm
+    evr: 5.14.0-611.45.1.el9_7
+    sourcerpm: kernel-5.14.0-611.45.1.el9_7.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/l/libmpc-1.2.1-4.el9.x86_64.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
     size: 66075
@@ -7141,20 +7141,20 @@ arches:
     name: openldap
     evr: 2.6.8-4.el9
     sourcerpm: openldap-2.6.8-4.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/o/openssh-8.7p1-47.el9_7.x86_64.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/o/openssh-8.7p1-48.el9_7.x86_64.rpm
     repoid: ubi-9-for-x86_64-baseos-rpms
-    size: 468180
-    checksum: sha256:9b81451b1f325139829ad9436890b42e23586feb15f4c7b2fa5c526854bf18cf
+    size: 475180
+    checksum: sha256:f9167df3110f931cded7e8500f501d1c0693bfbdc9cf92a77cde95f07a47f3c2
     name: openssh
-    evr: 8.7p1-47.el9_7
-    sourcerpm: openssh-8.7p1-47.el9_7.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/o/openssh-clients-8.7p1-47.el9_7.x86_64.rpm
+    evr: 8.7p1-48.el9_7
+    sourcerpm: openssh-8.7p1-48.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/o/openssh-clients-8.7p1-48.el9_7.x86_64.rpm
     repoid: ubi-9-for-x86_64-baseos-rpms
-    size: 729190
-    checksum: sha256:8d6e1934d12df54433fbff8969b48599070da8e556a44606f7cf6227e679adca
+    size: 735877
+    checksum: sha256:32685f9fc5a8b89d35da65d808f79530b49dba570ad2f3a5e26dba29324c9845
     name: openssh-clients
-    evr: 8.7p1-47.el9_7
-    sourcerpm: openssh-8.7p1-47.el9_7.src.rpm
+    evr: 8.7p1-48.el9_7
+    sourcerpm: openssh-8.7p1-48.el9_7.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/o/openssl-3.5.1-7.el9_7.x86_64.rpm
     repoid: ubi-9-for-x86_64-baseos-rpms
     size: 1565197
@@ -7329,12 +7329,12 @@ arches:
     checksum: sha256:815c2ae9574006ecb596000492929264de785444736ee3968d5ee34cb6e75159
     name: git
     evr: 2.47.3-1.el9_6
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/g/golang-1.25.7-1.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/g/golang-1.25.8-1.el9_7.src.rpm
     repoid: ubi-9-for-x86_64-appstream-source-rpms
-    size: 34378630
-    checksum: sha256:d92011126029b9e602e5a0f258bca72538193f1470747caa7c4f427b1c371f7f
+    size: 34356510
+    checksum: sha256:94039ae48deab0610cf3eb87d1a492def881c41eb8e04ab6acee602f82c59a59
     name: golang
-    evr: 1.25.7-1.el9_7
+    evr: 1.25.8-1.el9_7
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/l/libmpc-1.2.1-4.el9.src.rpm
     repoid: ubi-9-for-x86_64-appstream-source-rpms
     size: 846236
@@ -7929,12 +7929,12 @@ arches:
     checksum: sha256:0d21c12c55d40d1fc2f006c8ec187b5fcc799b794cfd31ed2d98434189c62800
     name: openldap
     evr: 2.6.8-4.el9
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/o/openssh-8.7p1-47.el9_7.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/o/openssh-8.7p1-48.el9_7.src.rpm
     repoid: ubi-9-for-x86_64-baseos-source-rpms
-    size: 2411231
-    checksum: sha256:d05ad155b72ffe35154b872fc96a4afdb55d0f0cbe171022ff421f0a76725382
+    size: 2418264
+    checksum: sha256:51e5e74c35ef3c86adc180a365ab45dfabb0f8f6e6c7b644cd0b16bc15ae0f95
     name: openssh
-    evr: 8.7p1-47.el9_7
+    evr: 8.7p1-48.el9_7
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/o/openssl-3.5.1-7.el9_7.src.rpm
     repoid: ubi-9-for-x86_64-baseos-source-rpms
     size: 53417882
