@@ -1,5 +1,5 @@
 diff --git a/packages/jaeger-ui/src/components/App/Page.tsx b/packages/jaeger-ui/src/components/App/Page.tsx
-index 810bcabc..fa73e0ad 100644
+index 810bcabc..10c7618a 100644
 --- a/packages/jaeger-ui/src/components/App/Page.tsx
 +++ b/packages/jaeger-ui/src/components/App/Page.tsx
 @@ -13,7 +13,7 @@
