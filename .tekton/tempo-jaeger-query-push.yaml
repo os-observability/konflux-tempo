@@ -30,6 +30,14 @@ spec:
       computeResources:
         limits:
           memory: 4Gi # default: 3Gi
+  - pipelineTaskName: build-images
+    stepSpecs:
+    - name: build
+      computeResources:
+        requests:
+          memory: 5Gi
+        limits:
+          memory: 8Gi
   - pipelineTaskName: sast-shell-check
     stepSpecs:
     - name: use-trusted-artifact
