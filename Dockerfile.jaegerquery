@@ -60,7 +60,7 @@ RUN rm -rf /mnt/rootfs/var/cache/*
 
 FROM scratch
 
-ARG VERSION=0.20.0-2
+ARG VERSION=0.20.0-3
 
 WORKDIR /opt/app-root/src/
 COPY --from=install-additional-packages /mnt/rootfs/ /
