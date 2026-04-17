@@ -33,7 +33,9 @@ WORKDIR /opt/app-root/src/jaeger
 
 COPY --from=builder-ui /opt/app-root/src/jaeger-ui /opt/app-root/src/jaeger-ui
 
-RUN rm -rf ./cmd/query/app/ui/actual && mkdir ./cmd/query/app/ui/actual && cp -r /opt/app-root/src/jaeger-ui/packages/jaeger-ui/build/* ./cmd/query/app/ui/actual/ && find ./cmd/query/app/ui/actual -type f | xargs gzip && \
+RUN rm -rf ./cmd/query/app/ui/actual && mkdir ./cmd/query/app/ui/actual && cp -r /opt/app-root/src/jaeger-ui/packages/jaeger-ui/build/* ./cmd/query/app/ui/actual/ && find ./cmd/query/app/ui/actual -type f | xargs gzip
+
+RUN go version && \
     exportOrFail() { echo $1; if [[ $1 == *= ]]; then echo "Error: empty variable assignment"; exit 1; else export "$1"; fi } && \
     exportOrFail VERSION_PKG="github.com/jaegertracing/jaeger/internal/version" && \
     exportOrFail VERSION_DATE=`date -u +'%Y-%m-%dT%H:%M:%SZ'` && \
