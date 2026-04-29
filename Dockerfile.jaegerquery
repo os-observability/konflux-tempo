@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi9/nodejs-22:latest@sha256:6f2ab53021ed3dafd970c52cc916eb61f56b760377f2bd34d78433b74b5256d5 as builder-ui
+FROM registry.redhat.io/ubi9/nodejs-22:latest@sha256:d4a687c72950936d298c98d37bd1be962449af336ebd6c8aa00b94971e6894c0 as builder-ui
  
 WORKDIR /opt/app-root/src
 USER root
@@ -16,7 +16,7 @@ RUN patch -p1 < /opt/app-root/src/patches/jaegerui_deprecation_notice.patch
 RUN npm ci --ignore-scripts
 RUN npm run build
 
-FROM registry.redhat.io/ubi9/ubi:latest@sha256:8805abe5b8a32c826d46926c069f20e6a7f854d59d5bd75c55e68278aea65ccc as builder
+FROM registry.redhat.io/ubi9/ubi:latest@sha256:ac1eee4b85ab5feed38bf0f743b9278ceb1f9105e33260d37dbe53dc218128ad as builder
 
 WORKDIR /opt/app-root/src
 USER root
@@ -49,7 +49,7 @@ RUN go version && \
 
 FROM registry.redhat.io/ubi9/ubi-micro:latest@sha256:2173487b3b72b1a7b11edc908e9bbf1726f9df46a4f78fd6d19a2bab0a701f38 AS target-base
 
-FROM registry.redhat.io/ubi9/ubi:latest@sha256:8805abe5b8a32c826d46926c069f20e6a7f854d59d5bd75c55e68278aea65ccc as install-additional-packages
+FROM registry.redhat.io/ubi9/ubi:latest@sha256:ac1eee4b85ab5feed38bf0f743b9278ceb1f9105e33260d37dbe53dc218128ad as install-additional-packages
 COPY --from=target-base / /mnt/rootfs
 RUN rpm --root /mnt/rootfs --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 
