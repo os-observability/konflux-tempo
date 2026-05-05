@@ -69,6 +69,24 @@ published (e.g., in konflux-ci/build-definitions), the pipeline step in
 .tekton/single-arch-build-pipeline.yaml should be replaced with a
 `taskRef` to that canonical task and these scripts removed.
 
+Why `operator-sdk bundle validate` is not sufficient
+----------------------------------------------------
+Verified against operator-framework/api validator source
+(pkg/validation/internal/, sdk v1.41.0):
+
+  - AllNamespaces requirement: csv.go enforces AllNamespaces-only ONLY
+    when the CSV has conversionCRDs in webhookDefinitions. A CSV with
+    just OwnNamespace/SingleNamespace passes `operator-sdk bundle
+    validate` but fails under OLMv1.
+  - olm.package / olm.gvk / olm.constraint in metadata/dependencies.yaml:
+    no validator inspects this file. good_practices.go actively
+    *recommends* OLM dependency resolution, the opposite of what OLMv1
+    needs.
+  - OPERATOR_CONDITIONS_NAME env var: not referenced by any validator.
+  - The string "OLMv1" does not appear in any validator — all selectors
+    (operatorhub, good-practices, community, alpha-deprecated-apis,
+    multiarch) predate OLMv1 and only encode OLMv0-era assumptions.
+
 Inputs
 ------
 Reads EXTRACT_DIR from env — the path where the bundle image's gzip
