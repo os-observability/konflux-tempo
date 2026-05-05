@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi9/nodejs-22:latest@sha256:172cdb4f236de35daa18e1273261392aa9b045b653f129b26ccdf6f5417a2e16 as builder-ui
+FROM registry.redhat.io/ubi9/nodejs-22:latest@sha256:afbaa8f9df6e676d22e348a891bb2f08785707a45982e287ba3ba03fa91c4d54 as builder-ui
  
 WORKDIR /opt/app-root/src
 USER root
@@ -16,7 +16,7 @@ RUN patch -p1 < /opt/app-root/src/patches/jaegerui_deprecation_notice.patch
 RUN npm ci --ignore-scripts
 RUN npm run build
 
-FROM registry.redhat.io/ubi9/ubi:latest@sha256:6ed9f6f637fe731d93ec60c065dbced79273f1e0b5f512951f2c0b0baedb16ad as builder
+FROM registry.redhat.io/ubi9/ubi:latest@sha256:0879eaf704bf508379bdb0f465b8ea184c1ec9f1f40a413422fc17f6d3fb2389 as builder
 
 WORKDIR /opt/app-root/src
 USER root
@@ -33,7 +33,9 @@ WORKDIR /opt/app-root/src/jaeger
 
 COPY --from=builder-ui /opt/app-root/src/jaeger-ui /opt/app-root/src/jaeger-ui
 
-RUN rm -rf ./cmd/query/app/ui/actual && mkdir ./cmd/query/app/ui/actual && cp -r /opt/app-root/src/jaeger-ui/packages/jaeger-ui/build/* ./cmd/query/app/ui/actual/ && find ./cmd/query/app/ui/actual -type f | xargs gzip && \
+RUN rm -rf ./cmd/query/app/ui/actual && mkdir ./cmd/query/app/ui/actual && cp -r /opt/app-root/src/jaeger-ui/packages/jaeger-ui/build/* ./cmd/query/app/ui/actual/ && find ./cmd/query/app/ui/actual -type f | xargs gzip
+
+RUN go version && \
     exportOrFail() { echo $1; if [[ $1 == *= ]]; then echo "Error: empty variable assignment"; exit 1; else export "$1"; fi } && \
     exportOrFail VERSION_PKG="github.com/jaegertracing/jaeger/internal/version" && \
     exportOrFail VERSION_DATE=`date -u +'%Y-%m-%dT%H:%M:%SZ'` && \
@@ -45,9 +47,9 @@ RUN rm -rf ./cmd/query/app/ui/actual && mkdir ./cmd/query/app/ui/actual && cp -r
                 -X ${VERSION_PKG}.latestVersion=${GIT_LATEST_TAG} \
                 -X ${VERSION_PKG}.date=${VERSION_DATE}"
 
-FROM registry.redhat.io/ubi9/ubi-micro:latest@sha256:093a704be0eaef9bb52d9bc0219c67ee9db13c2e797da400ddb5d5ae6849fa10 AS target-base
+FROM registry.redhat.io/ubi9/ubi-micro:latest@sha256:2173487b3b72b1a7b11edc908e9bbf1726f9df46a4f78fd6d19a2bab0a701f38 AS target-base
 
-FROM registry.redhat.io/ubi9/ubi:latest@sha256:6ed9f6f637fe731d93ec60c065dbced79273f1e0b5f512951f2c0b0baedb16ad as install-additional-packages
+FROM registry.redhat.io/ubi9/ubi:latest@sha256:0879eaf704bf508379bdb0f465b8ea184c1ec9f1f40a413422fc17f6d3fb2389 as install-additional-packages
 COPY --from=target-base / /mnt/rootfs
 RUN rpm --root /mnt/rootfs --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 
@@ -58,7 +60,7 @@ RUN rm -rf /mnt/rootfs/var/cache/*
 
 FROM scratch
 
-ARG VERSION=0.20.0-2
+ARG VERSION=0.20.0-3
 
 WORKDIR /opt/app-root/src/
 COPY --from=install-additional-packages /mnt/rootfs/ /
