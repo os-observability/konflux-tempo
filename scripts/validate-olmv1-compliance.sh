@@ -36,13 +36,26 @@ microdnf install -y --nodocs skopeo python3 python3-pyyaml file tar gzip finduti
 
 echo "Validating OLMv1 compliance for: ${BUNDLE_IMAGE}"
 
+# Konflux passes IMAGE_URL@IMAGE_DIGEST and IMAGE_URL already carries a tag,
+# yielding "repo:tag@sha256:..." which skopeo rejects ("Docker references
+# with both a tag and digest are currently not supported"). Strip the tag.
+PULL_REF="${BUNDLE_IMAGE}"
+if [[ "${PULL_REF}" == *@* ]]; then
+  _name="${PULL_REF%@*}"
+  _digest="${PULL_REF##*@}"
+  _last="${_name##*/}"
+  if [[ "${_last}" == *:* ]]; then
+    PULL_REF="${_name%/*}/${_last%%:*}@${_digest}"
+  fi
+fi
+
 WORKDIR=$(mktemp -d)
 OCI_DIR="${WORKDIR}/oci"
 EXTRACT_DIR="${WORKDIR}/extract"
 mkdir -p "${OCI_DIR}" "${EXTRACT_DIR}"
 
 skopeo copy --retry-times 3 \
-  "docker://${BUNDLE_IMAGE}" \
+  "docker://${PULL_REF}" \
   "oci:${OCI_DIR}:latest"
 
 # Bundle images are scratch + manifests/ + metadata/, so blind-extracting every
