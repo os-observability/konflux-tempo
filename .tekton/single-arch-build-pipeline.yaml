@@ -76,6 +76,10 @@ spec:
     default: docker
     type: string
     description: The format for the resulting image's mediaType. Valid values are oci or docker.
+  - name: is-bundle
+    default: "false"
+    type: string
+    description: Set to "true" when the pipeline builds an operator bundle image. Enables OLMv1 compliance validation.
   - name: enable-package-registry-proxy
     default: 'true'
     description: Use the package registry proxy when prefetching dependencies
@@ -480,6 +484,119 @@ spec:
       operator: in
       values:
       - "false"
+  - name: validate-olmv1-compliance
+    description: |
+      Static validation that the built operator bundle is installable under OLMv1.
+      Fails if the CSV lacks AllNamespaces support, or if metadata/dependencies.yaml
+      requires OLMv0 runtime dependencies (olm.package / olm.gvk / olm.constraint).
+      Runtime-only concerns (OPERATOR_CONDITIONS_NAME, OperatorCondition usage)
+      are reported as advisory warnings only.
+      Validation rules and citations: see scripts/validate-olmv1-compliance.py.
+      Authoritative OLMv1 docs:
+        https://docs.okd.io/latest/extensions/ce/olmv1-supported-extensions.html
+        https://operator-framework.github.io/operator-controller/project/olmv1_limitations/
+    runAfter:
+    - build-image-index
+    when:
+    - input: $(params.is-bundle)
+      operator: in
+      values:
+      - "true"
+    params:
+    - name: IMAGE_URL
+      value: $(tasks.build-image-index.results.IMAGE_URL)
+    - name: IMAGE_DIGEST
+      value: $(tasks.build-image-index.results.IMAGE_DIGEST)
+    - name: SOURCE_ARTIFACT
+      value: $(tasks.prefetch-dependencies.results.SOURCE_ARTIFACT)
+    taskSpec:
+      params:
+      - name: IMAGE_URL
+        type: string
+      - name: IMAGE_DIGEST
+        type: string
+      - name: SOURCE_ARTIFACT
+        type: string
+        description: Trusted artifact URI for the cloned source (provides scripts/).
+      volumes:
+      - name: workdir
+        emptyDir: {}
+      steps:
+      - name: use-trusted-artifact
+        image: quay.io/konflux-ci/build-trusted-artifacts:latest@sha256:9bd32f6bafb517b309e11a2d89365052b4ab3f1c9c23c4ffd45aff6f03960476
+        args:
+        - use
+        - $(params.SOURCE_ARTIFACT)=/var/workdir/source
+        volumeMounts:
+        - name: workdir
+          mountPath: /var/workdir
+      - name: validate
+        image: registry.access.redhat.com/ubi9/ubi-minimal:latest
+        env:
+        - name: BUNDLE_IMAGE
+          value: $(params.IMAGE_URL)@$(params.IMAGE_DIGEST)
+        volumeMounts:
+        - name: workdir
+          mountPath: /var/workdir
+        script: |
+          #!/usr/bin/env bash
+          set -euo pipefail
+          exec bash /var/workdir/source/scripts/validate-olmv1-compliance.sh
+  - name: validate-bundle-sdk
+    description: |
+      Generic operator bundle static validation via `operator-sdk bundle validate`.
+      Catches RBAC, CRD, annotation, and image-reference issues that the
+      OLMv1-specific checks in validate-olmv1-compliance do not cover.
+      Selectors: operatorhub, good-practices.
+      Reference:
+        https://sdk.operatorframework.io/docs/cli/operator-sdk_bundle_validate/
+    runAfter:
+    - build-image-index
+    when:
+    - input: $(params.is-bundle)
+      operator: in
+      values:
+      - "true"
+    params:
+    - name: IMAGE_URL
+      value: $(tasks.build-image-index.results.IMAGE_URL)
+    - name: IMAGE_DIGEST
+      value: $(tasks.build-image-index.results.IMAGE_DIGEST)
+    - name: SOURCE_ARTIFACT
+      value: $(tasks.prefetch-dependencies.results.SOURCE_ARTIFACT)
+    taskSpec:
+      params:
+      - name: IMAGE_URL
+        type: string
+      - name: IMAGE_DIGEST
+        type: string
+      - name: SOURCE_ARTIFACT
+        type: string
+        description: Trusted artifact URI for the cloned source (provides scripts/).
+      volumes:
+      - name: workdir
+        emptyDir: {}
+      steps:
+      - name: use-trusted-artifact
+        image: quay.io/konflux-ci/build-trusted-artifacts:latest@sha256:9bd32f6bafb517b309e11a2d89365052b4ab3f1c9c23c4ffd45aff6f03960476
+        args:
+        - use
+        - $(params.SOURCE_ARTIFACT)=/var/workdir/source
+        volumeMounts:
+        - name: workdir
+          mountPath: /var/workdir
+      - name: validate
+        image: registry.access.redhat.com/ubi9/ubi-minimal:latest
+        env:
+        - name: BUNDLE_IMAGE
+          value: $(params.IMAGE_URL)@$(params.IMAGE_DIGEST)
+        volumeMounts:
+        - name: workdir
+          mountPath: /var/workdir
+        script: |
+          #!/usr/bin/env bash
+          set -euo pipefail
+          exec bash /var/workdir/source/scripts/validate-bundle-sdk.sh
   - name: apply-tags
     params:
     - name: IMAGE_URL

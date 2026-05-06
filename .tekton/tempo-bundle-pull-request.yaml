@@ -41,6 +41,8 @@ spec:
     value: .
   - name: build-source-image
     value: "true"
+  - name: is-bundle
+    value: "true"
   pipelineRef:
     name: single-arch-build-pipeline
   taskRunTemplate:
