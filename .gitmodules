@@ -8,7 +8,8 @@
 	branch = rhosdt-3.9
 [submodule "api"]
 	path = api
-	url = https://github.com/observatorium/api.git
+	url = https://github.com/os-observability/api.git
+	branch = rhosdt-3.9
 [submodule "opa-openshift"]
 	path = opa-openshift
 	url = https://github.com/observatorium/opa-openshift.git
