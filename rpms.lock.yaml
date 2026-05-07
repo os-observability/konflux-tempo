@@ -893,13 +893,6 @@ arches:
     name: systemd-pam
     evr: 252-55.el9_7.9
     sourcerpm: systemd-252-55.el9_7.9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/baseos/os/Packages/s/systemd-rpm-macros-252-55.el9_7.9.noarch.rpm
-    repoid: ubi-9-for-aarch64-baseos-rpms
-    size: 55804
-    checksum: sha256:5947436f19719e51830f02d8a0b419df64a6cba03ecf59127f17c15517cb54b7
-    name: systemd-rpm-macros
-    evr: 252-55.el9_7.9
-    sourcerpm: systemd-252-55.el9_7.9.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/baseos/os/Packages/u/util-linux-2.37.4-21.el9_7.aarch64.rpm
     repoid: ubi-9-for-aarch64-baseos-rpms
     size: 2388428
@@ -1292,13 +1285,14 @@ arches:
     name: publicsuffix-list-dafsa
     evr: 20210518-3.el9
     sourcerpm: publicsuffix-list-20210518-3.el9.src.rpm
-  source:
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/baseos/source/SRPMS/Packages/s/systemd-252-55.el9_7.9.src.rpm
-    repoid: ubi-9-for-aarch64-baseos-source-rpms
-    size: 44887683
-    checksum: sha256:9a5aa7d99c99c2114e7437f1740324e17bb6ee26d281044ab3bf402bf0d9b353
-    name: systemd
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/s/systemd-rpm-macros-252-55.el9_7.9.noarch.rpm
+    repoid: ubi-9-for-x86_64-baseos-rpms
+    size: 55804
+    checksum: sha256:5947436f19719e51830f02d8a0b419df64a6cba03ecf59127f17c15517cb54b7
+    name: systemd-rpm-macros
     evr: 252-55.el9_7.9
+    sourcerpm: systemd-252-55.el9_7.9.src.rpm
+  source:
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/e/emacs-27.2-18.el9.src.rpm
     repoid: ubi-9-for-x86_64-appstream-source-rpms
     size: 44829188
@@ -1977,6 +1971,12 @@ arches:
     checksum: sha256:c6feefc65a20ec4203979e0cde4d4a6d86981ac7c836e55148273bd9fc2b57b2
     name: shadow-utils
     evr: 2:4.9-15.el9
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/s/systemd-252-55.el9_7.9.src.rpm
+    repoid: ubi-9-for-x86_64-baseos-source-rpms
+    size: 44887683
+    checksum: sha256:9a5aa7d99c99c2114e7437f1740324e17bb6ee26d281044ab3bf402bf0d9b353
+    name: systemd
+    evr: 252-55.el9_7.9
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/t/texinfo-6.7-15.el9.src.rpm
     repoid: ubi-9-for-x86_64-baseos-source-rpms
     size: 4368012
@@ -2885,27 +2885,27 @@ arches:
     name: shadow-utils
     evr: 2:4.9-15.el9
     sourcerpm: shadow-utils-4.9-15.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/baseos/os/Packages/s/systemd-252-55.el9_7.8.ppc64le.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/baseos/os/Packages/s/systemd-252-55.el9_7.9.ppc64le.rpm
     repoid: ubi-9-for-ppc64le-baseos-rpms
-    size: 4429959
-    checksum: sha256:cd0eddb43f73a2b75c059aae679e400c1c906be503dd989ee2ec415b82db7366
+    size: 4430103
+    checksum: sha256:e0a2afb9990d0668e97aefef28bb49c49b5d0eda8a3406a1071dc541b60108d4
     name: systemd
-    evr: 252-55.el9_7.8
-    sourcerpm: systemd-252-55.el9_7.8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/baseos/os/Packages/s/systemd-libs-252-55.el9_7.8.ppc64le.rpm
+    evr: 252-55.el9_7.9
+    sourcerpm: systemd-252-55.el9_7.9.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/baseos/os/Packages/s/systemd-libs-252-55.el9_7.9.ppc64le.rpm
     repoid: ubi-9-for-ppc64le-baseos-rpms
-    size: 710620
-    checksum: sha256:ce27f22f72b9bc45bb09924bdd51a3a99a63fbdc88bbd3f22c6ecd70affded1c
+    size: 709437
+    checksum: sha256:ea82fbc1207621e4e25b95b501a7e3ea3a45aafd32c7c27985aaeed0a43d2478
     name: systemd-libs
-    evr: 252-55.el9_7.8
-    sourcerpm: systemd-252-55.el9_7.8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/baseos/os/Packages/s/systemd-pam-252-55.el9_7.8.ppc64le.rpm
+    evr: 252-55.el9_7.9
+    sourcerpm: systemd-252-55.el9_7.9.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/baseos/os/Packages/s/systemd-pam-252-55.el9_7.9.ppc64le.rpm
     repoid: ubi-9-for-ppc64le-baseos-rpms
-    size: 291947
-    checksum: sha256:3ff940b11e05c11b1be415c6e5444bf365ab5516dde717ef5f49c32ebbdf4ed6
+    size: 290684
+    checksum: sha256:15599ef1a66572ef6c05382d43779be9a6a84844f5b50c71bf52357ff73d121d
     name: systemd-pam
-    evr: 252-55.el9_7.8
-    sourcerpm: systemd-252-55.el9_7.8.src.rpm
+    evr: 252-55.el9_7.9
+    sourcerpm: systemd-252-55.el9_7.9.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/baseos/os/Packages/u/util-linux-2.37.4-21.el9_7.ppc64le.rpm
     repoid: ubi-9-for-ppc64le-baseos-rpms
     size: 2424397
@@ -3298,13 +3298,13 @@ arches:
     name: publicsuffix-list-dafsa
     evr: 20210518-3.el9
     sourcerpm: publicsuffix-list-20210518-3.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/s/systemd-rpm-macros-252-55.el9_7.8.noarch.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/s/systemd-rpm-macros-252-55.el9_7.9.noarch.rpm
     repoid: ubi-9-for-x86_64-baseos-rpms
-    size: 57061
-    checksum: sha256:807a9519d7a3f6b2168ca47666b43e1630b3fa82256e919633a07baa5906b1b2
+    size: 55804
+    checksum: sha256:5947436f19719e51830f02d8a0b419df64a6cba03ecf59127f17c15517cb54b7
     name: systemd-rpm-macros
-    evr: 252-55.el9_7.8
-    sourcerpm: systemd-252-55.el9_7.8.src.rpm
+    evr: 252-55.el9_7.9
+    sourcerpm: systemd-252-55.el9_7.9.src.rpm
   source:
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/baseos/source/SRPMS/Packages/l/librtas-2.0.6-1.el9.src.rpm
     repoid: ubi-9-for-ppc64le-baseos-source-rpms
@@ -3990,12 +3990,12 @@ arches:
     checksum: sha256:c6feefc65a20ec4203979e0cde4d4a6d86981ac7c836e55148273bd9fc2b57b2
     name: shadow-utils
     evr: 2:4.9-15.el9
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/s/systemd-252-55.el9_7.8.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/s/systemd-252-55.el9_7.9.src.rpm
     repoid: ubi-9-for-x86_64-baseos-source-rpms
-    size: 44888096
-    checksum: sha256:a633587c7170f5928a0bf1ba144f8f58d759cfdcbc4e6437c4dcb74b1742c69b
+    size: 44887683
+    checksum: sha256:9a5aa7d99c99c2114e7437f1740324e17bb6ee26d281044ab3bf402bf0d9b353
     name: systemd
-    evr: 252-55.el9_7.8
+    evr: 252-55.el9_7.9
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/t/texinfo-6.7-15.el9.src.rpm
     repoid: ubi-9-for-x86_64-baseos-source-rpms
     size: 4368012
@@ -4029,13 +4029,6 @@ arches:
   module_metadata: []
 - arch: s390x
   packages:
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/baseos/os/Packages/s/systemd-rpm-macros-252-55.el9_7.9.noarch.rpm
-    repoid: ubi-9-for-aarch64-baseos-rpms
-    size: 55804
-    checksum: sha256:5947436f19719e51830f02d8a0b419df64a6cba03ecf59127f17c15517cb54b7
-    name: systemd-rpm-macros
-    evr: 252-55.el9_7.9
-    sourcerpm: systemd-252-55.el9_7.9.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/appstream/os/Packages/c/cpp-11.5.0-11.el9.s390x.rpm
     repoid: ubi-9-for-s390x-appstream-rpms
     size: 8605538
@@ -5324,13 +5317,14 @@ arches:
     name: publicsuffix-list-dafsa
     evr: 20210518-3.el9
     sourcerpm: publicsuffix-list-20210518-3.el9.src.rpm
-  source:
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/baseos/source/SRPMS/Packages/s/systemd-252-55.el9_7.9.src.rpm
-    repoid: ubi-9-for-aarch64-baseos-source-rpms
-    size: 44887683
-    checksum: sha256:9a5aa7d99c99c2114e7437f1740324e17bb6ee26d281044ab3bf402bf0d9b353
-    name: systemd
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/s/systemd-rpm-macros-252-55.el9_7.9.noarch.rpm
+    repoid: ubi-9-for-x86_64-baseos-rpms
+    size: 55804
+    checksum: sha256:5947436f19719e51830f02d8a0b419df64a6cba03ecf59127f17c15517cb54b7
+    name: systemd-rpm-macros
     evr: 252-55.el9_7.9
+    sourcerpm: systemd-252-55.el9_7.9.src.rpm
+  source:
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/e/emacs-27.2-18.el9.src.rpm
     repoid: ubi-9-for-x86_64-appstream-source-rpms
     size: 44829188
@@ -6009,6 +6003,12 @@ arches:
     checksum: sha256:c6feefc65a20ec4203979e0cde4d4a6d86981ac7c836e55148273bd9fc2b57b2
     name: shadow-utils
     evr: 2:4.9-15.el9
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/s/systemd-252-55.el9_7.9.src.rpm
+    repoid: ubi-9-for-x86_64-baseos-source-rpms
+    size: 44887683
+    checksum: sha256:9a5aa7d99c99c2114e7437f1740324e17bb6ee26d281044ab3bf402bf0d9b353
+    name: systemd
+    evr: 252-55.el9_7.9
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/t/texinfo-6.7-15.el9.src.rpm
     repoid: ubi-9-for-x86_64-baseos-source-rpms
     size: 4368012
@@ -7260,34 +7260,34 @@ arches:
     name: shadow-utils
     evr: 2:4.9-15.el9
     sourcerpm: shadow-utils-4.9-15.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/s/systemd-252-55.el9_7.8.x86_64.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/s/systemd-252-55.el9_7.9.x86_64.rpm
     repoid: ubi-9-for-x86_64-baseos-rpms
-    size: 4394529
-    checksum: sha256:02536e2255182db5ec2a8cc07fdda20062378247699b7bed5e0b0ea72b1ca783
+    size: 4396633
+    checksum: sha256:cda660e51919a1fabc7f59badc12eaf66050e205970f89de8e0b495740292bb2
     name: systemd
-    evr: 252-55.el9_7.8
-    sourcerpm: systemd-252-55.el9_7.8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/s/systemd-libs-252-55.el9_7.8.x86_64.rpm
+    evr: 252-55.el9_7.9
+    sourcerpm: systemd-252-55.el9_7.9.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/s/systemd-libs-252-55.el9_7.9.x86_64.rpm
     repoid: ubi-9-for-x86_64-baseos-rpms
-    size: 678105
-    checksum: sha256:59231ce96ab64d81527771954195722d61e8914786dd35b185cefa6a10df6c3e
+    size: 677183
+    checksum: sha256:2fbf0d1d67c21313269bf1904db7c146788b6c7520e5afcdfe273ab71ca34e67
     name: systemd-libs
-    evr: 252-55.el9_7.8
-    sourcerpm: systemd-252-55.el9_7.8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/s/systemd-pam-252-55.el9_7.8.x86_64.rpm
+    evr: 252-55.el9_7.9
+    sourcerpm: systemd-252-55.el9_7.9.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/s/systemd-pam-252-55.el9_7.9.x86_64.rpm
     repoid: ubi-9-for-x86_64-baseos-rpms
-    size: 274195
-    checksum: sha256:3cb33a319f67824d3beb8b2f2356995695b4c3ac77ae66c8e6c3315ef822d0bc
+    size: 274003
+    checksum: sha256:52daf8ab50d37e8ac8a769ef317f594da85a15661a8bf8aae8994574cece4c36
     name: systemd-pam
-    evr: 252-55.el9_7.8
-    sourcerpm: systemd-252-55.el9_7.8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/s/systemd-rpm-macros-252-55.el9_7.8.noarch.rpm
+    evr: 252-55.el9_7.9
+    sourcerpm: systemd-252-55.el9_7.9.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/s/systemd-rpm-macros-252-55.el9_7.9.noarch.rpm
     repoid: ubi-9-for-x86_64-baseos-rpms
-    size: 57061
-    checksum: sha256:807a9519d7a3f6b2168ca47666b43e1630b3fa82256e919633a07baa5906b1b2
+    size: 55804
+    checksum: sha256:5947436f19719e51830f02d8a0b419df64a6cba03ecf59127f17c15517cb54b7
     name: systemd-rpm-macros
-    evr: 252-55.el9_7.8
-    sourcerpm: systemd-252-55.el9_7.8.src.rpm
+    evr: 252-55.el9_7.9
+    sourcerpm: systemd-252-55.el9_7.9.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/u/util-linux-2.37.4-21.el9_7.x86_64.rpm
     repoid: ubi-9-for-x86_64-baseos-rpms
     size: 2382589
@@ -7995,12 +7995,12 @@ arches:
     checksum: sha256:c6feefc65a20ec4203979e0cde4d4a6d86981ac7c836e55148273bd9fc2b57b2
     name: shadow-utils
     evr: 2:4.9-15.el9
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/s/systemd-252-55.el9_7.8.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/s/systemd-252-55.el9_7.9.src.rpm
     repoid: ubi-9-for-x86_64-baseos-source-rpms
-    size: 44888096
-    checksum: sha256:a633587c7170f5928a0bf1ba144f8f58d759cfdcbc4e6437c4dcb74b1742c69b
+    size: 44887683
+    checksum: sha256:9a5aa7d99c99c2114e7437f1740324e17bb6ee26d281044ab3bf402bf0d9b353
     name: systemd
-    evr: 252-55.el9_7.8
+    evr: 252-55.el9_7.9
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/t/texinfo-6.7-15.el9.src.rpm
     repoid: ubi-9-for-x86_64-baseos-source-rpms
     size: 4368012
