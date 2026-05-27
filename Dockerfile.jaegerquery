@@ -47,7 +47,7 @@ RUN go version && \
                 -X ${VERSION_PKG}.latestVersion=${GIT_LATEST_TAG} \
                 -X ${VERSION_PKG}.date=${VERSION_DATE}"
 
-FROM registry.redhat.io/ubi9/ubi-micro:latest@sha256:e0b6e93fe3800bf75a3e95aaf63bdfd020ea6dc30a92ca4bfa0021fa28cd671a AS target-base
+FROM registry.redhat.io/ubi9/ubi-micro:latest@sha256:b498b3ea26111ab4b81d65139f2ebd2ef9a2abb7a4588b7fdcc54889f95e9caa AS target-base
 
 FROM registry.redhat.io/ubi9/ubi:latest@sha256:edabf9436bb372addcca3537aa76111c7a1aba970f5e3b02e2e03bc72943612d as install-additional-packages
 COPY --from=target-base / /mnt/rootfs
