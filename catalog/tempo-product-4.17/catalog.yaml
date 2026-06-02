@@ -25468,7 +25468,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:9aca25cbc3ab1ba653d3b427df28f2b5ec1c4c041892e5e7ebd817be0ac56017
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:39fe9cd7bd5d0c5fc8af54c12cfe5aa901ac67b55f305384bbd9492d9e487b5f
 name: tempo-operator.v0.20.0-3
 package: tempo-product
 properties:
@@ -25562,7 +25562,7 @@ properties:
       categories: Logging & Tracing,Monitoring,Observability
       console.openshift.io/operator-monitoring-default: "true"
       containerImage: registry.redhat.io/rhosdt/tempo-rhel9-operator@sha256:226a838e7197fdaf77c5ceedea374f218d89697eb07a6dcb4f27e5a1f57efbfa
-      createdAt: 07 May 2026, 13:28
+      createdAt: 02 Jun 2026, 12:34
       description: Create and manage deployments of Tempo, a high-scale distributed
         tracing backend.
       features.operators.openshift.io/cnf: "false"
@@ -25750,6 +25750,24 @@ properties:
           path: affinity
           x-descriptors:
           - urn:alm:descriptor:com.tectonic.ui:advanced
+        - description: |-
+            Env defines additional environment variables for the Tempo container.
+            These environment variables can be used together with extraConfig and the -config.expand-env=true flag
+            to reference Kubernetes Secrets or ConfigMaps in the Tempo configuration,
+            for example for a password-protected Redis cache.
+          displayName: Environment Variables
+          path: env
+          x-descriptors:
+          - urn:alm:descriptor:com.tectonic.ui:advanced
+        - description: |-
+            EnvFrom defines additional environment variable sources for the Tempo container.
+            These environment variables can be used together with extraConfig and the -config.expand-env=true flag
+            to reference Kubernetes Secrets or ConfigMaps in the Tempo configuration,
+            for example for a password-protected Redis cache.
+          displayName: Environment Variable Sources
+          path: envFrom
+          x-descriptors:
+          - urn:alm:descriptor:com.tectonic.ui:advanced
         - description: ExtraConfig defines any extra (overlay) configuration of components.
           displayName: Extra Configuration
           path: extraConfig
@@ -25787,7 +25805,18 @@ properties:
           path: ingestion.otlp.grpc.tls.certName
           x-descriptors:
           - urn:alm:descriptor:io.kubernetes:Secret
-        - description: MinVersion defines the minimum acceptable TLS version.
+        - description: |-
+            CipherSuites defines the list of acceptable TLS cipher suites.
+
+
+            If not set, the ciphers are set based on feature gate tlsProfile or obtained from the cluster if openshift.clusterTLSPolicy is enabled.
+          displayName: Cipher Suites
+          path: ingestion.otlp.grpc.tls.cipherSuites
+        - description: |-
+            MinVersion defines the minimum acceptable TLS version.
+
+
+            If not set, the version is set based on feature gate tlsProfile or obtained from the cluster if openshift.clusterTLSPolicy is enabled.
           displayName: Min TLS Version
           path: ingestion.otlp.grpc.tls.minVersion
         - description: HTTP defines the OTLP over HTTP configuration.
@@ -25815,7 +25844,18 @@ properties:
           path: ingestion.otlp.http.tls.certName
           x-descriptors:
           - urn:alm:descriptor:io.kubernetes:Secret
-        - description: MinVersion defines the minimum acceptable TLS version.
+        - description: |-
+            CipherSuites defines the list of acceptable TLS cipher suites.
+
+
+            If not set, the ciphers are set based on feature gate tlsProfile or obtained from the cluster if openshift.clusterTLSPolicy is enabled.
+          displayName: Cipher Suites
+          path: ingestion.otlp.http.tls.cipherSuites
+        - description: |-
+            MinVersion defines the minimum acceptable TLS version.
+
+
+            If not set, the version is set based on feature gate tlsProfile or obtained from the cluster if openshift.clusterTLSPolicy is enabled.
           displayName: Min TLS Version
           path: ingestion.otlp.http.tls.minVersion
         - description: |-
@@ -26062,7 +26102,18 @@ properties:
           path: storage.traces.s3.tls.certName
           x-descriptors:
           - urn:alm:descriptor:io.kubernetes:Secret
-        - description: MinVersion defines the minimum acceptable TLS version.
+        - description: |-
+            CipherSuites defines the list of acceptable TLS cipher suites.
+
+
+            If not set, the ciphers are set based on feature gate tlsProfile or obtained from the cluster if openshift.clusterTLSPolicy is enabled.
+          displayName: Cipher Suites
+          path: storage.traces.s3.tls.cipherSuites
+        - description: |-
+            MinVersion defines the minimum acceptable TLS version.
+
+
+            If not set, the version is set based on feature gate tlsProfile or obtained from the cluster if openshift.clusterTLSPolicy is enabled.
           displayName: Min TLS Version
           path: storage.traces.s3.tls.minVersion
         - description: Tolerations defines the tolerations of a node to schedule the
@@ -26128,6 +26179,24 @@ properties:
           path: template.queryFrontend.jaegerQuery.authentication.enabled
           x-descriptors:
           - urn:alm:descriptor:com.tectonic.ui:booleanSwitch
+        - description: |-
+            Env defines additional environment variables for the Tempo containers of all components.
+            These environment variables can be used together with extraConfig and the -config.expand-env=true flag
+            to reference Kubernetes Secrets or ConfigMaps in the Tempo configuration,
+            for example for a password-protected Redis cache.
+          displayName: Environment Variables
+          path: env
+          x-descriptors:
+          - urn:alm:descriptor:com.tectonic.ui:advanced
+        - description: |-
+            EnvFrom defines additional environment variable sources for the Tempo containers of all components.
+            These environment variables can be used together with extraConfig and the -config.expand-env=true flag
+            to reference Kubernetes Secrets or ConfigMaps in the Tempo configuration,
+            for example for a password-protected Redis cache.
+          displayName: Environment Variable Sources
+          path: envFrom
+          x-descriptors:
+          - urn:alm:descriptor:com.tectonic.ui:advanced
         - displayName: Extra Configurations
           path: extraConfig
         - description: Tempo defines any extra Tempo configuration, which will be
@@ -26454,7 +26523,18 @@ properties:
           path: storage.tls.certName
           x-descriptors:
           - urn:alm:descriptor:io.kubernetes:Secret
-        - description: MinVersion defines the minimum acceptable TLS version.
+        - description: |-
+            CipherSuites defines the list of acceptable TLS cipher suites.
+
+
+            If not set, the ciphers are set based on feature gate tlsProfile or obtained from the cluster if openshift.clusterTLSPolicy is enabled.
+          displayName: Cipher Suites
+          path: storage.tls.cipherSuites
+        - description: |-
+            MinVersion defines the minimum acceptable TLS version.
+
+
+            If not set, the version is set based on feature gate tlsProfile or obtained from the cluster if openshift.clusterTLSPolicy is enabled.
           displayName: Min TLS Version
           path: storage.tls.minVersion
         - description: StorageClassName for PVCs used by ingester. Defaults to nil
@@ -26530,7 +26610,18 @@ properties:
           path: template.distributor.tls.certName
           x-descriptors:
           - urn:alm:descriptor:io.kubernetes:Secret
-        - description: MinVersion defines the minimum acceptable TLS version.
+        - description: |-
+            CipherSuites defines the list of acceptable TLS cipher suites.
+
+
+            If not set, the ciphers are set based on feature gate tlsProfile or obtained from the cluster if openshift.clusterTLSPolicy is enabled.
+          displayName: Cipher Suites
+          path: template.distributor.tls.cipherSuites
+        - description: |-
+            MinVersion defines the minimum acceptable TLS version.
+
+
+            If not set, the version is set based on feature gate tlsProfile or obtained from the cluster if openshift.clusterTLSPolicy is enabled.
           displayName: Min TLS Version
           path: template.distributor.tls.minVersion
         - description: Tolerations defines component-specific pod tolerations.
@@ -26920,7 +27011,7 @@ properties:
     provider:
       name: Red Hat
 relatedImages:
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:9aca25cbc3ab1ba653d3b427df28f2b5ec1c4c041892e5e7ebd817be0ac56017
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:39fe9cd7bd5d0c5fc8af54c12cfe5aa901ac67b55f305384bbd9492d9e487b5f
   name: ""
 - image: registry.redhat.io/openshift4/ose-oauth-proxy@sha256:6bcfa981a7a75c242a16afa6dab36bf6e3b8a1442fa863875919ad551f48eceb
   name: ose-oauth-proxy
