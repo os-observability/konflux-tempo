@@ -52,4 +52,4 @@ LABEL release="${VERSION}" \
       io.k8s.description="An OPA-compatible API for making OpenShift access review requests." \
       io.openshift.tags="tracing" \
       io.k8s.display-name="Tempo OPA" \
-      cpe="cpe:/a:redhat:openshift_distributed_tracing:3.9::el9"
+      cpe="cpe:/a:redhat:openshift_distributed_tracing:3.10::el9"
