@@ -1,23 +1,24 @@
 [submodule "tempo-operator"]
 	path = tempo-operator
 	url = https://github.com/os-observability/tempo-operator.git
-	branch = rhosdt-3.9
+	branch = rhosdt-3.10
 [submodule "tempo"]
 	path = tempo
 	url = https://github.com/os-observability/tempo.git
-	branch = rhosdt-3.9
+	branch = rhosdt-3.10
 [submodule "api"]
 	path = api
 	url = https://github.com/os-observability/api.git
-	branch = rhosdt-3.9
+	branch = rhosdt-3.10
 [submodule "opa-openshift"]
 	path = opa-openshift
-	url = https://github.com/observatorium/opa-openshift.git
+	url = https://github.com/os-observability/opa-openshift.git
+	branch = rhosdt-3.10
 [submodule "jaeger"]
 	path = jaeger
 	url = https://github.com/os-observability/jaeger.git
-	branch = rhosdt-3.9
+	branch = rhosdt-3.10
 [submodule "jaeger-ui"]
 	path = jaeger-ui
 	url = https://github.com/os-observability/jaeger-ui.git
-	branch = rhosdt-3.9
+	branch = rhosdt-3.10
