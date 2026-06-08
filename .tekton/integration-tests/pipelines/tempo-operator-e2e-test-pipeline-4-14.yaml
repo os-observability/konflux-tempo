@@ -626,7 +626,7 @@ spec:
               SKIP_TESTS=$(params.SKIP_TESTS)
 
               echo "Run e2e tests"
-              git clone https://github.com/IshwarKanse/tempo-operator.git /tmp/tempo-tests
+              git clone https://github.com/os-observability/tempo-operator.git /tmp/tempo-tests
               cd /tmp/tempo-tests
               git checkout $TEMPO_TESTS_BRANCH
 
@@ -665,6 +665,7 @@ spec:
               tests/e2e-openshift \
               tests/e2e-openshift-serverless \
               tests/e2e-openshift-ossm \
-              tests/operator-metrics \
+              tests/e2e-openshift-object-stores \
               tests/e2e-long-running \
-              tests/e2e-openshift-object-stores
+              tests/e2e-openshift-tshirt-sizes \
+              tests/operator-metrics
