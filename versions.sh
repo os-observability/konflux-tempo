@@ -6,7 +6,7 @@ set -euo pipefail
 
 
 # TODO: update version (major.minor)
-RHOSDT_VERSION=3.9
+RHOSDT_VERSION=3.10
 # TODO: set latest supported OCP version, see https://access.redhat.com/support/policy/updates/openshift#dates
 MIN_OPENSHIFT_VERSION=4.12
 

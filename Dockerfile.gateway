@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi9/ubi:latest@sha256:edabf9436bb372addcca3537aa76111c7a1aba970f5e3b02e2e03bc72943612d as builder
+FROM registry.redhat.io/ubi9/ubi:latest@sha256:157ac93fde9596b9e04908fa9a22746350f53452718af9562289239f68a505c6 as builder
 
 WORKDIR /opt/app-root/src
 USER root
@@ -15,9 +15,9 @@ WORKDIR /opt/app-root/src/api
 
 RUN CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -mod=mod -tags strictfipsruntime -o tempostack-gateway -trimpath -ldflags "-s -w"
 
-FROM registry.redhat.io/ubi9/ubi-micro:latest@sha256:e0b6e93fe3800bf75a3e95aaf63bdfd020ea6dc30a92ca4bfa0021fa28cd671a AS target-base
+FROM registry.redhat.io/ubi9/ubi-micro:latest@sha256:b498b3ea26111ab4b81d65139f2ebd2ef9a2abb7a4588b7fdcc54889f95e9caa AS target-base
 
-FROM registry.redhat.io/ubi9/ubi:latest@sha256:edabf9436bb372addcca3537aa76111c7a1aba970f5e3b02e2e03bc72943612d as install-additional-packages
+FROM registry.redhat.io/ubi9/ubi:latest@sha256:157ac93fde9596b9e04908fa9a22746350f53452718af9562289239f68a505c6 as install-additional-packages
 COPY --from=target-base / /mnt/rootfs
 RUN rpm --root /mnt/rootfs --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 
@@ -30,7 +30,7 @@ FROM scratch
 WORKDIR /
 COPY --from=install-additional-packages /mnt/rootfs/ /
 
-ARG VERSION=0.20.0-3
+ARG VERSION=0.21.0-1
 
 RUN mkdir /licenses
 COPY api/LICENSE /licenses/.
@@ -52,4 +52,4 @@ LABEL release="${VERSION}" \
       io.k8s.description="Horizontally-scalable authn/authz-securing reverse proxy for Tempo." \
       io.openshift.tags="tracing" \
       io.k8s.display-name="Tempo Gateway" \
-      cpe="cpe:/a:redhat:openshift_distributed_tracing:3.9::el9"
+      cpe="cpe:/a:redhat:openshift_distributed_tracing:3.10::el9"
