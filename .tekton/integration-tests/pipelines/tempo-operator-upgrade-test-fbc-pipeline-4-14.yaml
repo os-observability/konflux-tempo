@@ -237,7 +237,7 @@ spec:
               TEMPO_TESTS_BRANCH=$(params.TEMPO_TESTS_BRANCH)
 
               echo "Run upgrade tests"
-              git clone https://github.com/IshwarKanse/tempo-operator.git /tmp/tempo-tests
+              git clone https://github.com/os-observability/tempo-operator.git /tmp/tempo-tests
               cd /tmp/tempo-tests
               git checkout $TEMPO_TESTS_BRANCH
 
