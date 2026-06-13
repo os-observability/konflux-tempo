@@ -5,7 +5,7 @@
 [submodule "tempo"]
 	path = tempo
 	url = https://github.com/os-observability/tempo.git
-	branch = rhosdt-3.10
+	branch = rhosdt-3.10-1
 [submodule "api"]
 	path = api
 	url = https://github.com/os-observability/api.git
