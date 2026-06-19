@@ -27,15 +27,19 @@ spec:
     - name: operator_csv_version
       description: Version of the operator
       type: string
+      default: "tempo-operator.v0.21.0-1"
+    - name: operator_version
+      description: Version of the operator
+      type: string
+      default: "0.21.0"
     - name: operator_tempo_version
-      description: Version of the Tempo operator
+      description: Version of Tempo in the operator
       type: string
-    - name: operand_tempo_version
-      description: Version of the Tempo operand
-      type: string
+      default: "2.10.5"
     - name: tempo_tests_branch
       description: "The repository branch from which to run the tests"
       type: string
+      default: "rhosdt-3.10"
     - name: PACKAGE_NAME
       description: "Package name for the bundle"
       default: "tempo-product"
@@ -177,9 +181,9 @@ spec:
         - name: FBC_FRAGMENT
           value: "$(tasks.parse-metadata.results.component-container-image)"
         - name: TEMPO_OPERATOR_VERSION
-          value: $(params.operator_tempo_version)
+          value: $(params.operator_version)
         - name: TEMPO_VERSION
-          value: $(params.operand_tempo_version)
+          value: $(params.operator_tempo_version)
         - name: OPERATOR_CSV_VERSION
           value: $(params.operator_csv_version)
       taskSpec:
