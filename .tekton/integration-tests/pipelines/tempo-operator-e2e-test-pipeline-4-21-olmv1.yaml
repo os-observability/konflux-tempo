@@ -37,22 +37,30 @@ spec:
     - name: namespace
       description: 'Namespace to run tests in'
       default: 'openshift-tempo-operator'
-    - name: jaeger_query_version
-      description: Version of Jaeger Query
+    - name: operand_jaeger_query_version
+      description: Version of Jaeger Query operand
+      default: "1.68.0"
     - name: operator_version
       description: Version of the operator
+      default: "0.21.0"
     - name: operator_tempo_version
-      description: Version of the Tempo operator
+      description: Version of Tempo in the operator
+      default: "2.10.5"
     - name: operator_tempo_query_version
-      description: Version of the Tempo query
+      description: Version of Tempo query in the operator
+      default: "2.10.5"
     - name: operand_tempo_version
       description: Version of the Tempo operand
+      default: "2.10.7"
     - name: tempo_tests_branch
       description: "The repository branch from which to run the tests"
+      default: "rhosdt-3.10"
     - name: skip_tests
       description: "Tests to be skipped seperated with a space delimiter"
+      default: "tests/e2e-openshift-object-stores/* tests/e2e-openshift-ossm/* tests/e2e/generate"
     - name: rhosdt_version
       description: "RHOSDT product version used to tag RapiDAST scan results in GCS"
+      default: "3.10"
   tasks:
     - name: parse-metadata
       taskRef:
@@ -448,7 +456,7 @@ spec:
         - name: namespace
           value: "$(params.namespace)"
         - name: JAEGER_QUERY_VERSION
-          value: "$(params.jaeger_query_version)"
+          value: "$(params.operand_jaeger_query_version)"
         - name: OPERATOR_VERSION
           value: "$(params.operator_version)"
         - name: OPERATOR_TEMPO_VERSION
@@ -511,11 +519,11 @@ spec:
               set -eu
 
               # Variables for strings to check
-              JAEGER_QUERY_VERSION=$(params.JAEGER_QUERY_VERSION)
-              OPERATOR_VERSION=$(params.OPERATOR_VERSION)
-              OPERATOR_TEMPO_VERSION=$(params.OPERATOR_TEMPO_VERSION)
-              OPERATOR_TEMPO_QUERY_VERSION=$(params.OPERATOR_TEMPO_QUERY_VERSION)
-              OPERAND_TEMPO_VERSION=$(params.OPERAND_TEMPO_VERSION)
+              JAEGER_QUERY_VERSION="$(params.JAEGER_QUERY_VERSION)"
+              OPERATOR_VERSION="$(params.OPERATOR_VERSION)"
+              OPERATOR_TEMPO_VERSION="$(params.OPERATOR_TEMPO_VERSION)"
+              OPERATOR_TEMPO_QUERY_VERSION="$(params.OPERATOR_TEMPO_QUERY_VERSION)"
+              OPERAND_TEMPO_VERSION="$(params.OPERAND_TEMPO_VERSION)"
 
               function log_cmd() {
                   echo "\$ $*"
@@ -584,19 +592,19 @@ spec:
                       log_cmd oc run $random_name --image=$image -- --version
                       wait_for_pod_running $random_name default
                       log_cmd oc logs pod/$random_name
-                      check_strings_in_logs $random_name default "$OPERAND_TEMPO_VERSION"
+                      check_strings_in_logs $random_name default "tempo, version ${OPERAND_TEMPO_VERSION}"
                   elif [[ $image == *tempo-gateway-rhel9* || $image == *tempo-gateway-opa-rhel9* || $image == *tempo-query-rhel9* ]]; then
                       echo "SKIPPED: $image doesn't have a version command"
                   elif [[ $image == *tempo-rhel9-operator@* ]]; then
                       log_cmd oc run $random_name --image=$image -- version
                       wait_for_pod_running $random_name default
                       log_cmd oc logs pod/$random_name
-                      check_strings_in_logs $random_name default "$OPERATOR_VERSION" "$OPERATOR_TEMPO_VERSION" "$OPERATOR_TEMPO_QUERY_VERSION"
+                      check_strings_in_logs $random_name default "\"operator-version\":\"${OPERATOR_VERSION}\"" "\"tempo-version\":\"${OPERATOR_TEMPO_VERSION}\"" "\"tempo-query-version\":\"${OPERATOR_TEMPO_QUERY_VERSION}\""
                   elif [[ $image == *tempo-jaeger-query-rhel9@* ]]; then
                       log_cmd oc run $random_name --image=$image -- version
                       wait_for_pod_running $random_name default
                       log_cmd oc logs pod/$random_name
-                      check_strings_in_logs $random_name default "$JAEGER_QUERY_VERSION"
+                      check_strings_in_logs $random_name default "\"gitVersion\":\"${JAEGER_QUERY_VERSION}\""
                   else
                       log_cmd oc run $random_name --image=$image -- version
                       wait_for_pod_running $random_name default
@@ -725,8 +733,8 @@ spec:
             script: |
               echo "Kubeconfig file"
               cat $KUBECONFIG
-              TEMPO_TESTS_BRANCH=$(params.TEMPO_TESTS_BRANCH)
-              SKIP_TESTS=$(params.SKIP_TESTS)
+              TEMPO_TESTS_BRANCH="$(params.TEMPO_TESTS_BRANCH)"
+              SKIP_TESTS="$(params.SKIP_TESTS)"
 
               echo "Run e2e tests"
               git clone https://github.com/os-observability/tempo-operator.git /tmp/tempo-tests
