@@ -413,7 +413,7 @@ spec:
             image: quay.io/redhat-distributed-tracing-qe/konflux-e2e:latest
             script: |
               #!/bin/bash
-              set -eux
+              set -eu
 
               # Variables for strings to check
               JAEGER_QUERY_VERSION="$(params.JAEGER_QUERY_VERSION)"
