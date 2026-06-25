@@ -33,7 +33,7 @@ RUN exportOrFail() { echo $1; if [[ $1 == *= ]]; then echo "Error: empty variabl
                 -X ${VERSION_PKG}.tempoQueryVersion=${TEMPO_QUERY_VERSION}" \
                 cmd/main.go
 
-FROM registry.redhat.io/ubi9/ubi-micro:latest@sha256:b498b3ea26111ab4b81d65139f2ebd2ef9a2abb7a4588b7fdcc54889f95e9caa AS target-base
+FROM registry.redhat.io/ubi9/ubi-micro:latest@sha256:fdf68a4f5f88cca14ae906bbec6e0fbbffe92b5b91e73e0862c961234d63b986 AS target-base
 
 FROM registry.redhat.io/ubi9/ubi:latest@sha256:a729da793c5f57633fc0dfbe99ced541aedde3ea653d5344af5aabb49f5aeb89 as install-additional-packages
 COPY --from=target-base / /mnt/rootfs
