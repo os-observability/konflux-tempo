@@ -1,0 +1,73 @@
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Release
+metadata:
+  name: tempo-prod-tempo-main-20260625-192321-000
+  namespace: rhosdt-tenant
+  labels:
+    release.appstudio.openshift.io/author: rvargasp
+    pac.test.appstudio.openshift.io/sha: 2275492b466e01fc5a1ee79b848c3b8c0f307614
+spec:
+  releasePlan: tempo-prod-main
+  snapshot: tempo-main-20260625-192321-000
+  data:
+    releaseNotes:
+      synopsis: Red Hat OpenShift distributed tracing platform (Tempo) x.x.x release
+      topic: Red Hat OpenShift distributed tracing platform (Tempo) x.x.x has been released
+      # see guidelines https://redhat-documentation.github.io/supplementary-style-guide/#release-notes
+      description: |
+        This release of the Red Hat OpenShift distributed tracing platform (Tempo) provides new features, security improvements, and bug fixes.
+
+
+        Breaking changes:
+
+        * None
+
+        * Second entry (keep new lines between bullet points!)
+
+
+        Deprecations:
+
+        * None
+
+
+        Technology Preview features:
+
+        * None
+
+
+        Enhancements:
+
+        * None
+
+
+        Bug fixes:
+
+        * None
+
+
+        Known issues:
+
+        * None
+
+      # TODO Choose the correct type:
+      # RHEA - Red Hat enhancement advisory.
+      # RHBA - Red Hat bug advisory. Choose if fixing bug(s).
+      # RHSA - Red Hat security advisory. Choose if fixing CVE(s).
+      # type: RHEA | RHBA | RHSA
+
+      # TODO Add here:
+      # Bug fixes reported by customers
+      # New features
+      # Do not add here internal CVE trackers
+      # Do not add private tickets - e.g. Red Hat employee only
+      # issues:
+      #   fixed:
+      #     - id: TODO e.g. TRACING-3950
+      #       source: issues.redhat.com
+
+      # TODO Add here:
+      # The component HAS TO match the Konflux component name which is being released
+      # https://gitlab.cee.redhat.com/releng/konflux-release-data/-/blob/main/config/stone-prd-rh01.pg1f.p1/product/ReleasePlanAdmission/rhosdt/rhosdt-prod.yaml
+      # cves:
+      #   - key: TODO e.g. CVE-2018-12608
+      #     component: TODO
