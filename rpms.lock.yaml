@@ -46,27 +46,27 @@ arches:
     name: glibc-devel
     evr: 2.34-270.el9_8
     sourcerpm: glibc-2.34-270.el9_8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/appstream/os/Packages/g/golang-1.26.3-1.el9_8.aarch64.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/appstream/os/Packages/g/golang-1.26.4-1.el9_8.aarch64.rpm
     repoid: ubi-9-for-aarch64-appstream-rpms
-    size: 1520900
-    checksum: sha256:6577adca61ecd85e06be282c12c0f2ae06207b72e0bb604ab15e306aa45d6396
+    size: 1520343
+    checksum: sha256:b9e3163859972be8b2c3e7796faff26e82e1ff78641056edbd62c96bc9f03f38
     name: golang
-    evr: 1.26.3-1.el9_8
-    sourcerpm: golang-1.26.3-1.el9_8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/appstream/os/Packages/g/golang-bin-1.26.3-1.el9_8.aarch64.rpm
+    evr: 1.26.4-1.el9_8
+    sourcerpm: golang-1.26.4-1.el9_8.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/appstream/os/Packages/g/golang-bin-1.26.4-1.el9_8.aarch64.rpm
     repoid: ubi-9-for-aarch64-appstream-rpms
-    size: 41530098
-    checksum: sha256:2653ea9b22531d7a6566ee82164ce3a0bd7a72d60d7b189e1ceac9ba153a9984
+    size: 41542218
+    checksum: sha256:20201ae9178dcd3d20b357d67c68cacb861bebbb5506ecb076cb1486d45439c2
     name: golang-bin
-    evr: 1.26.3-1.el9_8
-    sourcerpm: golang-1.26.3-1.el9_8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/appstream/os/Packages/g/golang-race-1.26.3-1.el9_8.aarch64.rpm
+    evr: 1.26.4-1.el9_8
+    sourcerpm: golang-1.26.4-1.el9_8.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/appstream/os/Packages/g/golang-race-1.26.4-1.el9_8.aarch64.rpm
     repoid: ubi-9-for-aarch64-appstream-rpms
-    size: 1744193
-    checksum: sha256:8b6b0a6fd3572aee7f7f2d8d05cfa02180a39df036f9264a10aa18ebbd7d2771
+    size: 1743755
+    checksum: sha256:af72d61b84ade24eb0ac7ad199304df7c58b64cf2351389e2be9efa26ba921ee
     name: golang-race
-    evr: 1.26.3-1.el9_8
-    sourcerpm: golang-1.26.3-1.el9_8.src.rpm
+    evr: 1.26.4-1.el9_8
+    sourcerpm: golang-1.26.4-1.el9_8.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/appstream/os/Packages/k/kernel-headers-5.14.0-687.17.1.el9_8.aarch64.rpm
     repoid: ubi-9-for-aarch64-appstream-rpms
     size: 2812677
@@ -928,13 +928,13 @@ arches:
     name: git-core-doc
     evr: 2.52.0-1.el9
     sourcerpm: git-2.52.0-1.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-src-1.26.3-1.el9_8.noarch.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-src-1.26.4-1.el9_8.noarch.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
-    size: 12878100
-    checksum: sha256:a7e3d6a3177f13a2694614dd62d77899970784907e28540e9db8e38734f0db50
+    size: 12875861
+    checksum: sha256:879164e562d5f1921e4da96cc92d37ac776e0d1192ebd5832b9d5d180edc34d6
     name: golang-src
-    evr: 1.26.3-1.el9_8
-    sourcerpm: golang-1.26.3-1.el9_8.src.rpm
+    evr: 1.26.4-1.el9_8
+    sourcerpm: golang-1.26.4-1.el9_8.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/perl-AutoLoader-5.74-481.1.el9_6.noarch.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
     size: 21344
@@ -1285,12 +1285,12 @@ arches:
     checksum: sha256:791f7585f247061d5a6f55416f480a7dbb09b19578e7d7f664aa8aba20074802
     name: git
     evr: 2.52.0-1.el9
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/g/golang-1.26.3-1.el9_8.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/g/golang-1.26.4-1.el9_8.src.rpm
     repoid: ubi-9-for-x86_64-appstream-source-rpms
-    size: 36495821
-    checksum: sha256:1ef6ab82f59e1cdaf4ca53817d818a5d43a909b1a6a62fbfde4d1369dc7f1b4f
+    size: 36498580
+    checksum: sha256:61a8a1c07fba4e15065dce5620b0cd29dd194dc79bb8a99aa50727af40a2c402
     name: golang
-    evr: 1.26.3-1.el9_8
+    evr: 1.26.4-1.el9_8
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/l/libmpc-1.2.1-4.el9.src.rpm
     repoid: ubi-9-for-x86_64-appstream-source-rpms
     size: 846236
@@ -2032,27 +2032,27 @@ arches:
     name: glibc-devel
     evr: 2.34-270.el9_8
     sourcerpm: glibc-2.34-270.el9_8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/appstream/os/Packages/g/golang-1.26.3-1.el9_8.ppc64le.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/appstream/os/Packages/g/golang-1.26.4-1.el9_8.ppc64le.rpm
     repoid: ubi-9-for-ppc64le-appstream-rpms
-    size: 1521467
-    checksum: sha256:80fab5cd0be9ac2db4ae64c3888cf83f9291d9262995de3381469c22be4e0ce0
+    size: 1520428
+    checksum: sha256:5b5108e52c33d18b273c091e0a99d550d545f1036fd72e2b1116cd1974b5eb3d
     name: golang
-    evr: 1.26.3-1.el9_8
-    sourcerpm: golang-1.26.3-1.el9_8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/appstream/os/Packages/g/golang-bin-1.26.3-1.el9_8.ppc64le.rpm
+    evr: 1.26.4-1.el9_8
+    sourcerpm: golang-1.26.4-1.el9_8.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/appstream/os/Packages/g/golang-bin-1.26.4-1.el9_8.ppc64le.rpm
     repoid: ubi-9-for-ppc64le-appstream-rpms
-    size: 42706780
-    checksum: sha256:d3c6c14239d88eb58572fbf2395dc8b276ba3896a170da2285695630f0340969
+    size: 42704137
+    checksum: sha256:f45343ea0b9cdc3f7e394012b38b1c2c250ba8af7d413f2ab3118d0092579a52
     name: golang-bin
-    evr: 1.26.3-1.el9_8
-    sourcerpm: golang-1.26.3-1.el9_8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/appstream/os/Packages/g/golang-race-1.26.3-1.el9_8.ppc64le.rpm
+    evr: 1.26.4-1.el9_8
+    sourcerpm: golang-1.26.4-1.el9_8.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/appstream/os/Packages/g/golang-race-1.26.4-1.el9_8.ppc64le.rpm
     repoid: ubi-9-for-ppc64le-appstream-rpms
-    size: 1664582
-    checksum: sha256:33deea20d6002a32b7e625725b06cfe6e5fdb32b32f33c488e11a12531235315
+    size: 1664153
+    checksum: sha256:37642a3fd9e3f0c1191b48b3fab6c13cb071e4e899f95ed6f4d110c9d9e50c7a
     name: golang-race
-    evr: 1.26.3-1.el9_8
-    sourcerpm: golang-1.26.3-1.el9_8.src.rpm
+    evr: 1.26.4-1.el9_8
+    sourcerpm: golang-1.26.4-1.el9_8.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/appstream/os/Packages/k/kernel-headers-5.14.0-687.17.1.el9_8.ppc64le.rpm
     repoid: ubi-9-for-ppc64le-appstream-rpms
     size: 2836473
@@ -2921,13 +2921,13 @@ arches:
     name: git-core-doc
     evr: 2.52.0-1.el9
     sourcerpm: git-2.52.0-1.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-src-1.26.3-1.el9_8.noarch.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-src-1.26.4-1.el9_8.noarch.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
-    size: 12878100
-    checksum: sha256:a7e3d6a3177f13a2694614dd62d77899970784907e28540e9db8e38734f0db50
+    size: 12875861
+    checksum: sha256:879164e562d5f1921e4da96cc92d37ac776e0d1192ebd5832b9d5d180edc34d6
     name: golang-src
-    evr: 1.26.3-1.el9_8
-    sourcerpm: golang-1.26.3-1.el9_8.src.rpm
+    evr: 1.26.4-1.el9_8
+    sourcerpm: golang-1.26.4-1.el9_8.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/perl-AutoLoader-5.74-481.1.el9_6.noarch.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
     size: 21344
@@ -3284,12 +3284,12 @@ arches:
     checksum: sha256:791f7585f247061d5a6f55416f480a7dbb09b19578e7d7f664aa8aba20074802
     name: git
     evr: 2.52.0-1.el9
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/g/golang-1.26.3-1.el9_8.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/g/golang-1.26.4-1.el9_8.src.rpm
     repoid: ubi-9-for-x86_64-appstream-source-rpms
-    size: 36495821
-    checksum: sha256:1ef6ab82f59e1cdaf4ca53817d818a5d43a909b1a6a62fbfde4d1369dc7f1b4f
+    size: 36498580
+    checksum: sha256:61a8a1c07fba4e15065dce5620b0cd29dd194dc79bb8a99aa50727af40a2c402
     name: golang
-    evr: 1.26.3-1.el9_8
+    evr: 1.26.4-1.el9_8
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/l/libmpc-1.2.1-4.el9.src.rpm
     repoid: ubi-9-for-x86_64-appstream-source-rpms
     size: 846236
@@ -4038,27 +4038,27 @@ arches:
     name: glibc-headers
     evr: 2.34-270.el9_8
     sourcerpm: glibc-2.34-270.el9_8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/appstream/os/Packages/g/golang-1.26.3-1.el9_8.s390x.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/appstream/os/Packages/g/golang-1.26.4-1.el9_8.s390x.rpm
     repoid: ubi-9-for-s390x-appstream-rpms
-    size: 1520752
-    checksum: sha256:e9b5ea447a460ae98e9fcbea8bc10c331a1c89804373d655faea5806f4b80e1a
+    size: 1520700
+    checksum: sha256:ab88d3273c82dda761a1ece90ceed7a92dd5fafbcef9cc71150153bf62b7aea6
     name: golang
-    evr: 1.26.3-1.el9_8
-    sourcerpm: golang-1.26.3-1.el9_8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/appstream/os/Packages/g/golang-bin-1.26.3-1.el9_8.s390x.rpm
+    evr: 1.26.4-1.el9_8
+    sourcerpm: golang-1.26.4-1.el9_8.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/appstream/os/Packages/g/golang-bin-1.26.4-1.el9_8.s390x.rpm
     repoid: ubi-9-for-s390x-appstream-rpms
-    size: 45115265
-    checksum: sha256:c6db637d3024b64495e06d8dfc1b805b606e1cb777a937aed2b8066052f8bd64
+    size: 45125479
+    checksum: sha256:73fea3c3e7a96951df6f519994a501256bac2b656744f354de44c82865235097
     name: golang-bin
-    evr: 1.26.3-1.el9_8
-    sourcerpm: golang-1.26.3-1.el9_8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/appstream/os/Packages/g/golang-race-1.26.3-1.el9_8.s390x.rpm
+    evr: 1.26.4-1.el9_8
+    sourcerpm: golang-1.26.4-1.el9_8.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/appstream/os/Packages/g/golang-race-1.26.4-1.el9_8.s390x.rpm
     repoid: ubi-9-for-s390x-appstream-rpms
-    size: 1712682
-    checksum: sha256:22fbc0aa939e6a2cbbd4d001d6e6b1e9b03056d7f38e033161c62b873cbc0336
+    size: 1712230
+    checksum: sha256:737d400020660d42ba8bab6b893261534a84a05b0c7ac78677dc0ebd59813d7b
     name: golang-race
-    evr: 1.26.3-1.el9_8
-    sourcerpm: golang-1.26.3-1.el9_8.src.rpm
+    evr: 1.26.4-1.el9_8
+    sourcerpm: golang-1.26.4-1.el9_8.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/appstream/os/Packages/k/kernel-headers-5.14.0-687.17.1.el9_8.s390x.rpm
     repoid: ubi-9-for-s390x-appstream-rpms
     size: 2842685
@@ -4920,13 +4920,13 @@ arches:
     name: git-core-doc
     evr: 2.52.0-1.el9
     sourcerpm: git-2.52.0-1.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-src-1.26.3-1.el9_8.noarch.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-src-1.26.4-1.el9_8.noarch.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
-    size: 12878100
-    checksum: sha256:a7e3d6a3177f13a2694614dd62d77899970784907e28540e9db8e38734f0db50
+    size: 12875861
+    checksum: sha256:879164e562d5f1921e4da96cc92d37ac776e0d1192ebd5832b9d5d180edc34d6
     name: golang-src
-    evr: 1.26.3-1.el9_8
-    sourcerpm: golang-1.26.3-1.el9_8.src.rpm
+    evr: 1.26.4-1.el9_8
+    sourcerpm: golang-1.26.4-1.el9_8.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/perl-AutoLoader-5.74-481.1.el9_6.noarch.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
     size: 21344
@@ -5277,12 +5277,12 @@ arches:
     checksum: sha256:791f7585f247061d5a6f55416f480a7dbb09b19578e7d7f664aa8aba20074802
     name: git
     evr: 2.52.0-1.el9
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/g/golang-1.26.3-1.el9_8.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/g/golang-1.26.4-1.el9_8.src.rpm
     repoid: ubi-9-for-x86_64-appstream-source-rpms
-    size: 36495821
-    checksum: sha256:1ef6ab82f59e1cdaf4ca53817d818a5d43a909b1a6a62fbfde4d1369dc7f1b4f
+    size: 36498580
+    checksum: sha256:61a8a1c07fba4e15065dce5620b0cd29dd194dc79bb8a99aa50727af40a2c402
     name: golang
-    evr: 1.26.3-1.el9_8
+    evr: 1.26.4-1.el9_8
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/l/libmpc-1.2.1-4.el9.src.rpm
     repoid: ubi-9-for-x86_64-appstream-source-rpms
     size: 846236
@@ -6038,34 +6038,34 @@ arches:
     name: glibc-headers
     evr: 2.34-270.el9_8
     sourcerpm: glibc-2.34-270.el9_8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-1.26.3-1.el9_8.x86_64.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-1.26.4-1.el9_8.x86_64.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
-    size: 1521143
-    checksum: sha256:690b5a5666b2c796f637a48e98774cd048f5a94daacececff643c732c5b37c92
+    size: 1520631
+    checksum: sha256:2f053d4f51c871560545998c26bee357a6e4d116266113393d866eebd9b9d672
     name: golang
-    evr: 1.26.3-1.el9_8
-    sourcerpm: golang-1.26.3-1.el9_8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-bin-1.26.3-1.el9_8.x86_64.rpm
+    evr: 1.26.4-1.el9_8
+    sourcerpm: golang-1.26.4-1.el9_8.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-bin-1.26.4-1.el9_8.x86_64.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
-    size: 46258641
-    checksum: sha256:2bf55809e98ec03d1414521bab51b531f6dfdc2137a978be68931dbbad0ff2b4
+    size: 46260129
+    checksum: sha256:4022456084691f3e2f4398a9ade2b6e12bd6886d0e0bfd9bed578268f0481aad
     name: golang-bin
-    evr: 1.26.3-1.el9_8
-    sourcerpm: golang-1.26.3-1.el9_8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-race-1.26.3-1.el9_8.x86_64.rpm
+    evr: 1.26.4-1.el9_8
+    sourcerpm: golang-1.26.4-1.el9_8.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-race-1.26.4-1.el9_8.x86_64.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
-    size: 1743991
-    checksum: sha256:91a732ac47067a06c451548b08a95179dba6254052db74ead116d60c17cde933
+    size: 1743539
+    checksum: sha256:5703a4aa2319b48115296256a2f4f69027e5796edc59571bdc48a5017a58f2f5
     name: golang-race
-    evr: 1.26.3-1.el9_8
-    sourcerpm: golang-1.26.3-1.el9_8.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-src-1.26.3-1.el9_8.noarch.rpm
+    evr: 1.26.4-1.el9_8
+    sourcerpm: golang-1.26.4-1.el9_8.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/golang-src-1.26.4-1.el9_8.noarch.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
-    size: 12878100
-    checksum: sha256:a7e3d6a3177f13a2694614dd62d77899970784907e28540e9db8e38734f0db50
+    size: 12875861
+    checksum: sha256:879164e562d5f1921e4da96cc92d37ac776e0d1192ebd5832b9d5d180edc34d6
     name: golang-src
-    evr: 1.26.3-1.el9_8
-    sourcerpm: golang-1.26.3-1.el9_8.src.rpm
+    evr: 1.26.4-1.el9_8
+    sourcerpm: golang-1.26.4-1.el9_8.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/k/kernel-headers-5.14.0-687.17.1.el9_8.x86_64.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
     size: 2851973
@@ -7249,12 +7249,12 @@ arches:
     checksum: sha256:791f7585f247061d5a6f55416f480a7dbb09b19578e7d7f664aa8aba20074802
     name: git
     evr: 2.52.0-1.el9
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/g/golang-1.26.3-1.el9_8.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/g/golang-1.26.4-1.el9_8.src.rpm
     repoid: ubi-9-for-x86_64-appstream-source-rpms
-    size: 36495821
-    checksum: sha256:1ef6ab82f59e1cdaf4ca53817d818a5d43a909b1a6a62fbfde4d1369dc7f1b4f
+    size: 36498580
+    checksum: sha256:61a8a1c07fba4e15065dce5620b0cd29dd194dc79bb8a99aa50727af40a2c402
     name: golang
-    evr: 1.26.3-1.el9_8
+    evr: 1.26.4-1.el9_8
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/source/SRPMS/Packages/l/libmpc-1.2.1-4.el9.src.rpm
     repoid: ubi-9-for-x86_64-appstream-source-rpms
     size: 846236
