@@ -1,0 +1,341 @@
+apiVersion: appstudio.redhat.com/v1alpha1
+kind: Release
+metadata:
+  annotations:
+    pac.test.appstudio.openshift.io/branch: main
+    pac.test.appstudio.openshift.io/check-run-id: "83518523440"
+    pac.test.appstudio.openshift.io/controller-info: '{"name":"default","configmap":"pipelines-as-code","secret":"pipelines-as-code-secret",
+      "gRepo": "pipelines-as-code"}'
+    pac.test.appstudio.openshift.io/event-type: push
+    pac.test.appstudio.openshift.io/git-auth-secret: pac-gitauth-xsmsia
+    pac.test.appstudio.openshift.io/git-provider: github
+    pac.test.appstudio.openshift.io/installation-id: "54445919"
+    pac.test.appstudio.openshift.io/log-url: https://konflux-ui.apps.stone-prd-rh01.pg1f.p1.openshiftapps.com/ns/rhosdt-tenant/pipelinerun/tempo-bundle-main-on-push-jz2hs
+    pac.test.appstudio.openshift.io/max-keep-runs: "3"
+    pac.test.appstudio.openshift.io/on-cel-expression: event == "push" && target_branch
+      == "main" && (".tekton/single-arch-build-pipeline.yaml".pathChanged() || ".tekton/tempo-bundle-pull-request.yaml".pathChanged()
+      || ".tekton/tempo-bundle-push.yaml".pathChanged() || "Dockerfile.bundle".pathChanged()
+      || "bundle-patch/***".pathChanged() || "tempo-operator".pathChanged())
+    pac.test.appstudio.openshift.io/original-prname: tempo-bundle-main-on-push
+    pac.test.appstudio.openshift.io/pull-request: "827"
+    pac.test.appstudio.openshift.io/repo-url: https://github.com/os-observability/konflux-tempo
+    pac.test.appstudio.openshift.io/repository: tempo-fbc-v4-12
+    pac.test.appstudio.openshift.io/scm-reporting-plr-started: "true"
+    pac.test.appstudio.openshift.io/secret-created: "true"
+    pac.test.appstudio.openshift.io/sender: rubenvp8510
+    pac.test.appstudio.openshift.io/sha: 2275492b466e01fc5a1ee79b848c3b8c0f307614
+    pac.test.appstudio.openshift.io/sha-title: Update bundle [release-driver] (#827)
+    pac.test.appstudio.openshift.io/sha-url: https://github.com/os-observability/konflux-tempo/commit/2275492b466e01fc5a1ee79b848c3b8c0f307614
+    pac.test.appstudio.openshift.io/source-branch: refs/heads/main
+    pac.test.appstudio.openshift.io/source-repo-url: https://github.com/os-observability/konflux-tempo
+    pac.test.appstudio.openshift.io/state: completed
+    pac.test.appstudio.openshift.io/url-org: os-observability
+    pac.test.appstudio.openshift.io/url-repository: konflux-tempo
+  creationTimestamp: "2026-06-25T19:28:58Z"
+  finalizers:
+  - appstudio.redhat.com/release-finalizer
+  generateName: tempo-main-20260625-192321-000-2275492-
+  generation: 1
+  labels:
+    appstudio.openshift.io/application: tempo-main
+    appstudio.openshift.io/build-pipelinerun: tempo-bundle-main-on-push-jz2hs
+    appstudio.openshift.io/component: tempo-bundle-main
+    pac.test.appstudio.openshift.io/check-run-id: "83518523440"
+    pac.test.appstudio.openshift.io/event-type: push
+    pac.test.appstudio.openshift.io/original-prname: tempo-bundle-main-on-push
+    pac.test.appstudio.openshift.io/pull-request: "827"
+    pac.test.appstudio.openshift.io/repository: tempo-fbc-v4-12
+    pac.test.appstudio.openshift.io/sha: 2275492b466e01fc5a1ee79b848c3b8c0f307614
+    pac.test.appstudio.openshift.io/state: completed
+    pac.test.appstudio.openshift.io/url-org: os-observability
+    pac.test.appstudio.openshift.io/url-repository: konflux-tempo
+    release.appstudio.openshift.io/automated: "true"
+    release.appstudio.openshift.io/releasePlan: tempo-stage-main
+    release.appstudio.openshift.io/snapshot: tempo-main-20260625-192321-000
+  name: tempo-main-20260625-192321-000-2275492-jpt2z
+  namespace: rhosdt-tenant
+  resourceVersion: "9540454127"
+  uid: 80a357fd-47e6-4c86-b2d8-f5cba1444c08
+spec:
+  gracePeriodDays: 7
+  releasePlan: tempo-stage-main
+  snapshot: tempo-main-20260625-192321-000
+status:
+  artifacts:
+    advisory:
+      internal_url: https://gitlab.cee.redhat.com/rhtap-release/advisories/-/raw/main/data/advisories/rhosdt-tenant/2026/74149/advisory.yaml
+      url: https://access.stage.redhat.com/errata/RHBA-2026:74149
+    catalog_urls:
+    - name: tempo-bundle-main
+      url: https://catalog.stage.redhat.com/software/containers/rhosdt/tempo-operator-bundle/643a21ba9c677e7b5f986187
+    - name: tempo-gateway-main
+      url: https://catalog.stage.redhat.com/software/containers/rhosdt/tempo-gateway-rhel9/698d424382d071c7f2981eda
+    - name: tempo-jaeger-query-main
+      url: https://catalog.stage.redhat.com/software/containers/rhosdt/tempo-jaeger-query-rhel9/698c8c098f7ab5b0422c2b73
+    - name: tempo-opa-main
+      url: https://catalog.stage.redhat.com/software/containers/rhosdt/tempo-gateway-opa-rhel9/698c8b7a5e92e8be559f3130
+    - name: tempo-operator-main
+      url: https://catalog.stage.redhat.com/software/containers/rhosdt/tempo-rhel9-operator/698d424bea55c445bec89109
+    - name: tempo-query-main
+      url: https://catalog.stage.redhat.com/software/containers/rhosdt/tempo-query-rhel9/698c8c4a89357fbfcab7dc7a
+    - name: tempo-tempo-main
+      url: https://catalog.stage.redhat.com/software/containers/rhosdt/tempo-rhel9/698c8c898b8a24a194df2e9d
+    images:
+    - arches:
+      - amd64
+      name: tempo-bundle-main
+      oses:
+      - linux
+      shasum: sha256:2928a20268580e4b87297164a6322093ce2d822abcd439d9297819d23f6af9b2
+      urls:
+      - quay.io/redhat-pending/rhosdt----tempo-operator-bundle:1782415508-source
+      - quay.io/redhat-pending/rhosdt----tempo-operator-bundle:1782415508
+      - quay.io/redhat-pending/rhosdt----tempo-operator-bundle:1782415909-source
+      - quay.io/redhat-pending/rhosdt----tempo-operator-bundle:1782415909
+      - quay.io/redhat-pending/rhosdt----tempo-operator-bundle:2275492b466e01fc5a1ee79b848c3b8c0f307614-source
+      - quay.io/redhat-pending/rhosdt----tempo-operator-bundle:2275492b466e01fc5a1ee79b848c3b8c0f307614
+      - quay.io/redhat-pending/rhosdt----tempo-operator-bundle:latest-1782415508-source
+      - quay.io/redhat-pending/rhosdt----tempo-operator-bundle:latest-1782415508
+      - quay.io/redhat-pending/rhosdt----tempo-operator-bundle:latest-source
+      - quay.io/redhat-pending/rhosdt----tempo-operator-bundle:latest
+      - quay.io/redhat-pending/rhosdt----tempo-operator-bundle:sha256-2928a20268580e4b87297164a6322093ce2d822abcd439d9297819d23f6af9b2.src
+    - arches:
+      - amd64
+      - arm64
+      - ppc64le
+      - s390x
+      name: tempo-gateway-main
+      oses:
+      - linux
+      - linux
+      - linux
+      - linux
+      shasum: sha256:35afce86fa1d62e3409ed172cbe40aea9c16ea15429db6aa4d5f3c7383f7580b
+      urls:
+      - quay.io/redhat-pending/rhosdt----tempo-gateway-rhel9:1782413353-source
+      - quay.io/redhat-pending/rhosdt----tempo-gateway-rhel9:1782413353
+      - quay.io/redhat-pending/rhosdt----tempo-gateway-rhel9:1782415909-source
+      - quay.io/redhat-pending/rhosdt----tempo-gateway-rhel9:1782415909
+      - quay.io/redhat-pending/rhosdt----tempo-gateway-rhel9:40f1cc3feca0d33900759a78f916ae6aac5c5c68-source
+      - quay.io/redhat-pending/rhosdt----tempo-gateway-rhel9:40f1cc3feca0d33900759a78f916ae6aac5c5c68
+      - quay.io/redhat-pending/rhosdt----tempo-gateway-rhel9:latest-1782413353-source
+      - quay.io/redhat-pending/rhosdt----tempo-gateway-rhel9:latest-1782413353
+      - quay.io/redhat-pending/rhosdt----tempo-gateway-rhel9:latest-source
+      - quay.io/redhat-pending/rhosdt----tempo-gateway-rhel9:latest
+      - quay.io/redhat-pending/rhosdt----tempo-gateway-rhel9:sha256-35afce86fa1d62e3409ed172cbe40aea9c16ea15429db6aa4d5f3c7383f7580b.src
+    - arches:
+      - amd64
+      - arm64
+      - ppc64le
+      - s390x
+      name: tempo-jaeger-query-main
+      oses:
+      - linux
+      - linux
+      - linux
+      - linux
+      shasum: sha256:cc1173871da62727239943e3c51d68b665a0aadda95a2c6395d7c81d6df79474
+      urls:
+      - quay.io/redhat-pending/rhosdt----tempo-jaeger-query-rhel9:1782412583-source
+      - quay.io/redhat-pending/rhosdt----tempo-jaeger-query-rhel9:1782412583
+      - quay.io/redhat-pending/rhosdt----tempo-jaeger-query-rhel9:1782415909-source
+      - quay.io/redhat-pending/rhosdt----tempo-jaeger-query-rhel9:1782415909
+      - quay.io/redhat-pending/rhosdt----tempo-jaeger-query-rhel9:40f1cc3feca0d33900759a78f916ae6aac5c5c68-source
+      - quay.io/redhat-pending/rhosdt----tempo-jaeger-query-rhel9:40f1cc3feca0d33900759a78f916ae6aac5c5c68
+      - quay.io/redhat-pending/rhosdt----tempo-jaeger-query-rhel9:latest-1782412583-source
+      - quay.io/redhat-pending/rhosdt----tempo-jaeger-query-rhel9:latest-1782412583
+      - quay.io/redhat-pending/rhosdt----tempo-jaeger-query-rhel9:latest-source
+      - quay.io/redhat-pending/rhosdt----tempo-jaeger-query-rhel9:latest
+      - quay.io/redhat-pending/rhosdt----tempo-jaeger-query-rhel9:sha256-cc1173871da62727239943e3c51d68b665a0aadda95a2c6395d7c81d6df79474.src
+    - arches:
+      - amd64
+      - arm64
+      - ppc64le
+      - s390x
+      name: tempo-opa-main
+      oses:
+      - linux
+      - linux
+      - linux
+      - linux
+      shasum: sha256:2b30d2c8a5e9996a33bad1dfe985cc4f5e678504fc6d9c9f72432333d73e2ef7
+      urls:
+      - quay.io/redhat-pending/rhosdt----tempo-gateway-opa-rhel9:1782413730-source
+      - quay.io/redhat-pending/rhosdt----tempo-gateway-opa-rhel9:1782413730
+      - quay.io/redhat-pending/rhosdt----tempo-gateway-opa-rhel9:1782415909-source
+      - quay.io/redhat-pending/rhosdt----tempo-gateway-opa-rhel9:1782415909
+      - quay.io/redhat-pending/rhosdt----tempo-gateway-opa-rhel9:40f1cc3feca0d33900759a78f916ae6aac5c5c68-source
+      - quay.io/redhat-pending/rhosdt----tempo-gateway-opa-rhel9:40f1cc3feca0d33900759a78f916ae6aac5c5c68
+      - quay.io/redhat-pending/rhosdt----tempo-gateway-opa-rhel9:latest-1782413730-source
+      - quay.io/redhat-pending/rhosdt----tempo-gateway-opa-rhel9:latest-1782413730
+      - quay.io/redhat-pending/rhosdt----tempo-gateway-opa-rhel9:latest-source
+      - quay.io/redhat-pending/rhosdt----tempo-gateway-opa-rhel9:latest
+      - quay.io/redhat-pending/rhosdt----tempo-gateway-opa-rhel9:sha256-2b30d2c8a5e9996a33bad1dfe985cc4f5e678504fc6d9c9f72432333d73e2ef7.src
+    - arches:
+      - amd64
+      - arm64
+      - ppc64le
+      - s390x
+      name: tempo-operator-main
+      oses:
+      - linux
+      - linux
+      - linux
+      - linux
+      shasum: sha256:a702bc88bfc19cc866410c4cbef15e8033e9ee4983121cb01b585768efbb0459
+      urls:
+      - quay.io/redhat-pending/rhosdt----tempo-rhel9-operator:1782412886-source
+      - quay.io/redhat-pending/rhosdt----tempo-rhel9-operator:1782412886
+      - quay.io/redhat-pending/rhosdt----tempo-rhel9-operator:1782415909-source
+      - quay.io/redhat-pending/rhosdt----tempo-rhel9-operator:1782415909
+      - quay.io/redhat-pending/rhosdt----tempo-rhel9-operator:40f1cc3feca0d33900759a78f916ae6aac5c5c68-source
+      - quay.io/redhat-pending/rhosdt----tempo-rhel9-operator:40f1cc3feca0d33900759a78f916ae6aac5c5c68
+      - quay.io/redhat-pending/rhosdt----tempo-rhel9-operator:latest-1782412886-source
+      - quay.io/redhat-pending/rhosdt----tempo-rhel9-operator:latest-1782412886
+      - quay.io/redhat-pending/rhosdt----tempo-rhel9-operator:latest-source
+      - quay.io/redhat-pending/rhosdt----tempo-rhel9-operator:latest
+      - quay.io/redhat-pending/rhosdt----tempo-rhel9-operator:sha256-a702bc88bfc19cc866410c4cbef15e8033e9ee4983121cb01b585768efbb0459.src
+    - arches:
+      - amd64
+      - arm64
+      - ppc64le
+      - s390x
+      name: tempo-query-main
+      oses:
+      - linux
+      - linux
+      - linux
+      - linux
+      shasum: sha256:b3d9c7183a8146fc085b6bf2939e829cf0cb447f59de4bdd873f35f043a920d1
+      urls:
+      - quay.io/redhat-pending/rhosdt----tempo-query-rhel9:1782413981-source
+      - quay.io/redhat-pending/rhosdt----tempo-query-rhel9:1782413981
+      - quay.io/redhat-pending/rhosdt----tempo-query-rhel9:1782415909-source
+      - quay.io/redhat-pending/rhosdt----tempo-query-rhel9:1782415909
+      - quay.io/redhat-pending/rhosdt----tempo-query-rhel9:40f1cc3feca0d33900759a78f916ae6aac5c5c68-source
+      - quay.io/redhat-pending/rhosdt----tempo-query-rhel9:40f1cc3feca0d33900759a78f916ae6aac5c5c68
+      - quay.io/redhat-pending/rhosdt----tempo-query-rhel9:latest-1782413981-source
+      - quay.io/redhat-pending/rhosdt----tempo-query-rhel9:latest-1782413981
+      - quay.io/redhat-pending/rhosdt----tempo-query-rhel9:latest-source
+      - quay.io/redhat-pending/rhosdt----tempo-query-rhel9:latest
+      - quay.io/redhat-pending/rhosdt----tempo-query-rhel9:sha256-b3d9c7183a8146fc085b6bf2939e829cf0cb447f59de4bdd873f35f043a920d1.src
+    - arches:
+      - amd64
+      - arm64
+      - ppc64le
+      - s390x
+      name: tempo-tempo-main
+      oses:
+      - linux
+      - linux
+      - linux
+      - linux
+      shasum: sha256:c35d985c13a2c252bf2747ca3c7533f7c25ecdd89868eb71a7a2f3d5bcfba675
+      urls:
+      - quay.io/redhat-pending/rhosdt----tempo-rhel9:1782412325-source
+      - quay.io/redhat-pending/rhosdt----tempo-rhel9:1782412325
+      - quay.io/redhat-pending/rhosdt----tempo-rhel9:1782415909-source
+      - quay.io/redhat-pending/rhosdt----tempo-rhel9:1782415909
+      - quay.io/redhat-pending/rhosdt----tempo-rhel9:40f1cc3feca0d33900759a78f916ae6aac5c5c68-source
+      - quay.io/redhat-pending/rhosdt----tempo-rhel9:40f1cc3feca0d33900759a78f916ae6aac5c5c68
+      - quay.io/redhat-pending/rhosdt----tempo-rhel9:latest-1782412325-source
+      - quay.io/redhat-pending/rhosdt----tempo-rhel9:latest-1782412325
+      - quay.io/redhat-pending/rhosdt----tempo-rhel9:latest-source
+      - quay.io/redhat-pending/rhosdt----tempo-rhel9:latest
+      - quay.io/redhat-pending/rhosdt----tempo-rhel9:sha256-c35d985c13a2c252bf2747ca3c7533f7c25ecdd89868eb71a7a2f3d5bcfba675.src
+    sboms:
+      component:
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-c8c2-7b72-ac1c-83a372ec3dcc
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-c819-7d01-81ef-8bba10094be1
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-c8f8-7a12-b48b-f0b8a4d5eef5
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-c885-7991-9585-5b68345d9b40
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-ca0f-7901-afc3-44fab2f66821
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-c81f-7442-8e44-3aa42085a1a0
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-c82c-7351-99bb-45a8d619ef56
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-ca06-7c81-85fd-f3767e966f71
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-c933-7100-b4d9-f07191ad4b96
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-c8a4-7930-a99e-ad942c1af98a
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-ca42-7f12-81d2-8aae8b89925e
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-c9cf-7f50-86e6-750cc1ac4ae0
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-cbe7-7f80-8deb-d303a4e92f82
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-cd29-7290-80a5-bf9ee183991e
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-cd28-7301-b5e2-2ce801574823
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-ccb9-70d0-9713-494fcc128ab9
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-cce5-7932-98c0-1cea62292d9c
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-ce26-7b70-8558-302e0a953e7b
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-cf16-70a0-ae25-e1284e09565c
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-cf96-7833-b95e-da2057c066e0
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-cfeb-76d2-9302-f61625525672
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-d04c-7613-bd76-be28428e8dcf
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-d15c-7163-934f-70f599093d4b
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-d1c3-79a0-9b9d-462f2524b1f2
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-d383-7c60-91bd-710ecd5cf113
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-d159-7790-b468-c9e71bc1f3bc
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-d2c7-7a12-bdd4-94929eb386c4
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-d2c7-7a12-bdd4-948fe5b44fee
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-d2d2-7de3-90ad-1735e263ef33
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-d564-73f3-a1ec-4f455e75c2aa
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f004b-d4ed-7d31-bf67-3819fe891d09
+      product:
+      - https://atlas.release.stage.devshift.net/sboms/urn:uuid:019f0049-941d-7c91-bfcf-b97ae4b389ea
+  attribution:
+    author: system_serviceaccount_project-controller_project-controller-con
+    standingAuthorization: true
+  automated: true
+  collectorsProcessing:
+    managedCollectorsProcessing:
+      roleBindings: {}
+    tenantCollectorsProcessing:
+      roleBindings: {}
+  completionTime: "2026-06-25T19:40:17Z"
+  conditions:
+  - lastTransitionTime: "2026-06-25T19:40:17Z"
+    message: ""
+    reason: Succeeded
+    status: "True"
+    type: Released
+  - lastTransitionTime: "2026-06-25T19:28:58Z"
+    message: ""
+    reason: Succeeded
+    status: "True"
+    type: Validated
+  - lastTransitionTime: "2026-06-25T19:28:58Z"
+    message: ""
+    reason: Skipped
+    status: "True"
+    type: TenantCollectorsPipelineProcessed
+  - lastTransitionTime: "2026-06-25T19:28:58Z"
+    message: ""
+    reason: Skipped
+    status: "True"
+    type: ManagedCollectorsPipelineProcessed
+  - lastTransitionTime: "2026-06-25T19:28:58Z"
+    message: ""
+    reason: Skipped
+    status: "True"
+    type: TenantPipelineProcessed
+  - lastTransitionTime: "2026-06-25T19:40:17Z"
+    message: ""
+    reason: Succeeded
+    status: "True"
+    type: ManagedPipelineProcessed
+  - lastTransitionTime: "2026-06-25T19:40:17Z"
+    message: ""
+    reason: Skipped
+    status: "True"
+    type: FinalPipelineProcessed
+  expirationTime: "2026-07-02T19:28:58Z"
+  finalProcessing:
+    roleBindings: {}
+  managedProcessing:
+    completionTime: "2026-06-25T19:40:17Z"
+    pipelineRun: rhtap-releng-tenant/managed-mbtgf
+    roleBindings:
+      tenantRoleBinding: rhosdt-tenant/tempo-main-20260625-192321-000-2275492-jpt2z-rolebinding-fj7tcl
+    startTime: "2026-06-25T19:29:09Z"
+  startTime: "2026-06-25T19:28:58Z"
+  target: rhtap-releng-tenant
+  tenantProcessing:
+    roleBindings: {}
+  validation:
+    time: "2026-06-25T19:28:58Z"

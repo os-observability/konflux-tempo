@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi9/ubi-minimal:latest@sha256:850143255ee0d1915f09aaa09f6ed31f24086ba605c323badfbefa95b8c52b0e as builder
+FROM registry.redhat.io/ubi9/ubi-minimal:latest@sha256:062c52ff973065752b0965787649db2bcf551a6c727a00e95a3eb42cebadbdab as builder
 
 USER root
 WORKDIR /opt/bundle-build
@@ -25,7 +25,7 @@ RUN ./update_bundle.sh && cat manifests/tempo-operator.clusterserviceversion.yam
 FROM scratch
 WORKDIR /
 
-ARG VERSION=0.21.0-1
+ARG VERSION=0.21.0-2
 
 COPY tempo-operator/LICENSE /licenses/.
 
@@ -39,7 +39,7 @@ LABEL operators.operatorframework.io.metrics.builder=operator-sdk-v1.29.0
 LABEL operators.operatorframework.io.metrics.mediatype.v1=metrics+v1
 LABEL operators.operatorframework.io.metrics.project_layout=go.kubebuilder.io/v3
 
-# Labels for testing. 
+# Labels for testing.
 LABEL operators.operatorframework.io.test.mediatype.v1=scorecard+v1
 LABEL operators.operatorframework.io.test.config.v1=tests/scorecard/
 
