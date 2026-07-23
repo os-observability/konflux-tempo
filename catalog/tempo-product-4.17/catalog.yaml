@@ -30069,7 +30069,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:7279f6d020e82eb6507b444a7c2625fd34bd99b5abab7ae9cfc8a7e71358dd67
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:40c77256530f670a5951bb76fd98780b04756f5bc533c885dcd227a0155ad303
 name: tempo-operator.v0.21.0-3
 package: tempo-product
 properties:
@@ -30162,8 +30162,8 @@ properties:
       capabilities: Deep Insights
       categories: Logging & Tracing,Monitoring,Observability
       console.openshift.io/operator-monitoring-default: "true"
-      containerImage: registry.redhat.io/rhosdt/tempo-rhel9-operator@sha256:8e6c4422c10a6a0d0eac35893008ed746d2f0fb89ac4f0e0bba7559127aad380
-      createdAt: 23 Jul 2026, 00:17
+      containerImage: registry.redhat.io/rhosdt/tempo-rhel9-operator@sha256:730098d14f235d86353d97309fe0c179ef1b8106d0685e26d48b5046b9b10168
+      createdAt: 23 Jul 2026, 03:26
       description: Create and manage deployments of Tempo, a high-scale distributed
         tracing backend.
       features.operators.openshift.io/cnf: "false"
@@ -31612,21 +31612,21 @@ properties:
     provider:
       name: Red Hat
 relatedImages:
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:7279f6d020e82eb6507b444a7c2625fd34bd99b5abab7ae9cfc8a7e71358dd67
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:40c77256530f670a5951bb76fd98780b04756f5bc533c885dcd227a0155ad303
   name: ""
 - image: registry.redhat.io/openshift4/ose-oauth-proxy@sha256:6bcfa981a7a75c242a16afa6dab36bf6e3b8a1442fa863875919ad551f48eceb
   name: ose-oauth-proxy
-- image: registry.redhat.io/rhosdt/tempo-gateway-opa-rhel9@sha256:69c71470e8f139a2d340fb0b2572a11337c4229b7b7728d8b175045c8a477b75
+- image: registry.redhat.io/rhosdt/tempo-gateway-opa-rhel9@sha256:a721b2399d23b47169ff7953704b7c644dacc5e858b2a7cbda09975b18995204
   name: gateway-opa
-- image: registry.redhat.io/rhosdt/tempo-gateway-rhel9@sha256:ee153d9ba41b74355cbe990f974fff774dd705f2265dc5ed10d820e9874a6fd3
+- image: registry.redhat.io/rhosdt/tempo-gateway-rhel9@sha256:981fb652acde46eb6fce407778ffcb2b3245acae9b4370b9ddba04b15b29a493
   name: gateway
-- image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel9@sha256:8b1dd994fb0d72593758bed37fdb411b43975431bc881931d1fc766e78b89e25
+- image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel9@sha256:708b7f44a73b6dd5397a8e4a1d1c97cc4f319ad8c42e55a348e118b2d5b58e1a
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-query-rhel9@sha256:6a0ea9616cdc63679d380428f4f4b62799646f9ebb649eaefd10d818aabfd2ce
+- image: registry.redhat.io/rhosdt/tempo-query-rhel9@sha256:043584d4fa60686356183228f344a448c929400bcd36e97d849c981a79353466
   name: tempo-query
-- image: registry.redhat.io/rhosdt/tempo-rhel9-operator@sha256:8e6c4422c10a6a0d0eac35893008ed746d2f0fb89ac4f0e0bba7559127aad380
+- image: registry.redhat.io/rhosdt/tempo-rhel9-operator@sha256:730098d14f235d86353d97309fe0c179ef1b8106d0685e26d48b5046b9b10168
   name: operator
-- image: registry.redhat.io/rhosdt/tempo-rhel9@sha256:b5e08c6f7b94f033c339aea20a536c689deeaba01b53f925f9304c37b60c74fe
+- image: registry.redhat.io/rhosdt/tempo-rhel9@sha256:89037da3d22a414f021a24f9c3b5c8fcdecac818675f819ab74b0b4f75506ee1
   name: tempo
 schema: olm.bundle
 ---
