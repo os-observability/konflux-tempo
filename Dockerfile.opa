@@ -15,7 +15,7 @@ WORKDIR /opt/app-root/src/opa-openshift
 
 RUN CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -mod=mod -tags strictfipsruntime -o opa-openshift -trimpath -ldflags "-s -w"
 
-FROM registry.redhat.io/ubi9/ubi-micro:latest@sha256:35de56a9413112f1474e392ebc35e0cf6f0fb484c8e8877bbae59b513694b41f AS target-base
+FROM registry.redhat.io/ubi9/ubi-micro:latest@sha256:b1e86b97028b8fcfb6d85f997c39e6b6b67496163ef8d80d243220a4918e8bef AS target-base
 
 FROM registry.redhat.io/ubi9/ubi:latest@sha256:b88557038cd6b46a7eddea604aad1313354185bb7fbbf499c0b423936e4944e1 as install-additional-packages
 COPY --from=target-base / /mnt/rootfs
