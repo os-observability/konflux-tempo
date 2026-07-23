@@ -81,7 +81,7 @@ spec:
       when:
         - input: $(tasks.parse-metadata.results.test-event-type)
           operator: in
-          values: [ "push", "Push", "PUSH", "incoming", "Incoming", "INCOMING" ]
+          values: ["push", "Push", "PUSH", "incoming", "Incoming", "INCOMING"]
       taskRef:
         resolver: git
         params:
@@ -104,7 +104,7 @@ spec:
       when:
         - input: $(tasks.parse-metadata.results.test-event-type)
           operator: in
-          values: [ "push", "Push", "PUSH", "incoming", "Incoming", "INCOMING" ]
+          values: ["push", "Push", "PUSH", "incoming", "Incoming", "INCOMING"]
       taskSpec:
         results:
           - name: clusterName
@@ -187,7 +187,7 @@ spec:
       when:
         - input: $(tasks.parse-metadata.results.test-event-type)
           operator: in
-          values: [ "push", "Push", "PUSH", "incoming", "Incoming", "INCOMING" ]
+          values: ["push", "Push", "PUSH", "incoming", "Incoming", "INCOMING"]
       params:
         - name: SNAPSHOT
           value: $(params.SNAPSHOT)
@@ -344,7 +344,7 @@ spec:
       when:
         - input: $(tasks.parse-metadata.results.test-event-type)
           operator: in
-          values: [ "push", "Push", "PUSH", "incoming", "Incoming", "INCOMING" ]
+          values: ["push", "Push", "PUSH", "incoming", "Incoming", "INCOMING"]
       params:
         - name: SNAPSHOT
           value: $(params.SNAPSHOT)
@@ -398,7 +398,7 @@ spec:
             script: |
               echo "Kubeconfig file"
               cat $KUBECONFIG
-              
+
               echo "Installing dependent operators"
               export OPERATORS_INSTALL=https://raw.githubusercontent.com/os-observability/konflux-tempo/refs/heads/main/.tekton/integration-tests/resources/install.yaml
               curl -H "Authorization: token $KONFLUX_TEMPO_TOKEN" -Lo /tmp/install.yaml "$OPERATORS_INSTALL"
@@ -449,7 +449,7 @@ spec:
       when:
         - input: $(tasks.parse-metadata.results.test-event-type)
           operator: in
-          values: [ "push", "Push", "PUSH", "incoming", "Incoming", "INCOMING" ]
+          values: ["push", "Push", "PUSH", "incoming", "Incoming", "INCOMING"]
       params:
         - name: SNAPSHOT
           value: $(params.SNAPSHOT)
@@ -621,7 +621,7 @@ spec:
       when:
         - input: $(tasks.parse-metadata.results.test-event-type)
           operator: in
-          values: [ "push", "Push", "PUSH", "incoming", "Incoming", "INCOMING" ]
+          values: ["push", "Push", "PUSH", "incoming", "Incoming", "INCOMING"]
       taskSpec:
         volumes:
           - name: credentials
@@ -689,7 +689,7 @@ spec:
       when:
         - input: $(tasks.parse-metadata.results.test-event-type)
           operator: in
-          values: [ "push", "Push", "PUSH", "incoming", "Incoming", "INCOMING" ]
+          values: ["push", "Push", "PUSH", "incoming", "Incoming", "INCOMING"]
       params:
         - name: TEMPO_TESTS_BRANCH
           value: $(params.tempo_tests_branch)
@@ -743,7 +743,7 @@ spec:
 
               #Enable user workload monitoring.
               oc apply -f tests/e2e-openshift/monitoring/01-workload-monitoring.yaml
-            
+
               # Remove test cases to be skipped from the test run
               IFS=' ' read -ra SKIP_TEST_ARRAY <<< "$SKIP_TESTS"
               SKIP_TESTS_TO_REMOVE=""
