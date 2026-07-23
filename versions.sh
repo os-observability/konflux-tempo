@@ -14,6 +14,7 @@ MIN_OPENSHIFT_VERSION=4.12
 echo "Fetching tags of all submodules..."
 git submodule foreach --recursive "git fetch --tags" > /dev/null 2>&1
 OPERATOR_VERSION=$(cd tempo-operator && git describe --tags --abbrev=0 | sed 's/^v//')
+OPERATOR_TEMPO_VERSION=$(grep -oP '^TEMPO_VERSION \?= \K.*' tempo-operator/Makefile)
 TEMPO_VERSION=$(cd tempo && git describe --tags --abbrev=0 | sed 's/^v//')
 JAEGER_VERSION=$(cd jaeger && git describe --tags --abbrev=0 | sed 's/^v//')
 
@@ -31,6 +32,7 @@ BUNDLE_VERSION=${OPERATOR_VERSION}-${BUNDLE_BUILDNUMBER}
 echo "Updating version numbers in Dockerfiles and bundle..."
 echo
 echo "Operator: ${OPERATOR_VERSION}"
+echo "Operator Tempo: ${OPERATOR_TEMPO_VERSION}"
 echo "Tempo: ${TEMPO_VERSION}"
 echo "Jaeger: ${JAEGER_VERSION}"
 echo "Bundle: ${BUNDLE_VERSION} (previous: ${RELEASED_BUNDLE_VERSION})"
@@ -51,3 +53,22 @@ yq -i e ".spec.version = \"${BUNDLE_VERSION}\"" bundle-patch/patch_csv.yaml
 yq -i e ".metadata.name = \"tempo-operator.v${BUNDLE_VERSION}\"" bundle-patch/patch_csv.yaml
 yq -i e ".spec.replaces = \"tempo-operator.v${RELEASED_BUNDLE_VERSION}\"" bundle-patch/patch_csv.yaml
 sed -Ei "s/olm.skipRange: '>=(.*) <[^']*/olm.skipRange: '>=\1 <${BUNDLE_VERSION}/g" bundle-patch/patch_csv.yaml
+
+# integration test pipelines: e2e tests
+for f in .tekton/integration-tests/pipelines/tempo-operator-e2e-test-pipeline-*.yaml; do
+  yq -i e "(.spec.params[] | select(.name == \"operand_jaeger_query_version\")).default = \"${JAEGER_VERSION}\"" "$f"
+  yq -i e "(.spec.params[] | select(.name == \"operator_version\")).default = \"${OPERATOR_VERSION}\"" "$f"
+  yq -i e "(.spec.params[] | select(.name == \"operator_tempo_version\")).default = \"${OPERATOR_TEMPO_VERSION}\"" "$f"
+  yq -i e "(.spec.params[] | select(.name == \"operator_tempo_query_version\")).default = \"${OPERATOR_TEMPO_VERSION}\"" "$f"
+  yq -i e "(.spec.params[] | select(.name == \"operand_tempo_version\")).default = \"${TEMPO_VERSION}\"" "$f"
+  yq -i e "(.spec.params[] | select(.name == \"tempo_tests_branch\")).default = \"rhosdt-${RHOSDT_VERSION}\"" "$f"
+  yq -i e "(.spec.params[] | select(.name == \"rhosdt_version\")).default = \"${RHOSDT_VERSION}\"" "$f"
+done
+
+# integration test pipelines: upgrade tests
+for f in .tekton/integration-tests/pipelines/tempo-operator-upgrade-test-fbc-pipeline-*.yaml; do
+  yq -i e "(.spec.params[] | select(.name == \"operator_csv_version\")).default = \"tempo-operator.v${BUNDLE_VERSION}\"" "$f"
+  yq -i e "(.spec.params[] | select(.name == \"operator_version\")).default = \"${OPERATOR_VERSION}\"" "$f"
+  yq -i e "(.spec.params[] | select(.name == \"operator_tempo_version\")).default = \"${OPERATOR_TEMPO_VERSION}\"" "$f"
+  yq -i e "(.spec.params[] | select(.name == \"tempo_tests_branch\")).default = \"rhosdt-${RHOSDT_VERSION}\"" "$f"
+done

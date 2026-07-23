@@ -27,7 +27,7 @@ spec:
     - name: operator_csv_version
       description: Version of the operator
       type: string
-      default: "tempo-operator.v0.21.0-1"
+      default: "tempo-operator.v0.21.0-3"
     - name: operator_version
       description: Version of the operator
       type: string
@@ -68,7 +68,7 @@ spec:
       when:
         - input: $(tasks.parse-metadata.results.test-event-type)
           operator: in
-          values: [ "push", "Push", "PUSH", "incoming", "Incoming", "INCOMING" ]
+          values: ["push", "Push", "PUSH", "incoming", "Incoming", "INCOMING"]
       taskRef:
         resolver: git
         params:
@@ -91,7 +91,7 @@ spec:
       when:
         - input: $(tasks.parse-metadata.results.test-event-type)
           operator: in
-          values: [ "push", "Push", "PUSH", "incoming", "Incoming", "INCOMING" ]
+          values: ["push", "Push", "PUSH", "incoming", "Incoming", "INCOMING"]
       taskSpec:
         results:
           - name: clusterName
@@ -174,7 +174,7 @@ spec:
       when:
         - input: $(tasks.parse-metadata.results.test-event-type)
           operator: in
-          values: [ "push", "Push", "PUSH", "incoming", "Incoming", "INCOMING" ]
+          values: ["push", "Push", "PUSH", "incoming", "Incoming", "INCOMING"]
       params:
         - name: TEMPO_TESTS_BRANCH
           value: $(params.tempo_tests_branch)
