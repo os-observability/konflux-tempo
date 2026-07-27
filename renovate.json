@@ -13,7 +13,7 @@
       "description": "Update digest of container images in .env files",
       "managerFilePatterns": ["/\\.env$/"],
       "matchStrings": [
-        "# renovate: follow_tag=(?<currentValue>[a-z-]+?)\\s.+?=(?<packageName>[^@:]+?)@(?<currentDigest>.+?)\\s"
+        "# renovate: follow_tag=(?<currentValue>[a-zA-Z0-9._-]+?)\\s.+?=(?<packageName>[^@:]+?)@(?<currentDigest>.+?)\\s"
       ],
       "datasourceTemplate": "docker"
     }
