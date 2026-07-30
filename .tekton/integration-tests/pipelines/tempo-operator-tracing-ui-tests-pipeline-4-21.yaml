@@ -26,12 +26,6 @@ spec:
     - name: skip_tests
       description: "Cypress grep pattern to skip tests. Example: '-Lightspeed' or '~Lightspeed|~Debug'"
       default: ''
-    - name: lightspeed_provider_url
-      description: "Lightspeed provider URL for AI-powered trace analysis integration"
-      default: ''
-    - name: lightspeed_provider_token
-      description: "Lightspeed API authentication token for AI-powered trace analysis integration"
-      default: ''
   tasks:
     - name: parse-metadata
       taskRef:
@@ -322,17 +316,9 @@ spec:
       params:
         - name: SKIP_TESTS
           value: $(params.skip_tests)
-        - name: LIGHTSPEED_PROVIDER_URL
-          value: "$(params.lightspeed_provider_url)"
-        - name: LIGHTSPEED_PROVIDER_TOKEN
-          value: "$(params.lightspeed_provider_token)"
       taskSpec:
         params:
           - name: SKIP_TESTS
-            type: string
-          - name: LIGHTSPEED_PROVIDER_URL
-            type: string
-          - name: LIGHTSPEED_PROVIDER_TOKEN
             type: string
         volumes:
           - name: credentials
@@ -367,9 +353,15 @@ spec:
               - name: CYPRESS_COO_NAMESPACE
                 value: "openshift-cluster-observability-operator"
               - name: CYPRESS_LIGHTSPEED_PROVIDER_URL
-                value: "$(params.LIGHTSPEED_PROVIDER_URL)"
+                valueFrom:
+                  secretKeyRef:
+                    name: lightspeed-credentials
+                    key: lightspeed-provider-url
               - name: CYPRESS_LIGHTSPEED_PROVIDER_TOKEN
-                value: "$(params.LIGHTSPEED_PROVIDER_TOKEN)"
+                valueFrom:
+                  secretKeyRef:
+                    name: lightspeed-credentials
+                    key: lightspeed-provider-token
             computeResources:
               requests:
                 cpu: "1"
