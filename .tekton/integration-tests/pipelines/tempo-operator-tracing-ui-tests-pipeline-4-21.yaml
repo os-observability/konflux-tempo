@@ -362,6 +362,8 @@ spec:
                   secretKeyRef:
                     name: lightspeed-credentials
                     key: lightspeed-provider-token
+              - name: KUBEADMIN_PASSWORD_FILE
+                value: "/credentials/$(steps.get-kubeconfig.results.passwordPath)"
             image: quay.io/redhat-distributed-tracing-qe/cypress-base:latest
             script: |
               #!/bin/bash
@@ -376,7 +378,6 @@ spec:
               fi
 
               # Read kubeadmin password from credentials
-              KUBEADMIN_PASSWORD_FILE="/credentials/$(steps.get-kubeconfig.results.passwordPath)"
               if [[ ! -f "${KUBEADMIN_PASSWORD_FILE}" ]]; then
                 echo "Error: Kubeadmin password file ${KUBEADMIN_PASSWORD_FILE} does not exist"
                 exit 1
