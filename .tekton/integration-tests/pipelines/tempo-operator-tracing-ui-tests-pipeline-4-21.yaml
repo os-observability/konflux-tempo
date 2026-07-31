@@ -364,6 +364,13 @@ spec:
                     key: lightspeed-provider-token
               - name: KUBEADMIN_PASSWORD_FILE
                 value: "/credentials/$(steps.get-kubeconfig.results.passwordPath)"
+            resources:
+              requests:
+                cpu: "1"
+                memory: 3Gi
+              limits:
+                cpu: "8"
+                memory: 8Gi
             image: quay.io/redhat-distributed-tracing-qe/cypress-base:latest
             script: |
               #!/bin/bash
