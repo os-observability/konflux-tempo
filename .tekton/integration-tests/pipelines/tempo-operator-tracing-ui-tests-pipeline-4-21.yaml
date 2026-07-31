@@ -415,9 +415,9 @@ spec:
 
               if [[ -n "${SKIP_TESTS}" ]]; then
                 echo "Running Cypress tests with grep pattern: ${SKIP_TESTS}"
-                npx cypress run --browser chrome --headless --env grep="${SKIP_TESTS}",grepOmitFiltered=true || true
+                npx cypress run --browser chrome --headless --env grep="${SKIP_TESTS}",grepOmitFiltered=true
               else
                 echo "Running all Cypress tests"
-                npm run test-cypress-console-headless || true
+                npm run test-cypress-console-headless
               fi
 
