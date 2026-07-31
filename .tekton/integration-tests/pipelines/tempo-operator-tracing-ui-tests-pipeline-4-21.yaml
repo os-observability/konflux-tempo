@@ -362,13 +362,6 @@ spec:
                   secretKeyRef:
                     name: lightspeed-credentials
                     key: lightspeed-provider-token
-            computeResources:
-              requests:
-                cpu: "1"
-                memory: 3Gi
-              limits:
-                cpu: "8"
-                memory: 8Gi
             image: quay.io/redhat-distributed-tracing-qe/cypress-base:latest
             script: |
               #!/bin/bash
