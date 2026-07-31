@@ -9,6 +9,8 @@ on:
     paths:
       - 'bundle-patch/bundle.env'
 
+permissions: {}
+
 jobs:
   check-multiarch:
     runs-on: ubuntu-latest
@@ -27,11 +29,6 @@ jobs:
           registry: registry.redhat.io
           username: ${{ secrets.RH_REGISTRY_USERNAME }}
           password: ${{ secrets.RH_REGISTRY_TOKEN }}
-
-      - name: Download the script
-        run: |
-          wget https://raw.githubusercontent.com/os-observability/konflux-opentelemetry/refs/heads/main/scripts/check-image-multiarch.sh
-          chmod +x check-image-multiarch.sh
 
       - name: Check multi-arch images
         run: |
@@ -62,7 +59,7 @@ jobs:
             echo ""
             echo "Checking $var: $image"
 
-            if ! ./check-image-multiarch.sh "$image"; then
+            if ! ./scripts/check-image-multiarch.sh "$image"; then
               failed_checks=$((failed_checks + 1))
             fi
           done
