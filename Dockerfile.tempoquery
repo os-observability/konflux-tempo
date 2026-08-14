@@ -54,6 +54,7 @@ LABEL release="${VERSION}" \
       name="rhosdt/tempo-query-rhel9" \
       summary="Tempo Query" \
       description="This container exposes a Jaeger Query compatible API from Tempo" \
+      maintainer="Red Hat <support@redhat.com>" \
       io.k8s.description="This container exposes a Jaeger Query compatible API from Tempo." \
       io.openshift.expose-services="16686:http,16687:metrics" \
       io.openshift.tags="tracing" \

@@ -49,6 +49,7 @@ LABEL release="${VERSION}" \
       name="rhosdt/tempo-gateway-opa-rhel9" \
       summary="Tempo OPA OpenShift" \
       description="An OPA-compatible API for making OpenShift access review requests" \
+      maintainer="Red Hat <support@redhat.com>" \
       io.k8s.description="An OPA-compatible API for making OpenShift access review requests." \
       io.openshift.tags="tracing" \
       io.k8s.display-name="Tempo OPA" \
