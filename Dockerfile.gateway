@@ -49,6 +49,7 @@ LABEL release="${VERSION}" \
       name="rhosdt/tempo-gateway-rhel9" \
       summary="Tempo Gateway" \
       description="Horizontally-scalable authn/authz-securing reverse proxy for Tempo" \
+      maintainer="Red Hat <support@redhat.com>" \
       io.k8s.description="Horizontally-scalable authn/authz-securing reverse proxy for Tempo." \
       io.openshift.tags="tracing" \
       io.k8s.display-name="Tempo Gateway" \

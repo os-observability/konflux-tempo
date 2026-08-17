@@ -68,6 +68,7 @@ LABEL release="${VERSION}" \
       name="rhosdt/tempo-rhel9-operator" \
       summary="Tempo Operator" \
       description="Operator for the Tempo" \
+      maintainer="Red Hat <support@redhat.com>" \
       io.k8s.description="Operator for the Tempo." \
       io.openshift.expose-services="" \
       io.openshift.tags="tracing" \

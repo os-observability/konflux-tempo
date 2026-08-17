@@ -55,6 +55,7 @@ LABEL release="${VERSION}" \
       name="rhosdt/tempo-rhel9" \
       summary="Tempo server" \
       description="Container for Tempo application" \
+      maintainer="Red Hat <support@redhat.com>" \
       io.k8s.description="Container for Tempo application." \
       io.openshift.expose-services="3100:http,4317:otlp-grpc,4318:otlp-http" \
       io.openshift.tags="tracing" \
