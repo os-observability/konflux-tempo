@@ -6,13 +6,19 @@ set -euo pipefail
 
 
 # TODO: update version (major.minor)
-RHOSDT_VERSION=3.10
+RHOSDT_VERSION=3.11
 # TODO: set latest supported OCP version, see https://access.redhat.com/support/policy/updates/openshift#dates
 MIN_OPENSHIFT_VERSION=4.12
 
 
 echo "Fetching tags of all submodules..."
-git submodule foreach --recursive "git fetch --tags" > /dev/null 2>&1
+git -C tempo remote add upstream https://github.com/grafana/tempo.git 2>/dev/null || true
+git -C tempo-operator remote add upstream https://github.com/grafana/tempo-operator.git 2>/dev/null || true
+git -C api remote add upstream https://github.com/observatorium/api.git 2>/dev/null || true
+git -C opa-openshift remote add upstream https://github.com/observatorium/opa-openshift.git 2>/dev/null || true
+git -C jaeger remote add upstream https://github.com/jaegertracing/jaeger.git 2>/dev/null || true
+git -C jaeger-ui remote add upstream https://github.com/jaegertracing/jaeger-ui.git 2>/dev/null || true
+git submodule foreach --recursive "git fetch --tags upstream"
 OPERATOR_VERSION=$(cd tempo-operator && git describe --tags --abbrev=0 | sed 's/^v//')
 OPERATOR_TEMPO_VERSION=$(grep -oP '^TEMPO_VERSION \?= \K.*' tempo-operator/Makefile)
 TEMPO_VERSION=$(cd tempo && git describe --tags --abbrev=0 | sed 's/^v//')

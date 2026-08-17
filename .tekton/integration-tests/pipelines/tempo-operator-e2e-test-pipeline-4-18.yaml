@@ -30,22 +30,22 @@ spec:
       default: "0.21.0"
     - name: operator_tempo_version
       description: Version of Tempo in the operator
-      default: "2.10.5"
+      default: "2.10.8"
     - name: operator_tempo_query_version
       description: Version of Tempo query in the operator
-      default: "2.10.5"
+      default: "2.10.8"
     - name: operand_tempo_version
       description: Version of the Tempo operand
-      default: "2.10.7"
+      default: "2.10.8"
     - name: tempo_tests_branch
       description: "The repository branch from which to run the tests"
-      default: "rhosdt-3.10"
+      default: "rhosdt-3.11"
     - name: skip_tests
       description: "Tests to be skipped seperated with a space delimiter"
       default: "tests/e2e-openshift-object-stores/* tests/e2e-openshift-ossm/* tests/e2e/generate"
     - name: rhosdt_version
       description: "RHOSDT product version used to tag RapiDAST scan results in GCS"
-      default: "3.10"
+      default: "3.11"
   tasks:
     - name: parse-metadata
       taskRef:
