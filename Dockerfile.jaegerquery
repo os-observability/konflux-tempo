@@ -39,7 +39,7 @@ RUN go version && \
     exportOrFail() { echo $1; if [[ $1 == *= ]]; then echo "Error: empty variable assignment"; exit 1; else export "$1"; fi } && \
     exportOrFail VERSION_PKG="github.com/jaegertracing/jaeger/internal/version" && \
     exportOrFail VERSION_DATE=`date -u +'%Y-%m-%dT%H:%M:%SZ'` && \
-    exportOrFail GIT_LATEST_TAG="1.68.0" && \
+    exportOrFail GIT_LATEST_TAG="3.10-fbc" && \
     exportOrFail GIT_COMMIT_SHA=`git rev-parse HEAD` && \
     CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -C ./cmd/query -mod=mod -tags strictfipsruntime,ui \
       -o ./jaeger -trimpath -ldflags "-s -w \
@@ -60,7 +60,7 @@ RUN rm -rf /mnt/rootfs/var/cache/*
 
 FROM scratch
 
-ARG VERSION=0.21.0-4
+ARG VERSION=0.22.0-1
 
 WORKDIR /opt/app-root/src/
 COPY --from=install-additional-packages /mnt/rootfs/ /

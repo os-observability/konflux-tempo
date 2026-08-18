@@ -24,10 +24,10 @@ spec:
       default: 'openshift-tempo-operator'
     - name: operand_jaeger_query_version
       description: Version of Jaeger Query operand
-      default: "1.68.0"
+      default: "3.10-fbc"
     - name: operator_version
       description: Version of the operator
-      default: "0.21.0"
+      default: "0.22.0"
     - name: operator_tempo_version
       description: Version of Tempo in the operator
       default: "2.10.8"
@@ -36,7 +36,7 @@ spec:
       default: "2.10.8"
     - name: operand_tempo_version
       description: Version of the Tempo operand
-      default: "2.10.8"
+      default: "3.10-fbc"
     - name: tempo_tests_branch
       description: "The repository branch from which to run the tests"
       default: "rhosdt-3.11"
