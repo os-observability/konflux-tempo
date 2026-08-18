@@ -27,7 +27,7 @@ spec:
       default: "1.68.0"
     - name: operator_version
       description: Version of the operator
-      default: "0.21.0"
+      default: "0.22.0"
     - name: operator_tempo_version
       description: Version of Tempo in the operator
       default: "2.10.8"
