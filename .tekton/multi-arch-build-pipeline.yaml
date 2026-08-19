@@ -21,11 +21,13 @@ spec:
     name: output-image
     type: string
   - default: .
-    description: Path to the source code of an application's component from where to build image.
+    description: Path to the source code of an application's component from where
+      to build image.
     name: path-context
     type: string
   - default: Dockerfile
-    description: Path to the Dockerfile inside the context specified by parameter path-context
+    description: Path to the Dockerfile inside the context specified by parameter
+      path-context
     name: dockerfile
     type: string
   - default: "false"
@@ -41,7 +43,8 @@ spec:
     name: prefetch-input
     type: string
   - default: ""
-    description: Image tag expiration time, time values could be something like 1h, 2d, 3w for hours, days, and weeks, respectively.
+    description: Image tag expiration time, time values could be something like
+      1h, 2d, 3w for hours, days, and weeks, respectively.
     name: image-expires-after
     type: string
   - default: "false"
@@ -52,6 +55,22 @@ spec:
     description: Add built image into an OCI image index
     name: build-image-index
     type: string
+  - default: docker
+    description: The format for the resulting image's mediaType. Valid values are
+      oci or docker.
+    name: buildah-format
+    type: string
+  - default: "false"
+    description: Enable cache proxy configuration
+    name: enable-cache-proxy
+  - default: "true"
+    description: Use the package registry proxy when prefetching dependencies
+    name: enable-package-registry-proxy
+  - default: .
+    description: Target directories in component's source code to scan with SAST
+      tools. Multiple values should be separated with commas.
+    name: sast-target-dirs
+    type: string
   - default: []
     description: Array of --build-arg values ("arg=value" strings) for buildah
     name: build-args
@@ -61,14 +80,33 @@ spec:
     name: build-args-file
     type: string
   - default: "false"
-    description: Whether to enable privileged mode, should be used only with remote VMs
+    description: Whether to enable privileged mode, should be used only with remote
+      VMs
     name: privileged-nested
+    type: string
+  - default: ""
+    description: Sets the image created time and the SOURCE_DATE_EPOCH build argument.
+      On its own, it does not change file timestamps inside the layers (set rewrite-timestamp
+      to "true" for that). Leave empty to keep the actual build time.
+    name: source-date-epoch
+    type: string
+  - default: "false"
+    description: When "true", clamp file modification times in the image layers
+      to at most source-date-epoch. Does nothing unless source-date-epoch is set.
+    name: rewrite-timestamp
+    type: string
+  - default: "false"
+    description: When "true", omit the build history (history timestamps, layer
+      metadata, etc.) from the resulting image.
+    name: omit-history
     type: string
   - default:
     - linux/x86_64
-    description: List of platforms to build the container images on. The available set of values is determined by the configuration of the multi-platform-controller.
+    description: List of platforms to build the container images on. The available
+      set of values is determined by the configuration of the multi-platform-controller.
     name: build-platforms
     type: array
+  # custom params
   - name: snyk-project
     type: string
     description: Snyk project name
@@ -77,30 +115,6 @@ spec:
     type: string
     description: Ignore snyk project paths (comma separated)
     default: ""
-  - name: buildah-format
-    default: docker
-    type: string
-    description: The format for the resulting image's mediaType. Valid values are oci or docker.
-  - name: enable-package-registry-proxy
-    default: 'true'
-    description: Use the package registry proxy when prefetching dependencies
-    type: string
-  - name: sast-target-dirs
-    type: string
-    default: .
-    description: Target directories to scan with SAST tools. Multiple values should be separated with commas.
-  - name: source-date-epoch
-    type: string
-    default: ''
-    description: Sets the image created time and the SOURCE_DATE_EPOCH build argument. On its own, it does not change file timestamps inside the layers (set rewrite-timestamp to "true" for that). Leave empty to keep the actual build time.
-  - name: rewrite-timestamp
-    type: string
-    default: 'false'
-    description: When "true", clamp file modification times in the image layers to at most source-date-epoch. Does nothing unless source-date-epoch is set.
-  - name: omit-history
-    type: string
-    default: 'false'
-    description: When "true", omit the build history (history timestamps, layer metadata, etc.) from the resulting image.
   results:
   - description: ""
     name: IMAGE_URL
@@ -116,6 +130,9 @@ spec:
     value: $(tasks.clone-repository.results.commit)
   tasks:
   - name: init
+    params:
+    - name: enable-cache-proxy
+      value: $(params.enable-cache-proxy)
     taskRef:
       params:
       - name: name
@@ -135,10 +152,6 @@ spec:
       value: $(params.output-image).git
     - name: ociArtifactExpiresAfter
       value: $(params.image-expires-after)
-    - name: fetchTags
-      value: "true"
-    - name: depth
-      value: "20"
     runAfter:
     - init
     taskRef:
@@ -157,14 +170,14 @@ spec:
     params:
     - name: input
       value: $(params.prefetch-input)
+    - name: enable-package-registry-proxy
+      value: $(params.enable-package-registry-proxy)
     - name: SOURCE_ARTIFACT
       value: $(tasks.clone-repository.results.SOURCE_ARTIFACT)
     - name: ociStorage
       value: $(params.output-image).prefetch
     - name: ociArtifactExpiresAfter
       value: $(params.image-expires-after)
-    - name: enable-package-registry-proxy
-      value: $(params.enable-package-registry-proxy)
     runAfter:
     - clone-repository
     taskRef:
@@ -211,20 +224,24 @@ spec:
       value: $(params.privileged-nested)
     - name: SOURCE_URL
       value: $(tasks.clone-repository.results.url)
-    - name: SOURCE_ARTIFACT
-      value: $(tasks.prefetch-dependencies.results.SOURCE_ARTIFACT)
-    - name: CACHI2_ARTIFACT
-      value: $(tasks.prefetch-dependencies.results.CACHI2_ARTIFACT)
-    - name: IMAGE_APPEND_PLATFORM
-      value: "true"
     - name: BUILDAH_FORMAT
       value: $(params.buildah-format)
+    - name: HTTP_PROXY
+      value: $(tasks.init.results.http-proxy)
+    - name: NO_PROXY
+      value: $(tasks.init.results.no-proxy)
     - name: SOURCE_DATE_EPOCH
       value: $(params.source-date-epoch)
     - name: REWRITE_TIMESTAMP
       value: $(params.rewrite-timestamp)
     - name: OMIT_HISTORY
       value: $(params.omit-history)
+    - name: SOURCE_ARTIFACT
+      value: $(tasks.prefetch-dependencies.results.SOURCE_ARTIFACT)
+    - name: CACHI2_ARTIFACT
+      value: $(tasks.prefetch-dependencies.results.CACHI2_ARTIFACT)
+    - name: IMAGE_APPEND_PLATFORM
+      value: "true"
     runAfter:
     - prefetch-dependencies
     taskRef:
@@ -364,6 +381,8 @@ spec:
       value: $(tasks.build-image-index.results.IMAGE_DIGEST)
     - name: image-url
       value: $(tasks.build-image-index.results.IMAGE_URL)
+    - name: TARGET_DIRS
+      value: $(params.sast-target-dirs)
     - name: SOURCE_ARTIFACT
       value: $(tasks.prefetch-dependencies.results.SOURCE_ARTIFACT)
     - name: CACHI2_ARTIFACT
@@ -372,8 +391,6 @@ spec:
       value: "--project-name=$(params.snyk-project) --report --org=0eebca54-4fa1-4638-9ac6-f95f789a9d3e"
     - name: IGNORE_FILE_PATHS
       value: $(params.snyk-ignore-file-paths)
-    - name: TARGET_DIRS
-      value: $(params.sast-target-dirs)
     runAfter:
     - build-image-index
     taskRef:
@@ -423,12 +440,12 @@ spec:
       value: $(tasks.build-image-index.results.IMAGE_DIGEST)
     - name: image-url
       value: $(tasks.build-image-index.results.IMAGE_URL)
+    - name: TARGET_DIRS
+      value: $(params.sast-target-dirs)
     - name: SOURCE_ARTIFACT
       value: $(tasks.prefetch-dependencies.results.SOURCE_ARTIFACT)
     - name: CACHI2_ARTIFACT
       value: $(tasks.prefetch-dependencies.results.CACHI2_ARTIFACT)
-    - name: TARGET_DIRS
-      value: $(params.sast-target-dirs)
     runAfter:
     - build-image-index
     taskRef:
@@ -451,12 +468,12 @@ spec:
       value: $(tasks.build-image-index.results.IMAGE_DIGEST)
     - name: image-url
       value: $(tasks.build-image-index.results.IMAGE_URL)
+    - name: TARGET_DIRS
+      value: $(params.sast-target-dirs)
     - name: SOURCE_ARTIFACT
       value: $(tasks.prefetch-dependencies.results.SOURCE_ARTIFACT)
     - name: CACHI2_ARTIFACT
       value: $(tasks.prefetch-dependencies.results.CACHI2_ARTIFACT)
-    - name: TARGET_DIRS
-      value: $(params.sast-target-dirs)
     runAfter:
     - build-image-index
     taskRef:
