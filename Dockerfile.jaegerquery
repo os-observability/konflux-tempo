@@ -41,7 +41,7 @@ RUN go version && \
     exportOrFail VERSION_DATE=`date -u +'%Y-%m-%dT%H:%M:%SZ'` && \
     exportOrFail GIT_LATEST_TAG="1.68.0" && \
     exportOrFail GIT_COMMIT_SHA=`git rev-parse HEAD` && \
-    CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -C ./cmd/query -mod=mod -tags strictfipsruntime,ui \
+    CGO_ENABLED=0 GOFIPS140=certified go build -C ./cmd/query -mod=mod -tags no_openssl,ui \
       -o ./jaeger -trimpath -ldflags "-s -w \
                 -X ${VERSION_PKG}.commitSHA=${GIT_COMMIT_SHA} \
                 -X ${VERSION_PKG}.latestVersion=${GIT_LATEST_TAG} \
@@ -53,7 +53,7 @@ FROM registry.redhat.io/ubi9/ubi:latest@sha256:5426a8f45e80a07168a30ea24d84f2660
 COPY --from=target-base / /mnt/rootfs
 RUN rpm --root /mnt/rootfs --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 
-RUN dnf install --installroot /mnt/rootfs --releasever 9 --setopt install_weak_deps=false --setopt reposdir=/etc/yum.repos.d --nodocs -y openssl systemd && \
+RUN dnf install --installroot /mnt/rootfs --releasever 9 --setopt install_weak_deps=false --setopt reposdir=/etc/yum.repos.d --nodocs -y systemd && \
     dnf clean all && \
     rm -rf /var/cache/yum
 RUN rm -rf /mnt/rootfs/var/cache/*
@@ -69,6 +69,7 @@ RUN mkdir /licenses
 COPY jaeger/LICENSE /licenses/.
 COPY --from=builder /opt/app-root/src/jaeger/cmd/query/jaeger /usr/bin/jaeger
 
+ENV GODEBUG=fips140=auto
 ARG USER_UID=1001
 USER ${USER_UID}
 ENTRYPOINT ["/usr/bin/jaeger"]

@@ -13,7 +13,7 @@ COPY opa-openshift opa-openshift
 COPY api/LICENSE /licenses/
 WORKDIR /opt/app-root/src/opa-openshift
 
-RUN CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -mod=mod -tags strictfipsruntime -o opa-openshift -trimpath -ldflags "-s -w"
+RUN CGO_ENABLED=0 GOFIPS140=certified go build -mod=mod -tags no_openssl -o opa-openshift -trimpath -ldflags "-s -w"
 
 FROM registry.redhat.io/ubi9/ubi-micro:latest@sha256:7e7f79ab747bf2b452e3043dd89f388e92be4c7fdcc8b815b58adf6c99c39c95 AS target-base
 
@@ -21,7 +21,7 @@ FROM registry.redhat.io/ubi9/ubi:latest@sha256:5426a8f45e80a07168a30ea24d84f2660
 COPY --from=target-base / /mnt/rootfs
 RUN rpm --root /mnt/rootfs --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 
-RUN dnf install --installroot /mnt/rootfs --releasever 9 --setopt install_weak_deps=false --setopt reposdir=/etc/yum.repos.d --nodocs -y openssl systemd && \
+RUN dnf install --installroot /mnt/rootfs --releasever 9 --setopt install_weak_deps=false --setopt reposdir=/etc/yum.repos.d --nodocs -y systemd && \
     dnf clean all && \
     rm -rf /var/cache/yum
 RUN rm -rf /mnt/rootfs/var/cache/*
@@ -36,6 +36,7 @@ RUN mkdir /licenses
 COPY opa-openshift/LICENSE /licenses/.
 COPY --from=builder /opt/app-root/src/opa-openshift/opa-openshift /usr/bin/opa-openshift
 
+ENV GODEBUG=fips140=auto
 ARG USER_UID=1001
 USER ${USER_UID}
 ENTRYPOINT ["/usr/bin/opa-openshift"]
