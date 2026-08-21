@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi9/ubi:latest@sha256:5426a8f45e80a07168a30ea24d84f266094b3756624a5508cc53927e6ee39e09 as builder
+FROM registry.redhat.io/ubi9/ubi:latest@sha256:5426a8f45e80a07168a30ea24d84f266094b3756624a5508cc53927e6ee39e09 AS builder
 
 WORKDIR /opt/app-root/src
 USER root
@@ -10,26 +10,12 @@ RUN dnf install --nodocs -y golang && \
 COPY .git .git
 COPY opa-openshift opa-openshift
 # this directory is checked by ecosystem-cert-preflight-checks task in Konflux
-COPY api/LICENSE /licenses/
+COPY opa-openshift/LICENSE /licenses/
 WORKDIR /opt/app-root/src/opa-openshift
 
 RUN CGO_ENABLED=0 GOFIPS140=certified go build -mod=mod -tags no_openssl -o opa-openshift -trimpath -ldflags "-s -w"
 
-FROM registry.redhat.io/ubi9/ubi-micro:latest@sha256:7e7f79ab747bf2b452e3043dd89f388e92be4c7fdcc8b815b58adf6c99c39c95 AS target-base
-
-FROM registry.redhat.io/ubi9/ubi:latest@sha256:5426a8f45e80a07168a30ea24d84f266094b3756624a5508cc53927e6ee39e09 as install-additional-packages
-COPY --from=target-base / /mnt/rootfs
-RUN rpm --root /mnt/rootfs --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
-
-RUN dnf install --installroot /mnt/rootfs --releasever 9 --setopt install_weak_deps=false --setopt reposdir=/etc/yum.repos.d --nodocs -y systemd && \
-    dnf clean all && \
-    rm -rf /var/cache/yum
-RUN rm -rf /mnt/rootfs/var/cache/*
-
-FROM scratch
-WORKDIR /
-COPY --from=install-additional-packages /mnt/rootfs/ /
-
+FROM registry.redhat.io/ubi9/ubi-micro:latest@sha256:7e7f79ab747bf2b452e3043dd89f388e92be4c7fdcc8b815b58adf6c99c39c95
 ARG VERSION=0.22.0-1
 
 RUN mkdir /licenses
