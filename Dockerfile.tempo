@@ -17,7 +17,7 @@ RUN exportOrFail() { echo $1; if [[ $1 == *= ]]; then echo "Error: empty variabl
     exportOrFail GIT_BRANCH=`git rev-parse --abbrev-ref HEAD` && \
     exportOrFail GIT_REVISION=`git rev-parse --short HEAD` && \
     exportOrFail VERSION="2.10.8" && \
-    CGO_ENABLED=1 GOEXPERIMENT=strictfipsruntime go build -C ./cmd/tempo -tags strictfipsruntime -mod vendor \
+    CGO_ENABLED=0 GOFIPS140=certified go build -C ./cmd/tempo -tags no_openssl -mod vendor \
       -o "tempo" -trimpath -ldflags "-s -w -X main.Branch=${GIT_BRANCH} -X main.Revision=${GIT_REVISION} -X main.Version=${VERSION}"
 
 FROM registry.redhat.io/ubi9/ubi-micro:latest@sha256:7e7f79ab747bf2b452e3043dd89f388e92be4c7fdcc8b815b58adf6c99c39c95 AS target-base
@@ -26,7 +26,7 @@ FROM registry.redhat.io/ubi9/ubi:latest@sha256:5426a8f45e80a07168a30ea24d84f2660
 COPY --from=target-base / /mnt/rootfs
 RUN rpm --root /mnt/rootfs --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 
-RUN dnf install --installroot /mnt/rootfs --releasever 9 --setopt install_weak_deps=false --setopt reposdir=/etc/yum.repos.d --nodocs -y openssl systemd && \
+RUN dnf install --installroot /mnt/rootfs --releasever 9 --setopt install_weak_deps=false --setopt reposdir=/etc/yum.repos.d --nodocs -y systemd && \
     dnf clean all && \
     rm -rf /var/cache/yum
 RUN rm -rf /mnt/rootfs/var/cache/*
@@ -41,6 +41,7 @@ RUN mkdir /licenses
 COPY tempo/LICENSE /licenses/.
 COPY --from=builder /opt/app-root/src/tempo/cmd/tempo/tempo /usr/bin/tempo
 
+ENV GODEBUG=fips140=auto
 ARG USER_UID=1001
 USER ${USER_UID}
 ENTRYPOINT ["/usr/bin/tempo"]

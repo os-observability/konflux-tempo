@@ -8,7 +8,6 @@ contentOrigin:
 packages:
   - git
   - golang
-  - openssl
   - systemd
   - patch
 arches:
