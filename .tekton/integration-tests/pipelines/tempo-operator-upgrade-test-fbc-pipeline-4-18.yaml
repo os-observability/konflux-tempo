@@ -252,6 +252,7 @@ spec:
               unset NAMESPACE
 
               # Execute Tempo e2e tests
+              set -x
               chainsaw test --quiet --config .chainsaw-openshift.yaml tests/e2e-openshift-upgrade --values - <<EOF
               upgrade_fbc_image: $FBC_FRAGMENT
               upgrade_operator_version: $TEMPO_OPERATOR_VERSION
