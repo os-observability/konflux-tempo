@@ -4,9 +4,6 @@
     "registry.redhat.io/openshift4/ose-operator-registry",
     "registry.redhat.io/openshift4/ose-operator-registry-rhel9"
   ],
-  "git-submodules": {
-    "enabled": false
-  },
   "packageRules": [
     {
       "groupName": "ubi9",
