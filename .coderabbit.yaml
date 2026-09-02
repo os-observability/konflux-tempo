@@ -1,0 +1,17 @@
+# Initial configuration taken from the internal "Using CodeRabbit" document.
+# Inherits org-wide settings from https://github.com/openshift/coderabbit/blob/main/.coderabbit.yaml
+---
+inheritance: true
+reviews:
+  high_level_summary: false
+  high_level_summary_in_walkthrough: true
+  changed_files_summary: false
+  request_changes_workflow: true
+  path_instructions:
+    - path: '**'
+      instructions: >-
+        Focus on major issues impacting performance, readability, maintainability and security.
+        Avoid nitpicks and avoid verbosity.
+  auto_review:
+    ignore_title_keywords:
+      - WIP
