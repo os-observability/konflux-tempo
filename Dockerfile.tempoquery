@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi9/ubi:latest@sha256:f405b019ad4f6ebf9097b636e83b363b1f11afe26557b7896fabff954b65a1b8 AS builder
+FROM registry.redhat.io/ubi9/ubi:latest@sha256:25a147defd01e19674714f55d17538c8dbe55d8c305fa157ecc3f9c8977b05b6 AS builder
 
 WORKDIR /opt/app-root/src
 USER root
