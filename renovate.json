@@ -2,7 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "ignoreDeps": [
     "registry.redhat.io/openshift4/ose-operator-registry",
-    "registry.redhat.io/openshift4/ose-operator-registry-rhel9"
+    "registry.redhat.io/openshift4/ose-operator-registry-rhel9",
+    "registry.redhat.io/openshift5/ose-operator-registry-rhel9"
   ],
   "git-submodules": {
     "enabled": false
