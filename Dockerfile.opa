@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi9/ubi:latest@sha256:206b65b8ee0f04b992818c9a51b29081b14974630d4850bc358097d0c44ea156 AS builder
+FROM registry.redhat.io/ubi9/ubi:latest@sha256:c5cc9c221baa8eb13093f90c31bb58c04d83f6afd14510d3496691f92566f99e AS builder
 WORKDIR /opt/app-root/src
 USER root
 
@@ -14,8 +14,8 @@ WORKDIR /opt/app-root/src/opa-openshift
 
 RUN CGO_ENABLED=0 GOFIPS140=certified go build -mod=mod -tags no_openssl -o opa-openshift -trimpath -ldflags "-s -w"
 
-FROM registry.redhat.io/ubi9/ubi-micro:latest@sha256:f332c99eb8f798a8486821c91937f10ad64ee83d7e739303be2df051040918f6 AS ubi-micro-base
-FROM registry.redhat.io/ubi9/ubi:latest@sha256:206b65b8ee0f04b992818c9a51b29081b14974630d4850bc358097d0c44ea156 AS image-builder
+FROM registry.redhat.io/ubi9/ubi-micro:latest@sha256:7a0454cbd9bd847e8f6a63b6f0254a6efbeb6e0ed71a5d824a4f6cccbe626650 AS ubi-micro-base
+FROM registry.redhat.io/ubi9/ubi:latest@sha256:c5cc9c221baa8eb13093f90c31bb58c04d83f6afd14510d3496691f92566f99e AS image-builder
 COPY --from=ubi-micro-base / /mnt/rootfs
 
 RUN rpm --root /mnt/rootfs --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release && \
