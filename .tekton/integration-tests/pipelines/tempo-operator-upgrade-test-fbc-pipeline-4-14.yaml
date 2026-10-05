@@ -27,7 +27,7 @@ spec:
     - name: operator_csv_version
       description: Version of the operator
       type: string
-      default: "tempo-operator.v0.22.0-2"
+      default: "tempo-operator.v0.22.0-3"
     - name: operator_version
       description: Version of the operator
       type: string

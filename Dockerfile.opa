@@ -40,7 +40,7 @@ ARG USER_UID=1001
 USER ${USER_UID}
 ENTRYPOINT ["/usr/bin/opa-openshift"]
 
-ARG VERSION=0.22.0-2
+ARG VERSION=0.22.0-3
 LABEL release="${VERSION}" \
       version="${VERSION}" \
       vendor="Red Hat, Inc." \
