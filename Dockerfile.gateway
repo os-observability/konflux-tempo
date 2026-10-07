@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi9/ubi:latest@sha256:094ea2ecfd3225af8f93807b99daa9ff33710fc705ebdf6e8466f46ed605585c AS builder
+FROM registry.redhat.io/ubi9/ubi:latest@sha256:5858f9ace07316e3b12caab62f6c2481a5030bb6bafdca5a9ea324c321ef36df AS builder
 WORKDIR /opt/app-root/src
 USER root
 
@@ -15,7 +15,7 @@ WORKDIR /opt/app-root/src/api
 RUN CGO_ENABLED=0 GOFIPS140=certified go build -mod=mod -tags no_openssl -o tempostack-gateway -trimpath -ldflags "-s -w"
 
 FROM registry.redhat.io/ubi9/ubi-micro:latest@sha256:7a0454cbd9bd847e8f6a63b6f0254a6efbeb6e0ed71a5d824a4f6cccbe626650 AS ubi-micro-base
-FROM registry.redhat.io/ubi9/ubi:latest@sha256:094ea2ecfd3225af8f93807b99daa9ff33710fc705ebdf6e8466f46ed605585c AS image-builder
+FROM registry.redhat.io/ubi9/ubi:latest@sha256:5858f9ace07316e3b12caab62f6c2481a5030bb6bafdca5a9ea324c321ef36df AS image-builder
 COPY --from=ubi-micro-base / /mnt/rootfs
 
 RUN rpm --root /mnt/rootfs --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release && \
