@@ -52,7 +52,7 @@ spec:
       default: "2.10.8"
     - name: operand_tempo_version
       description: Version of the Tempo operand
-      default: "2.10.8"
+      default: "2.10.10"
     - name: tempo_tests_branch
       description: "The repository branch from which to run the tests"
       default: "rhosdt-3.11"
