@@ -95,6 +95,9 @@ entries:
   - name: tempo-operator.v0.22.0-3
     replaces: tempo-operator.v0.22.0-2
     skipRange: '>=0.6.0 <0.22.0-3'
+  - name: tempo-operator.v0.22.0-4
+    replaces: tempo-operator.v0.22.0-3
+    skipRange: '>=0.6.0 <0.22.0-4'
   name: stable
   package: tempo-product
   schema: olm.channel
@@ -158,6 +161,8 @@ entries:
   schema: olm.bundle
 - image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:cf394fa87b66b28010dc30076ba9051589bf9912c099bf354312914473db8c20
   schema: olm.bundle
-- image: quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-bundle@sha256:a0080dbd55d476469c23c601acb8eaadc7ba76ffae1fa54a6de3cee80f57884a
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:a0080dbd55d476469c23c601acb8eaadc7ba76ffae1fa54a6de3cee80f57884a
+  schema: olm.bundle
+- image: quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-bundle@sha256:a33974d5850474d2f7fbb84389a99f04679cf8fcfcea7a03d455aa9026448e13
   schema: olm.bundle
 schema: olm.template.basic
