@@ -104,70 +104,70 @@ entries:
   name: stable
   package: tempo-product
   schema: olm.channel
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:ff86c632e7eadeae0c2f50f7b9ef1d5cb2d05ed69ec618494bf164a980a5c54e
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0f66fffabab48f6084cbdd1495c70825b6cc411d3447bee20cb41a437b8d394a
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:b983271f0f7c78154bb832360c6713f58f038831a4eae3fc2d909cca44e7cf66
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:57cbaada2dce7abcabaf94d441e07d77126a60726adbb829808e157f9d0897cb
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:2e24ee74d2cc78c6c11f9a62f9d086e3a7c0b3009cb56734477447ea79aaeb76
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:ad1da7f9941a2a887431da733bf7e59ef931ea281cf6c36da49fb1dc1a4c4cfc
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:c5d81042ce8d2f6e65b2092fb1ccbe45a2845990b54a5a2454bbf8c1eebbf2eb
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:b6ec1460415bf8c69d82cf9267494dc5445242b6a0957318eae5bf333693cb2e
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:d3d446b9adaebd3985fb8d78176100156d9133ec2cf956d92e07c3651e60cc3d
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:153aea091df302b13f4c59ed8810ed6b9ecb850f43cf94d970ce24e6a1335499
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:c6c6a80101bb29b78299f2678d15822cf8d8eec300ca55c27549f1dbb1c83d9f
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:a980e21c5cf96387bee07f2f271e73060bb5032ac969d678dc1f718841531ecb
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:fd49fd51bd9c033317ca2ea172e6a21c84ccc17b609f9e5543ece39dd5ec8808
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:57bc41197c16796b9b4a571cb03932566ab1c0ac763992e3372cbb6530cf24f7
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:311f7152652df58705aeda77b9053e29f2333a146eb8f686db39938cb2c84f90
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:17ae8fbf2ee001c15f56d8e0c478d0b6d859d3a1513360a756418566ddb5961d
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:85feb99b001b571ca08d88c1a7eb10cdf02c71d951a240098f39066fe99203df
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:bcc3521d20a1662d4032901f46e3bd4744c9910b060f52bdf10c6a8dfea1276b
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:a3b655318bd147566d238e773a64879c5dc9352f8cd7748fa7bfbc7efe1b3952
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:f25a68576e0f207084864219afd15e6545e4942671cf52703cb97d1c37cc29da
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:59faa931ced3fb7d6121c0dd212e0a43e99d6e09d01a8eb0cf77694dabaabdac
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:5aa0efed8dcaa243a0ef634ff9bb1c5c1cd0604b9126ca8c5d2be783b0ce9ce4
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:90d1a71febb6cac99b64fc4863bcb66b11aa18c30dad93b244aca3290c3574e0
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:44aab3cb00053aff888ce8bbadca241807c6d400e881db4208dbcd1c311335ad
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:d180bac53d873bba131cedd40db06cd784d8dc4795d9bff85a6b33921cc1dd9c
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:03cbea46e6fb4147cb6bcdccd049a1609d3f66901cb125363c52bb821a8ade47
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:3553b5e91195dcf76755e3c59bcc3ec8edda71dd367c6dc1b1ddfb4c38ab1d66
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:40c77256530f670a5951bb76fd98780b04756f5bc533c885dcd227a0155ad303
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:4ae2a2bd47e0e8ddbdab9651326df3a903d5df4205731e603302c52fecbce408
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:cf394fa87b66b28010dc30076ba9051589bf9912c099bf354312914473db8c20
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:a0080dbd55d476469c23c601acb8eaadc7ba76ffae1fa54a6de3cee80f57884a
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:a33974d5850474d2f7fbb84389a99f04679cf8fcfcea7a03d455aa9026448e13
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
-- image: quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-bundle@sha256:7025be09dbb8c0a34558337466d7a570125b32af71b1d1f9f711e910291a21f5
+- image: quay.io/redhat-user-workloads/rhosdt-tenant/tempo/tempo-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   schema: olm.bundle
 schema: olm.template.basic
