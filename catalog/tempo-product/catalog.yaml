@@ -105,7 +105,7 @@ name: stable
 package: tempo-product
 schema: olm.channel
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:ff86c632e7eadeae0c2f50f7b9ef1d5cb2d05ed69ec618494bf164a980a5c54e
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.1.0-6
 package: tempo-product
 properties:
@@ -148,7 +148,7 @@ properties:
 relatedImages:
 - image: registry.redhat.io/openshift4/ose-kube-rbac-proxy@sha256:4564ca3dc5bac80d6faddaf94c817fbbc270698a9399d8a21ee1005d85ceda56
   name: kube-rbac-proxy
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:ff86c632e7eadeae0c2f50f7b9ef1d5cb2d05ed69ec618494bf164a980a5c54e
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-rhel8-operator@sha256:cf9fd7d22321218a57498e787cf15be23fd47036120463fafea877bffd97fee0
   name: tempo-rhel8-operator-cf9fd7d22321218a57498e787cf15be23fd47036120463fafea877bffd97fee0-annotation
@@ -156,7 +156,7 @@ relatedImages:
   name: manager
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0f66fffabab48f6084cbdd1495c70825b6cc411d3447bee20cb41a437b8d394a
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.1.0-6-0.1687199947.p
 package: tempo-product
 properties:
@@ -199,7 +199,7 @@ properties:
 relatedImages:
 - image: registry.redhat.io/openshift4/ose-kube-rbac-proxy@sha256:4564ca3dc5bac80d6faddaf94c817fbbc270698a9399d8a21ee1005d85ceda56
   name: kube-rbac-proxy
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0f66fffabab48f6084cbdd1495c70825b6cc411d3447bee20cb41a437b8d394a
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-rhel8-operator@sha256:0b78c42253e6a036892e3c04b97c4ed5a1f4d15bfd5cd8e563c61df71469bf6f
   name: tempo-rhel8-operator-0b78c42253e6a036892e3c04b97c4ed5a1f4d15bfd5cd8e563c61df71469bf6f-annotation
@@ -207,7 +207,7 @@ relatedImages:
   name: manager
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:b983271f0f7c78154bb832360c6713f58f038831a4eae3fc2d909cca44e7cf66
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.10.0-6
 package: tempo-product
 properties:
@@ -262,7 +262,7 @@ relatedImages:
   name: tempo_gateway_opa
 - image: registry.redhat.io/rhosdt/tempo-gateway-rhel8@sha256:90271dab36fd2f453fd6f3d19f1fae282b3c277fc1ff957221ba624a3a8909ae
   name: tempo_gateway
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:b983271f0f7c78154bb832360c6713f58f038831a4eae3fc2d909cca44e7cf66
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:e499fd2fd9798770d463974f9664deec37ca4cce3c782caaf9827d76efd74587
   name: tempo_query
@@ -274,7 +274,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:57cbaada2dce7abcabaf94d441e07d77126a60726adbb829808e157f9d0897cb
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.10.0-7
 package: tempo-product
 properties:
@@ -329,7 +329,7 @@ relatedImages:
   name: tempo_gateway_opa
 - image: registry.redhat.io/rhosdt/tempo-gateway-rhel8@sha256:99703dd11895c936a727c8a92f65f2f538bb1338deee12d3399f7359760add80
   name: tempo_gateway
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:57cbaada2dce7abcabaf94d441e07d77126a60726adbb829808e157f9d0897cb
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:8fb0d3bef904a99434bf026d633a5448947a716136bc7c9f2d0481fe02e270fb
   name: tempo_query
@@ -341,7 +341,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:2e24ee74d2cc78c6c11f9a62f9d086e3a7c0b3009cb56734477447ea79aaeb76
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.10.0-8
 package: tempo-product
 properties:
@@ -396,7 +396,7 @@ relatedImages:
   name: tempo_gateway_opa
 - image: registry.redhat.io/rhosdt/tempo-gateway-rhel8@sha256:ad8a7f62784273e99893db31e53430f179dc142f09e6618bebc33d8bd8a0ef84
   name: tempo_gateway
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:2e24ee74d2cc78c6c11f9a62f9d086e3a7c0b3009cb56734477447ea79aaeb76
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:afe94eb5fccd2821a4b37d383b5e0b527397c37679756609a5740489c7ff4aab
   name: tempo_query
@@ -408,7 +408,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:ad1da7f9941a2a887431da733bf7e59ef931ea281cf6c36da49fb1dc1a4c4cfc
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.13.0-1
 package: tempo-product
 properties:
@@ -468,7 +468,7 @@ relatedImages:
   name: tempo_gateway_opa
 - image: registry.redhat.io/rhosdt/tempo-gateway-rhel8@sha256:f04f2523f90a7d0f84f11907bb40bf24e28628acc023e3a19ed35c83cb707719
   name: tempo_gateway
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:ad1da7f9941a2a887431da733bf7e59ef931ea281cf6c36da49fb1dc1a4c4cfc
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:449150a62412d83df190c2f67a66967ddf424acd0e7b14e992ad9799e736a7fa
   name: tempo_query
@@ -480,7 +480,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:c5d81042ce8d2f6e65b2092fb1ccbe45a2845990b54a5a2454bbf8c1eebbf2eb
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.13.0-1-0.1730817419.p
 package: tempo-product
 properties:
@@ -540,7 +540,7 @@ relatedImages:
   name: tempo_gateway_opa
 - image: registry.redhat.io/rhosdt/tempo-gateway-rhel8@sha256:9e2744c07c402e6f9314ffadacaee8bede124181b5f2b97ad8e9311bf39ec182
   name: tempo_gateway
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:c5d81042ce8d2f6e65b2092fb1ccbe45a2845990b54a5a2454bbf8c1eebbf2eb
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:40cc7cda239f7df93df655134e827d89c52fcae4ece2f1e9a9d404adceaa72af
   name: tempo_query
@@ -552,7 +552,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:a980e21c5cf96387bee07f2f271e73060bb5032ac969d678dc1f718841531ecb
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.14.1-1
 package: tempo-product
 properties:
@@ -614,7 +614,7 @@ relatedImages:
   name: gateway
 - image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel8@sha256:ebef9709e328cf9918ff99ed3dcac6abb1a38c2cd3b46af4fd61cc0b87c0e165
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:a980e21c5cf96387bee07f2f271e73060bb5032ac969d678dc1f718841531ecb
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:b43c3af00d557a549a1ab7737583e80c16896dcec1d379087f517ee080ecde74
   name: tempo-query
@@ -624,7 +624,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:fd49fd51bd9c033317ca2ea172e6a21c84ccc17b609f9e5543ece39dd5ec8808
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.14.1-2
 package: tempo-product
 properties:
@@ -686,7 +686,7 @@ relatedImages:
   name: gateway
 - image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel8@sha256:ee550055792ded0c3d2783664166351120db35ba754b0ecb58a158d82ab5bb80
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:fd49fd51bd9c033317ca2ea172e6a21c84ccc17b609f9e5543ece39dd5ec8808
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:9c910e8ba1433e6bffb74f0211dd81f8647184351621ea7ba001382c6ea3e08f
   name: tempo-query
@@ -696,7 +696,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:57bc41197c16796b9b4a571cb03932566ab1c0ac763992e3372cbb6530cf24f7
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.15.3-1
 package: tempo-product
 properties:
@@ -756,7 +756,7 @@ relatedImages:
   name: gateway
 - image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel8@sha256:62d01efe99f5462a122b42fddb253d7a75aedd1264a0bc7b10658d733c6e08b3
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:57bc41197c16796b9b4a571cb03932566ab1c0ac763992e3372cbb6530cf24f7
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:8e2682d24b944d97f8585d8bb9887c732a022c34f4fb2d93775d1724da68b937
   name: tempo-query
@@ -766,7 +766,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:311f7152652df58705aeda77b9053e29f2333a146eb8f686db39938cb2c84f90
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.15.4-1
 package: tempo-product
 properties:
@@ -826,7 +826,7 @@ relatedImages:
   name: gateway
 - image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel8@sha256:6f7076797bce3c6ec75249b29ebfa884f9048a6e98176654513ab1fea04a3c10
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:311f7152652df58705aeda77b9053e29f2333a146eb8f686db39938cb2c84f90
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:a2af0da11beef0e876855b571243eeee7ac8f82c4339c7b4299187051ab70833
   name: tempo-query
@@ -836,7 +836,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:17ae8fbf2ee001c15f56d8e0c478d0b6d859d3a1513360a756418566ddb5961d
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.16.0-1
 package: tempo-product
 properties:
@@ -896,7 +896,7 @@ relatedImages:
   name: gateway
 - image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel8@sha256:ba4c2dbb7385c3f1c72e29e2921c337a48885323491bb21c79ed387b00a5dedb
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:17ae8fbf2ee001c15f56d8e0c478d0b6d859d3a1513360a756418566ddb5961d
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:c9825f1d7b039fed14ab17834367d3684a93695304ecd649e7c0aa112bbc386e
   name: tempo-query
@@ -906,7 +906,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:85feb99b001b571ca08d88c1a7eb10cdf02c71d951a240098f39066fe99203df
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.16.0-2
 package: tempo-product
 properties:
@@ -966,7 +966,7 @@ relatedImages:
   name: gateway
 - image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel8@sha256:8b43703fcf69923c09542cdfb8dc09df3961a913735d78afdb39fb260954c370
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:85feb99b001b571ca08d88c1a7eb10cdf02c71d951a240098f39066fe99203df
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:51fcd7bdf4c0a504c0abf4cc116cf6d346930cfc4be5574d83bd9512ce099000
   name: tempo-query
@@ -976,7 +976,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:bcc3521d20a1662d4032901f46e3bd4744c9910b060f52bdf10c6a8dfea1276b
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.18.0-1
 package: tempo-product
 properties:
@@ -1036,7 +1036,7 @@ relatedImages:
   name: gateway
 - image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel8@sha256:53b62fea39ce211842026e8365d61f579b8e01e8587a1ce639423d72f3b44f45
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:bcc3521d20a1662d4032901f46e3bd4744c9910b060f52bdf10c6a8dfea1276b
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:5b89188bc587a81af3ecdca3caabd6e48356e9ba4f9070860f5160544ce30eb9
   name: tempo-query
@@ -1046,7 +1046,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:a3b655318bd147566d238e773a64879c5dc9352f8cd7748fa7bfbc7efe1b3952
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.18.0-2
 package: tempo-product
 properties:
@@ -1106,7 +1106,7 @@ relatedImages:
   name: gateway
 - image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel8@sha256:da479c41f7e1a3d824d4d953b8d877aae3b342671f256e03cffca153c30323f2
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:a3b655318bd147566d238e773a64879c5dc9352f8cd7748fa7bfbc7efe1b3952
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:ad320ebc9f3bd020f67e1e6a9ac02911c7a56b18261842e99ebe90fe201d665a
   name: tempo-query
@@ -1116,7 +1116,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:f25a68576e0f207084864219afd15e6545e4942671cf52703cb97d1c37cc29da
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.19.0-1
 package: tempo-product
 properties:
@@ -1176,7 +1176,7 @@ relatedImages:
   name: gateway
 - image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel8@sha256:0135881ac89db318da597c5d5f3120c0eb7e1005e71df43723c664fd95e3c637
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:f25a68576e0f207084864219afd15e6545e4942671cf52703cb97d1c37cc29da
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:5f002865ebe3c5af668961b537850ad9f6246504649a496b9182c5de3f057949
   name: tempo-query
@@ -1186,7 +1186,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:59faa931ced3fb7d6121c0dd212e0a43e99d6e09d01a8eb0cf77694dabaabdac
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.19.0-2
 package: tempo-product
 properties:
@@ -1246,7 +1246,7 @@ relatedImages:
   name: gateway
 - image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel8@sha256:2c587b52015b07feea05c7cdb79e20362675bb5073e50eee1114476a9ca405dc
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:59faa931ced3fb7d6121c0dd212e0a43e99d6e09d01a8eb0cf77694dabaabdac
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:3aa486ed176f695af57b2b8d58dc53a070fbcef3ba0f233afdde0656eb55d5f6
   name: tempo-query
@@ -1256,7 +1256,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:5aa0efed8dcaa243a0ef634ff9bb1c5c1cd0604b9126ca8c5d2be783b0ce9ce4
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.19.0-3
 package: tempo-product
 properties:
@@ -1316,7 +1316,7 @@ relatedImages:
   name: gateway
 - image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel8@sha256:5c756f9904c0a278ff71c54757f4c20b6dd42319b14ad165d51ed1b599e3e10e
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:5aa0efed8dcaa243a0ef634ff9bb1c5c1cd0604b9126ca8c5d2be783b0ce9ce4
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:f9306d4971b44413006d3f4165f3fe0160b94f627fb5ab0690c878dc3e751e06
   name: tempo-query
@@ -1326,7 +1326,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:90d1a71febb6cac99b64fc4863bcb66b11aa18c30dad93b244aca3290c3574e0
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.20.0-1
 package: tempo-product
 properties:
@@ -1383,7 +1383,7 @@ relatedImages:
   name: gateway
 - image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel9@sha256:3187436b606a4364fdd118eeeba018671e9eab626c3e9bf69dc16d6f95dea3a8
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:90d1a71febb6cac99b64fc4863bcb66b11aa18c30dad93b244aca3290c3574e0
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel9@sha256:005430fb7fb525f3dfecbdbce99d54b1fbf0a15bcdf9ee088a03b8e12b78d68e
   name: tempo-query
@@ -1393,7 +1393,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:44aab3cb00053aff888ce8bbadca241807c6d400e881db4208dbcd1c311335ad
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.20.0-2
 package: tempo-product
 properties:
@@ -1450,7 +1450,7 @@ relatedImages:
   name: gateway
 - image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel9@sha256:a2cec745ebb8b80ebbd86808c0c34a7c16604d0f5fbb14ae182db9e08dde3284
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:44aab3cb00053aff888ce8bbadca241807c6d400e881db4208dbcd1c311335ad
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel9@sha256:1aafaeb556a435fb7dafb49546f681eea75373d9cf610edc2b6a8aee33956ed2
   name: tempo-query
@@ -1460,7 +1460,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:d180bac53d873bba131cedd40db06cd784d8dc4795d9bff85a6b33921cc1dd9c
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.20.0-3
 package: tempo-product
 properties:
@@ -1517,7 +1517,7 @@ relatedImages:
   name: gateway
 - image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel9@sha256:8adf1d5471eb789b74a83aef91273895bb3170871c665a4511d9f2867874ada1
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:d180bac53d873bba131cedd40db06cd784d8dc4795d9bff85a6b33921cc1dd9c
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel9@sha256:dd811d521e8334c831175d7a5e1202ed0cedaaa3ed09612280ebbe5f00178ba1
   name: tempo-query
@@ -1527,7 +1527,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:03cbea46e6fb4147cb6bcdccd049a1609d3f66901cb125363c52bb821a8ade47
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.21.0-1
 package: tempo-product
 properties:
@@ -1584,7 +1584,7 @@ relatedImages:
   name: gateway
 - image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel9@sha256:c5037fff4982f01ff32e384440b7100095c327e138ebb4920eaff8ab5f9df3ef
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:03cbea46e6fb4147cb6bcdccd049a1609d3f66901cb125363c52bb821a8ade47
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel9@sha256:823f7bc8b552bf1fd64a593f328125e0eb4f5fb8ea0d6e50d71f51962b9f6497
   name: tempo-query
@@ -1594,7 +1594,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:3553b5e91195dcf76755e3c59bcc3ec8edda71dd367c6dc1b1ddfb4c38ab1d66
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.21.0-2
 package: tempo-product
 properties:
@@ -1651,7 +1651,7 @@ relatedImages:
   name: gateway
 - image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel9@sha256:d30ed53401b2c8a3ed49ea49f0408c3e80fa212647f9cd9dccb74c502d713617
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:3553b5e91195dcf76755e3c59bcc3ec8edda71dd367c6dc1b1ddfb4c38ab1d66
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel9@sha256:6cc25552fd5ef77027ef517c785db9d90ed2d7c6648d02141ed81bb8f83dc35e
   name: tempo-query
@@ -1661,7 +1661,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:40c77256530f670a5951bb76fd98780b04756f5bc533c885dcd227a0155ad303
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.21.0-3
 package: tempo-product
 properties:
@@ -1718,7 +1718,7 @@ relatedImages:
   name: gateway
 - image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel9@sha256:708b7f44a73b6dd5397a8e4a1d1c97cc4f319ad8c42e55a348e118b2d5b58e1a
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:40c77256530f670a5951bb76fd98780b04756f5bc533c885dcd227a0155ad303
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel9@sha256:043584d4fa60686356183228f344a448c929400bcd36e97d849c981a79353466
   name: tempo-query
@@ -1728,7 +1728,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:4ae2a2bd47e0e8ddbdab9651326df3a903d5df4205731e603302c52fecbce408
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.22.0-1
 package: tempo-product
 properties:
@@ -1785,7 +1785,7 @@ relatedImages:
   name: gateway
 - image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel9@sha256:5c191da5914a2d501845c43404cc89a0cc036bef90e86898efa02f0d1ae292ff
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:4ae2a2bd47e0e8ddbdab9651326df3a903d5df4205731e603302c52fecbce408
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel9@sha256:7ce7eed11000a97c47fbae76244353f06751922149e5962508dc36d62df2df05
   name: tempo-query
@@ -1795,7 +1795,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:cf394fa87b66b28010dc30076ba9051589bf9912c099bf354312914473db8c20
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.22.0-2
 package: tempo-product
 properties:
@@ -1852,7 +1852,7 @@ relatedImages:
   name: gateway
 - image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel9@sha256:b868e124df3b11f40f408158f165a65c2e12f8f2adf84aba0b5c0ead558e9818
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:cf394fa87b66b28010dc30076ba9051589bf9912c099bf354312914473db8c20
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel9@sha256:9358dd4acee6f1767c71214e4d27ef01f4fab805ed8541682c29b3dce5d74866
   name: tempo-query
@@ -1862,7 +1862,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:a0080dbd55d476469c23c601acb8eaadc7ba76ffae1fa54a6de3cee80f57884a
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.22.0-3
 package: tempo-product
 properties:
@@ -1919,7 +1919,7 @@ relatedImages:
   name: gateway
 - image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel9@sha256:43d301c1e6a3a2d324c8e79f08a729dce18da133786dd62e57aec0251275794c
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:a0080dbd55d476469c23c601acb8eaadc7ba76ffae1fa54a6de3cee80f57884a
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel9@sha256:18500e20ddb7857aaa63ab3d216bfdec5b4ea4fcacb79a26bb3d4a91ebafab8e
   name: tempo-query
@@ -1929,7 +1929,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:a33974d5850474d2f7fbb84389a99f04679cf8fcfcea7a03d455aa9026448e13
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.22.0-4
 package: tempo-product
 properties:
@@ -1986,7 +1986,7 @@ relatedImages:
   name: gateway
 - image: registry.redhat.io/rhosdt/tempo-jaeger-query-rhel9@sha256:2a62878bfa43e83d57f89b0a1404724cb7460a91ebeaed9902062ee458881e01
   name: jaeger-query
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:a33974d5850474d2f7fbb84389a99f04679cf8fcfcea7a03d455aa9026448e13
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel9@sha256:a9fafbbcd866a1bd35b8715d8d30f63199f99c65b91f48cd76b1f581abc0a85e
   name: tempo-query
@@ -1996,7 +1996,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:7025be09dbb8c0a34558337466d7a570125b32af71b1d1f9f711e910291a21f5
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.22.0-5
 package: tempo-product
 properties:
@@ -2045,7 +2045,7 @@ properties:
   value:
     data: eyJhcGlWZXJzaW9uIjoidjEiLCJraW5kIjoiU2VydmljZSIsIm1ldGFkYXRhIjp7ImNyZWF0aW9uVGltZXN0YW1wIjpudWxsLCJsYWJlbHMiOnsiYXBwLmt1YmVybmV0ZXMuaW8vbWFuYWdlZC1ieSI6Im9wZXJhdG9yLWxpZmVjeWNsZS1tYW5hZ2VyIiwiYXBwLmt1YmVybmV0ZXMuaW8vbmFtZSI6InRlbXBvLW9wZXJhdG9yIiwiYXBwLmt1YmVybmV0ZXMuaW8vcGFydC1vZiI6InRlbXBvLW9wZXJhdG9yIn0sIm5hbWUiOiJ0ZW1wby1vcGVyYXRvci13ZWJob29rLXNlcnZpY2UifSwic3BlYyI6eyJwb3J0cyI6W3sicG9ydCI6NDQzLCJwcm90b2NvbCI6IlRDUCIsInRhcmdldFBvcnQiOjk0NDN9XSwic2VsZWN0b3IiOnsiYXBwLmt1YmVybmV0ZXMuaW8vbWFuYWdlZC1ieSI6Im9wZXJhdG9yLWxpZmVjeWNsZS1tYW5hZ2VyIiwiYXBwLmt1YmVybmV0ZXMuaW8vbmFtZSI6InRlbXBvLW9wZXJhdG9yIiwiYXBwLmt1YmVybmV0ZXMuaW8vcGFydC1vZiI6InRlbXBvLW9wZXJhdG9yIiwiY29udHJvbC1wbGFuZSI6ImNvbnRyb2xsZXItbWFuYWdlciJ9fSwic3RhdHVzIjp7ImxvYWRCYWxhbmNlciI6e319fQ==
 relatedImages:
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:7025be09dbb8c0a34558337466d7a570125b32af71b1d1f9f711e910291a21f5
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/openshift4/ose-oauth-proxy@sha256:ad010b28aaa102b58b3b1d2de6f0166a2eab85801009aeb6f52e8d42cd46672a
   name: ose-oauth-proxy
@@ -2063,7 +2063,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:b6ec1460415bf8c69d82cf9267494dc5445242b6a0957318eae5bf333693cb2e
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.3.1-3
 package: tempo-product
 properties:
@@ -2103,7 +2103,7 @@ properties:
 relatedImages:
 - image: registry.redhat.io/openshift4/ose-kube-rbac-proxy@sha256:1dddb0988d1612c996707d43eb839bc49fc7e7554afaf085436eeddb37a12438
   name: kube-rbac-proxy
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:b6ec1460415bf8c69d82cf9267494dc5445242b6a0957318eae5bf333693cb2e
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-rhel8-operator@sha256:f523b907748b862db01fb223833e1d1ce648ebefcad1c180c8bfce4335ae6af4
   name: tempo-rhel8-operator-f523b907748b862db01fb223833e1d1ce648ebefcad1c180c8bfce4335ae6af4-annotation
@@ -2111,7 +2111,7 @@ relatedImages:
   name: manager
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:d3d446b9adaebd3985fb8d78176100156d9133ec2cf956d92e07c3651e60cc3d
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.6.0-2
 package: tempo-product
 properties:
@@ -2158,7 +2158,7 @@ relatedImages:
   name: tempo_gateway_opa
 - image: registry.redhat.io/rhosdt/tempo-gateway-rhel8@sha256:131f5ec8d1b290ee2b485eb57d5170fb46d66d5dfd7c8e52c5e346648ab2ae9e
   name: tempo_gateway
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:d3d446b9adaebd3985fb8d78176100156d9133ec2cf956d92e07c3651e60cc3d
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:5402f3af7bdee45bb3d514ed1054cdc2fb9475f6ca33ab513d226a3bd1bc46b9
   name: tempo_query
@@ -2170,7 +2170,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:153aea091df302b13f4c59ed8810ed6b9ecb850f43cf94d970ce24e6a1335499
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.8.0-2
 package: tempo-product
 properties:
@@ -2225,7 +2225,7 @@ relatedImages:
   name: tempo_gateway_opa
 - image: registry.redhat.io/rhosdt/tempo-gateway-rhel8@sha256:61316cf6c86b4912089d03f2f70b643463b356905346597d4776ba3534881f28
   name: tempo_gateway
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:153aea091df302b13f4c59ed8810ed6b9ecb850f43cf94d970ce24e6a1335499
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:76107f4b503446ddeadd68ccc8c4d75893d768cf347f8fea468ed9d3275d7c3c
   name: tempo_query
@@ -2237,7 +2237,7 @@ relatedImages:
   name: tempo
 schema: olm.bundle
 ---
-image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:c6c6a80101bb29b78299f2678d15822cf8d8eec300ca55c27549f1dbb1c83d9f
+image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
 name: tempo-operator.v0.8.0-3
 package: tempo-product
 properties:
@@ -2292,7 +2292,7 @@ relatedImages:
   name: tempo_gateway_opa
 - image: registry.redhat.io/rhosdt/tempo-gateway-rhel8@sha256:c89066066a6aa4f21f0da4cb6d1fa8b6b30f76c3084003be7826b24bd6e74b0c
   name: tempo_gateway
-- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:c6c6a80101bb29b78299f2678d15822cf8d8eec300ca55c27549f1dbb1c83d9f
+- image: registry.redhat.io/rhosdt/tempo-operator-bundle@sha256:0184841a50e8492f3b1a3e5391289ad5920c74fcfcf3b963513217529a016ace
   name: ""
 - image: registry.redhat.io/rhosdt/tempo-query-rhel8@sha256:e7b1cbc8aea2973a461cde9dafe2ebec14d1b77cbcf2027e1dd59227034159de
   name: tempo_query
