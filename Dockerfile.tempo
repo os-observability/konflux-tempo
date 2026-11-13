@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi9/ubi:latest@sha256:8f989cc9270da6abec0144c22846ed1e6e92e462dc7768ce0981c4ac1d574733 AS builder
+FROM registry.redhat.io/ubi9/ubi:latest@sha256:1e9f0ed9fceafb40878bc1705ff124aa150e3fed873f18c42cdc2dded319e0a8 AS builder
 WORKDIR /opt/app-root/src
 USER root
 
@@ -19,8 +19,8 @@ RUN exportOrFail() { echo $1; if [[ $1 == *= ]]; then echo "Error: empty variabl
     CGO_ENABLED=0 GOFIPS140=certified go build -C ./cmd/tempo -tags no_openssl -mod vendor \
       -o "tempo" -trimpath -ldflags "-s -w -X main.Branch=${GIT_BRANCH} -X main.Revision=${GIT_REVISION} -X main.Version=${VERSION}"
 
-FROM registry.redhat.io/ubi9/ubi-micro:latest@sha256:5be877a2a280ae36eb9ab80ca4efb28bbf77c57abbba38137cdc37a03b8465e6 AS ubi-micro-base
-FROM registry.redhat.io/ubi9/ubi:latest@sha256:8f989cc9270da6abec0144c22846ed1e6e92e462dc7768ce0981c4ac1d574733 AS image-builder
+FROM registry.redhat.io/ubi9/ubi-micro:latest@sha256:dbd325b96bcd432dd42816d31412bdf1dc0fb973b79ed310344bc23c76c068db AS ubi-micro-base
+FROM registry.redhat.io/ubi9/ubi:latest@sha256:1e9f0ed9fceafb40878bc1705ff124aa150e3fed873f18c42cdc2dded319e0a8 AS image-builder
 COPY --from=ubi-micro-base / /mnt/rootfs
 
 RUN rpm --root /mnt/rootfs --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release && \
