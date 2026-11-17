@@ -131,6 +131,12 @@ with open('./patch_csv.yaml') as pf:
             env = merge_lists_by_key(upstream_container.get("env", []), container.get("extra_env", []), "name")
             upstream_container['env'] = env
 
+        # feature gates
+        for env_var in upstream_container['env']:
+            if env_var['name'] == 'FEATURE_GATES':
+                for gate in container.get('extra_feature_gates', []):
+                    env_var['value'] += ',' + gate
+
         # volume mounts
         if container.get('extra_volumeMounts') is not None:
             if  upstream_container.get('volumeMounts') is not None:
