@@ -2,7 +2,7 @@ FROM registry.redhat.io/ubi9/ubi:latest@sha256:1e9f0ed9fceafb40878bc1705ff124aa1
 WORKDIR /opt/app-root/src
 USER root
 
-RUN dnf install --nodocs -y golang && \
+RUN dnf install --nodocs --setopt install_weak_deps=false -y golang && \
     dnf clean all && \
     rm -rf /var/cache/yum
 
