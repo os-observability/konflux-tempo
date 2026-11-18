@@ -3,8 +3,7 @@ FROM registry.redhat.io/ubi9/ubi-minimal:latest@sha256:baafce2d34783a28b4a472779
 USER root
 WORKDIR /opt/bundle-build
 
-RUN microdnf update -y && rm -rf /var/cache/yum && \
-    microdnf install -y python3 python3-pyyaml patch
+RUN microdnf install --nodocs --setopt install_weak_deps=0 -y python3 python3-pyyaml patch
 
 RUN mkdir /licenses
 COPY tempo-operator/LICENSE /licenses/.

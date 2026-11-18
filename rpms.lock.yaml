@@ -11,13 +11,6 @@ arches:
     name: cpp
     evr: 11.5.0-17.el9_9
     sourcerpm: gcc-11.5.0-17.el9_9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/appstream/os/Packages/g/gawk-all-langpacks-5.1.0-7.el9.aarch64.rpm
-    repoid: ubi-9-for-aarch64-appstream-rpms
-    size: 218066
-    checksum: sha256:5a45d13b83ab8fa2a2fc2914c3ad304b6820fcf8350f56829add6a87eaa41e96
-    name: gawk-all-langpacks
-    evr: 5.1.0-7.el9
-    sourcerpm: gawk-5.1.0-7.el9.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/appstream/os/Packages/g/gcc-11.5.0-17.el9_9.aarch64.rpm
     repoid: ubi-9-for-aarch64-appstream-rpms
     size: 31285684
@@ -186,13 +179,6 @@ arches:
     name: perl-MIME-Base64
     evr: 3.16-4.el9
     sourcerpm: perl-MIME-Base64-3.16-4.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/appstream/os/Packages/p/perl-NDBM_File-1.15-484.el9_8.aarch64.rpm
-    repoid: ubi-9-for-aarch64-appstream-rpms
-    size: 27131
-    checksum: sha256:173b53f76776af47f21de1826b659428708b5e16dd91c2ac45b2cf745efe3d2b
-    name: perl-NDBM_File
-    evr: 1.15-484.el9_8
-    sourcerpm: perl-5.32.1-484.el9_8.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/appstream/os/Packages/p/perl-Net-SSLeay-1.94-4.el9.aarch64.rpm
     repoid: ubi-9-for-aarch64-appstream-rpms
     size: 429535
@@ -396,27 +382,6 @@ arches:
     name: gdbm-libs
     evr: 1:1.23-1.el9
     sourcerpm: gdbm-1.23-1.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/baseos/os/Packages/g/glibc-2.34-290.el9_9.aarch64.rpm
-    repoid: ubi-9-for-aarch64-baseos-rpms
-    size: 1814067
-    checksum: sha256:4f0c28fec15116b51cc2d5302dfac4baf044e650761de71756d21372db1074a4
-    name: glibc
-    evr: 2.34-290.el9_9
-    sourcerpm: glibc-2.34-290.el9_9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/baseos/os/Packages/g/glibc-common-2.34-290.el9_9.aarch64.rpm
-    repoid: ubi-9-for-aarch64-baseos-rpms
-    size: 313142
-    checksum: sha256:b54737ad2b1acfb03c196f8095b620590cdc955694606bdabe3b3c1dbf2462d5
-    name: glibc-common
-    evr: 2.34-290.el9_9
-    sourcerpm: glibc-2.34-290.el9_9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/baseos/os/Packages/g/glibc-minimal-langpack-2.34-290.el9_9.aarch64.rpm
-    repoid: ubi-9-for-aarch64-baseos-rpms
-    size: 31149
-    checksum: sha256:a243c78096637de87c0fd69ac5f86a748b5cd0f111be16abb71e960b53c19fbd
-    name: glibc-minimal-langpack
-    evr: 2.34-290.el9_9
-    sourcerpm: glibc-2.34-290.el9_9.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/baseos/os/Packages/g/gmp-6.2.0-13.el9.aarch64.rpm
     repoid: ubi-9-for-aarch64-baseos-rpms
     size: 275679
@@ -578,13 +543,6 @@ arches:
     name: libfido2
     evr: 1.13.0-2.el9
     sourcerpm: libfido2-1.13.0-2.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/baseos/os/Packages/l/libgcc-11.5.0-17.el9_9.aarch64.rpm
-    repoid: ubi-9-for-aarch64-baseos-rpms
-    size: 83989
-    checksum: sha256:d4f1741ec7ff09f7a978794e08f8f4801f8ddb3ba7e2fde182972e3eb71ca588
-    name: libgcc
-    evr: 11.5.0-17.el9_9
-    sourcerpm: gcc-11.5.0-17.el9_9.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/aarch64/baseos/os/Packages/l/libgcrypt-1.10.0-13.el9_8.aarch64.rpm
     repoid: ubi-9-for-aarch64-baseos-rpms
     size: 469908
@@ -1945,13 +1903,6 @@ arches:
     name: cpp
     evr: 11.5.0-17.el9_9
     sourcerpm: gcc-11.5.0-17.el9_9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/appstream/os/Packages/g/gawk-all-langpacks-5.1.0-7.el9.ppc64le.rpm
-    repoid: ubi-9-for-ppc64le-appstream-rpms
-    size: 218098
-    checksum: sha256:8e2dff8fcc60e11a32d8439e53b3b94a7c2fa06109d74d14f520052f7d0d87e0
-    name: gawk-all-langpacks
-    evr: 5.1.0-7.el9
-    sourcerpm: gawk-5.1.0-7.el9.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/appstream/os/Packages/g/gcc-11.5.0-17.el9_9.ppc64le.rpm
     repoid: ubi-9-for-ppc64le-appstream-rpms
     size: 29069739
@@ -2120,13 +2071,6 @@ arches:
     name: perl-MIME-Base64
     evr: 3.16-4.el9
     sourcerpm: perl-MIME-Base64-3.16-4.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/appstream/os/Packages/p/perl-NDBM_File-1.15-484.el9_8.ppc64le.rpm
-    repoid: ubi-9-for-ppc64le-appstream-rpms
-    size: 27502
-    checksum: sha256:53c1ed554d1d65681963cd36defd5ea51d73464338398b6feb013e3e5898575e
-    name: perl-NDBM_File
-    evr: 1.15-484.el9_8
-    sourcerpm: perl-5.32.1-484.el9_8.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/appstream/os/Packages/p/perl-Net-SSLeay-1.94-4.el9.ppc64le.rpm
     repoid: ubi-9-for-ppc64le-appstream-rpms
     size: 438361
@@ -2330,27 +2274,6 @@ arches:
     name: gdbm-libs
     evr: 1:1.23-1.el9
     sourcerpm: gdbm-1.23-1.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/baseos/os/Packages/g/glibc-2.34-290.el9_9.ppc64le.rpm
-    repoid: ubi-9-for-ppc64le-baseos-rpms
-    size: 2921912
-    checksum: sha256:f420d0cfcd8ed80d52e1486f3df02a220a5716b5040fdb549f98f5cc06481adf
-    name: glibc
-    evr: 2.34-290.el9_9
-    sourcerpm: glibc-2.34-290.el9_9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/baseos/os/Packages/g/glibc-common-2.34-290.el9_9.ppc64le.rpm
-    repoid: ubi-9-for-ppc64le-baseos-rpms
-    size: 339018
-    checksum: sha256:07629df7b62c34ec1f12ab10516434f29b6655f2714286f0a0f37445eb468c19
-    name: glibc-common
-    evr: 2.34-290.el9_9
-    sourcerpm: glibc-2.34-290.el9_9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/baseos/os/Packages/g/glibc-minimal-langpack-2.34-290.el9_9.ppc64le.rpm
-    repoid: ubi-9-for-ppc64le-baseos-rpms
-    size: 31181
-    checksum: sha256:a411f84b032ca9584516d4190f219bd643f0fad6f020f44c56ad4bcc34c417c8
-    name: glibc-minimal-langpack
-    evr: 2.34-290.el9_9
-    sourcerpm: glibc-2.34-290.el9_9.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/baseos/os/Packages/g/gmp-6.2.0-13.el9.ppc64le.rpm
     repoid: ubi-9-for-ppc64le-baseos-rpms
     size: 312805
@@ -2512,13 +2435,6 @@ arches:
     name: libfido2
     evr: 1.13.0-2.el9
     sourcerpm: libfido2-1.13.0-2.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/baseos/os/Packages/l/libgcc-11.5.0-17.el9_9.ppc64le.rpm
-    repoid: ubi-9-for-ppc64le-baseos-rpms
-    size: 78817
-    checksum: sha256:3bcd1274c7140560db661d1ae22f2822a642d2ef404221251466087dbea2d2aa
-    name: libgcc
-    evr: 11.5.0-17.el9_9
-    sourcerpm: gcc-11.5.0-17.el9_9.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/ppc64le/baseos/os/Packages/l/libgcrypt-1.10.0-13.el9_8.ppc64le.rpm
     repoid: ubi-9-for-ppc64le-baseos-rpms
     size: 614376
@@ -3892,13 +3808,6 @@ arches:
     name: cpp
     evr: 11.5.0-17.el9_9
     sourcerpm: gcc-11.5.0-17.el9_9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/appstream/os/Packages/g/gawk-all-langpacks-5.1.0-7.el9.s390x.rpm
-    repoid: ubi-9-for-s390x-appstream-rpms
-    size: 218086
-    checksum: sha256:1c78d44f44441cc297896a1e9a36de79a0c8671dd88240c86b06c70b9224cde0
-    name: gawk-all-langpacks
-    evr: 5.1.0-7.el9
-    sourcerpm: gawk-5.1.0-7.el9.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/appstream/os/Packages/g/gcc-11.5.0-17.el9_9.s390x.rpm
     repoid: ubi-9-for-s390x-appstream-rpms
     size: 26823032
@@ -4074,13 +3983,6 @@ arches:
     name: perl-MIME-Base64
     evr: 3.16-4.el9
     sourcerpm: perl-MIME-Base64-3.16-4.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/appstream/os/Packages/p/perl-NDBM_File-1.15-484.el9_8.s390x.rpm
-    repoid: ubi-9-for-s390x-appstream-rpms
-    size: 27016
-    checksum: sha256:47a33002aa5326ce24c420b9ad20fdbfd9c1dfca1c27cd7a3c1c0308c1032b3d
-    name: perl-NDBM_File
-    evr: 1.15-484.el9_8
-    sourcerpm: perl-5.32.1-484.el9_8.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/appstream/os/Packages/p/perl-Net-SSLeay-1.94-4.el9.s390x.rpm
     repoid: ubi-9-for-s390x-appstream-rpms
     size: 421513
@@ -4284,27 +4186,6 @@ arches:
     name: gdbm-libs
     evr: 1:1.23-1.el9
     sourcerpm: gdbm-1.23-1.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/baseos/os/Packages/g/glibc-2.34-290.el9_9.s390x.rpm
-    repoid: ubi-9-for-s390x-baseos-rpms
-    size: 1791647
-    checksum: sha256:ef340df3ab947e7833cd58d84b63c578713e3a0bd1ae211c5c62a464671e97ae
-    name: glibc
-    evr: 2.34-290.el9_9
-    sourcerpm: glibc-2.34-290.el9_9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/baseos/os/Packages/g/glibc-common-2.34-290.el9_9.s390x.rpm
-    repoid: ubi-9-for-s390x-baseos-rpms
-    size: 326333
-    checksum: sha256:b2c8fa7c6c747723cc1abdb3ad90daba1ac4f528c91056c2530731c3a3f4ef33
-    name: glibc-common
-    evr: 2.34-290.el9_9
-    sourcerpm: glibc-2.34-290.el9_9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/baseos/os/Packages/g/glibc-minimal-langpack-2.34-290.el9_9.s390x.rpm
-    repoid: ubi-9-for-s390x-baseos-rpms
-    size: 31169
-    checksum: sha256:72ee8f684e5c97affa34d7d1e78bdb5d87eebec0fbefe4b28f9e03da9da3e168
-    name: glibc-minimal-langpack
-    evr: 2.34-290.el9_9
-    sourcerpm: glibc-2.34-290.el9_9.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/baseos/os/Packages/g/gmp-6.2.0-13.el9.s390x.rpm
     repoid: ubi-9-for-s390x-baseos-rpms
     size: 296399
@@ -4466,13 +4347,6 @@ arches:
     name: libfido2
     evr: 1.13.0-2.el9
     sourcerpm: libfido2-1.13.0-2.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/baseos/os/Packages/l/libgcc-11.5.0-17.el9_9.s390x.rpm
-    repoid: ubi-9-for-s390x-baseos-rpms
-    size: 71940
-    checksum: sha256:1de6fdb79515226bd3ae3f4cfa091d7193f8b283fd989be70bee012b3a06e7ec
-    name: libgcc
-    evr: 11.5.0-17.el9_9
-    sourcerpm: gcc-11.5.0-17.el9_9.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/s390x/baseos/os/Packages/l/libgcrypt-1.10.0-13.el9_8.s390x.rpm
     repoid: ubi-9-for-s390x-baseos-rpms
     size: 470164
@@ -5833,13 +5707,6 @@ arches:
     name: cpp
     evr: 11.5.0-17.el9_9
     sourcerpm: gcc-11.5.0-17.el9_9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gawk-all-langpacks-5.1.0-7.el9.x86_64.rpm
-    repoid: ubi-9-for-x86_64-appstream-rpms
-    size: 218114
-    checksum: sha256:091ea21f0af0b4df27f1b56cc4d83e9dee47cb0c99649cf16c19cae216733de8
-    name: gawk-all-langpacks
-    evr: 5.1.0-7.el9
-    sourcerpm: gawk-5.1.0-7.el9.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/g/gcc-11.5.0-17.el9_9.x86_64.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
     size: 33982315
@@ -6148,13 +6015,6 @@ arches:
     name: perl-Mozilla-CA
     evr: 20200520-6.el9
     sourcerpm: perl-Mozilla-CA-20200520-6.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/perl-NDBM_File-1.15-484.el9_8.x86_64.rpm
-    repoid: ubi-9-for-x86_64-appstream-rpms
-    size: 27598
-    checksum: sha256:b259c91e0cb141f651b6123a43c86bd5043eae9b7828f558405fbe462855eb5a
-    name: perl-NDBM_File
-    evr: 1.15-484.el9_8
-    sourcerpm: perl-5.32.1-484.el9_8.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/p/perl-Net-SSLeay-1.94-4.el9.x86_64.rpm
     repoid: ubi-9-for-x86_64-appstream-rpms
     size: 429322
@@ -6533,27 +6393,6 @@ arches:
     name: gdbm-libs
     evr: 1:1.23-1.el9
     sourcerpm: gdbm-1.23-1.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/g/glibc-2.34-290.el9_9.x86_64.rpm
-    repoid: ubi-9-for-x86_64-baseos-rpms
-    size: 2086641
-    checksum: sha256:aa79968c8d11567b416254a7db2fc2de5543b39f78819f57ec26797e01563c13
-    name: glibc
-    evr: 2.34-290.el9_9
-    sourcerpm: glibc-2.34-290.el9_9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/g/glibc-common-2.34-290.el9_9.x86_64.rpm
-    repoid: ubi-9-for-x86_64-baseos-rpms
-    size: 322779
-    checksum: sha256:f88e4c6206222234f8a5cabacfefad2aa9b939bc1a1b60e6839a44c9303f8ca9
-    name: glibc-common
-    evr: 2.34-290.el9_9
-    sourcerpm: glibc-2.34-290.el9_9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/g/glibc-minimal-langpack-2.34-290.el9_9.x86_64.rpm
-    repoid: ubi-9-for-x86_64-baseos-rpms
-    size: 31197
-    checksum: sha256:04d7a703dbc771cb5831c2ec26752703fa4c8e554d591fce0b5d1486548f5a4d
-    name: glibc-minimal-langpack
-    evr: 2.34-290.el9_9
-    sourcerpm: glibc-2.34-290.el9_9.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/g/gmp-6.2.0-13.el9.x86_64.rpm
     repoid: ubi-9-for-x86_64-baseos-rpms
     size: 326840
@@ -6708,13 +6547,6 @@ arches:
     name: libfido2
     evr: 1.13.0-2.el9
     sourcerpm: libfido2-1.13.0-2.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/l/libgcc-11.5.0-17.el9_9.x86_64.rpm
-    repoid: ubi-9-for-x86_64-baseos-rpms
-    size: 90062
-    checksum: sha256:079238256f7c5cdc96d4554e499b7a70067ce67162fc102527791e6109000337
-    name: libgcc
-    evr: 11.5.0-17.el9_9
-    sourcerpm: gcc-11.5.0-17.el9_9.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/l/libgcrypt-1.10.0-13.el9_8.x86_64.rpm
     repoid: ubi-9-for-x86_64-baseos-rpms
     size: 523829

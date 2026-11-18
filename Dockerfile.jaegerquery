@@ -9,7 +9,7 @@ COPY jaeger-ui/LICENSE /licenses/
 WORKDIR /opt/app-root/src/jaeger-ui
 
 # add deprecation notice to Jaeger UI
-RUN dnf install -y patch
+RUN dnf install --nodocs --setopt install_weak_deps=false -y patch
 RUN patch -p1 < /opt/app-root/src/patches/jaegerui_deprecation_notice.patch
 
 RUN npm ci --ignore-scripts
@@ -19,7 +19,7 @@ FROM registry.redhat.io/ubi9/ubi:latest@sha256:1e9f0ed9fceafb40878bc1705ff124aa1
 WORKDIR /opt/app-root/src
 USER root
 
-RUN dnf install --nodocs -y golang git && \
+RUN dnf install --nodocs --setopt install_weak_deps=false -y golang git && \
     dnf clean all && \
     rm -rf /var/cache/yum
 
