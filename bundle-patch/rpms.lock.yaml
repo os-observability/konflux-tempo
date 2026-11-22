@@ -32,13 +32,13 @@ arches:
     name: ed
     evr: 1.14.2-12.el9
     sourcerpm: ed-1.14.2-12.el9.src.rpm
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/e/expat-2.5.0-9.el9_9.4.x86_64.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/e/expat-2.5.0-9.el9_9.8.x86_64.rpm
     repoid: ubi-9-for-x86_64-baseos-rpms
-    size: 129305
-    checksum: sha256:9e8c9375b2d88064de2dbaff424a72a913bb0c2809c6cddb48d00cd2176e61ee
+    size: 132507
+    checksum: sha256:86b667aa4d1254fe4fbc0dd2febadba3e020f40e5c460d3245c606397eedcbfe
     name: expat
-    evr: 2.5.0-9.el9_9.4
-    sourcerpm: expat-2.5.0-9.el9_9.4.src.rpm
+    evr: 2.5.0-9.el9_9.8
+    sourcerpm: expat-2.5.0-9.el9_9.8.src.rpm
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/i/info-6.7-15.el9.x86_64.rpm
     repoid: ubi-9-for-x86_64-baseos-rpms
     size: 233806
@@ -94,12 +94,12 @@ arches:
     checksum: sha256:3957cf3b2a29a568d218b1318f7fa63f69bc34497ccc946d5ce2df345bb05c1f
     name: ed
     evr: 1.14.2-12.el9
-  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/e/expat-2.5.0-9.el9_9.4.src.rpm
+  - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/e/expat-2.5.0-9.el9_9.8.src.rpm
     repoid: ubi-9-for-x86_64-baseos-source-rpms
-    size: 8414151
-    checksum: sha256:c461966c67935df3c01d4755d76b9b9ff8894936aaf99000716976ffad14acda
+    size: 8431764
+    checksum: sha256:eab744300e98369808dc49c509237234da7ded9273e806b2bd29fb7a4f316b0b
     name: expat
-    evr: 2.5.0-9.el9_9.4
+    evr: 2.5.0-9.el9_9.8
   - url: https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/source/SRPMS/Packages/l/libxcrypt-4.4.18-3.el9.src.rpm
     repoid: ubi-9-for-x86_64-baseos-source-rpms
     size: 543970
