@@ -27,7 +27,7 @@ spec:
     - name: operator_csv_version
       description: Version of the operator
       type: string
-      default: "tempo-operator.v0.22.0-5"
+      default: "tempo-operator.v0.22.0-6"
     - name: operator_version
       description: Version of the operator
       type: string
@@ -39,7 +39,7 @@ spec:
     - name: tempo_tests_branch
       description: "The repository branch from which to run the tests"
       type: string
-      default: "rhosdt-3.11"
+      default: "rhosdt-3.12"
     - name: PACKAGE_NAME
       description: "Package name for the bundle"
       default: "tempo-product"

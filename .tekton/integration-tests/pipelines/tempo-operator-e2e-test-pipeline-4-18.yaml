@@ -40,13 +40,13 @@ spec:
       default: "2.10.10"
     - name: tempo_tests_branch
       description: "The repository branch from which to run the tests"
-      default: "rhosdt-3.11"
+      default: "rhosdt-3.12"
     - name: skip_tests
       description: "Tests to be skipped seperated with a space delimiter"
       default: "tests/e2e-openshift-object-stores/* tests/e2e-openshift-ossm/* tests/e2e/generate"
     - name: rhosdt_version
       description: "RHOSDT product version used to tag RapiDAST scan results in GCS"
-      default: "3.11"
+      default: "3.12"
     - name: ocp_version
       description: OpenShift minor version for the ephemeral HyperShift cluster
       default: "4.18"

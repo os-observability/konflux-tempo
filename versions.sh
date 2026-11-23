@@ -6,7 +6,7 @@ set -euo pipefail
 
 
 # TODO: update version (major.minor)
-RHOSDT_VERSION=3.11
+RHOSDT_VERSION=3.12
 # TODO: set latest supported OCP version, see https://access.redhat.com/support/policy/updates/openshift#dates
 MIN_OPENSHIFT_VERSION=4.12
 
@@ -63,6 +63,23 @@ yq -i e ".spec.version = \"${BUNDLE_VERSION}\"" bundle-patch/patch_csv.yaml
 yq -i e ".metadata.name = \"tempo-operator.v${BUNDLE_VERSION}\"" bundle-patch/patch_csv.yaml
 yq -i e ".spec.replaces = \"tempo-operator.v${RELEASED_BUNDLE_VERSION}\"" bundle-patch/patch_csv.yaml
 sed -Ei "s/olm.skipRange: '>=(.*) <[^']*/olm.skipRange: '>=\1 <${BUNDLE_VERSION}/g" bundle-patch/patch_csv.yaml
+
+# tekton build pipelines
+for event in push pull-request; do
+  for f in .tekton/tempo-*-"${event}".yaml; do
+    [[ $f == .tekton/tempo-fbc-* ]] && continue
+
+    component=${f##*/}
+    component="${component%-${event}.yaml}-${RHOSDT_VERSION//./-}"
+    sed -Ei \
+      -e "/^ +pipelinesascode\.tekton\.dev\/on-cel-expression:/s/target_branch == \"[^\"]+\"/target_branch == \"rhosdt-${RHOSDT_VERSION}\"/" \
+      -e "s|^(    appstudio\.openshift\.io/application: ).*|\1tempo-${RHOSDT_VERSION//./-}|" \
+      -e "s|^(    appstudio\.openshift\.io/component: ).*|\1${component}|" \
+      -e "s|^(  name: ).*|\1${component}-on-${event}|" \
+      -e "s|^(    serviceAccountName: ).*|\1build-pipeline-${component}|" \
+      "$f"
+  done
+done
 
 # integration test pipelines: e2e tests
 for f in .tekton/integration-tests/pipelines/tempo-operator-e2e-test-pipeline-*.yaml; do
