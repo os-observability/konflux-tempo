@@ -40,7 +40,7 @@ ARG USER_UID=1001
 USER ${USER_UID}
 ENTRYPOINT ["/usr/bin/opa-openshift"]
 
-ARG VERSION=0.22.0-5
+ARG VERSION=0.22.0-6
 LABEL release="${VERSION}" \
       version="${VERSION}" \
       vendor="Red Hat, Inc." \
@@ -54,4 +54,4 @@ LABEL release="${VERSION}" \
       io.k8s.description="An OPA-compatible API for making OpenShift access review requests." \
       io.openshift.tags="tracing" \
       io.k8s.display-name="Tempo OPA" \
-      cpe="cpe:/a:redhat:openshift_distributed_tracing:3.11::el9"
+      cpe="cpe:/a:redhat:openshift_distributed_tracing:3.12::el9"
