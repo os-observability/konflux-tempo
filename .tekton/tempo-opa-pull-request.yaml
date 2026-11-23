@@ -7,7 +7,7 @@ metadata:
     build.appstudio.redhat.com/pull_request_number: '{{pull_request_number}}'
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
     pipelinesascode.tekton.dev/max-keep-runs: "3"
-    pipelinesascode.tekton.dev/on-cel-expression: event == "pull_request" && target_branch == "main" &&
+    pipelinesascode.tekton.dev/on-cel-expression: event == "pull_request" && target_branch == "rhosdt-3.12" &&
       (".tekton/multi-arch-build-pipeline.yaml".pathChanged() ||
       ".tekton/tempo-opa-pull-request.yaml".pathChanged() ||
       ".tekton/tempo-opa-push.yaml".pathChanged() ||
@@ -16,10 +16,10 @@ metadata:
       "opa-openshift".pathChanged())
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: tempo-main
-    appstudio.openshift.io/component: tempo-opa-main
+    appstudio.openshift.io/application: tempo-3-12
+    appstudio.openshift.io/component: tempo-opa-3-12
     pipelines.appstudio.openshift.io/type: build
-  name: tempo-opa-main-on-pull-request
+  name: tempo-opa-3-12-on-pull-request
   namespace: rhosdt-tenant
 spec:
   taskRunSpecs:
@@ -73,7 +73,7 @@ spec:
   pipelineRef:
     name: build-pipeline
   taskRunTemplate:
-    serviceAccountName: build-pipeline-tempo-opa-main
+    serviceAccountName: build-pipeline-tempo-opa-3-12
   workspaces:
     - name: git-auth
       secret:
