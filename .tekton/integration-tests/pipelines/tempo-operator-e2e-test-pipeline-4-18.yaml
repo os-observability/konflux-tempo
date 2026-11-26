@@ -28,13 +28,13 @@ spec:
       default: "1.68.0"
     - name: operator_version
       description: Version of the operator
-      default: "0.22.0"
+      default: "0.24.0"
     - name: operator_tempo_version
       description: Version of Tempo in the operator
-      default: "2.10.8"
+      default: "2.10.10"
     - name: operator_tempo_query_version
       description: Version of Tempo query in the operator
-      default: "2.10.8"
+      default: "2.10.10"
     - name: operand_tempo_version
       description: Version of the Tempo operand
       default: "2.10.10"
